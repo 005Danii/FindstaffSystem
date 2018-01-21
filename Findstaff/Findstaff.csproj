@@ -159,6 +159,18 @@
     <Compile Include="ucApplicant.Designer.cs">
       <DependentUpon>ucApplicant.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucBankAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBankAddEdit.Designer.cs">
+      <DependentUpon>ucBankAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucBanks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBanks.Designer.cs">
+      <DependentUpon>ucBanks.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucCountry.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -508,6 +520,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucAppList.resx">
       <DependentUpon>ucAppList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucBankAddEdit.resx">
+      <DependentUpon>ucBankAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucBanks.resx">
+      <DependentUpon>ucBanks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucCountry.resx">
       <DependentUpon>ucCountry.cs</DependentUpon>

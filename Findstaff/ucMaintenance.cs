@@ -27,6 +27,7 @@ namespace Findstaff
             ucGenReqs.Dock = DockStyle.Fill;
             ucCurrency.Dock = DockStyle.Fill;
             ucAcceptedBanks.Dock = DockStyle.Fill;
+            ucBanks.Dock = DockStyle.Fill;
         }
 
         /*private void rbEmployee_CheckedChanged(object sender, EventArgs e)
@@ -78,6 +79,7 @@ namespace Findstaff
             ucGenReqs.Visible = false;
             ucCurrency.Visible = false;
             ucAcceptedBanks.Visible = false;
+            ucBanks.Visible = false;
 
             cmd = "select c.COUNTRY_ID'Country ID', c.COUNTRYNAME'Name of Country', count(cr.req_id)'No. of requirements'"
                     + " from country_t c join countryreqs_t cr on"
@@ -102,6 +104,7 @@ namespace Findstaff
             ucGenReqs.Visible = true;
             ucCurrency.Visible = false;
             ucAcceptedBanks.Visible = false;
+            ucBanks.Visible = false;
         }
 
         private void rbCurrency_CheckedChanged(object sender, EventArgs e)
@@ -110,6 +113,7 @@ namespace Findstaff
             ucGenReqs.Visible = false;
             ucCurrency.Visible = true;
             ucAcceptedBanks.Visible = false;
+            ucBanks.Visible = false;
         }
 
         private void rbAcceptedBanks_CheckedChanged(object sender, EventArgs e)
@@ -118,6 +122,16 @@ namespace Findstaff
             ucGenReqs.Visible = false;
             ucCurrency.Visible = false;
             ucAcceptedBanks.Visible = true;
+            ucBanks.Visible = false;
+        }
+
+        private void rbBank_CheckedChanged(object sender, EventArgs e)
+        {
+            ucCountry.Visible = false;
+            ucGenReqs.Visible = false;
+            ucCurrency.Visible = false;
+            ucAcceptedBanks.Visible = false;
+            ucBanks.Visible = true;
         }
 
         private void ucMaintenance_VisibleChanged(object sender, EventArgs e)
