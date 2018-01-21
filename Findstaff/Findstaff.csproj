@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{925B2942-3E62-4B01-A367-1E9B499D1E85}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Findstaff</RootNamespace>
+    <AssemblyName>Findstaff</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection.cs" />
+    <Compile Include="fAdvSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdvSearch.Designer.cs">
+      <DependentUpon>fAdvSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fBookFlight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fBookFlight.Designer.cs">
+      <DependentUpon>fBookFlight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fMain.Designer.cs">
+      <DependentUpon>fMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSuggestInt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobSuggestInt.Designer.cs">
+      <DependentUpon>JobSuggestInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppMatchInt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppMatchInt.Designer.cs">
+      <DependentUpon>AppMatchInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fReschedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fReschedule.Designer.cs">
+      <DependentUpon>fReschedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ucAcceptedBanks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAcceptedBanks.Designer.cs">
+      <DependentUpon>ucAcceptedBanks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucAcceptedBanksAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAcceptedBanksAddEdit.Designer.cs">
+      <DependentUpon>ucAcceptedBanksAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucAcco.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAcco.Designer.cs">
+      <DependentUpon>ucAcco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucApplicant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucApplicant.Designer.cs">
+      <DependentUpon>ucApplicant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCountry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCountry.Designer.cs">
+      <DependentUpon>ucCountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCountryAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCountryAddEdit.Designer.cs">
+      <DependentUpon>ucCountryAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCountryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCountryView.Designer.cs">
+      <DependentUpon>ucCountryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCurrency.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCurrency.Designer.cs">
+      <DependentUpon>ucCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCurrencyAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCurrencyAddEdit.Designer.cs">
+      <DependentUpon>ucCurrencyAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDocAppDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDocAppDetails.Designer.cs">
+      <DependentUpon>ucDocAppDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEmployeeAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmployeeAddEdit.Designer.cs">
+      <DependentUpon>ucEmployeeAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEmployeeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmployeeView.Designer.cs">
+      <DependentUpon>ucEmployeeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEmployerAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmployerAddEdit.Designer.cs">
+      <DependentUpon>ucEmployerAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDocumentation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDocumentation.Designer.cs">
+      <DependentUpon>ucDocumentation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmployee.Designer.cs">
+      <DependentUpon>ucEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEmployer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmployer.Designer.cs">
+      <DependentUpon>ucEmployer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEmployerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmployerView.Designer.cs">
+      <DependentUpon>ucEmployerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucFees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFees.Designer.cs">
+      <DependentUpon>ucFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucFeesAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFeesAddEdit.Designer.cs">
+      <DependentUpon>ucFeesAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucFlightBooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFlightBooking.Designer.cs">
+      <DependentUpon>ucFlightBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucGenReqs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGenReqs.Designer.cs">
+      <DependentUpon>ucGenReqs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucInterviewCriteria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucInterviewCriteria.Designer.cs">
+      <DependentUpon>ucInterviewCriteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucInterviewFin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucInterviewFin.Designer.cs">
+      <DependentUpon>ucInterviewFin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucIntListFinal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucIntListFinal.Designer.cs">
+      <DependentUpon>ucIntListFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucIntListInit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucIntListInit.Designer.cs">
+      <DependentUpon>ucIntListInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucInterviewInit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucInterviewInit.Designer.cs">
+      <DependentUpon>ucInterviewInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobApp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobApp.Designer.cs">
+      <DependentUpon>ucJobApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobFeesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobFeesView.Designer.cs">
+      <DependentUpon>ucJobFeesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobList.Designer.cs">
+      <DependentUpon>ucJobList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobListAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobListAddEdit.Designer.cs">
+      <DependentUpon>ucJobListAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobCategory.Designer.cs">
+      <DependentUpon>ucJobCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobCategoryAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobCategoryAddEdit.Designer.cs">
+      <DependentUpon>ucJobCategoryAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobFees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobFees.Designer.cs">
+      <DependentUpon>ucJobFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobFeesAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobFeesAddEdit.Designer.cs">
+      <DependentUpon>ucJobFeesAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobOrder.Designer.cs">
+      <DependentUpon>ucJobOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobOrderAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobOrderAddEdit.Designer.cs">
+      <DependentUpon>ucJobOrderAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobOrderManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobOrderManagement.Designer.cs">
+      <DependentUpon>ucJobOrderManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobs.Designer.cs">
+      <DependentUpon>ucJobs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobsAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobsAddEdit.Designer.cs">
+      <DependentUpon>ucJobsAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobListView.Designer.cs">
+      <DependentUpon>ucJobListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobType.Designer.cs">
+      <DependentUpon>ucJobType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucJobTypeAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucJobTypeAddEdit.Designer.cs">
+      <DependentUpon>ucJobTypeAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMaintenance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMaintenance.Designer.cs">
+      <DependentUpon>ucMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucAppAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAppAddEdit.Designer.cs">
+      <DependentUpon>ucAppAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucAppList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAppList.Designer.cs">
+      <DependentUpon>ucAppList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQueries.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQueries.Designer.cs">
+      <DependentUpon>ucQueries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRecruitment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRecruitment.Designer.cs">
+      <DependentUpon>ucRecruitment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucAppView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAppView.Designer.cs">
+      <DependentUpon>ucAppView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucReports.Designer.cs">
+      <DependentUpon>ucReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucAccoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAccoView.Designer.cs">
+      <DependentUpon>ucAccoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRequirements.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRequirements.Designer.cs">
+      <DependentUpon>ucRequirements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRequirementsAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRequirementsAddEdit.Designer.cs">
+      <DependentUpon>ucRequirementsAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSkills.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSkills.Designer.cs">
+      <DependentUpon>ucSkills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSkillsAddEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSkillsAddEdit.Designer.cs">
+      <DependentUpon>ucSkillsAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucUtilities.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucUtilities.Designer.cs">
+      <DependentUpon>ucUtilities.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="fAdvSearch.resx">
+      <DependentUpon>fAdvSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fBookFlight.resx">
+      <DependentUpon>fBookFlight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fMain.resx">
+      <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppMatchInt.resx">
+      <DependentUpon>AppMatchInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fReschedule.resx">
+      <DependentUpon>fReschedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSuggestInt.resx">
+      <DependentUpon>JobSuggestInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAcceptedBanks.resx">
+      <DependentUpon>ucAcceptedBanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAcceptedBanksAddEdit.resx">
+      <DependentUpon>ucAcceptedBanksAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAcco.resx">
+      <DependentUpon>ucAcco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucApplicant.resx">
+      <DependentUpon>ucApplicant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAppList.resx">
+      <DependentUpon>ucAppList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCountry.resx">
+      <DependentUpon>ucCountry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCountryAddEdit.resx">
+      <DependentUpon>ucCountryAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCountryView.resx">
+      <DependentUpon>ucCountryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCurrency.resx">
+      <DependentUpon>ucCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCurrencyAddEdit.resx">
+      <DependentUpon>ucCurrencyAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDocAppDetails.resx">
+      <DependentUpon>ucDocAppDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEmployeeAddEdit.resx">
+      <DependentUpon>ucEmployeeAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEmployeeView.resx">
+      <DependentUpon>ucEmployeeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEmployerAddEdit.resx">
+      <DependentUpon>ucEmployerAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDocumentation.resx">
+      <DependentUpon>ucDocumentation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEmployee.resx">
+      <DependentUpon>ucEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEmployer.resx">
+      <DependentUpon>ucEmployer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEmployerView.resx">
+      <DependentUpon>ucEmployerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucFees.resx">
+      <DependentUpon>ucFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucFeesAddEdit.resx">
+      <DependentUpon>ucFeesAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucFlightBooking.resx">
+      <DependentUpon>ucFlightBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucGenReqs.resx">
+      <DependentUpon>ucGenReqs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucInterviewCriteria.resx">
+      <DependentUpon>ucInterviewCriteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucInterviewFin.resx">
+      <DependentUpon>ucInterviewFin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucIntListFinal.resx">
+      <DependentUpon>ucIntListFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucIntListInit.resx">
+      <DependentUpon>ucIntListInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucInterviewInit.resx">
+      <DependentUpon>ucInterviewInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobApp.resx">
+      <DependentUpon>ucJobApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobFeesView.resx">
+      <DependentUpon>ucJobFeesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobList.resx">
+      <DependentUpon>ucJobList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobListAddEdit.resx">
+      <DependentUpon>ucJobListAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobCategory.resx">
+      <DependentUpon>ucJobCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobCategoryAddEdit.resx">
+      <DependentUpon>ucJobCategoryAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobFees.resx">
+      <DependentUpon>ucJobFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobFeesAddEdit.resx">
+      <DependentUpon>ucJobFeesAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobOrder.resx">
+      <DependentUpon>ucJobOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobOrderAddEdit.resx">
+      <DependentUpon>ucJobOrderAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobOrderManagement.resx">
+      <DependentUpon>ucJobOrderManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobs.resx">
+      <DependentUpon>ucJobs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobsAddEdit.resx">
+      <DependentUpon>ucJobsAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobListView.resx">
+      <DependentUpon>ucJobListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobType.resx">
+      <DependentUpon>ucJobType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucJobTypeAddEdit.resx">
+      <DependentUpon>ucJobTypeAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMaintenance.resx">
+      <DependentUpon>ucMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAppAddEdit.resx">
+      <DependentUpon>ucAppAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucQueries.resx">
+      <DependentUpon>ucQueries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucRecruitment.resx">
+      <DependentUpon>ucRecruitment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAppView.resx">
+      <DependentUpon>ucAppView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucReports.resx">
+      <DependentUpon>ucReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAccoView.resx">
+      <DependentUpon>ucAccoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucRequirements.resx">
+      <DependentUpon>ucRequirements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucRequirementsAddEdit.resx">
+      <DependentUpon>ucRequirementsAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSkills.resx">
+      <DependentUpon>ucSkills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSkillsAddEdit.resx">
+      <DependentUpon>ucSkillsAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucUtilities.resx">
+      <DependentUpon>ucUtilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FindstaffBG11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\themify_e622%281%29_1024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\themify_e622%281%29_10241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\themify_e646%280%29_1024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fpsi login bg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abtus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoutbt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jobsmn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recruitment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acctng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUNDFINAL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUNDPA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGINBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abtus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGINBG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
