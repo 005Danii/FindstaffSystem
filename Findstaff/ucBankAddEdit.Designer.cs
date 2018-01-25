@@ -56,7 +56,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 500);
+            this.panel1.Size = new System.Drawing.Size(839, 500);
             this.panel1.TabIndex = 6;
             // 
             // btnCancel1
@@ -89,6 +89,7 @@
             this.btnAdd.TabIndex = 275;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblAddJobCategory
             // 
@@ -238,6 +239,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ucBankAddEdit";
             this.Size = new System.Drawing.Size(1155, 500);
+            this.VisibleChanged += new System.EventHandler(this.ucBankAddEdit_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -262,7 +262,7 @@ namespace Findstaff
             cmd = "Select j.jorder_id from joborder_t j join employer_t e "
                 + "on j.employer_id = e.employer_id "
                 + "where j.cntrctstat = 'Active' "
-                + "and (select count(job_id) from join joborder_t) <> 0 "
+                + "and (select count(job_id) from joborder_t) <> 0 "
                 + "group by j.jorder_id";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();

@@ -76,7 +76,7 @@ namespace Findstaff
                 }
                 dr.Close();
                 string jobtype = "";
-                cmd = "select jobtype from job_t where jobname = '"+jobName+"'";
+                cmd = "select jobtype_ID from job_t where jobname = '" + jobName + "'";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())

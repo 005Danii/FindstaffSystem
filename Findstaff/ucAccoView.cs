@@ -45,7 +45,7 @@ namespace Findstaff
             string[] fees = new string[dgvViewAcco.SelectedRows.Count];
             string fee = "";
             string jobtype = "";
-            cmd = "select j.jobtype from job_t j join applications_t a where a.app_no = '" + appNo + "'";
+            cmd = "select jt.typename from job_t j join applications_t a join jobtype_t jt on j.jobtype_id = jt.jobtype_id where a.app_no = '" + appNo + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())
@@ -80,7 +80,7 @@ namespace Findstaff
             else
             {
                 MessageBox.Show("Applicant doesn't need to pay the any fees.\nApplicant status already set to deployed.");
-                cmd = "update applications_t set appstatus = 'Deployed' where app_no = '" + appNo + "'";
+                cmd = "update app_t set appstatus = 'Deployed' where app_no = '" + appNo + "'";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
                 this.Hide();

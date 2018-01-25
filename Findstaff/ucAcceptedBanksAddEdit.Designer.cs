@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.clBanks = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancel1 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.clBanks);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnCancel1);
             this.panel1.Controls.Add(this.btnAdd);
@@ -62,17 +64,36 @@
             this.panel1.Size = new System.Drawing.Size(10, 500);
             this.panel1.TabIndex = 4;
             // 
+            // clBanks
+            // 
+            this.clBanks.FormattingEnabled = true;
+            this.clBanks.HorizontalScrollbar = true;
+            this.clBanks.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.clBanks.Location = new System.Drawing.Point(516, 188);
+            this.clBanks.Name = "clBanks";
+            this.clBanks.Size = new System.Drawing.Size(201, 94);
+            this.clBanks.TabIndex = 278;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(436, 192);
+            this.label3.Location = new System.Drawing.Point(380, 192);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 20);
+            this.label3.Size = new System.Drawing.Size(130, 20);
             this.label3.TabIndex = 277;
-            this.label3.Text = "Country:";
+            this.label3.Text = "Banks Accepted:";
             // 
             // btnCancel1
             // 
@@ -133,11 +154,11 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(410, 155);
+            this.label8.Location = new System.Drawing.Point(435, 155);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 20);
+            this.label8.Size = new System.Drawing.Size(75, 20);
             this.label8.TabIndex = 272;
-            this.label8.Text = "Bank Name:";
+            this.label8.Text = "Country:";
             // 
             // panel2
             // 
@@ -292,5 +313,6 @@
         public System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblEditJobCategory;
+        private System.Windows.Forms.CheckedListBox clBanks;
     }
 }

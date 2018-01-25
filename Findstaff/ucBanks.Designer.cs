@@ -172,6 +172,7 @@
             this.ucBankAddEdit.Size = new System.Drawing.Size(10, 10);
             this.ucBankAddEdit.TabIndex = 139;
             this.ucBankAddEdit.Visible = false;
+            this.ucBankAddEdit.VisibleChanged += new System.EventHandler(this.ucBankAddEdit_VisibleChanged);
             // 
             // ucBanks
             // 
