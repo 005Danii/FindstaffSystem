@@ -43,7 +43,7 @@ namespace Findstaff
                         countID = dr[0].ToString();
                     }
                     dr.Close();
-                    string cmd = "Insert into Employer_t (employername, foreignprin, country_id, email, contact, companyadd) values ('" + txtEmp1.Text + "','"+txtPrincipal1.Text+"','"+countID+"','"+txtEmail1.Text+"','"+txtContact1.Text+"','"+txtCompAddress1.Text+"')";
+                    string cmd = "Insert into Employer_t (employername, fname, lname, mname, country_id, email, contact, companyadd) values ('" + txtEmp1.Text + "','"+txtPrincipal1.Text+"', ' ', ' ','"+countID+"','"+txtEmail1.Text+"','"+txtContact1.Text+"','"+txtCompAddress1.Text+"')";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
                     MessageBox.Show("Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);

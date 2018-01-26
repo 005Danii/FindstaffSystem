@@ -68,9 +68,9 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            string cmd = "select e.employer_id'Employer ID', e.employername'Name of Employer', e.foreignprin'Foreign Principal', c.countryname'Country' "
+            string cmd = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.fname, ' ',e.lname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
-                + "on e.country_id = c.country_id WHERE concat(e.employer_id, e.employername, e.foreignprin, c.countryname) LIKE '%" + valueToFind + "%'";
+                + "on e.country_id = c.country_id WHERE concat(e.employer_id, e.employername, e.fname, ' ',e.lname, c.countryname) LIKE '%" + valueToFind + "%'";
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
 
@@ -84,7 +84,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', e.foreignprin'Foreign Principal', c.countryname'Country' "
+            string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.fname, ' ',e.lname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
                 + "on e.country_id = c.country_id;";
             using (connection)
@@ -112,7 +112,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', e.foreignprin'Foreign Principal', c.countryname'Country' "
+            string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.fname, ' ',e.lname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
                 + "on e.country_id = c.country_id;";
             using (connection)
@@ -131,7 +131,7 @@ namespace Findstaff
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
-            string cmd = "select employer_id, employername, foreignprin, email, contact, companyadd from employer_t where employer_id = '" + dgvEmployer.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            string cmd = "select employer_id, employername, concat(fname, ' ', lname)'Foreign Principal', email, contact, companyadd from employer_t where employer_id = '" + dgvEmployer.SelectedRows[0].Cells[0].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())

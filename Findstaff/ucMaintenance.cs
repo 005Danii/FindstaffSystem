@@ -132,6 +132,19 @@ namespace Findstaff
             ucCurrency.Visible = false;
             ucAcceptedBanks.Visible = false;
             ucBanks.Visible = true;
+            Connection con = new Connection();
+            connection = con.dbConnection();
+            connection.Open();
+            cmd = "Select bank_id'Bank ID', Bankname'Name of Bank' from banks_t";
+            using (connection)
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                {
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    ucBanks.dgvBank.DataSource = ds.Tables[0];
+                }
+            }
         }
 
         private void ucMaintenance_VisibleChanged(object sender, EventArgs e)
