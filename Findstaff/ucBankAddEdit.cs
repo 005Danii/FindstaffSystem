@@ -38,30 +38,37 @@ namespace Findstaff
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            string check = "";
-            cmd = "Select bankname from banks_t where bankname = '" + txtBankName.Text + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
+            if(txtBankName.Text != "")
             {
-                check = dr[0].ToString();
-            }
-            dr.Close();
-            if (!check.Equals(txtBankName.Text))
-            {
-                cmd = "Insert into Banks_t(Bankname) values ('" + txtBankName.Text + "')";
+                connection.Open();
+                string check = "";
+                cmd = "Select bankname from banks_t where bankname = '" + txtBankName.Text + "'";
                 com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                MessageBox.Show("Bank Added", "Add Bank", MessageBoxButtons.OKCancel, MessageBoxIcon.None);
-                txtBankName.Clear();
-                this.Hide();
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    check = dr[0].ToString();
+                }
+                dr.Close();
+                if (!check.Equals(txtBankName.Text))
+                {
+                    cmd = "Insert into Banks_t(Bankname) values ('" + txtBankName.Text + "')";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Bank Added", "Add Bank", MessageBoxButtons.OKCancel, MessageBoxIcon.None);
+                    txtBankName.Clear();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Bank Exists", "Add Bank Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
+                connection.Close();
             }
             else
             {
-                MessageBox.Show("Bank Exists", "Add Bank Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Bank Name should not be empty.", "Add Bank Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            connection.Close();
         }
 
         private void ucBankAddEdit_VisibleChanged(object sender, EventArgs e)

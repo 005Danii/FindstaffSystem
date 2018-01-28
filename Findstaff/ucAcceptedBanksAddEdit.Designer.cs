@@ -34,7 +34,6 @@
             this.btnCancel1 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblAddJobCategory = new System.Windows.Forms.Label();
-            this.txtBankName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,27 +44,29 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblEditJobCategory = new System.Windows.Forms.Label();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbCountry);
             this.panel1.Controls.Add(this.clBanks);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnCancel1);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.lblAddJobCategory);
-            this.panel1.Controls.Add(this.txtBankName);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 500);
+            this.panel1.Size = new System.Drawing.Size(871, 500);
             this.panel1.TabIndex = 4;
             // 
             // clBanks
             // 
+            this.clBanks.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clBanks.FormattingEnabled = true;
             this.clBanks.HorizontalScrollbar = true;
             this.clBanks.Items.AddRange(new object[] {
@@ -80,7 +81,7 @@
             "9"});
             this.clBanks.Location = new System.Drawing.Point(516, 188);
             this.clBanks.Name = "clBanks";
-            this.clBanks.Size = new System.Drawing.Size(201, 94);
+            this.clBanks.Size = new System.Drawing.Size(220, 94);
             this.clBanks.TabIndex = 278;
             // 
             // label3
@@ -136,17 +137,6 @@
             this.lblAddJobCategory.Size = new System.Drawing.Size(259, 28);
             this.lblAddJobCategory.TabIndex = 274;
             this.lblAddJobCategory.Text = "Add Accepted Banks";
-            // 
-            // txtBankName
-            // 
-            this.txtBankName.BackColor = System.Drawing.Color.White;
-            this.txtBankName.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBankName.ForeColor = System.Drawing.Color.Black;
-            this.txtBankName.Location = new System.Drawing.Point(517, 152);
-            this.txtBankName.MaxLength = 30;
-            this.txtBankName.Name = "txtBankName";
-            this.txtBankName.Size = new System.Drawing.Size(200, 27);
-            this.txtBankName.TabIndex = 273;
             // 
             // label8
             // 
@@ -277,6 +267,19 @@
             this.lblEditJobCategory.TabIndex = 280;
             this.lblEditJobCategory.Text = "Edit Accepted Banks";
             // 
+            // cbCountry
+            // 
+            this.cbCountry.BackColor = System.Drawing.Color.White;
+            this.cbCountry.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCountry.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCountry.ForeColor = System.Drawing.Color.Black;
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.Location = new System.Drawing.Point(516, 152);
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.Size = new System.Drawing.Size(220, 28);
+            this.cbCountry.TabIndex = 279;
+            // 
             // ucAcceptedBanksAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +290,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ucAcceptedBanksAddEdit";
             this.Size = new System.Drawing.Size(1155, 500);
+            this.VisibleChanged += new System.EventHandler(this.ucAcceptedBanksAddEdit_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -302,7 +306,6 @@
         private System.Windows.Forms.Button btnCancel1;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblAddJobCategory;
-        private System.Windows.Forms.TextBox txtBankName;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
@@ -314,5 +317,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblEditJobCategory;
         private System.Windows.Forms.CheckedListBox clBanks;
+        public System.Windows.Forms.ComboBox cbCountry;
     }
 }
