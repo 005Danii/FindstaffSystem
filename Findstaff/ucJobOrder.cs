@@ -96,7 +96,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string com = "Select J.jorder_id 'Job Order ID', e.employername'Employer', j.Cntrctstart 'Contract Start', j.cntrctend'End of Contract' from Joborder_t j join employer_t e on j.employer_id = e.employer_id";
+            string com = "Select J.jorder_id 'Job Order ID', e.employername'Employer', j.Cntrctstart 'Contract Start', j.cntrctend'End of JO Validity' from Joborder_t j join employer_t e on j.employer_id = e.employer_id";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))
@@ -140,7 +140,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string com = "Select J.jorder_id 'Job Order ID', e.employername'Employer', j.Cntrctstart 'Contract Start', j.cntrctend'End of Contract' from Joborder_t j join employer_t e on j.employer_id = e.employer_id";
+            string com = "Select J.jorder_id 'Job Order ID', e.employername'Employer', j.Cntrctstart 'Contract Start', j.cntrctend'End of JO Validity' from Joborder_t j join employer_t e on j.employer_id = e.employer_id";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))

@@ -74,7 +74,7 @@ namespace Findstaff
             ucJobList.Visible = true;
             ucJobFees.Visible = false;
 
-            cmd = "select jo.jorder_id'Job Order ID', j.jobname'Job', e.employername'Employer', jo.reqapp'No. of Positions Available', jo.cntrctend'End of Contract' from joborder_t jo  join employer_t e on jo.employer_id = e.employer_id join job_t j on jo.job_id = j.job_id where jo.cntrctstat = 'Active' or jo.cntrctstat = 'Renewed'; ";
+            cmd = "select jo.jorder_id'Job Order ID', j.jobname'Job', e.employername'Employer', jo.reqapp'No. of Positions Available', jo.cntrctend'Expiration of Job Order' from joborder_t jo  join employer_t e on jo.employer_id = e.employer_id join job_t j on jo.job_id = j.job_id where jo.cntrctstat = 'Active' or jo.cntrctstat = 'Renewed'; ";
             using (connection)
             {
                 using (adapter = new MySqlDataAdapter(cmd, connection))
@@ -93,7 +93,7 @@ namespace Findstaff
             ucJobList.Visible = false;
             ucJobFees.Visible = true;
 
-            cmd = "select jo.jorder_id'Job Order ID', count(jf.fee_id)'No. of Fees' from joborder_t jo join jobfees_t jf on jo.jorder_id = jf.jorder_id group by jo.jorder_id";
+            cmd = "select j.jobname'Job Title', e.employername'Employer', count(jf.fee_id)'No. of Fees to be Colleted From Applicant' from joborder_t jo join job_t j on jo.job_id = j.job_id join jobfees_t jf on jo.jorder_id = jf.jorder_id join employer_t e on jo.employer_id = e.employer_id group by jo.jorder_id";
             using (connection)
             {
                 using (adapter = new MySqlDataAdapter(cmd, connection))
