@@ -202,9 +202,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lblEditJobs);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(991, 0);
+            this.panel2.Location = new System.Drawing.Point(1145, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(164, 500);
+            this.panel2.Size = new System.Drawing.Size(10, 500);
             this.panel2.TabIndex = 3;
             // 
             // cbJobType2

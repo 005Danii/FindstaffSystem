@@ -266,8 +266,12 @@ namespace Findstaff
             {
                 cbEmployer1.Items.Clear();
                 cbEmployer2.Items.Clear();
+                cbCategory1.Items.Clear();
+                cbCategory2.Items.Clear();
                 cbSkillName.Items.Clear();
                 cbSkillName2.Items.Clear();
+                cbProf.Items.Clear();
+                cbProf2.Items.Clear();
                 cbReqName.Items.Clear();
                 cbReqName2.Items.Clear();
             }

@@ -64,7 +64,7 @@
             this.dgvReqDocs2 = new System.Windows.Forms.DataGridView();
             this.btnAddDoc2 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.cbProf2 = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -165,7 +165,7 @@
             this.panel2.Controls.Add(this.dgvReqDocs2);
             this.panel2.Controls.Add(this.btnAddDoc2);
             this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.comboBox9);
+            this.panel2.Controls.Add(this.cbProf2);
             this.panel2.Controls.Add(this.label28);
             this.panel2.Controls.Add(this.label29);
             this.panel2.Controls.Add(this.label30);
@@ -615,24 +615,24 @@
             this.button6.Text = "REMOVE SKILL";
             this.button6.UseVisualStyleBackColor = false;
             // 
-            // comboBox9
+            // cbProf2
             // 
-            this.comboBox9.BackColor = System.Drawing.Color.White;
-            this.comboBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox9.ForeColor = System.Drawing.Color.Black;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Items.AddRange(new object[] {
+            this.cbProf2.BackColor = System.Drawing.Color.White;
+            this.cbProf2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbProf2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProf2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProf2.ForeColor = System.Drawing.Color.Black;
+            this.cbProf2.FormattingEnabled = true;
+            this.cbProf2.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.comboBox9.Location = new System.Drawing.Point(579, 302);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(150, 28);
-            this.comboBox9.TabIndex = 70;
+            this.cbProf2.Location = new System.Drawing.Point(579, 302);
+            this.cbProf2.Name = "cbProf2";
+            this.cbProf2.Size = new System.Drawing.Size(150, 28);
+            this.cbProf2.TabIndex = 70;
             // 
             // label28
             // 
@@ -884,7 +884,7 @@
             this.panel1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1075, 450);
+            this.panel1.Size = new System.Drawing.Size(10, 450);
             this.panel1.TabIndex = 16;
             // 
             // cbYear
@@ -1652,7 +1652,7 @@
         public System.Windows.Forms.TextBox txtSalary2;
         public System.Windows.Forms.Button button10;
         public System.Windows.Forms.Button button6;
-        public System.Windows.Forms.ComboBox comboBox9;
+        public System.Windows.Forms.ComboBox cbProf2;
         public System.Windows.Forms.TextBox txtWeight2;
         public System.Windows.Forms.TextBox txtHeight2;
         public System.Windows.Forms.ComboBox cbReqName2;

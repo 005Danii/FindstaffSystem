@@ -393,9 +393,9 @@
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(169, 0);
+            this.panel2.Location = new System.Drawing.Point(1145, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(986, 500);
+            this.panel2.Size = new System.Drawing.Size(10, 500);
             this.panel2.TabIndex = 1;
             // 
             // btnRemoveFee2

@@ -174,7 +174,7 @@
             this.btnEmpAdd.Name = "btnEmpAdd";
             this.btnEmpAdd.Size = new System.Drawing.Size(100, 38);
             this.btnEmpAdd.TabIndex = 47;
-            this.btnEmpAdd.Text = "ADD";
+            this.btnEmpAdd.Text = "CREATE";
             this.btnEmpAdd.UseVisualStyleBackColor = false;
             this.btnEmpAdd.Click += new System.EventHandler(this.btnEmpAdd_Click);
             // 
