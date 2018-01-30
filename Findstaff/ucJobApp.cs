@@ -58,11 +58,10 @@ namespace Findstaff
             cbJobOrder.Items.Clear();
             txtJob.Text = "";
             connection.Open();
-            cmd = "Select j.jorder_id from joborder_t j join employer_t e "
+            cmd = "Select jo.jobname from joborder_t j join employer_t e "
                 + "on j.employer_id = e.employer_id "
-                + "where j.cntrctstat = 'Active' and e.employername = '"+cbEmployer.Text+"' "
-                + "and (select count(job_id) from joborder_t) <> 0 "
-                + "group by j.jorder_id";
+                + "join job_t jo on j.job_id = jo.job_id "
+                + "where j.cntrctstat = 'Active' and e.employername = '" + cbEmployer.Text + "' ";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())
@@ -90,32 +89,83 @@ namespace Findstaff
         private void btnFilter_Click(object sender, EventArgs e)
         {
             dgvAppMatch.Rows.Clear();
+            dgvAppMatch.ColumnCount = 3;
+            dgvAppMatch.Columns[0].HeaderText = "Applicant ID";
+            dgvAppMatch.Columns[1].HeaderText = "Applicant Name";
+            dgvAppMatch.Columns[2].HeaderText = "Satisfactory Rating";
             connection.Open();
-            int y = 0;
-            cmd = "Select count(*) from jobskills_t where jorder_id = '" + cbJobOrder.Text + "' and job_id = (select job_id from job_t where jobname = '" + txtJob.Text + "')";
-            com = new MySqlCommand(cmd, connection);
-            y = int.Parse(com.ExecuteScalar() + "");
-            string[,] skills = new string[y, 2];
-            int z = 0;
-            cmd = "Select skill_id, proflevel from jobskills_t where jorder_id = '" + cbJobOrder.Text + "' and job_id = (select job_id from job_t where jobname = '" + txtJob.Text + "')";
+            string empid = "", jorderid = "", jobid = "", gender = "";
+            cmd = "select emp_id from employer_t where employername = '"+cbEmployer.Text+"'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())
             {
-                skills[z, 0] = dr[0].ToString();
-                skills[z, 1] = dr[1].ToString();
+                empid = dr[0].ToString();
+            }
+            dr.Close();
+            cmd = "select job_id from job_t where jobname = '" + cbJobOrder.Text + "'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                jobid = dr[0].ToString();
+            }
+            dr.Close();
+            cmd = "select jorder_id from joborder_t where emp_id = '"+empid+"' and job_id = '"+jobid+"' and cntrctstat = 'Active'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                jorderid = dr[0].ToString();
+            }
+            dr.Close();
+            cmd = "select gender from joborder_t where jorder_id = '"+jorderid+"'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                gender = dr[0].ToString();
+            }
+            dr.Close();
+            int y = 0;
+            cmd = "Select count(*) from jobskills_t where jorder_id = '" + jorderid + "' ";
+            com = new MySqlCommand(cmd, connection);
+            y = int.Parse(com.ExecuteScalar() + "");
+            string[,] jobskills = new string[y, 2];
+            int z = 0;
+            cmd = "Select skill_id, proflevel from jobskills_t where jorder_id = '" + jorderid + "'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                jobskills[z, 0] = dr[0].ToString();
+                jobskills[z, 1] = dr[1].ToString();
                 z++;
             }
             dr.Close();
             y = 0;
             int a = 0;
-            cmd = "select count(a.app_id) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + txtJob.Text + "'";
+            if (gender != "All")
+            {
+                cmd = "select count(a.app_id) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + cbJobOrder.Text + "' and gender = '" + gender + "'";
+            }
+            else
+            {
+                cmd = "select count(a.app_id) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + cbJobOrder.Text + "'";
+            }
             com = new MySqlCommand(cmd, connection);
             y = int.Parse(com.ExecuteScalar() + "");
             if (y != 0)
             {
-                string[,] apps = new string[y, 2];
-                cmd = "select a.app_id, concat(a.lname, ', ', a.fname, ' ', a.mname) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + txtJob.Text + "'";
+                string[,] apps = new string[y, 3];
+                if(gender != "All")
+                {
+                    cmd = "select a.app_id, concat(a.lname, ', ', a.fname, ' ', a.mname) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + cbJobOrder.Text + "' and gender = '" + gender + "'";
+                }
+                else
+                {
+                    cmd = "select a.app_id, concat(a.lname, ', ', a.fname, ' ', a.mname) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + cbJobOrder.Text + "'";
+                }
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())
@@ -126,13 +176,8 @@ namespace Findstaff
                 }
                 dr.Close();
                 int ctr = 0;
-                dgvAppMatch.ColumnCount = 3;
-                dgvAppMatch.Columns[0].HeaderText = "Applicant ID";
-                dgvAppMatch.Columns[1].HeaderText = "Applicant Name";
-                dgvAppMatch.Columns[2].HeaderText = "Satisfactory Rating";
                 for (int x = 0; x < y; x++)
                 {
-                    decimal rate = 0;
                     for (int b = 0; b < z; b++)
                     {
                         int c = 0;
@@ -160,19 +205,24 @@ namespace Findstaff
                         {
                             for (int f = 0; f < z; f++)
                             {
-                                if (skill[d, 0] == skills[f, 0])
+                                if (skill[d, 0] == jobskills[f, 0])
                                 {
-                                    if (Convert.ToInt32(skill[d, 1]) >= Convert.ToInt32(skills[f, 1]))
+                                    if (Convert.ToInt32(skill[d, 1]) >= Convert.ToInt32(jobskills[f, 1]))
                                     {
                                         ctr++;
                                     }
                                 }
                             }
                         }
+                        apps[x, 2] = ctr + ""; 
                     }
-                    rate = Convert.ToDecimal(ctr / z) * 100;
-                    dgvAppMatch.Rows.Add(apps[x, 0], apps[x, 1], rate);
                     ctr = 0;
+                }
+                for(int x = 0; x < y; x++)
+                {
+                    decimal rate = 0;
+                    rate = (Convert.ToDecimal(apps[x,2]) / z) * 100;
+                    dgvAppMatch.Rows.Add(apps[x, 0], apps[x, 1], rate);
                 }
                 dgvAppMatch.Sort(dgvAppMatch.Columns[2], ListSortDirection.Descending);
             }
