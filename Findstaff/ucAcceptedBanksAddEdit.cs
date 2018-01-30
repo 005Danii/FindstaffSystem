@@ -42,7 +42,7 @@ namespace Findstaff
             if(this.Visible == true)
             {
                 connection.Open();
-                cmd = "Select countryname from country_t where (select count(b.country_id) from banksallowed_t b join country_t c on b.country_id = c.country_id group by c.country_id) = 0";
+                cmd = "Select c.countryname from country_t c where (select count(b.country_id) from banksallowed_t b join country_t c on b.country_id = c.country_id) = 0";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())
@@ -65,6 +65,53 @@ namespace Findstaff
                 cbCountry.Items.Clear();
                 clBanks.Items.Clear();
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            string id = "";
+            int num = 0;
+            cmd = "select country_id from country_t where countryname = '"+cbCountry.Text+"'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                id = dr[0].ToString();
+            }
+            dr.Close();
+            foreach (string s in clBanks.CheckedItems)
+            {
+                num++;
+            }
+            string[] banks = new string[num];
+            num = 0;
+            foreach (string s in clBanks.CheckedItems)
+            {
+                cmd = "select bank_id from banks_t where bankname = '" + s + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    banks[num] = dr[0].ToString();
+                }
+                dr.Close();
+                num++;
+            }
+            cmd = "insert into banksallowed_t values ";
+            for(int x = 0; x < num; x++)
+            {
+                cmd += "('"+id+"','"+banks[x]+"')";
+                if(x < num - 1)
+                {
+                    cmd += ",";
+                }
+            }
+            com = new MySqlCommand(cmd, connection);
+            com.ExecuteNonQuery();
+            MessageBox.Show("Accepted Banks in Country Added", "Add Accepted Banks", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Hide();
+            connection.Close();
         }
     }
 }
