@@ -44,14 +44,14 @@ namespace Findstaff
             int ctr = 0;
             for (int x = 0; x < dgvBasicReqs.Rows.Count; x++)
             {
-                if (dgvBasicReqs.Rows[x].Cells[1].Value.ToString() != "Passed")
+                if (dgvBasicReqs.Rows[x].Cells[1].Value.ToString() != "Received")
                 {
                     ctr++;
                 }
             }
             for (int x = 0; x < dgvAddlReqs.Rows.Count; x++)
             {
-                if (dgvAddlReqs.Rows[x].Cells[1].Value.ToString() != "Passed")
+                if (dgvAddlReqs.Rows[x].Cells[1].Value.ToString() != "Received")
                 {
                     ctr++;
                 }
@@ -190,7 +190,7 @@ namespace Findstaff
             string docs = "";
             for(int x = 0; x < dgvBasicReqs.SelectedRows.Count; x++)
             {
-                if (dgvBasicReqs.SelectedRows[x].Cells[1].Value.ToString() == "Passed")
+                if (dgvBasicReqs.SelectedRows[x].Cells[1].Value.ToString() == "Received")
                 {
                     MessageBox.Show(dgvBasicReqs.SelectedRows[x].Cells[0].Value.ToString() +" has been passed.\nPlease check your selections.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     passed = true;
@@ -204,13 +204,13 @@ namespace Findstaff
             }
             if(!passed)
             {
-                DialogResult dr1 = MessageBox.Show("Are you sure the following documents will be passed?\n\n" + docs, "Confirm Documents", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr1 = MessageBox.Show("Are you sure the following documents will be received?\n\n" + docs, "Confirm Documents", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(dr1 == DialogResult.Yes)
                 {
                     string cmd2 = "";
                     for(int x = 0; x < dgvBasicReqs.SelectedRows.Count; x++)
                     {
-                        cmd = "Update appdoc_t set docstat = 'Passed' where ";
+                        cmd = "Update appdoc_t set docstat = 'Received' where ";
                         cmd2 = "select req_id from genreqs_t where reqname = '" + dgvBasicReqs.SelectedRows[x].Cells[0].Value.ToString() + "'";
                         com = new MySqlCommand(cmd2, connection);
                         dr = com.ExecuteReader();
@@ -222,7 +222,7 @@ namespace Findstaff
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Documents status changed to 'Passed'", "Documents Passed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Documents status changed to 'Received'", "Documents Received", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cmd = "SELECT g.reqname'Requirement Name', a.docstat'Status' FROM genreqs_t g "
                     + "join appdoc_t a on g.req_id = a.req_id "
                     + "join applications_t app on app.App_no = a.App_no "
@@ -245,9 +245,9 @@ namespace Findstaff
             string docs = "";
             for (int x = 0; x < dgvAddlReqs.SelectedRows.Count; x++)
             {
-                if (dgvAddlReqs.SelectedRows[x].Cells[1].Value.ToString() == "Passed")
+                if (dgvAddlReqs.SelectedRows[x].Cells[1].Value.ToString() == "Received")
                 {
-                    MessageBox.Show(dgvAddlReqs.SelectedRows[x].Cells[0].Value.ToString() + " has been passed.\nPlease check your selections.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(dgvAddlReqs.SelectedRows[x].Cells[0].Value.ToString() + " has been received.\nPlease check your selections.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     passed = true;
                     docs = "";
                     break;
@@ -259,14 +259,14 @@ namespace Findstaff
             }
             if (!passed)
             {
-                DialogResult dr1 = MessageBox.Show("Are you sure the following documents will be passed?\n\n" + docs, "Confirm Documents", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr1 = MessageBox.Show("Are you sure the following documents will be received?\n\n" + docs, "Confirm Documents", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr1 == DialogResult.Yes)
                 {
                     string cmd2 = "";
                     
                     for (int x = 0; x < dgvAddlReqs.SelectedRows.Count; x++)
                     {
-                        cmd = "Update appdoc_t set docstat = 'Passed' where ";
+                        cmd = "Update appdoc_t set docstat = 'Received' where ";
                         cmd2 = "select req_id from genreqs_t where reqname = '" + dgvAddlReqs.SelectedRows[x].Cells[0].Value.ToString() + "'";
                         com = new MySqlCommand(cmd2, connection);
                         dr = com.ExecuteReader();
@@ -278,7 +278,7 @@ namespace Findstaff
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Documents status changed to 'Passed'", "Documents Passed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Documents status changed to 'Received'", "Documents Received", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cmd = "SELECT g.reqname'Requirement Name', a.docstat'Status' FROM genreqs_t g "
                     + "join appdoc_t a on g.req_id = a.req_id "
                     + "join applications_t app on app.App_no = a.App_no "
