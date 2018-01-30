@@ -99,6 +99,12 @@ namespace Findstaff
                 dr.Close();
                 connection.Close();
             }
+            else
+            {
+                cbJobOrder1.Items.Clear();
+                cbFees1.Items.Clear();
+                cbFees2.Items.Clear();
+            }
         }
 
         private void txtAmount1_KeyPress(object sender, KeyPressEventArgs e)

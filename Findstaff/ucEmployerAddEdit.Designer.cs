@@ -62,12 +62,15 @@
             this.lblEmp2 = new System.Windows.Forms.Label();
             this.lblEmpID = new System.Windows.Forms.Label();
             this.lblEditEmp = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.txtEmail1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtContact1);
@@ -186,7 +189,7 @@
             this.btnAddEmp.Name = "btnAddEmp";
             this.btnAddEmp.Size = new System.Drawing.Size(100, 38);
             this.btnAddEmp.TabIndex = 13;
-            this.btnAddEmp.Text = "ADD";
+            this.btnAddEmp.Text = "SAVE";
             this.btnAddEmp.UseVisualStyleBackColor = false;
             this.btnAddEmp.Click += new System.EventHandler(this.btnAddEmp_Click);
             // 
@@ -211,8 +214,9 @@
             this.txtPrincipal1.Location = new System.Drawing.Point(428, 167);
             this.txtPrincipal1.MaxLength = 30;
             this.txtPrincipal1.Name = "txtPrincipal1";
-            this.txtPrincipal1.Size = new System.Drawing.Size(317, 26);
+            this.txtPrincipal1.Size = new System.Drawing.Size(155, 26);
             this.txtPrincipal1.TabIndex = 11;
+            this.txtPrincipal1.Text = "First Name";
             // 
             // txtEmp1
             // 
@@ -269,12 +273,13 @@
             this.lblAddEmp.ForeColor = System.Drawing.Color.Black;
             this.lblAddEmp.Location = new System.Drawing.Point(25, 25);
             this.lblAddEmp.Name = "lblAddEmp";
-            this.lblAddEmp.Size = new System.Drawing.Size(184, 28);
+            this.lblAddEmp.Size = new System.Drawing.Size(329, 28);
             this.lblAddEmp.TabIndex = 2;
-            this.lblAddEmp.Text = "Add Employer";
+            this.lblAddEmp.Text = "Create Employer Contract";
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.txtEmail2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtContact2);
@@ -293,9 +298,9 @@
             this.panel2.Controls.Add(this.lblEmpID);
             this.panel2.Controls.Add(this.lblEditEmp);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(194, 0);
+            this.panel2.Location = new System.Drawing.Point(1108, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(924, 450);
+            this.panel2.Size = new System.Drawing.Size(10, 450);
             this.panel2.TabIndex = 15;
             // 
             // txtEmail2
@@ -420,7 +425,7 @@
             this.txtPrincipal2.Location = new System.Drawing.Point(469, 192);
             this.txtPrincipal2.MaxLength = 30;
             this.txtPrincipal2.Name = "txtPrincipal2";
-            this.txtPrincipal2.Size = new System.Drawing.Size(317, 26);
+            this.txtPrincipal2.Size = new System.Drawing.Size(156, 26);
             this.txtPrincipal2.TabIndex = 24;
             // 
             // txtEmp2
@@ -502,9 +507,32 @@
             this.lblEditEmp.ForeColor = System.Drawing.Color.Black;
             this.lblEditEmp.Location = new System.Drawing.Point(25, 25);
             this.lblEditEmp.Name = "lblEditEmp";
-            this.lblEditEmp.Size = new System.Drawing.Size(188, 28);
+            this.lblEditEmp.Size = new System.Drawing.Size(301, 28);
             this.lblEditEmp.TabIndex = 16;
-            this.lblEditEmp.Text = "Edit Employer";
+            this.lblEditEmp.Text = "Edit Employer Contract";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(589, 166);
+            this.textBox1.MaxLength = 30;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(156, 26);
+            this.textBox1.TabIndex = 21;
+            this.textBox1.Text = "Last Name";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(630, 192);
+            this.textBox2.MaxLength = 30;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(156, 26);
+            this.textBox2.TabIndex = 34;
             // 
             // ucEmployerAddEdit
             // 
@@ -559,5 +587,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCompAddress2;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox2;
     }
 }
