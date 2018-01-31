@@ -25,6 +25,9 @@ namespace Findstaff
             //ucJobOrder.Dock = DockStyle.Fill;
             ucJobList.Dock = DockStyle.Fill;
             ucJobFees.Dock = DockStyle.Fill;
+            ucEmployer.Visible = true;
+            ucJobList.Visible = false;
+            ucJobFees.Visible = false;
         }
 
         private void rbEmployer_CheckedChanged(object sender, EventArgs e)

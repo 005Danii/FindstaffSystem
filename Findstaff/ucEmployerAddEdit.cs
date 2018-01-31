@@ -43,12 +43,33 @@ namespace Findstaff
                         countID = dr[0].ToString();
                     }
                     dr.Close();
-                    string cmd = "Insert into Employer_t (employername, fname, lname, mname, country_id, email, contact, companyadd) values ('" + txtEmp1.Text + "','"+txtPrincipal1.Text+"', ' ', ' ','"+countID+"','"+txtEmail1.Text+"','"+txtContact1.Text+"','"+txtCompAddress1.Text+"')";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                    MessageBox.Show("Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if(txtMName1.ForeColor == Color.Gray)
+                    {
+                        string cmd = "Insert into Employer_t (employername, fname, lname, country_id, email, contact, companyadd) values ('" + txtEmp1.Text + "','" + txtLName1.Text + "', '" + txtFName1.Text + "','" + countID + "','" + txtEmail1.Text + "','" + txtContact1.Text + "','" + txtCompAddress1.Text + "')";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        string cmd = "Insert into Employer_t (employername, fname, lname, mname, country_id, email, contact, companyadd) values ('" + txtEmp1.Text + "','" + txtLName1.Text + "', '" + txtFName1.Text + "', '" + txtMName1.Text + "','" + countID + "','" + txtEmail1.Text + "','" + txtContact1.Text + "','" + txtCompAddress1.Text + "')";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     txtEmp1.Clear();
-                    txtPrincipal1.Clear();
+                    txtFName1.Clear();
+                    txtMName1.Clear();
+                    txtLName1.Clear();
+                    txtFName1.Text = "First Name";
+                    txtFName1.ForeColor = Color.Gray;
+                    txtMName1.Text = "Middle Name";
+                    txtMName1.ForeColor = Color.Gray;
+                    txtLName1.Text = "Last Name";
+                    txtLName1.ForeColor = Color.Gray;
+                    txtEmail1.Clear();
+                    txtCompAddress1.Clear();
+                    txtContact1.Clear();
                     this.Hide();
                 }
                 else if (ctr != 0)
@@ -136,6 +157,24 @@ namespace Findstaff
                 cbCountry1.Items.Clear();
                 cbCountry2.Items.Clear();
             }
+        }
+
+        private void txtFName1_Click(object sender, EventArgs e)
+        {
+            txtFName1.Clear();
+            txtFName1.ForeColor = Color.Black;
+        }
+
+        private void txtMName1_Click(object sender, EventArgs e)
+        {
+            txtMName1.Clear();
+            txtMName1.ForeColor = Color.Black;
+        }
+
+        private void txtLName1_Click(object sender, EventArgs e)
+        {
+            txtLName1.Clear();
+            txtLName1.ForeColor = Color.Black;
         }
     }
     

@@ -29,22 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtEmail1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtContact1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCompAddress1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnCancel1 = new System.Windows.Forms.Button();
             this.btnAddEmp = new System.Windows.Forms.Button();
-            this.cbCountry1 = new System.Windows.Forms.ComboBox();
-            this.txtPrincipal1 = new System.Windows.Forms.TextBox();
-            this.txtEmp1 = new System.Windows.Forms.TextBox();
-            this.lblPrincipal1 = new System.Windows.Forms.Label();
-            this.lblCountry1 = new System.Windows.Forms.Label();
-            this.lblEmp1 = new System.Windows.Forms.Label();
             this.lblAddEmp = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.txtEmail2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtContact2 = new System.Windows.Forms.TextBox();
@@ -62,104 +51,48 @@
             this.lblEmp2 = new System.Windows.Forms.Label();
             this.lblEmpID = new System.Windows.Forms.Label();
             this.lblEditEmp = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtLName1 = new System.Windows.Forms.TextBox();
+            this.txtMName1 = new System.Windows.Forms.TextBox();
+            this.txtEmail1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtContact1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCompAddress1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbCountry1 = new System.Windows.Forms.ComboBox();
+            this.txtFName1 = new System.Windows.Forms.TextBox();
+            this.txtEmp1 = new System.Windows.Forms.TextBox();
+            this.lblPrincipal1 = new System.Windows.Forms.Label();
+            this.lblCountry1 = new System.Windows.Forms.Label();
+            this.lblEmp1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtLName1);
+            this.panel1.Controls.Add(this.txtMName1);
             this.panel1.Controls.Add(this.txtEmail1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtContact1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtCompAddress1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnCancel1);
-            this.panel1.Controls.Add(this.btnAddEmp);
             this.panel1.Controls.Add(this.cbCountry1);
-            this.panel1.Controls.Add(this.txtPrincipal1);
+            this.panel1.Controls.Add(this.txtFName1);
             this.panel1.Controls.Add(this.txtEmp1);
             this.panel1.Controls.Add(this.lblPrincipal1);
             this.panel1.Controls.Add(this.lblCountry1);
             this.panel1.Controls.Add(this.lblEmp1);
+            this.panel1.Controls.Add(this.btnCancel1);
+            this.panel1.Controls.Add(this.btnAddEmp);
             this.panel1.Controls.Add(this.lblAddEmp);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 450);
+            this.panel1.Size = new System.Drawing.Size(1255, 450);
             this.panel1.TabIndex = 0;
-            // 
-            // txtEmail1
-            // 
-            this.txtEmail1.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtEmail1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail1.ForeColor = System.Drawing.Color.Black;
-            this.txtEmail1.Location = new System.Drawing.Point(428, 260);
-            this.txtEmail1.MaxLength = 30;
-            this.txtEmail1.Name = "txtEmail1";
-            this.txtEmail1.Size = new System.Drawing.Size(317, 26);
-            this.txtEmail1.TabIndex = 20;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(284, 263);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 19);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Company Email :";
-            // 
-            // txtContact1
-            // 
-            this.txtContact1.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtContact1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContact1.ForeColor = System.Drawing.Color.Black;
-            this.txtContact1.Location = new System.Drawing.Point(428, 229);
-            this.txtContact1.MaxLength = 30;
-            this.txtContact1.Name = "txtContact1";
-            this.txtContact1.Size = new System.Drawing.Size(317, 26);
-            this.txtContact1.TabIndex = 18;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(330, 232);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 19);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Contact # :";
-            // 
-            // txtCompAddress1
-            // 
-            this.txtCompAddress1.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtCompAddress1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompAddress1.ForeColor = System.Drawing.Color.Black;
-            this.txtCompAddress1.Location = new System.Drawing.Point(428, 198);
-            this.txtCompAddress1.MaxLength = 30;
-            this.txtCompAddress1.Name = "txtCompAddress1";
-            this.txtCompAddress1.Size = new System.Drawing.Size(317, 26);
-            this.txtCompAddress1.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(266, 201);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 19);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Company Address :";
             // 
             // btnCancel1
             // 
@@ -192,78 +125,6 @@
             this.btnAddEmp.Text = "SAVE";
             this.btnAddEmp.UseVisualStyleBackColor = false;
             this.btnAddEmp.Click += new System.EventHandler(this.btnAddEmp_Click);
-            // 
-            // cbCountry1
-            // 
-            this.cbCountry1.BackColor = System.Drawing.Color.White;
-            this.cbCountry1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbCountry1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCountry1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCountry1.ForeColor = System.Drawing.Color.Black;
-            this.cbCountry1.FormattingEnabled = true;
-            this.cbCountry1.Location = new System.Drawing.Point(428, 134);
-            this.cbCountry1.Name = "cbCountry1";
-            this.cbCountry1.Size = new System.Drawing.Size(317, 27);
-            this.cbCountry1.TabIndex = 12;
-            // 
-            // txtPrincipal1
-            // 
-            this.txtPrincipal1.BackColor = System.Drawing.Color.White;
-            this.txtPrincipal1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrincipal1.ForeColor = System.Drawing.Color.Black;
-            this.txtPrincipal1.Location = new System.Drawing.Point(428, 167);
-            this.txtPrincipal1.MaxLength = 30;
-            this.txtPrincipal1.Name = "txtPrincipal1";
-            this.txtPrincipal1.Size = new System.Drawing.Size(155, 26);
-            this.txtPrincipal1.TabIndex = 11;
-            this.txtPrincipal1.Text = "First Name";
-            // 
-            // txtEmp1
-            // 
-            this.txtEmp1.BackColor = System.Drawing.Color.White;
-            this.txtEmp1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmp1.ForeColor = System.Drawing.Color.Black;
-            this.txtEmp1.Location = new System.Drawing.Point(428, 102);
-            this.txtEmp1.MaxLength = 30;
-            this.txtEmp1.Name = "txtEmp1";
-            this.txtEmp1.Size = new System.Drawing.Size(317, 26);
-            this.txtEmp1.TabIndex = 9;
-            // 
-            // lblPrincipal1
-            // 
-            this.lblPrincipal1.AutoSize = true;
-            this.lblPrincipal1.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrincipal1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrincipal1.ForeColor = System.Drawing.Color.Black;
-            this.lblPrincipal1.Location = new System.Drawing.Point(279, 170);
-            this.lblPrincipal1.Name = "lblPrincipal1";
-            this.lblPrincipal1.Size = new System.Drawing.Size(147, 20);
-            this.lblPrincipal1.TabIndex = 7;
-            this.lblPrincipal1.Text = "Foreign Principal :";
-            // 
-            // lblCountry1
-            // 
-            this.lblCountry1.AutoSize = true;
-            this.lblCountry1.BackColor = System.Drawing.Color.Transparent;
-            this.lblCountry1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry1.ForeColor = System.Drawing.Color.Black;
-            this.lblCountry1.Location = new System.Drawing.Point(344, 137);
-            this.lblCountry1.Name = "lblCountry1";
-            this.lblCountry1.Size = new System.Drawing.Size(79, 20);
-            this.lblCountry1.TabIndex = 6;
-            this.lblCountry1.Text = "Country :";
-            // 
-            // lblEmp1
-            // 
-            this.lblEmp1.AutoSize = true;
-            this.lblEmp1.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmp1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmp1.ForeColor = System.Drawing.Color.Black;
-            this.lblEmp1.Location = new System.Drawing.Point(332, 105);
-            this.lblEmp1.Name = "lblEmp1";
-            this.lblEmp1.Size = new System.Drawing.Size(89, 20);
-            this.lblEmp1.TabIndex = 5;
-            this.lblEmp1.Text = "Employer :";
             // 
             // lblAddEmp
             // 
@@ -302,6 +163,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 450);
             this.panel2.TabIndex = 15;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(630, 192);
+            this.textBox2.MaxLength = 30;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(156, 26);
+            this.textBox2.TabIndex = 34;
             // 
             // txtEmail2
             // 
@@ -511,28 +383,173 @@
             this.lblEditEmp.TabIndex = 16;
             this.lblEditEmp.Text = "Edit Employer Contract";
             // 
-            // textBox1
+            // txtLName1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(589, 166);
-            this.textBox1.MaxLength = 30;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 26);
-            this.textBox1.TabIndex = 21;
-            this.textBox1.Text = "Last Name";
+            this.txtLName1.BackColor = System.Drawing.Color.White;
+            this.txtLName1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLName1.ForeColor = System.Drawing.Color.Gray;
+            this.txtLName1.Location = new System.Drawing.Point(719, 178);
+            this.txtLName1.MaxLength = 30;
+            this.txtLName1.Name = "txtLName1";
+            this.txtLName1.Size = new System.Drawing.Size(156, 26);
+            this.txtLName1.TabIndex = 36;
+            this.txtLName1.Text = "Last Name";
+            this.txtLName1.Click += new System.EventHandler(this.txtLName1_Click);
             // 
-            // textBox2
+            // txtMName1
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(630, 192);
-            this.textBox2.MaxLength = 30;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 26);
-            this.textBox2.TabIndex = 34;
+            this.txtMName1.BackColor = System.Drawing.Color.White;
+            this.txtMName1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMName1.ForeColor = System.Drawing.Color.Gray;
+            this.txtMName1.Location = new System.Drawing.Point(558, 178);
+            this.txtMName1.MaxLength = 30;
+            this.txtMName1.Name = "txtMName1";
+            this.txtMName1.Size = new System.Drawing.Size(156, 26);
+            this.txtMName1.TabIndex = 35;
+            this.txtMName1.Text = "Middle Name";
+            this.txtMName1.Click += new System.EventHandler(this.txtMName1_Click);
+            // 
+            // txtEmail1
+            // 
+            this.txtEmail1.BackColor = System.Drawing.Color.White;
+            this.txtEmail1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail1.ForeColor = System.Drawing.Color.Black;
+            this.txtEmail1.Location = new System.Drawing.Point(397, 271);
+            this.txtEmail1.MaxLength = 30;
+            this.txtEmail1.Name = "txtEmail1";
+            this.txtEmail1.Size = new System.Drawing.Size(478, 26);
+            this.txtEmail1.TabIndex = 34;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(253, 274);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 19);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Company Email :";
+            // 
+            // txtContact1
+            // 
+            this.txtContact1.BackColor = System.Drawing.Color.White;
+            this.txtContact1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContact1.ForeColor = System.Drawing.Color.Black;
+            this.txtContact1.Location = new System.Drawing.Point(397, 240);
+            this.txtContact1.MaxLength = 30;
+            this.txtContact1.Name = "txtContact1";
+            this.txtContact1.Size = new System.Drawing.Size(478, 26);
+            this.txtContact1.TabIndex = 32;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(299, 243);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 19);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Contact # :";
+            // 
+            // txtCompAddress1
+            // 
+            this.txtCompAddress1.BackColor = System.Drawing.Color.White;
+            this.txtCompAddress1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCompAddress1.ForeColor = System.Drawing.Color.Black;
+            this.txtCompAddress1.Location = new System.Drawing.Point(397, 209);
+            this.txtCompAddress1.MaxLength = 30;
+            this.txtCompAddress1.Name = "txtCompAddress1";
+            this.txtCompAddress1.Size = new System.Drawing.Size(478, 26);
+            this.txtCompAddress1.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(235, 212);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 19);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Company Address :";
+            // 
+            // cbCountry1
+            // 
+            this.cbCountry1.BackColor = System.Drawing.Color.White;
+            this.cbCountry1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCountry1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCountry1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCountry1.ForeColor = System.Drawing.Color.Black;
+            this.cbCountry1.FormattingEnabled = true;
+            this.cbCountry1.Location = new System.Drawing.Point(397, 145);
+            this.cbCountry1.Name = "cbCountry1";
+            this.cbCountry1.Size = new System.Drawing.Size(478, 27);
+            this.cbCountry1.TabIndex = 28;
+            // 
+            // txtFName1
+            // 
+            this.txtFName1.BackColor = System.Drawing.Color.White;
+            this.txtFName1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFName1.ForeColor = System.Drawing.Color.Gray;
+            this.txtFName1.Location = new System.Drawing.Point(397, 178);
+            this.txtFName1.MaxLength = 30;
+            this.txtFName1.Name = "txtFName1";
+            this.txtFName1.Size = new System.Drawing.Size(155, 26);
+            this.txtFName1.TabIndex = 27;
+            this.txtFName1.Text = "First Name";
+            this.txtFName1.Click += new System.EventHandler(this.txtFName1_Click);
+            // 
+            // txtEmp1
+            // 
+            this.txtEmp1.BackColor = System.Drawing.Color.White;
+            this.txtEmp1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmp1.ForeColor = System.Drawing.Color.Black;
+            this.txtEmp1.Location = new System.Drawing.Point(397, 113);
+            this.txtEmp1.MaxLength = 30;
+            this.txtEmp1.Name = "txtEmp1";
+            this.txtEmp1.Size = new System.Drawing.Size(478, 26);
+            this.txtEmp1.TabIndex = 26;
+            // 
+            // lblPrincipal1
+            // 
+            this.lblPrincipal1.AutoSize = true;
+            this.lblPrincipal1.BackColor = System.Drawing.Color.Transparent;
+            this.lblPrincipal1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrincipal1.ForeColor = System.Drawing.Color.Black;
+            this.lblPrincipal1.Location = new System.Drawing.Point(248, 181);
+            this.lblPrincipal1.Name = "lblPrincipal1";
+            this.lblPrincipal1.Size = new System.Drawing.Size(147, 20);
+            this.lblPrincipal1.TabIndex = 25;
+            this.lblPrincipal1.Text = "Foreign Principal :";
+            // 
+            // lblCountry1
+            // 
+            this.lblCountry1.AutoSize = true;
+            this.lblCountry1.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountry1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountry1.ForeColor = System.Drawing.Color.Black;
+            this.lblCountry1.Location = new System.Drawing.Point(313, 148);
+            this.lblCountry1.Name = "lblCountry1";
+            this.lblCountry1.Size = new System.Drawing.Size(79, 20);
+            this.lblCountry1.TabIndex = 24;
+            this.lblCountry1.Text = "Country :";
+            // 
+            // lblEmp1
+            // 
+            this.lblEmp1.AutoSize = true;
+            this.lblEmp1.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmp1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmp1.ForeColor = System.Drawing.Color.Black;
+            this.lblEmp1.Location = new System.Drawing.Point(301, 116);
+            this.lblEmp1.Name = "lblEmp1";
+            this.lblEmp1.Size = new System.Drawing.Size(89, 20);
+            this.lblEmp1.TabIndex = 23;
+            this.lblEmp1.Text = "Employer :";
             // 
             // ucEmployerAddEdit
             // 
@@ -554,12 +571,6 @@
 
         #endregion
         private System.Windows.Forms.Label lblAddEmp;
-        private System.Windows.Forms.Label lblPrincipal1;
-        private System.Windows.Forms.Label lblCountry1;
-        private System.Windows.Forms.Label lblEmp1;
-        private System.Windows.Forms.TextBox txtPrincipal1;
-        private System.Windows.Forms.TextBox txtEmp1;
-        private System.Windows.Forms.ComboBox cbCountry1;
         private System.Windows.Forms.Button btnCancel1;
         private System.Windows.Forms.Button btnAddEmp;
         private System.Windows.Forms.Button btnCancel2;
@@ -575,19 +586,26 @@
         public System.Windows.Forms.TextBox txtPrincipal2;
         public System.Windows.Forms.TextBox txtEmp2;
         public System.Windows.Forms.TextBox txtEmpID;
-        private System.Windows.Forms.TextBox txtEmail1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtContact1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCompAddress1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtEmail2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtContact2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCompAddress2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtLName1;
+        private System.Windows.Forms.TextBox txtMName1;
+        private System.Windows.Forms.TextBox txtEmail1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtContact1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCompAddress1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbCountry1;
+        private System.Windows.Forms.TextBox txtFName1;
+        private System.Windows.Forms.TextBox txtEmp1;
+        private System.Windows.Forms.Label lblPrincipal1;
+        private System.Windows.Forms.Label lblCountry1;
+        private System.Windows.Forms.Label lblEmp1;
     }
 }

@@ -36,9 +36,9 @@ namespace Findstaff
 
             if (cbUnderDept.SelectedIndex == 0)
             {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', ap.appstatus'Under Department', ap.appstats'Application Status' from app_t a " +
+                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstatus = 'Recruitment' and ap.appstats = 'Active';";
+                            "where a.appstatus = 'For Selection' and ap.appstats = 'Active';";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -51,9 +51,9 @@ namespace Findstaff
             }
             else if (cbUnderDept.SelectedIndex == 1)
             {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', ap.appstatus'Under Department', ap.appstats'Application Status' from app_t a " +
+                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstatus = 'Documentation' and ap.appstats = 'Active';";
+                            "where a.appstatus = 'Selected' and ap.appstats = 'Active';";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -66,9 +66,9 @@ namespace Findstaff
             }
             else if (cbUnderDept.SelectedIndex == 2)
             {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', ap.appstatus'Under Department', ap.appstats'Application Status' from app_t a " +
+                cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstatus = 'Accounting' and ap.appstats = 'Active';";
+                            "where a.appstatus = 'Payment' and ap.appstats = 'Active';";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -81,9 +81,9 @@ namespace Findstaff
             }
             else if (cbUnderDept.SelectedIndex == 3)
             {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', ap.appstatus'Under Department' from app_t a " +
+                cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', a.appstatus'Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstatus = 'Deployed';";
+                            "where a.appstatus = 'Deployed';";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -98,7 +98,7 @@ namespace Findstaff
             {
                 cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', ap.appstats'Application Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstats = 'Forfeited';";
+                            "where a.appstatus = 'Archived';";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -111,7 +111,7 @@ namespace Findstaff
             }
             else if (cbUnderDept.SelectedIndex == 5)
             {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', ap.appstatus'Under Department', ap.appstats'Application Status' from app_t a " +
+                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id;";
                 using (connection)
                 {
