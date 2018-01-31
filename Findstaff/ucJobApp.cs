@@ -95,7 +95,7 @@ namespace Findstaff
             dgvAppMatch.Columns[2].HeaderText = "Satisfactory Rating";
             connection.Open();
             string empid = "", jorderid = "", jobid = "", gender = "";
-            cmd = "select emp_id from employer_t where employername = '"+cbEmployer.Text+"'";
+            cmd = "select employer_id from employer_t where employername = '"+cbEmployer.Text+"'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())
@@ -111,7 +111,7 @@ namespace Findstaff
                 jobid = dr[0].ToString();
             }
             dr.Close();
-            cmd = "select jorder_id from joborder_t where emp_id = '"+empid+"' and job_id = '"+jobid+"' and cntrctstat = 'Active'";
+            cmd = "select jorder_id from joborder_t where employer_id = '"+empid+"' and job_id = '"+jobid+"' and cntrctstat = 'Active'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())
@@ -145,7 +145,7 @@ namespace Findstaff
             dr.Close();
             y = 0;
             int a = 0;
-            if (gender != "All")
+            if (gender != "None")
             {
                 cmd = "select count(a.app_id) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + cbJobOrder.Text + "' and gender = '" + gender + "'";
             }
@@ -158,7 +158,7 @@ namespace Findstaff
             if (y != 0)
             {
                 string[,] apps = new string[y, 3];
-                if(gender != "All")
+                if(gender != "None")
                 {
                     cmd = "select a.app_id, concat(a.lname, ', ', a.fname, ' ', a.mname) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + cbJobOrder.Text + "' and gender = '" + gender + "'";
                 }

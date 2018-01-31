@@ -36,9 +36,9 @@ namespace Findstaff
 
             if (cbUnderDept.SelectedIndex == 0)
             {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id " +
-                            "where a.appstatus = 'For Selection' and ap.appstats = 'Active';";
+                cmd = "select app_id'Applicant ID', Concat(fname, ' ', mname, ' ', lname)'Name', position'Position', appstatus'Status' from app_t " +
+                            
+                            "where appstatus = 'For Selection'";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))

@@ -52,7 +52,7 @@ namespace Findstaff
                     }
                     else
                     {
-                        string cmd = "Insert into Employer_t (employername, fname, lname, mname, country_id, email, contact, companyadd) values ('" + txtEmp1.Text + "','" + txtLName1.Text + "', '" + txtFName1.Text + "', '" + txtMName1.Text + "','" + countID + "','" + txtEmail1.Text + "','" + txtContact1.Text + "','" + txtCompAddress1.Text + "')";
+                        string cmd = "Insert into Employer_t (employername, fname, lname, mname, country_id, email, contact, companyadd, empstatus) values ('" + txtEmp1.Text + "','" + txtLName1.Text + "', '" + txtFName1.Text + "', '" + txtMName1.Text + "','" + countID + "','" + txtEmail1.Text + "','" + txtContact1.Text + "','" + txtCompAddress1.Text + "', 'Active')";
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
                         MessageBox.Show("Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);

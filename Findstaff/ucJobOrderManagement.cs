@@ -96,7 +96,7 @@ namespace Findstaff
             ucJobList.Visible = false;
             ucJobFees.Visible = true;
 
-            cmd = "select j.jobname'Job Title', e.employername'Employer', count(jf.fee_id)'No. of Fees to be Colleted From Applicant' from joborder_t jo join job_t j on jo.job_id = j.job_id join jobfees_t jf on jo.jorder_id = jf.jorder_id join employer_t e on jo.employer_id = e.employer_id group by jo.jorder_id";
+            cmd = "select j.jobname'Job Title', e.employername'Employer', count(jf.fee_id)'No. of Fees to be Collected From Applicant' from joborder_t jo join job_t j on jo.job_id = j.job_id join jobfees_t jf on jo.jorder_id = jf.jorder_id join employer_t e on jo.employer_id = e.employer_id group by jo.jorder_id";
             using (connection)
             {
                 using (adapter = new MySqlDataAdapter(cmd, connection))

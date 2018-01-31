@@ -97,7 +97,7 @@ namespace Findstaff
             if (this.Visible == true)
             {
                 connection.Open();
-                cmd = "Select jorder_id from joborder_t where cntrctstat = 'Active';";
+                cmd = "Select employername from employer_t";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())
