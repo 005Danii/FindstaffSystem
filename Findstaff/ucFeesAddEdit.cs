@@ -183,7 +183,7 @@ namespace Findstaff
             }
             else
             {
-                cbType2.Items.Clear();
+                cbType1.Items.Clear();
                 cbType2.Items.Clear();
             }
         }
