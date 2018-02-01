@@ -68,6 +68,11 @@
             this.txtJobOrder2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbJobName1 = new System.Windows.Forms.ComboBox();
+            this.cbPaymentType = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees1)).BeginInit();
@@ -79,6 +84,10 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.cbPaymentType);
+            this.panel1.Controls.Add(this.cbJobName1);
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.btnRemoveFee);
             this.panel1.Controls.Add(this.btnStart1);
             this.panel1.Controls.Add(this.cbEmployer1);
@@ -96,7 +105,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1196, 500);
+            this.panel1.Size = new System.Drawing.Size(10, 500);
             this.panel1.TabIndex = 0;
             // 
             // btnRemoveFee
@@ -163,7 +172,7 @@
             this.txtAmount1.Enabled = false;
             this.txtAmount1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount1.ForeColor = System.Drawing.Color.Black;
-            this.txtAmount1.Location = new System.Drawing.Point(543, 158);
+            this.txtAmount1.Location = new System.Drawing.Point(608, 157);
             this.txtAmount1.MaxLength = 30;
             this.txtAmount1.Name = "txtAmount1";
             this.txtAmount1.Size = new System.Drawing.Size(200, 27);
@@ -176,7 +185,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(439, 162);
+            this.label2.Location = new System.Drawing.Point(485, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 282;
@@ -305,7 +314,7 @@
             this.btnAddFee1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddFee1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFee1.ForeColor = System.Drawing.Color.Black;
-            this.btnAddFee1.Location = new System.Drawing.Point(749, 155);
+            this.btnAddFee1.Location = new System.Drawing.Point(825, 155);
             this.btnAddFee1.Name = "btnAddFee1";
             this.btnAddFee1.Size = new System.Drawing.Size(100, 30);
             this.btnAddFee1.TabIndex = 276;
@@ -322,7 +331,7 @@
             this.cbFees1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFees1.ForeColor = System.Drawing.Color.Black;
             this.cbFees1.FormattingEnabled = true;
-            this.cbFees1.Location = new System.Drawing.Point(176, 158);
+            this.cbFees1.Location = new System.Drawing.Point(222, 155);
             this.cbFees1.Name = "cbFees1";
             this.cbFees1.Size = new System.Drawing.Size(254, 28);
             this.cbFees1.TabIndex = 275;
@@ -332,7 +341,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(81, 161);
+            this.label7.Location = new System.Drawing.Point(127, 158);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 20);
             this.label7.TabIndex = 274;
@@ -364,7 +373,7 @@
             // panel2
             // 
             this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.txtAmountCur2);
+            this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.btnRemoveFee2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtAmount2);
@@ -416,7 +425,7 @@
             this.txtAmount2.BackColor = System.Drawing.Color.White;
             this.txtAmount2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount2.ForeColor = System.Drawing.Color.Black;
-            this.txtAmount2.Location = new System.Drawing.Point(569, 158);
+            this.txtAmount2.Location = new System.Drawing.Point(575, 160);
             this.txtAmount2.MaxLength = 30;
             this.txtAmount2.Name = "txtAmount2";
             this.txtAmount2.Size = new System.Drawing.Size(200, 26);
@@ -552,7 +561,7 @@
             this.btnAddFee2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddFee2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFee2.ForeColor = System.Drawing.Color.Black;
-            this.btnAddFee2.Location = new System.Drawing.Point(775, 155);
+            this.btnAddFee2.Location = new System.Drawing.Point(781, 157);
             this.btnAddFee2.Name = "btnAddFee2";
             this.btnAddFee2.Size = new System.Drawing.Size(100, 30);
             this.btnAddFee2.TabIndex = 276;
@@ -618,6 +627,70 @@
             this.label12.TabIndex = 271;
             this.label12.Text = "Edit Job Fees";
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(564, 156);
+            this.textBox1.MaxLength = 30;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(38, 27);
+            this.textBox1.TabIndex = 287;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(531, 160);
+            this.textBox2.MaxLength = 30;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(38, 27);
+            this.textBox2.TabIndex = 288;
+            // 
+            // cbJobName1
+            // 
+            this.cbJobName1.BackColor = System.Drawing.Color.White;
+            this.cbJobName1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbJobName1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbJobName1.Enabled = false;
+            this.cbJobName1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbJobName1.ForeColor = System.Drawing.Color.Black;
+            this.cbJobName1.FormattingEnabled = true;
+            this.cbJobName1.Location = new System.Drawing.Point(554, 72);
+            this.cbJobName1.Name = "cbJobName1";
+            this.cbJobName1.Size = new System.Drawing.Size(254, 28);
+            this.cbJobName1.TabIndex = 288;
+            // 
+            // cbPaymentType
+            // 
+            this.cbPaymentType.BackColor = System.Drawing.Color.White;
+            this.cbPaymentType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPaymentType.Enabled = false;
+            this.cbPaymentType.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPaymentType.ForeColor = System.Drawing.Color.Black;
+            this.cbPaymentType.FormattingEnabled = true;
+            this.cbPaymentType.Location = new System.Drawing.Point(502, 191);
+            this.cbPaymentType.Name = "cbPaymentType";
+            this.cbPaymentType.Size = new System.Drawing.Size(200, 28);
+            this.cbPaymentType.TabIndex = 289;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(379, 194);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(121, 20);
+            this.label13.TabIndex = 290;
+            this.label13.Text = "Payment Type:";
+            // 
             // ucJobFeesAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -677,5 +750,10 @@
         public System.Windows.Forms.TextBox txtJobOrder2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cbJobName1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cbPaymentType;
     }
 }
