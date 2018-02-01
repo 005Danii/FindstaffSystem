@@ -30,8 +30,8 @@ namespace Findstaff
             connection.Open();
             if (dgvFees1.Rows.Count != 0)
             {
-                string empID = "";
-                cmd = "select employer_id from employer_t where employername = '"+txtEmployer1.Text+"'";
+                string empID = "", jorderID = "";
+                cmd = "select employer_id from employer_t where employername = '"+cbEmployer1.Text+"'";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())
@@ -39,8 +39,16 @@ namespace Findstaff
                     empID = dr[0].ToString();
                 }
                 dr.Close();
+                cmd = "select jo.jorder_id from joborder_t jo join employer_t e on jo.employer_id = e.employer_id join job_t j on jo.job_id = j.job_id where e.employername = '" + cbEmployer1.Text + "' and j.jobname = '"+cbJobName1.Text+"' and cntrctstat = 'Active'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    jorderID = dr[0].ToString();
+                }
+                dr.Close();
                 int rowcount = dgvFees1.Rows.Count;
-                cmd = "insert into jobfees_t (jorder_id, employer_id, fee_id, amount) values ";
+                cmd = "insert into jobfees_t (jorder_id, employer_id, fee_id, amount, jftype) values ";
                 for(int x = 0; x < rowcount; x++)
                 {
                     cmd2 = "select fee_id from genfees_t where feename = '" + dgvFees1.Rows[x].Cells[0].Value.ToString() + "';";
@@ -48,7 +56,7 @@ namespace Findstaff
                     dr = com.ExecuteReader();
                     while (dr.Read())
                     {
-                        cmd += "('"+cbJobOrder1.Text+"','"+empID+"','" + dr[0].ToString() + "','"+dgvFees1.Rows[x].Cells[1].Value.ToString()+"')";
+                        cmd += "('"+jorderID+"','"+empID+"','" + dr[0].ToString() + "','"+dgvFees1.Rows[x].Cells[1].Value.ToString()+"', '"+ dgvFees1.Rows[x].Cells[2].Value.ToString() + "')";
                     }
                     dr.Close();
                     if(x < rowcount - 1)
@@ -58,7 +66,7 @@ namespace Findstaff
                 }
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
-                cbJobOrder1.Items.Clear();
+                cbEmployer1.Items.Clear();
 
                 MessageBox.Show("Fees Added!", "Adding of Fees", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
@@ -89,19 +97,19 @@ namespace Findstaff
             if (this.Visible == true)
             {
                 connection.Open();
-                cmd = "Select jorder_id from joborder_t where cntrctstat = 'Active';";
+                cmd = "Select employername from employer_t";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    cbJobOrder1.Items.Add(dr[0]);
+                    cbEmployer1.Items.Add(dr[0]);
                 }
                 dr.Close();
                 connection.Close();
             }
             else
             {
-                cbJobOrder1.Items.Clear();
+                cbEmployer1.Items.Clear();
                 cbFees1.Items.Clear();
                 cbFees2.Items.Clear();
             }
@@ -117,13 +125,14 @@ namespace Findstaff
 
         private void btnAddFee1_Click(object sender, EventArgs e)
         {
-            if(cbFees1.Text != "" && txtAmount1.Text != "")
+            if(cbFees1.Text != "" && txtAmount1.Text != "" && cbPaymentType.Text !="")
             {
-                dgvFees1.ColumnCount = 2;
-                dgvFees1.Rows.Add(cbFees1.Text, txtAmount1.Text);
+                dgvFees1.ColumnCount = 3;
+                dgvFees1.Rows.Add(cbFees1.Text, txtAmount1.Text, cbPaymentType.Text);
                 cbFees1.Items.Remove(cbFees1.Text);
                 cbFees1.SelectedIndex = -1;
                 txtAmount1.Clear();
+                cbPaymentType.SelectedIndex = -1;
             }
         }
 
@@ -138,15 +147,15 @@ namespace Findstaff
 
         private void cbJobOrder1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbJobOrder1.SelectedIndex != -1)
+            if(cbEmployer1.SelectedIndex != -1)
             {
                 connection.Open();
-                cmd = "select e.employername from joborder_t j join employer_t e on j.employer_id = e.employer_id;";
+                cmd = "select jobname from job_t j join joborder_t jo on j.job_id = jo.job_id join employer_t e on jo.employer_id = e.employer_id where e.employername = '"+cbEmployer1.Text+"';";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    txtEmployer1.Text = dr[0].ToString();
+                    cbJobName1.Items.Add(dr[0].ToString());
                 }
                 dr.Close();
                 connection.Close();
@@ -155,17 +164,26 @@ namespace Findstaff
 
         private void btnStart1_Click(object sender, EventArgs e)
         {
-            if(cbJobOrder1.Text != "" && txtEmployer1.Text != "")
+            if(cbEmployer1.Text != "" && cbJobName1.Text != "")
             {
                 cbFees1.Enabled = true;
                 txtAmount1.Enabled = true;
+                cbPaymentType.Enabled = true;
                 btnAddFee1.Enabled = true;
                 btnRemoveFee.Enabled = true;
                 btnAddAll.Enabled = true;
                 connection.Open();
-                string type = "";
+                string jorderID = "", type = "";
+                cmd = "select jo.jorder_id from joborder_t jo join employer_t e on jo.employer_id = e.employer_id join job_t j on jo.job_id = j.job_id where e.employername = '" + cbEmployer1.Text + "' and j.jobname = '" + cbJobName1.Text + "' and cntrctstat = 'Active'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    jorderID = dr[0].ToString();
+                }
+                dr.Close();
                 cmd = "select jt.jobtype_id from jobtype_t jt join job_t j on jt.jobtype_id = j.jobtype_id "
-                    + "join joborder_t jo on jo.job_id = j.job_id where jo.jorder_id = '"+cbJobOrder1.Text+"'";
+                    + "join joborder_t jo on jo.job_id = j.job_id where jo.jorder_id = '"+jorderID+"'";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())

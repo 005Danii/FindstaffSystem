@@ -43,7 +43,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            cmd = "Select c.countryname'Country', count(b.country_id)'No. of Accepted Banks' from country_t c join banksallowed b on c.country_id = b.country_id group by c.country_id";
+            cmd = "Select c.countryname'Country', count(b.country_id)'No. of Accepted Banks' from country_t c join banksallowed_t b on c.country_id = b.country_id group by c.country_id";
             using (connection)
             {
                 using (adapter = new MySqlDataAdapter(cmd, connection))

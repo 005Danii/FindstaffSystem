@@ -147,6 +147,7 @@ namespace Findstaff
                     cbSkillName.Items.Add(dgvReqdDocs1.Rows[x].Cells[0].Value.ToString());
                 }
                 dgvReqdDocs1.Rows.Clear();
+                this.Hide();
             }
             else
             {
@@ -270,8 +271,6 @@ namespace Findstaff
                 cbCategory2.Items.Clear();
                 cbSkillName.Items.Clear();
                 cbSkillName2.Items.Clear();
-                cbProf.Items.Clear();
-                cbProf2.Items.Clear();
                 cbReqName.Items.Clear();
                 cbReqName2.Items.Clear();
             }
