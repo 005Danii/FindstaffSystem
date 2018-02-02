@@ -314,7 +314,7 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            string cmd = "select app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', job.jobname'Applying for' "
+            string cmd = "select app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', job.jobname'Applying for', app.appstatus'Status' "
                     + "from app_t app join job_t job "
                     + "on app.position = job.jobname WHERE concat(app.app_id, app.lname, ', ', app.fname, ' ', app.mname, job.jobname) LIKE '%" + valueToFind + "%'";
             com = new MySqlCommand(cmd, connection);
@@ -361,7 +361,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            cmd = "select app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', job.jobname'Applying for', App.appstatus'Status' "
+            cmd = "select app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', job.jobname'Applying for', App.appstatus'Status', app.appstatus'Status' "
                     + "from app_t app join job_t job "
                     + "on app.position = job.jobname "
                     + "left join applications_t a on app.app_id = a.app_id ";

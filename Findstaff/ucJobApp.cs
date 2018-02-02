@@ -16,7 +16,7 @@ namespace Findstaff
         private MySqlConnection connection;
         private MySqlDataReader dr;
         MySqlCommand com = new MySqlCommand();
-        private string cmd = "";
+        private string cmd = "", jorder = "", employer = "", jobs = "";
 
         public ucJobApp()
         {
@@ -101,6 +101,7 @@ namespace Findstaff
             while (dr.Read())
             {
                 empid = dr[0].ToString();
+                employer = dr[0].ToString();
             }
             dr.Close();
             cmd = "select job_id from job_t where jobname = '" + cbJobOrder.Text + "'";
@@ -109,6 +110,7 @@ namespace Findstaff
             while (dr.Read())
             {
                 jobid = dr[0].ToString();
+                jobs = dr[0].ToString();
             }
             dr.Close();
             cmd = "select jorder_id from joborder_t where employer_id = '"+empid+"' and job_id = '"+jobid+"' and cntrctstat = 'Active'";
@@ -117,6 +119,7 @@ namespace Findstaff
             while (dr.Read())
             {
                 jorderid = dr[0].ToString();
+                jorder = dr[0].ToString();
             }
             dr.Close();
             cmd = "select gender from joborder_t where jorder_id = '"+jorderid+"'";
@@ -403,12 +406,30 @@ namespace Findstaff
         {
             if(dgvAppMatch.Rows.Count != 0)
             {
+                connection.Open();
                 int length = dgvAppMatch.SelectedRows.Count;
                 string[] apps = new string[length];
                 string[] job = new string[3];
+                string jobID = "";
                 job[0] = cbEmployer.Text;
-                job[1] = cbJobOrder.Text;
-                job[2] = txtJob.Text;
+                job[2] = cbJobOrder.Text;
+                cmd = "select job_id from job_t where jobname = '"+cbJobOrder.Text+"'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    jobID = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "select jorder_id from joborder_t j join employer_t e on j.employer_id = e.employer_id where e.employer_id = '" + employer + "' and job_id = '"+jobID+"' and cntrctstat = 'Active'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    job[1] = dr[0].ToString();
+                }
+                job[1] = jorder;
+                dr.Close();
                 for (int x = 0; x < length; x++)
                 {
                     apps[x] = dgvAppMatch.SelectedRows[x].Cells[0].Value.ToString();
@@ -416,6 +437,7 @@ namespace Findstaff
                 InitialInterviewDate intdate = new InitialInterviewDate();
                 intdate.initComponents(apps, job, length);
                 intdate.Show();
+                connection.Close();
             }
         }
 
