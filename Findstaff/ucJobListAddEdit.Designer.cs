@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbYear2 = new System.Windows.Forms.ComboBox();
             this.cbDay2 = new System.Windows.Forms.ComboBox();
@@ -126,6 +126,12 @@
             this.lblCountry1 = new System.Windows.Forms.Label();
             this.lblEmp1 = new System.Windows.Forms.Label();
             this.lblAddJobList = new System.Windows.Forms.Label();
+            this.txtSalaryCur = new System.Windows.Forms.TextBox();
+            this.txtSalaryCur2 = new System.Windows.Forms.TextBox();
+            this.cbMale = new System.Windows.Forms.CheckBox();
+            this.cbFemale = new System.Windows.Forms.CheckBox();
+            this.cbFemale2 = new System.Windows.Forms.CheckBox();
+            this.cbMale2 = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nddEmployees2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -141,6 +147,9 @@
             // panel2
             // 
             this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.cbFemale2);
+            this.panel2.Controls.Add(this.cbMale2);
+            this.panel2.Controls.Add(this.txtSalaryCur2);
             this.panel2.Controls.Add(this.cbYear2);
             this.panel2.Controls.Add(this.cbDay2);
             this.panel2.Controls.Add(this.label14);
@@ -359,7 +368,7 @@
             // 
             this.nddEmployees2.BackColor = System.Drawing.Color.White;
             this.nddEmployees2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nddEmployees2.Location = new System.Drawing.Point(768, 103);
+            this.nddEmployees2.Location = new System.Drawing.Point(797, 103);
             this.nddEmployees2.Name = "nddEmployees2";
             this.nddEmployees2.Size = new System.Drawing.Size(174, 27);
             this.nddEmployees2.TabIndex = 103;
@@ -368,7 +377,7 @@
             // 
             this.rbAll2.AutoSize = true;
             this.rbAll2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAll2.Location = new System.Drawing.Point(918, 73);
+            this.rbAll2.Location = new System.Drawing.Point(947, 73);
             this.rbAll2.Name = "rbAll2";
             this.rbAll2.Size = new System.Drawing.Size(66, 24);
             this.rbAll2.TabIndex = 102;
@@ -381,7 +390,7 @@
             // 
             this.rbFemale2.AutoSize = true;
             this.rbFemale2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFemale2.Location = new System.Drawing.Point(828, 73);
+            this.rbFemale2.Location = new System.Drawing.Point(857, 73);
             this.rbFemale2.Name = "rbFemale2";
             this.rbFemale2.Size = new System.Drawing.Size(82, 24);
             this.rbFemale2.TabIndex = 101;
@@ -394,7 +403,7 @@
             // 
             this.rbMale2.AutoSize = true;
             this.rbMale2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMale2.Location = new System.Drawing.Point(757, 74);
+            this.rbMale2.Location = new System.Drawing.Point(786, 74);
             this.rbMale2.Name = "rbMale2";
             this.rbMale2.Size = new System.Drawing.Size(64, 24);
             this.rbMale2.TabIndex = 100;
@@ -552,28 +561,28 @@
             this.dgvReqDocs2.AllowUserToDeleteRows = false;
             this.dgvReqDocs2.AllowUserToResizeColumns = false;
             this.dgvReqDocs2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReqDocs2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvReqDocs2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvReqDocs2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReqDocs2.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvReqDocs2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReqDocs2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReqDocs2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvReqDocs2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReqDocs2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReqDocs2.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvReqDocs2.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvReqDocs2.Location = new System.Drawing.Point(100, 612);
             this.dgvReqDocs2.MultiSelect = false;
@@ -691,23 +700,23 @@
             this.dgvSkills2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSkills2.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvSkills2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSkills2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSkills2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvSkills2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSkills2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSkills2.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvSkills2.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvSkills2.Location = new System.Drawing.Point(100, 339);
             this.dgvSkills2.MultiSelect = false;
@@ -724,7 +733,7 @@
             this.txtWeight2.BackColor = System.Drawing.Color.White;
             this.txtWeight2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWeight2.ForeColor = System.Drawing.Color.Black;
-            this.txtWeight2.Location = new System.Drawing.Point(768, 202);
+            this.txtWeight2.Location = new System.Drawing.Point(797, 202);
             this.txtWeight2.MaxLength = 30;
             this.txtWeight2.Name = "txtWeight2";
             this.txtWeight2.Size = new System.Drawing.Size(150, 27);
@@ -735,7 +744,7 @@
             this.txtHeight2.BackColor = System.Drawing.Color.White;
             this.txtHeight2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHeight2.ForeColor = System.Drawing.Color.Black;
-            this.txtHeight2.Location = new System.Drawing.Point(768, 170);
+            this.txtHeight2.Location = new System.Drawing.Point(797, 170);
             this.txtHeight2.MaxLength = 30;
             this.txtHeight2.Name = "txtHeight2";
             this.txtHeight2.Size = new System.Drawing.Size(150, 27);
@@ -758,7 +767,7 @@
             this.txtSalary2.BackColor = System.Drawing.Color.White;
             this.txtSalary2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalary2.ForeColor = System.Drawing.Color.Black;
-            this.txtSalary2.Location = new System.Drawing.Point(768, 138);
+            this.txtSalary2.Location = new System.Drawing.Point(797, 138);
             this.txtSalary2.MaxLength = 30;
             this.txtSalary2.Name = "txtSalary2";
             this.txtSalary2.Size = new System.Drawing.Size(150, 27);
@@ -796,9 +805,9 @@
             this.label21.ForeColor = System.Drawing.Color.Black;
             this.label21.Location = new System.Drawing.Point(608, 141);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(161, 20);
+            this.label21.Size = new System.Drawing.Size(138, 20);
             this.label21.TabIndex = 51;
-            this.label21.Text = "Salary (monthly) :  P";
+            this.label21.Text = "Salary (monthly):";
             // 
             // label23
             // 
@@ -840,6 +849,9 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.cbFemale);
+            this.panel1.Controls.Add(this.cbMale);
+            this.panel1.Controls.Add(this.txtSalaryCur);
             this.panel1.Controls.Add(this.cbYear);
             this.panel1.Controls.Add(this.cbDay);
             this.panel1.Controls.Add(this.label15);
@@ -1009,7 +1021,7 @@
             // 
             this.nddEmployees1.BackColor = System.Drawing.Color.White;
             this.nddEmployees1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nddEmployees1.Location = new System.Drawing.Point(782, 102);
+            this.nddEmployees1.Location = new System.Drawing.Point(806, 102);
             this.nddEmployees1.Name = "nddEmployees1";
             this.nddEmployees1.Size = new System.Drawing.Size(174, 27);
             this.nddEmployees1.TabIndex = 71;
@@ -1018,7 +1030,7 @@
             // 
             this.rbAll1.AutoSize = true;
             this.rbAll1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAll1.Location = new System.Drawing.Point(946, 73);
+            this.rbAll1.Location = new System.Drawing.Point(970, 73);
             this.rbAll1.Name = "rbAll1";
             this.rbAll1.Size = new System.Drawing.Size(66, 24);
             this.rbAll1.TabIndex = 70;
@@ -1031,7 +1043,7 @@
             // 
             this.rbFemale1.AutoSize = true;
             this.rbFemale1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFemale1.Location = new System.Drawing.Point(856, 73);
+            this.rbFemale1.Location = new System.Drawing.Point(880, 73);
             this.rbFemale1.Name = "rbFemale1";
             this.rbFemale1.Size = new System.Drawing.Size(82, 24);
             this.rbFemale1.TabIndex = 69;
@@ -1044,7 +1056,7 @@
             // 
             this.rbMale1.AutoSize = true;
             this.rbMale1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMale1.Location = new System.Drawing.Point(785, 74);
+            this.rbMale1.Location = new System.Drawing.Point(809, 74);
             this.rbMale1.Name = "rbMale1";
             this.rbMale1.Size = new System.Drawing.Size(64, 24);
             this.rbMale1.TabIndex = 68;
@@ -1194,25 +1206,25 @@
             this.dgvReqdDocs1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReqdDocs1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvReqdDocs1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReqdDocs1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReqdDocs1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvReqdDocs1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReqdDocs1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReqdDocs1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReqdDocs1.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvReqdDocs1.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvReqdDocs1.Location = new System.Drawing.Point(100, 608);
             this.dgvReqdDocs1.MultiSelect = false;
@@ -1286,7 +1298,7 @@
             this.txtWeight.BackColor = System.Drawing.Color.White;
             this.txtWeight.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWeight.ForeColor = System.Drawing.Color.Black;
-            this.txtWeight.Location = new System.Drawing.Point(782, 202);
+            this.txtWeight.Location = new System.Drawing.Point(806, 202);
             this.txtWeight.MaxLength = 30;
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(150, 27);
@@ -1298,7 +1310,7 @@
             this.txtHeight.BackColor = System.Drawing.Color.White;
             this.txtHeight.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHeight.ForeColor = System.Drawing.Color.Black;
-            this.txtHeight.Location = new System.Drawing.Point(782, 167);
+            this.txtHeight.Location = new System.Drawing.Point(806, 167);
             this.txtHeight.MaxLength = 30;
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(150, 27);
@@ -1441,9 +1453,9 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(615, 140);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 20);
+            this.label1.Size = new System.Drawing.Size(138, 20);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Salary (monthly) :  P";
+            this.label1.Text = "Salary (monthly):";
             // 
             // dgvSkills1
             // 
@@ -1454,26 +1466,26 @@
             this.dgvSkills1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSkills1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvSkills1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSkills1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSkills1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvSkills1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSkills1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSkills1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSkills1.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvSkills1.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvSkills1.Location = new System.Drawing.Point(100, 336);
             this.dgvSkills1.MultiSelect = false;
@@ -1502,7 +1514,7 @@
             this.txtSalary1.BackColor = System.Drawing.Color.White;
             this.txtSalary1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalary1.ForeColor = System.Drawing.Color.Black;
-            this.txtSalary1.Location = new System.Drawing.Point(782, 135);
+            this.txtSalary1.Location = new System.Drawing.Point(806, 135);
             this.txtSalary1.MaxLength = 30;
             this.txtSalary1.Name = "txtSalary1";
             this.txtSalary1.Size = new System.Drawing.Size(150, 27);
@@ -1568,6 +1580,68 @@
             this.lblAddJobList.Size = new System.Drawing.Size(189, 28);
             this.lblAddJobList.TabIndex = 33;
             this.lblAddJobList.Text = "Add Job Order";
+            // 
+            // txtSalaryCur
+            // 
+            this.txtSalaryCur.BackColor = System.Drawing.Color.White;
+            this.txtSalaryCur.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalaryCur.ForeColor = System.Drawing.Color.Black;
+            this.txtSalaryCur.Location = new System.Drawing.Point(764, 135);
+            this.txtSalaryCur.MaxLength = 30;
+            this.txtSalaryCur.Name = "txtSalaryCur";
+            this.txtSalaryCur.Size = new System.Drawing.Size(37, 27);
+            this.txtSalaryCur.TabIndex = 283;
+            // 
+            // txtSalaryCur2
+            // 
+            this.txtSalaryCur2.BackColor = System.Drawing.Color.White;
+            this.txtSalaryCur2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalaryCur2.ForeColor = System.Drawing.Color.Black;
+            this.txtSalaryCur2.Location = new System.Drawing.Point(754, 138);
+            this.txtSalaryCur2.MaxLength = 30;
+            this.txtSalaryCur2.Name = "txtSalaryCur2";
+            this.txtSalaryCur2.Size = new System.Drawing.Size(37, 27);
+            this.txtSalaryCur2.TabIndex = 284;
+            // 
+            // cbMale
+            // 
+            this.cbMale.AutoSize = true;
+            this.cbMale.Location = new System.Drawing.Point(806, 35);
+            this.cbMale.Name = "cbMale";
+            this.cbMale.Size = new System.Drawing.Size(65, 24);
+            this.cbMale.TabIndex = 284;
+            this.cbMale.Text = "Male";
+            this.cbMale.UseVisualStyleBackColor = true;
+            // 
+            // cbFemale
+            // 
+            this.cbFemale.AutoSize = true;
+            this.cbFemale.Location = new System.Drawing.Point(880, 35);
+            this.cbFemale.Name = "cbFemale";
+            this.cbFemale.Size = new System.Drawing.Size(83, 24);
+            this.cbFemale.TabIndex = 285;
+            this.cbFemale.Text = "Female";
+            this.cbFemale.UseVisualStyleBackColor = true;
+            // 
+            // cbFemale2
+            // 
+            this.cbFemale2.AutoSize = true;
+            this.cbFemale2.Location = new System.Drawing.Point(857, 35);
+            this.cbFemale2.Name = "cbFemale2";
+            this.cbFemale2.Size = new System.Drawing.Size(83, 24);
+            this.cbFemale2.TabIndex = 287;
+            this.cbFemale2.Text = "Female";
+            this.cbFemale2.UseVisualStyleBackColor = true;
+            // 
+            // cbMale2
+            // 
+            this.cbMale2.AutoSize = true;
+            this.cbMale2.Location = new System.Drawing.Point(783, 35);
+            this.cbMale2.Name = "cbMale2";
+            this.cbMale2.Size = new System.Drawing.Size(65, 24);
+            this.cbMale2.TabIndex = 286;
+            this.cbMale2.Text = "Male";
+            this.cbMale2.UseVisualStyleBackColor = true;
             // 
             // ucJobListAddEdit
             // 
@@ -1686,5 +1760,11 @@
         public System.Windows.Forms.RadioButton rbAll2;
         public System.Windows.Forms.RadioButton rbFemale2;
         public System.Windows.Forms.RadioButton rbMale2;
+        private System.Windows.Forms.TextBox txtSalaryCur;
+        private System.Windows.Forms.TextBox txtSalaryCur2;
+        private System.Windows.Forms.CheckBox cbFemale2;
+        private System.Windows.Forms.CheckBox cbMale2;
+        private System.Windows.Forms.CheckBox cbFemale;
+        private System.Windows.Forms.CheckBox cbMale;
     }
 }
