@@ -41,7 +41,7 @@ namespace Findstaff
         private void btnAdd_Click(object sender, EventArgs e)
         {
             connection.Open();
-            if(txtCurrency.Text != "" || txtSymbol.Text != "")
+            if(txtCurrency.Text != "" || txtSymbol.Text != "" || cbCountry.Text != "")
             {
                 string check = "";
                 cmd = "Select currencyname, symbol from currency_t where Currencyname = '" + txtCurrency.Text + "' or symbol = '" + txtSymbol.Text + "'";
@@ -54,7 +54,16 @@ namespace Findstaff
                 dr.Close();
                 if (check.Equals(""))
                 {
-                    cmd = "Insert into Currency_t(Currencyname, symbol) values ('" + txtCurrency.Text + "','" + txtSymbol.Text + "')";
+                    string countryID = "";
+                    cmd = "select country_id from country_t where countryname = '"+cbCountry.Text+"'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        countryID = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cmd = "Insert into Currency_t(country_id, Currencyname, symbol) values ('"+countryID+"', '" + txtCurrency.Text + "','" + txtSymbol.Text + "')";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
                     MessageBox.Show("Currency Added", "Add Currency", MessageBoxButtons.OKCancel, MessageBoxIcon.None);
@@ -78,6 +87,25 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
+            if(this.Visible == true)
+            {
+                connection.Open();
+                cmd = "select countryname from country_t where (select count(c.country_id) from currency_t cu join country_t c where c.country_id = cu.country_id) = 0";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    cbCountry.Items.Add(dr[0].ToString());
+                    cbCountry2.Items.Add(dr[0].ToString());
+                }
+                dr.Close();
+                connection.Close();
+            }
+            else
+            {
+                cbCountry.Items.Clear();
+                cbCountry2.Items.Clear();
+            }
         }
     }
 }

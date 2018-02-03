@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtSymbol = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancel1 = new System.Windows.Forms.Button();
@@ -37,6 +39,8 @@
             this.txtCurrency = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbCountry2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -46,10 +50,6 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblEditJobCategory = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbCountry = new System.Windows.Forms.ComboBox();
-            this.cbCountry2 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -71,13 +71,38 @@
             this.panel1.Size = new System.Drawing.Size(10, 500);
             this.panel1.TabIndex = 2;
             // 
+            // cbCountry
+            // 
+            this.cbCountry.BackColor = System.Drawing.Color.White;
+            this.cbCountry.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCountry.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCountry.ForeColor = System.Drawing.Color.Black;
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.Location = new System.Drawing.Point(517, 118);
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.Size = new System.Drawing.Size(242, 28);
+            this.cbCountry.TabIndex = 280;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(428, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 20);
+            this.label5.TabIndex = 279;
+            this.label5.Text = "Country:";
+            // 
             // txtSymbol
             // 
             this.txtSymbol.BackColor = System.Drawing.Color.White;
             this.txtSymbol.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSymbol.ForeColor = System.Drawing.Color.Black;
             this.txtSymbol.Location = new System.Drawing.Point(517, 188);
-            this.txtSymbol.MaxLength = 30;
+            this.txtSymbol.MaxLength = 5;
             this.txtSymbol.Name = "txtSymbol";
             this.txtSymbol.Size = new System.Drawing.Size(242, 27);
             this.txtSymbol.TabIndex = 278;
@@ -178,6 +203,31 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 500);
             this.panel2.TabIndex = 3;
+            // 
+            // cbCountry2
+            // 
+            this.cbCountry2.BackColor = System.Drawing.Color.White;
+            this.cbCountry2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCountry2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCountry2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCountry2.ForeColor = System.Drawing.Color.Black;
+            this.cbCountry2.FormattingEnabled = true;
+            this.cbCountry2.Location = new System.Drawing.Point(509, 151);
+            this.cbCountry2.Name = "cbCountry2";
+            this.cbCountry2.Size = new System.Drawing.Size(242, 28);
+            this.cbCountry2.TabIndex = 290;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(420, 154);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.TabIndex = 289;
+            this.label6.Text = "Country:";
             // 
             // textBox2
             // 
@@ -290,56 +340,6 @@
             this.lblEditJobCategory.Size = new System.Drawing.Size(185, 28);
             this.lblEditJobCategory.TabIndex = 280;
             this.lblEditJobCategory.Text = "Edit Currency";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(428, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 20);
-            this.label5.TabIndex = 279;
-            this.label5.Text = "Country:";
-            // 
-            // cbCountry
-            // 
-            this.cbCountry.BackColor = System.Drawing.Color.White;
-            this.cbCountry.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCountry.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCountry.ForeColor = System.Drawing.Color.Black;
-            this.cbCountry.FormattingEnabled = true;
-            this.cbCountry.Location = new System.Drawing.Point(517, 118);
-            this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(242, 28);
-            this.cbCountry.TabIndex = 280;
-            // 
-            // cbCountry2
-            // 
-            this.cbCountry2.BackColor = System.Drawing.Color.White;
-            this.cbCountry2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbCountry2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCountry2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCountry2.ForeColor = System.Drawing.Color.Black;
-            this.cbCountry2.FormattingEnabled = true;
-            this.cbCountry2.Location = new System.Drawing.Point(509, 151);
-            this.cbCountry2.Name = "cbCountry2";
-            this.cbCountry2.Size = new System.Drawing.Size(242, 28);
-            this.cbCountry2.TabIndex = 290;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(420, 154);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
-            this.label6.TabIndex = 289;
-            this.label6.Text = "Country:";
             // 
             // ucCurrencyAddEdit
             // 

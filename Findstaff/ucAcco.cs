@@ -65,7 +65,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            cmd = "select a.app_no, app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', count(p.fee_id)'No. of Fees to be payed' "
+            cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', count(p.fee_id)'No. of Fees to be payed' "
                     + "from app_t app join payables_t p "
                     + "on app.app_id = p.app_id "
                     + "join applications_t a on a.app_no = p.app_no "
@@ -88,7 +88,7 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            string cmd = "select app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', count(p.fee_id)'No. of Fees to be payed' "
+            string cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', count(p.fee_id)'No. of Fees to be payed' "
                     + "from app_t app join payables_t p "
                     + "on app.app_id = p.app_id "
                     + "join applications_t a on a.app_no = p.app_no "

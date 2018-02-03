@@ -143,7 +143,8 @@ namespace Findstaff
                     + "from payables_t p join genfees_t f on p.fee_id = f.fee_id "
                     + "join jobfees_t j on p.fee_id = j.fee_id "
                     + "join applications_t app on app.app_no = p.app_no "
-                    + "where app.appstats = 'Active' and app.app_no = '" + appNo + "'";
+                    + "where app.appstats = 'Active' and app.app_no = '" + appNo + "' "
+                    + "group by f.feename";
                 using (adapter = new MySqlDataAdapter(cmd, connection))
                 {
                     DataSet ds = new DataSet();

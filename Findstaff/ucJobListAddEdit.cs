@@ -30,128 +30,136 @@ namespace Findstaff
         {
             string empID = "", catID = "", jobID = "", gender = "";
             connection.Open();
-            cmd = "select employer_id from employer_t where employername = '" + cbEmployer1.Text + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
+            if(cbEmployer1.Text != "" || cbCategory1.Text != "" || cbJob1.Text != "" || nddEmployees1.Value != 0 || txtSalary1.Text != "" 
+                || cbMonth.Text != "" || cbDay.Text != "" || cbYear.Text != "" || dgvSkills1.Rows.Count != 0 || dgvReqdDocs1.Rows.Count != 0
+                || !(cbMale.Checked == false && cbFemale.Checked == false))
             {
-                empID = dr[0].ToString();
-            }
-            dr.Close();
-            cmd = "select category_id from jobcategory_t where categoryname = '" + cbCategory1.Text + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                catID = dr[0].ToString();
-            }
-            dr.Close();
-            cmd = "select job_id from job_t where jobname = '" + cbJob1.Text + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                jobID = dr[0].ToString();
-            }
-            dr.Close();
-            if(rbMale1.Checked == true)
-            {
-                gender = rbMale1.Text;
-            }
-            else if (rbFemale1.Checked == true)
-            {
-                gender = rbFemale1.Text;
-            }
-            else if (rbAll1.Checked == true)
-            {
-                gender = rbAll1.Text;
-            }
-            cmd = "Select count(*) from joborder_t where  employer_id = '" + empID + "' and category_id = '" + catID + "' and job_id = '" + jobID + "' and monthname(CNTRCTSTART) = '"+cbMonth.Text+"' and day(cntrctstart) = '"+cbDay.Text+"' and year(cntrctstart) = '"+cbYear.Text+"'";
-            com = new MySqlCommand(cmd, connection);
-            int ctr = int.Parse(com.ExecuteScalar() + "");
-            if(ctr == 0)
-            {
-                cmd = "insert into joborder_t (Employer_id, category_id, job_id, reqapp, salary, gender, heightreq, weightreq, cntrctstart, cntrctend, cntrctstat) "
-                + "values ('" + empID + "','" + catID + "','" + jobID + "','" + nddEmployees1.Value + "','" + txtSalary1.Text + "','"+gender+"','" + txtHeight.Text + "','" + txtWeight.Text + "', '" + cbYear.Text + "-" + (cbMonth.SelectedIndex+1).ToString() + "-" + cbDay.Text + "','" + (Convert.ToInt32(cbYear.Text)+5).ToString() + "-" + (cbMonth.SelectedIndex + 1).ToString() + "-" + cbDay.Text + "', 'Active')";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                string cmd2 = "",joID = "", sID = "", reqID = "";
-                cmd = "Select max(jorder_id) from joborder_t";
+                cmd = "select employer_id from employer_t where employername = '" + cbEmployer1.Text + "'";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    joID = dr[0].ToString();
+                    empID = dr[0].ToString();
                 }
                 dr.Close();
-                cmd = "insert into jobskills_t values ";
-                for (int x = 0; x < dgvSkills1.Rows.Count; x++)
+                cmd = "select category_id from jobcategory_t where categoryname = '" + cbCategory1.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
                 {
-                    cmd2 = "select skill_id from genskills_t where skillname = '" + dgvSkills1.Rows[x].Cells[0].Value.ToString() + "'";
-                    com = new MySqlCommand(cmd2, connection);
+                    catID = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "select job_id from job_t where jobname = '" + cbJob1.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    jobID = dr[0].ToString();
+                }
+                dr.Close();
+                if (cbMale.Checked == true)
+                {
+                    gender = cbMale.Text;
+                }
+                else if (cbFemale.Checked == true)
+                {
+                    gender = cbFemale.Text;
+                }
+                else if (cbMale.Checked == true || cbFemale.Checked == true)
+                {
+                    gender = "All";
+                }
+                cmd = "Select count(*) from joborder_t where  employer_id = '" + empID + "' and category_id = '" + catID + "' and job_id = '" + jobID + "' and monthname(CNTRCTSTART) = '" + cbMonth.Text + "' and day(cntrctstart) = '" + cbDay.Text + "' and year(cntrctstart) = '" + cbYear.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                int ctr = int.Parse(com.ExecuteScalar() + "");
+                if (ctr == 0)
+                {
+                    cmd = "insert into joborder_t (Employer_id, category_id, job_id, reqapp, salary, gender, heightreq, weightreq, cntrctstart, cntrctend, cntrctstat) "
+                    + "values ('" + empID + "','" + catID + "','" + jobID + "','" + nddEmployees1.Value + "','" + txtSalary1.Text + "','" + gender + "','" + txtHeight.Text + "','" + txtWeight.Text + "', '" + cbYear.Text + "-" + (cbMonth.SelectedIndex + 1).ToString() + "-" + cbDay.Text + "','" + (Convert.ToInt32(cbYear.Text) + 5).ToString() + "-" + (cbMonth.SelectedIndex + 1).ToString() + "-" + cbDay.Text + "', 'Active')";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    string cmd2 = "", joID = "", sID = "", reqID = "";
+                    cmd = "Select max(jorder_id) from joborder_t";
+                    com = new MySqlCommand(cmd, connection);
                     dr = com.ExecuteReader();
                     while (dr.Read())
                     {
-                        sID = dr[0].ToString();
+                        joID = dr[0].ToString();
                     }
                     dr.Close();
-                    cmd += "('" + joID + "','" + empID + "','" + catID + "','" + jobID + "','" + sID + "','" + dgvSkills1.Rows[x].Cells[1].Value.ToString() + "')";
-                    if (x < dgvSkills1.Rows.Count - 1)
+                    cmd = "insert into jobskills_t values ";
+                    for (int x = 0; x < dgvSkills1.Rows.Count; x++)
                     {
-                        cmd += ",";
+                        cmd2 = "select skill_id from genskills_t where skillname = '" + dgvSkills1.Rows[x].Cells[0].Value.ToString() + "'";
+                        com = new MySqlCommand(cmd2, connection);
+                        dr = com.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            sID = dr[0].ToString();
+                        }
+                        dr.Close();
+                        cmd += "('" + joID + "','" + empID + "','" + catID + "','" + jobID + "','" + sID + "','" + dgvSkills1.Rows[x].Cells[1].Value.ToString() + "')";
+                        if (x < dgvSkills1.Rows.Count - 1)
+                        {
+                            cmd += ",";
+                        }
                     }
-                }
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "insert into jobdocs_t values ";
-                for (int x = 0; x < dgvReqdDocs1.Rows.Count; x++)
-                {
-                    cmd2 = "select req_id from genreqs_t where reqname = '" + dgvReqdDocs1.Rows[x].Cells[0].Value.ToString() + "'";
-                    com = new MySqlCommand(cmd2, connection);
-                    dr = com.ExecuteReader();
-                    while (dr.Read())
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    cmd = "insert into jobdocs_t values ";
+                    for (int x = 0; x < dgvReqdDocs1.Rows.Count; x++)
                     {
-                        reqID = dr[0].ToString();
+                        cmd2 = "select req_id from genreqs_t where reqname = '" + dgvReqdDocs1.Rows[x].Cells[0].Value.ToString() + "'";
+                        com = new MySqlCommand(cmd2, connection);
+                        dr = com.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            reqID = dr[0].ToString();
+                        }
+                        dr.Close();
+                        cmd += "('" + joID + "','" + empID + "','" + catID + "','" + jobID + "','" + reqID + "')";
+                        if (x < dgvReqdDocs1.Rows.Count - 1)
+                        {
+                            cmd += ",";
+                        }
                     }
-                    dr.Close();
-                    cmd += "('" + joID + "','" + empID + "','" + catID + "','" + jobID + "','" + reqID + "')";
-                    if (x < dgvReqdDocs1.Rows.Count - 1)
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Job Added!", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    connection.Close();
+                    cbEmployer1.Items.Clear();
+                    cbCategory1.Items.Clear();
+                    cbJob1.Items.Clear();
+                    cbMonth.SelectedIndex = -1;
+                    cbDay.SelectedIndex = -1;
+                    cbYear.SelectedIndex = -1;
+                    cbMale.Checked = false;
+                    cbFemale.Checked = false;
+                    nddEmployees1.Value = 1;
+                    txtSalary1.Clear();
+                    txtHeight.Clear();
+                    txtWeight.Clear();
+                    for (int x = 0; x < dgvSkills1.Rows.Count; x++)
                     {
-                        cmd += ",";
+                        cbSkillName.Items.Add(dgvSkills1.Rows[x].Cells[0].Value.ToString());
                     }
+                    dgvSkills1.Rows.Clear();
+                    for (int x = 0; x < dgvReqdDocs1.Rows.Count; x++)
+                    {
+                        cbSkillName.Items.Add(dgvReqdDocs1.Rows[x].Cells[0].Value.ToString());
+                    }
+                    dgvReqdDocs1.Rows.Clear();
+                    this.Hide();
                 }
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                MessageBox.Show("Job Added!", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                connection.Close();
-                cbEmployer1.Items.Clear();
-                cbCategory1.Items.Clear();
-                cbJob1.Items.Clear();
-                cbMonth.SelectedIndex = -1;
-                cbDay.SelectedIndex = -1;
-                cbYear.SelectedIndex = -1;
-                rbMale1.Checked = false;
-                rbFemale1.Checked = false;
-                rbAll1.Checked = false;
-                nddEmployees1.Value = 1;
-                txtSalary1.Clear();
-                txtHeight.Clear();
-                txtWeight.Clear();
-                for (int x = 0; x < dgvSkills1.Rows.Count; x++)
+                else
                 {
-                    cbSkillName.Items.Add(dgvSkills1.Rows[x].Cells[0].Value.ToString());
+                    MessageBox.Show("A job record in the list exists.", "Add Job to Listings Error");
                 }
-                dgvSkills1.Rows.Clear();
-                for (int x = 0; x < dgvReqdDocs1.Rows.Count; x++)
-                {
-                    cbSkillName.Items.Add(dgvReqdDocs1.Rows[x].Cells[0].Value.ToString());
-                }
-                dgvReqdDocs1.Rows.Clear();
-                this.Hide();
             }
             else
             {
-                MessageBox.Show("A job record in the list exists.","Add Job to Listings Error");
+                MessageBox.Show("Empty Values Present", "Add Job Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -164,9 +172,8 @@ namespace Findstaff
             cbMonth.SelectedIndex = -1;
             cbDay.SelectedIndex = -1;
             cbYear.SelectedIndex = -1;
-            rbMale1.Checked = false;
-            rbFemale1.Checked = false;
-            rbAll1.Checked = false;
+            cbMale.Checked = false;
+            cbFemale.Checked = false;
             nddEmployees1.Value = 1;
             txtSalary1.Clear();
             txtHeight.Clear();
@@ -361,28 +368,7 @@ namespace Findstaff
                 e.Handled = true;
             }
         }
-
-        private void rbMale1_Click(object sender, EventArgs e)
-        {
-            rbMale1.Checked = true;
-            rbFemale1.Checked = false;
-            rbAll1.Checked = false;
-        }
-
-        private void rbFemale1_Click(object sender, EventArgs e)
-        {
-            rbMale1.Checked = false;
-            rbFemale1.Checked = true;
-            rbAll1.Checked = false;
-        }
-
-        private void rbAll1_Click(object sender, EventArgs e)
-        {
-            rbMale1.Checked = false;
-            rbFemale1.Checked = false;
-            rbAll1.Checked = true;
-        }
-
+        
         private void rbMale2_Click(object sender, EventArgs e)
         {
             rbMale2.Checked = true;
@@ -456,6 +442,29 @@ namespace Findstaff
                     cbDay.Items.Add(x);
                 }
             }
+        }
+
+        private void cbEmployer1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+            cmd = "select country_id from employer_t where employername = '"+cbEmployer1.Text+"'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                cmd = "select symbol from currency_t where country_id = '" + dr[0].ToString() +"'";
+            }
+            dr.Close();
+            string symbol = "";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                symbol = dr[0].ToString();
+            }
+            dr.Close();
+            txtSalaryCur.Text = symbol;
+            connection.Close();
         }
     }
 }
