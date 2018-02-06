@@ -95,7 +95,7 @@ namespace Findstaff
                     + "where app.appstatus = 'Payment' and a.appstats = 'Active' and concat(app.app_id , ' ', app.lname, ', ', app.fname, ' ', app.mname) LIKE '%" + valueToFind + "%' "
                     + "group by p.app_no ";
             com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
+            com.ExecuteNonQuery();  
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection);
             DataTable table = new DataTable();

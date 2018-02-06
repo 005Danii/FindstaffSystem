@@ -84,7 +84,16 @@ namespace Findstaff
                     jobtype = dr[0].ToString();
                 }
                 dr.Close();
-                if(jobtype == "Skilled")
+                int count = 0;
+                cmd = "select count(fee_id) from jobfees_t where jorder_id = '" + jorder + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    count = Convert.ToInt32(dr[0]);
+                }
+                dr.Close();
+                if(count != 0)
                 {
                     for(x = 0; x < ctrJ; x++)
                     {
@@ -92,17 +101,15 @@ namespace Findstaff
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
                     }
+                    MessageBox.Show("All documents passed.\nApplicant can now pay.", "Fulfilled Document Requirements");
                 }
                 else
                 {
-                    for (x = 0; x < ctrJ; x++)
-                    {
-                        cmd = "insert into payables_t (app_no, app_id, fee_id, feestatus) values ('" + appNo + "','" + appID + "','" + feeIDJ[x] + "','Not Required')";
-                        com = new MySqlCommand(cmd, connection);
-                        com.ExecuteNonQuery();
-                    }
+                    cmd = "update app_t set appstatus = 'Deployed' where concat(lname, ',' , fname,' ', mname) = '"+applicant.Text+"'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("All documents passed.\nNo fees tagged in job order.\nApplicant is automatically deployed.", "Fulfilled Document Requirements");
                 }
-                MessageBox.Show("All documents passed.\nApplicant can now pay.","Fulfilled Document Requirements");
                 this.Hide();
             }
             connection.Close();
