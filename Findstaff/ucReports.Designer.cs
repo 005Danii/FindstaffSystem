@@ -36,6 +36,8 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.pnlTabs = new System.Windows.Forms.Panel();
             this.btnCreatePdf = new System.Windows.Forms.Button();
+            this.lbl = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,7 +117,7 @@
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.ForeColor = System.Drawing.Color.Black;
-            this.btnLoad.Location = new System.Drawing.Point(414, 70);
+            this.btnLoad.Location = new System.Drawing.Point(734, 71);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(114, 30);
             this.btnLoad.TabIndex = 308;
@@ -151,12 +153,33 @@
             this.btnCreatePdf.UseVisualStyleBackColor = false;
             this.btnCreatePdf.Click += new System.EventHandler(this.btnCreatePdf_Click);
             // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.BackColor = System.Drawing.Color.Transparent;
+            this.lbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.ForeColor = System.Drawing.Color.Black;
+            this.lbl.Location = new System.Drawing.Point(447, 76);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(48, 20);
+            this.lbl.TabIndex = 312;
+            this.lbl.Text = "Date:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(501, 76);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 311;
+            // 
             // ucReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.lbl);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnCreatePdf);
             this.Controls.Add(this.pnlTabs);
             this.Controls.Add(this.btnLoad);
@@ -179,5 +202,7 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Panel pnlTabs;
         private System.Windows.Forms.Button btnCreatePdf;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

@@ -128,6 +128,7 @@ namespace Findstaff
                     com.ExecuteNonQuery();
                     MessageBox.Show("Job Added!", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     connection.Close();
+
                     cbEmployer1.Items.Clear();
                     cbCategory1.Items.Clear();
                     cbJob1.Items.Clear();

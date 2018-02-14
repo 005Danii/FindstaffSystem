@@ -204,10 +204,32 @@ namespace Findstaff
 
             }
             connection.Close();
+
+            cbPosition.Items.Clear();
+            txtLastName.Clear();
+            txtFirstName.Clear();
+            txtMiddleName.Clear();
+            rbMale.Checked = false;
+            rbFemale.Checked = false;
+            cbCivilStat.Items.Clear();
+            cbMonth.Items.Clear();
+            cbDay.Items.Clear();
+            cbYear.Items.Clear();
         }
 
         private void btnCancel1_Click(object sender, EventArgs e)
         {
+            cbPosition.Items.Clear();
+            txtLastName.Clear();
+            txtFirstName.Clear();
+            txtMiddleName.Clear();
+            rbMale.Checked = false;
+            rbFemale.Checked = false;
+            cbCivilStat.Items.Clear();
+            cbMonth.Items.Clear();
+            cbDay.Items.Clear();
+            cbYear.Items.Clear();
+
             this.Hide();
         }
         #endregion

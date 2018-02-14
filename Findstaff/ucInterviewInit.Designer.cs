@@ -33,6 +33,8 @@
             this.btnViewIntList = new System.Windows.Forms.Button();
             this.dgvInitInt = new System.Windows.Forms.DataGridView();
             this.ucIntListInit = new Findstaff.ucIntListInit();
+            this.lbl = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInitInt)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,14 +81,14 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvInitInt.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvInitInt.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvInitInt.Location = new System.Drawing.Point(25, 25);
+            this.dgvInitInt.Location = new System.Drawing.Point(25, 61);
             this.dgvInitInt.MultiSelect = false;
             this.dgvInitInt.Name = "dgvInitInt";
             this.dgvInitInt.ReadOnly = true;
             this.dgvInitInt.RowHeadersVisible = false;
             this.dgvInitInt.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvInitInt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInitInt.Size = new System.Drawing.Size(1103, 388);
+            this.dgvInitInt.Size = new System.Drawing.Size(1103, 352);
             this.dgvInitInt.TabIndex = 42;
             // 
             // ucIntListInit
@@ -99,11 +101,32 @@
             this.ucIntListInit.TabIndex = 44;
             this.ucIntListInit.Visible = false;
             // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.BackColor = System.Drawing.Color.Transparent;
+            this.lbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.ForeColor = System.Drawing.Color.Black;
+            this.lbl.Location = new System.Drawing.Point(20, 24);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(48, 20);
+            this.lbl.TabIndex = 51;
+            this.lbl.Text = "Date:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(74, 24);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 50;
+            // 
             // ucInterviewInit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.lbl);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.ucIntListInit);
             this.Controls.Add(this.btnViewIntList);
             this.Controls.Add(this.dgvInitInt);
@@ -113,6 +136,7 @@
             this.Load += new System.EventHandler(this.ucInterviewInit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInitInt)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -121,5 +145,7 @@
         private System.Windows.Forms.Button btnViewIntList;
         public System.Windows.Forms.DataGridView dgvInitInt;
         private ucIntListInit ucIntListInit;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
