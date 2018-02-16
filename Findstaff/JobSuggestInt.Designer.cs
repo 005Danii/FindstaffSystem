@@ -35,6 +35,7 @@
             this.cbMonth = new System.Windows.Forms.ComboBox();
             this.lblJob = new System.Windows.Forms.Label();
             this.lblCountry = new System.Windows.Forms.Label();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -141,6 +142,16 @@
             this.lblCountry.TabIndex = 58;
             this.lblCountry.Text = "Date for Initial Interview";
             // 
+            // dtp
+            // 
+            this.dtp.CalendarFont = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp.Location = new System.Drawing.Point(105, 77);
+            this.dtp.MinDate = new System.DateTime(2018, 2, 16, 0, 0, 0, 0);
+            this.dtp.Name = "dtp";
+            this.dtp.Size = new System.Drawing.Size(399, 27);
+            this.dtp.TabIndex = 65;
+            // 
             // JobSuggestInt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,6 +159,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(554, 184);
             this.ControlBox = false;
+            this.Controls.Add(this.dtp);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSchedule);
             this.Controls.Add(this.cbYear);
@@ -174,5 +186,6 @@
         private System.Windows.Forms.ComboBox cbMonth;
         private System.Windows.Forms.Label lblJob;
         private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.DateTimePicker dtp;
     }
 }

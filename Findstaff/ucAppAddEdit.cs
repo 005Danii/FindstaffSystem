@@ -215,6 +215,11 @@ namespace Findstaff
             cbMonth.Items.Clear();
             cbDay.Items.Clear();
             cbYear.Items.Clear();
+            dgvChildren.Rows.Clear();
+            dgvContactPersons.Rows.Clear();
+            dgvEducBack.Rows.Clear();
+            dgvEmpHistory.Rows.Clear();
+            dgvSkills.Rows.Clear();
         }
 
         private void btnCancel1_Click(object sender, EventArgs e)
@@ -229,7 +234,11 @@ namespace Findstaff
             cbMonth.Items.Clear();
             cbDay.Items.Clear();
             cbYear.Items.Clear();
-
+            dgvChildren.Rows.Clear();
+            dgvContactPersons.Rows.Clear();
+            dgvEducBack.Rows.Clear();
+            dgvEmpHistory.Rows.Clear();
+            dgvSkills.Rows.Clear();
             this.Hide();
         }
         #endregion

@@ -119,6 +119,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 50;
+            this.dateTimePicker1.Value = new System.DateTime(2018, 2, 16, 15, 31, 52, 0);
             // 
             // ucInterviewInit
             // 

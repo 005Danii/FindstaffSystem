@@ -99,6 +99,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
+            dateTimePicker1.MinDate = DateTime.Now;
         }
     }
 }

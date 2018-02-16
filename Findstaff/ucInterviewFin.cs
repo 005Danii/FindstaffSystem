@@ -95,5 +95,12 @@ namespace Findstaff
                 }
             }
         }
+
+        private void ucInterviewFin_Load(object sender, EventArgs e)
+        {
+            Connection con = new Connection();
+            connection = con.dbConnection();
+            dateTimePicker1.MinDate = DateTime.Now;
+        }
     }
 }
