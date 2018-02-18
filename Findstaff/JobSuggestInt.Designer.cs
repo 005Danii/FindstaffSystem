@@ -76,7 +76,7 @@
             this.cbYear.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbYear.ForeColor = System.Drawing.Color.Black;
             this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(394, 77);
+            this.cbYear.Location = new System.Drawing.Point(394, 76);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(110, 28);
             this.cbYear.TabIndex = 62;
@@ -88,7 +88,7 @@
             this.cbDay.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDay.ForeColor = System.Drawing.Color.Black;
             this.cbDay.FormattingEnabled = true;
-            this.cbDay.Location = new System.Drawing.Point(311, 76);
+            this.cbDay.Location = new System.Drawing.Point(311, 75);
             this.cbDay.Name = "cbDay";
             this.cbDay.Size = new System.Drawing.Size(77, 28);
             this.cbDay.TabIndex = 61;
@@ -113,7 +113,7 @@
             "October",
             "November",
             "December"});
-            this.cbMonth.Location = new System.Drawing.Point(105, 76);
+            this.cbMonth.Location = new System.Drawing.Point(105, 75);
             this.cbMonth.Name = "cbMonth";
             this.cbMonth.Size = new System.Drawing.Size(200, 28);
             this.cbMonth.TabIndex = 60;
@@ -125,7 +125,7 @@
             this.lblJob.BackColor = System.Drawing.Color.Transparent;
             this.lblJob.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJob.ForeColor = System.Drawing.Color.Black;
-            this.lblJob.Location = new System.Drawing.Point(51, 80);
+            this.lblJob.Location = new System.Drawing.Point(51, 79);
             this.lblJob.Name = "lblJob";
             this.lblJob.Size = new System.Drawing.Size(48, 20);
             this.lblJob.TabIndex = 59;
@@ -136,7 +136,7 @@
             this.lblCountry.AutoSize = true;
             this.lblCountry.Font = new System.Drawing.Font("Century", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCountry.ForeColor = System.Drawing.Color.Black;
-            this.lblCountry.Location = new System.Drawing.Point(108, 18);
+            this.lblCountry.Location = new System.Drawing.Point(111, 18);
             this.lblCountry.Name = "lblCountry";
             this.lblCountry.Size = new System.Drawing.Size(323, 28);
             this.lblCountry.TabIndex = 58;
@@ -146,7 +146,7 @@
             // 
             this.dtp.CalendarFont = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp.Location = new System.Drawing.Point(105, 77);
+            this.dtp.Location = new System.Drawing.Point(105, 76);
             this.dtp.MinDate = new System.DateTime(2018, 2, 16, 0, 0, 0, 0);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(399, 27);
