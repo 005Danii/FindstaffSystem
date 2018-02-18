@@ -340,6 +340,8 @@ namespace Findstaff
             {
                 cbPosition.Items.Clear();
                 cbSkills.Items.Clear();
+                cbPosition2.Items.Clear();
+                cbSkills2.Items.Clear();
             }
         }
 

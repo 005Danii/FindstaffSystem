@@ -144,7 +144,7 @@ namespace Findstaff
             if (appNo != "")
             {
                 cmd = "insert into applications_t (app_no, app_id, jorder_id, employer_id, category_id, job_id, initinterviewdate, appstats, appstatus) "
-                    + "values ('" + appNo + "','" + apps + "','" + jorder + "','" + empId + "','" + jobcateg + "','" + jobId + "','" + dtp.Value.Date.Year + "-" + dtp.Value.Date.Month + "-" + dtp.Value.Date.Day + "','Active','Recruitment')";
+                    + "values ('" + appNo + "','" + apps + "','" + jorder + "','" + empId + "','" + jobcateg + "','" + jobId + "','" + dtp.Value.ToString("yyyy-MM-dd") + "','Active','Recruitment')";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
             }

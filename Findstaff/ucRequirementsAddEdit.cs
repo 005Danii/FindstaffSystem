@@ -43,6 +43,7 @@ namespace Findstaff
                         MessageBox.Show("Requirement Record Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtRequirement.Clear();
                         cbDesignation.SelectedIndex = -1;
+                        rtbDesc1.Clear();
                         this.Hide();
                     }
                     else
@@ -65,6 +66,7 @@ namespace Findstaff
         private void btnCancel1_Click(object sender, EventArgs e)
         {
             txtRequirement.Clear();
+            rtbDesc1.Clear();
             cbDesignation.SelectedIndex = -1;
             this.Hide();
         }
@@ -90,6 +92,7 @@ namespace Findstaff
                     MessageBox.Show("Changes Saved!", "Updated Requirement Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtRequirementID.Clear();
                     txtRequirement2.Clear();
+                    rtbDesc2.Clear();
                     cbDesignation1.SelectedIndex = -1;
                     this.Hide();
                 }
@@ -100,6 +103,7 @@ namespace Findstaff
         private void btnCancel2_Click(object sender, EventArgs e)
         {
             txtRequirement.Clear();
+            rtbDesc2.Clear();
             this.Hide();
         }
 

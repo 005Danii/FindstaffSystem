@@ -93,6 +93,8 @@ namespace Findstaff
 
         private void btnCancel1_Click(object sender, EventArgs e)
         {
+            txtCountryName1.Clear();
+            cbReq.Items.Clear();
             this.Hide();
         }
 
@@ -104,6 +106,9 @@ namespace Findstaff
 
         private void btnCancel2_Click(object sender, EventArgs e)
         {
+            txtCountryID2.Clear();
+            cbReq2.Items.Clear();
+            dgvReq2.Rows.Clear();
             this.Hide();
         }
         
