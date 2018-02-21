@@ -42,12 +42,18 @@
             this.lblEditSkills = new System.Windows.Forms.Label();
             this.txtSkillName2 = new System.Windows.Forms.TextBox();
             this.lblSkillName = new System.Windows.Forms.Label();
+            this.cbSkillType = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbSkillType2 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbSkillType);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btnCancel1);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.lblAddSkills);
@@ -56,7 +62,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 500);
+            this.panel1.Size = new System.Drawing.Size(34, 500);
             this.panel1.TabIndex = 1;
             // 
             // btnCancel1
@@ -110,7 +116,7 @@
             this.txtSkillName1.Location = new System.Drawing.Point(510, 152);
             this.txtSkillName1.MaxLength = 30;
             this.txtSkillName1.Name = "txtSkillName1";
-            this.txtSkillName1.Size = new System.Drawing.Size(200, 27);
+            this.txtSkillName1.Size = new System.Drawing.Size(216, 27);
             this.txtSkillName1.TabIndex = 268;
             // 
             // label8
@@ -127,6 +133,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cbSkillType2);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnCancel2);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.txtSkillID);
@@ -181,7 +189,7 @@
             this.txtSkillID.Location = new System.Drawing.Point(508, 152);
             this.txtSkillID.MaxLength = 30;
             this.txtSkillID.Name = "txtSkillID";
-            this.txtSkillID.Size = new System.Drawing.Size(200, 27);
+            this.txtSkillID.Size = new System.Drawing.Size(216, 27);
             this.txtSkillID.TabIndex = 276;
             // 
             // lblSkillId
@@ -215,7 +223,7 @@
             this.txtSkillName2.Location = new System.Drawing.Point(508, 184);
             this.txtSkillName2.MaxLength = 30;
             this.txtSkillName2.Name = "txtSkillName2";
-            this.txtSkillName2.Size = new System.Drawing.Size(200, 27);
+            this.txtSkillName2.Size = new System.Drawing.Size(216, 27);
             this.txtSkillName2.TabIndex = 272;
             // 
             // lblSkillName
@@ -229,6 +237,56 @@
             this.lblSkillName.Size = new System.Drawing.Size(95, 20);
             this.lblSkillName.TabIndex = 271;
             this.lblSkillName.Text = "Skill Name:";
+            // 
+            // cbSkillType
+            // 
+            this.cbSkillType.BackColor = System.Drawing.Color.White;
+            this.cbSkillType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSkillType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSkillType.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSkillType.ForeColor = System.Drawing.Color.Black;
+            this.cbSkillType.FormattingEnabled = true;
+            this.cbSkillType.Location = new System.Drawing.Point(510, 183);
+            this.cbSkillType.Name = "cbSkillType";
+            this.cbSkillType.Size = new System.Drawing.Size(216, 28);
+            this.cbSkillType.TabIndex = 280;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(416, 187);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 20);
+            this.label5.TabIndex = 279;
+            this.label5.Text = "Skill Type:";
+            // 
+            // cbSkillType2
+            // 
+            this.cbSkillType2.BackColor = System.Drawing.Color.White;
+            this.cbSkillType2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSkillType2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSkillType2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSkillType2.ForeColor = System.Drawing.Color.Black;
+            this.cbSkillType2.FormattingEnabled = true;
+            this.cbSkillType2.Location = new System.Drawing.Point(508, 217);
+            this.cbSkillType2.Name = "cbSkillType2";
+            this.cbSkillType2.Size = new System.Drawing.Size(216, 28);
+            this.cbSkillType2.TabIndex = 282;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(414, 221);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.TabIndex = 281;
+            this.label1.Text = "Skill Type:";
             // 
             // ucSkillsAddEdit
             // 
@@ -263,5 +321,9 @@
         private System.Windows.Forms.Button btnCancel2;
         public System.Windows.Forms.TextBox txtSkillID;
         public System.Windows.Forms.TextBox txtSkillName2;
+        public System.Windows.Forms.ComboBox cbSkillType;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox cbSkillType2;
+        private System.Windows.Forms.Label label1;
     }
 }
