@@ -58,9 +58,6 @@ namespace Findstaff
             }
             if(ctr == 0)
             {
-                cmd = "update app_t set appstatus = 'Payment' where app_id = '"+appID+"'";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
                 cmd = "select count(fee_id) from jobfees_t where jorder_id = '" + jorder + "'";
                 com = new MySqlCommand(cmd, connection);
                 int ctrJ = int.Parse(com.ExecuteScalar() + "");
@@ -95,7 +92,10 @@ namespace Findstaff
                 dr.Close();
                 if(count != 0)
                 {
-                    for(x = 0; x < ctrJ; x++)
+                    cmd = "update app_t set appstatus = 'Payment' where app_id = '" + appID + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    for (x = 0; x < ctrJ; x++)
                     {
                         cmd = "insert into payables_t (app_no, app_id, fee_id, feestatus) values ('" + appNo+"','"+appID+"','"+feeIDJ[x]+"','Balance')";
                         com = new MySqlCommand(cmd, connection);
@@ -105,6 +105,9 @@ namespace Findstaff
                 }
                 else
                 {
+                    cmd = "update app_t set appstatus = 'Deployed' where app_id = '" + appID + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
                     cmd = "update app_t set appstatus = 'Deployed' where concat(lname, ',' , fname,' ', mname) = '"+applicant.Text+"'";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();

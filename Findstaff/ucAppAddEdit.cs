@@ -87,8 +87,8 @@ namespace Findstaff
                 {
                     gender = rbFemale.Text;
                 }
-                cmd = "Insert into app_t (app_id, lname, fname, mname, position, gender, civilstat, contact, citizenship, birthdate, aheight, aweight, appstatus)"
-                    + "values ('" + cID + "','" + txtLastName.Text + "','" + txtFirstName.Text + "','" + txtMiddleName.Text + "','"+cbPosition.Text+"','" + gender + "','" + cbCivilStat.Text + "','" + txtPhoneNumber.Text + "','Filipino','" + bdate + "','" + txtHeight.Text + "','" + txtWeight.Text + "','For Selection');";
+                cmd = "Insert into app_t (app_id, lname, fname, mname, position, gender, civilstat, contact, citizenship, birthdate, aheight, aweight, appstatus, dateadded)"
+                    + "values ('" + cID + "','" + txtLastName.Text + "','" + txtFirstName.Text + "','" + txtMiddleName.Text + "','"+cbPosition.Text+"','" + gender + "','" + cbCivilStat.Text + "','" + txtPhoneNumber.Text + "','Filipino','" + bdate + "','" + txtHeight.Text + "','" + txtWeight.Text + "','For Selection', current_date());";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
 

@@ -463,6 +463,7 @@ namespace Findstaff
                 {
                     job[0] = dr[0].ToString();
                 }
+                dr.Close();
                 job[1] = dgvJobSuggest.SelectedRows[0].Cells[0].Value.ToString();
                 cmd = "select job_id from job_t where jobname = '"+ dgvJobSuggest.SelectedRows[0].Cells[1].Value.ToString() + "'";
                 com = new MySqlCommand(cmd, connection);

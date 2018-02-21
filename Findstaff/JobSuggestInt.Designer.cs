@@ -146,7 +146,7 @@
             // 
             this.dtp.CalendarFont = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp.Location = new System.Drawing.Point(105, 76);
+            this.dtp.Location = new System.Drawing.Point(105, 77);
             this.dtp.MinDate = new System.DateTime(2018, 2, 16, 0, 0, 0, 0);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(399, 27);

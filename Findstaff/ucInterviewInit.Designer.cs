@@ -126,11 +126,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.Controls.Add(this.lbl);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.ucIntListInit);
             this.Controls.Add(this.btnViewIntList);
             this.Controls.Add(this.dgvInitInt);
+            this.Controls.Add(this.lbl);
+            this.Controls.Add(this.dateTimePicker1);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ucInterviewInit";
             this.Size = new System.Drawing.Size(1155, 500);
