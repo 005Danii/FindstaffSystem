@@ -165,7 +165,7 @@ namespace Findstaff
         private void btnFailInt_Click(object sender, EventArgs e)
         {
             connection.Open();
-            cmd = "update applications_t set finalinterviewstatus = 'Passed' where app_no = '" + dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            cmd = "update applications_t set finalinterviewstatus = 'Failed' where app_no = '" + dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
             cmd = "update app_t set appstatus = 'Archived' where Concat(lname, ', ', fname, ' ', mname) = '" + dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString() + "'";

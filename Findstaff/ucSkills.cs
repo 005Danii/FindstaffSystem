@@ -63,7 +63,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string com = "Select skill_id 'Skill ID', skillname 'Skill Name' from Genskills_t";
+            string com = "Select skill_id 'Skill ID', skillname 'Skill Name', Skilltype'Skill Type' from Genskills_t";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))
@@ -81,7 +81,7 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            string cmd = "Select skill_id 'Skill ID', skillname 'Skill Name' from Genskills_t WHERE concat(skill_id, skillname) LIKE '%" + valueToFind + "%'";
+            string cmd = "Select skill_id 'Skill ID', skillname 'Skill Name', Skilltype'Skill Type' from Genskills_t WHERE concat(skill_id, skillname, skilltype) LIKE '%" + valueToFind + "%'";
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
 
@@ -105,7 +105,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string com = "Select skill_id 'Skill ID', skillname 'Skill Name' from Genskills_t";
+            string com = "Select skill_id 'Skill ID', skillname 'Skill Name', Skilltype'Skill Type' from Genskills_t";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))

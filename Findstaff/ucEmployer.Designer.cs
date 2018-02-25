@@ -39,6 +39,7 @@
             this.btnEmpEdit = new System.Windows.Forms.Button();
             this.btnEmpAdd = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
+            this.ucEmployerTermination1 = new Findstaff.ucEmployerTermination();
             this.ucEmployerView = new Findstaff.ucEmployerView();
             this.ucEmployerAddEdit = new Findstaff.ucEmployerAddEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployer)).BeginInit();
@@ -194,6 +195,15 @@
             this.btnView.UseVisualStyleBackColor = false;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
+            // ucEmployerTermination1
+            // 
+            this.ucEmployerTermination1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucEmployerTermination1.Location = new System.Drawing.Point(13, 0);
+            this.ucEmployerTermination1.Name = "ucEmployerTermination1";
+            this.ucEmployerTermination1.Size = new System.Drawing.Size(10, 10);
+            this.ucEmployerTermination1.TabIndex = 53;
+            this.ucEmployerTermination1.VisibleChanged += new System.EventHandler(this.ucEmployerTermination1_VisibleChanged);
+            // 
             // ucEmployerView
             // 
             this.ucEmployerView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -218,6 +228,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.ucEmployerTermination1);
             this.Controls.Add(this.ucEmployerView);
             this.Controls.Add(this.ucEmployerAddEdit);
             this.Controls.Add(this.btnEmpDel);
@@ -249,5 +260,6 @@
         private ucEmployerAddEdit ucEmployerAddEdit;
         private System.Windows.Forms.Button btnView;
         private ucEmployerView ucEmployerView;
+        private ucEmployerTermination ucEmployerTermination1;
     }
 }

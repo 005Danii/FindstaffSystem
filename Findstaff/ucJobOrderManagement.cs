@@ -37,7 +37,7 @@ namespace Findstaff
             ucJobList.Visible = false;
             ucJobFees.Visible = false;
 
-            cmd = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.fname, ' ', e.lname)'Foreign Principal', c.countryname'Country' "
+            cmd = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.lname, ', ', e.fname, ' ', e.mname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
                 + "on e.country_id = c.country_id;";
             using (connection)

@@ -116,16 +116,16 @@ namespace Findstaff
             ucBanks.Visible = false;
             Connection con = new Connection();
             connection = con.dbConnection();
-            cmd = "Select c.countryname'Country', currencyname'Currency', Symbol from country_t c join currency_t cu on c.country_id = cu.country_id";
-            using (connection)
-            {
-                using (adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    ucCurrency.dgvCurrency.DataSource = ds.Tables[0];
-                }
-            }
+            //cmd = "Select c.countryname'Country', currencyname'Currency', Symbol from country_t c join currency_t cu on c.country_id = cu.country_id";
+            //using (connection)
+            //{
+            //    using (adapter = new MySqlDataAdapter(cmd, connection))
+            //    {
+            //        DataSet ds = new DataSet();
+            //        adapter.Fill(ds);
+            //        ucCurrency.dgvCurrency.DataSource = ds.Tables[0];
+            //    }
+            //}
         }
 
         private void rbAcceptedBanks_CheckedChanged(object sender, EventArgs e)
