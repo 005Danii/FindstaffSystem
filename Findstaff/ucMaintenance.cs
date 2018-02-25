@@ -25,7 +25,7 @@ namespace Findstaff
             //ucApplicant.Dock = DockStyle.Fill;
             ucCountry.Dock = DockStyle.Fill;
             ucGenReqs.Dock = DockStyle.Fill;
-            ucCurrency.Dock = DockStyle.Fill;
+            //ucCurrency.Dock = DockStyle.Fill;
             ucAcceptedBanks.Dock = DockStyle.Fill;
             ucBanks.Dock = DockStyle.Fill;
         }
@@ -77,7 +77,7 @@ namespace Findstaff
             //ucApplicant.Visible = false;
             ucCountry.Visible = true;
             ucGenReqs.Visible = false;
-            ucCurrency.Visible = false;
+            //ucCurrency.Visible = false;
             ucAcceptedBanks.Visible = false;
             ucBanks.Visible = false;
 
@@ -102,37 +102,37 @@ namespace Findstaff
             //ucApplicant.Visible = false;
             ucCountry.Visible = false;
             ucGenReqs.Visible = true;
-            ucCurrency.Visible = false;
+            //ucCurrency.Visible = false;
             ucAcceptedBanks.Visible = false;
             ucBanks.Visible = false;
         }
 
-        private void rbCurrency_CheckedChanged(object sender, EventArgs e)
-        {
-            ucCountry.Visible = false;
-            ucGenReqs.Visible = false;
-            ucCurrency.Visible = true;
-            ucAcceptedBanks.Visible = false;
-            ucBanks.Visible = false;
-            Connection con = new Connection();
-            connection = con.dbConnection();
-            cmd = "Select c.countryname'Country', currencyname'Currency', Symbol from country_t c join currency_t cu on c.country_id = cu.country_id";
-            using (connection)
-            {
-                using (adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    ucCurrency.dgvCurrency.DataSource = ds.Tables[0];
-                }
-            }
-        }
+        //private void rbCurrency_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    ucCountry.Visible = false;
+        //    ucGenReqs.Visible = false;
+        //    ucCurrency.Visible = true;
+        //    ucAcceptedBanks.Visible = false;
+        //    ucBanks.Visible = false;
+        //    Connection con = new Connection();
+        //    connection = con.dbConnection();
+        //    cmd = "Select c.countryname'Country', currencyname'Currency', Symbol from country_t c join currency_t cu on c.country_id = cu.country_id";
+        //    using (connection)
+        //    {
+        //        using (adapter = new MySqlDataAdapter(cmd, connection))
+        //        {
+        //            DataSet ds = new DataSet();
+        //            adapter.Fill(ds);
+        //            ucCurrency.dgvCurrency.DataSource = ds.Tables[0];
+        //        }
+        //    }
+        //}
 
         private void rbAcceptedBanks_CheckedChanged(object sender, EventArgs e)
         {
             ucCountry.Visible = false;
             ucGenReqs.Visible = false;
-            ucCurrency.Visible = false;
+            //ucCurrency.Visible = false;
             ucAcceptedBanks.Visible = true;
             ucBanks.Visible = false;
             Connection con = new Connection();
@@ -153,7 +153,7 @@ namespace Findstaff
         {
             ucCountry.Visible = false;
             ucGenReqs.Visible = false;
-            ucCurrency.Visible = false;
+            //ucCurrency.Visible = false;
             ucAcceptedBanks.Visible = false;
             ucBanks.Visible = true;
             Connection con = new Connection();

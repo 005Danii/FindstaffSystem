@@ -27,7 +27,7 @@ namespace Findstaff
         {
             connection.Open();
             int ctr = 0;
-            if(txtSkillName1.Text != "" && cbSkillType.SelectedIndex != 0)
+            if(txtSkillName1.Text != "" || cbSkillType.SelectedIndex != 0)
             {
                 string check = "Select Count(Skillname) from Genskills_t where Skillname = '" + txtSkillName1.Text + "'";
                 com = new MySqlCommand(check, connection);

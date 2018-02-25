@@ -48,7 +48,7 @@ namespace Findstaff
                 }
                 dr.Close();
                 int rowcount = dgvFees1.Rows.Count;
-                cmd = "insert into jobfees_t (jorder_id, employer_id, fee_id, amount, jftype) values ";
+                cmd = "insert into jobfees_t (jorder_id, employer_id, fee_id, amount) values ";
                 for(int x = 0; x < rowcount; x++)
                 {
                     cmd2 = "select fee_id from genfees_t where feename = '" + dgvFees1.Rows[x].Cells[0].Value.ToString() + "';";
@@ -56,7 +56,7 @@ namespace Findstaff
                     dr = com.ExecuteReader();
                     while (dr.Read())
                     {
-                        cmd += "('"+jorderID+"','"+empID+"','" + dr[0].ToString() + "','"+dgvFees1.Rows[x].Cells[1].Value.ToString()+"', '"+ dgvFees1.Rows[x].Cells[2].Value.ToString() + "')";
+                        cmd += "('"+jorderID+"','"+empID+"','" + dr[0].ToString() + "','"+dgvFees1.Rows[x].Cells[1].Value.ToString()+"'  )";
                     }
                     dr.Close();
                     if(x < rowcount - 1)
@@ -72,10 +72,21 @@ namespace Findstaff
                 this.Hide();
             }
             connection.Close();
+
+            cbEmployer1.Items.Clear();
+            cbJobName1.Items.Clear();
+            cbFees1.Items.Clear();
+            txtAmount1.Clear();
+            dgvFees1.Rows.Clear();
         }
 
         private void btnCancel1_Click(object sender, EventArgs e)
         {
+            cbEmployer1.Items.Clear();
+            cbJobName1.Items.Clear();
+            cbFees1.Items.Clear();
+            txtAmount1.Clear();
+            dgvFees1.Rows.Clear();
             this.Hide();
         }
 
