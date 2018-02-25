@@ -113,7 +113,7 @@
             this.rbRequirements.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbRequirements.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbRequirements.ForeColor = System.Drawing.Color.White;
-            this.rbRequirements.Location = new System.Drawing.Point(658, 10);
+            this.rbRequirements.Location = new System.Drawing.Point(630, 10);
             this.rbRequirements.Name = "rbRequirements";
             this.rbRequirements.Size = new System.Drawing.Size(251, 40);
             this.rbRequirements.TabIndex = 4;
@@ -136,9 +136,9 @@
             this.rbSkills.ForeColor = System.Drawing.Color.White;
             this.rbSkills.Location = new System.Drawing.Point(504, 10);
             this.rbSkills.Name = "rbSkills";
-            this.rbSkills.Size = new System.Drawing.Size(148, 40);
+            this.rbSkills.Size = new System.Drawing.Size(120, 40);
             this.rbSkills.TabIndex = 3;
-            this.rbSkills.Text = "General Skills";
+            this.rbSkills.Text = "Skills";
             this.rbSkills.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbSkills.UseVisualStyleBackColor = false;
             this.rbSkills.CheckedChanged += new System.EventHandler(this.rbSkills_CheckedChanged);

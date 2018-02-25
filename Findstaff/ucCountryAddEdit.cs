@@ -89,6 +89,11 @@ namespace Findstaff
                 MessageBox.Show("Empty Field/s Empty", "Add Country Error");
             }
             connection.Close();
+
+            txtCountryName1.Clear();
+            txtCurrency1.Clear();
+            txtSymbol1.Clear();
+            cbReq.Items.Clear();
         }
 
         private void btnCancel1_Click(object sender, EventArgs e)
