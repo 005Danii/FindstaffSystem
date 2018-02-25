@@ -28,7 +28,7 @@ namespace Findstaff
         private void btnAddCountry_Click(object sender, EventArgs e)
         {
             connection.Open();
-            if(txtCountryName1.Text != "")
+            if(txtCountryName1.Text != "" && txtCurrency1.Text != "" && txtSymbol1.Text != "")
             {
                 int ctr = 0;
                 string cID = "", cmd2 = "";
@@ -39,7 +39,7 @@ namespace Findstaff
                     ctr = int.Parse(com.ExecuteScalar() + "");
                     if (ctr == 0)
                     {
-                        cmd = "Insert into Country_t (countryname) values ('" + txtCountryName1.Text + "')";
+                        cmd = "Insert into Country_t (countryname, currencyname, symbol) values ('" + txtCountryName1.Text + "', '"+txtCurrency1.Text+"', '"+txtSymbol1.Text+"')";
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
                         cmd = "Select country_id from country_t where countryname = '"+txtCountryName1.Text+"'";
@@ -86,7 +86,7 @@ namespace Findstaff
             }
             else
             {
-                MessageBox.Show("Country Text Field Empty", "Add Country Error");
+                MessageBox.Show("Empty Field/s Empty", "Add Country Error");
             }
             connection.Close();
         }
@@ -94,13 +94,25 @@ namespace Findstaff
         private void btnCancel1_Click(object sender, EventArgs e)
         {
             txtCountryName1.Clear();
+            txtCurrency1.Clear();
+            txtSymbol1.Clear();
             cbReq.Items.Clear();
             this.Hide();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Saved!", "Saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            connection.Open();
+            DialogResult r = MessageBox.Show("Do you want to update the with the ff changes?\n New Country Name: "+txtCountryName2.Text+" \nNew Currency: " 
+                + txtCurrency2.Text + "\nNew Currency Symbol: " + txtSymbol2.Text, "Update Country Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            if(r == DialogResult.Yes)
+            {
+                cmd = "update country_t set countryname = '"+txtCountryName2.Text+"', currency = '"+txtCurrency2.Text+"', symbol = '"+txtSymbol2.Text+"' where country_id = '"+txtCountryID2.Text+"'";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                MessageBox.Show("Updated Country!", "Saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            connection.Close();
             this.Hide();
         }
 

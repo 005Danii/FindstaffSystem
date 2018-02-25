@@ -30,10 +30,10 @@ namespace Findstaff
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblAddCountry = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,6 +72,14 @@ namespace Findstaff
             this.label7 = new System.Windows.Forms.Label();
             this.txtCountryName1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtSymbol1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCurrency1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtSymbol2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCurrency2 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEduc)).BeginInit();
             this.pnlButtons1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -239,6 +247,10 @@ namespace Findstaff
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtSymbol2);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.txtCurrency2);
+            this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.btnCancel2);
             this.panel2.Controls.Add(this.btnSave2);
@@ -313,7 +325,7 @@ namespace Findstaff
             this.txtCountryID2.Enabled = false;
             this.txtCountryID2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountryID2.ForeColor = System.Drawing.Color.Black;
-            this.txtCountryID2.Location = new System.Drawing.Point(151, 76);
+            this.txtCountryID2.Location = new System.Drawing.Point(203, 76);
             this.txtCountryID2.MaxLength = 30;
             this.txtCountryID2.Name = "txtCountryID2";
             this.txtCountryID2.Size = new System.Drawing.Size(150, 27);
@@ -325,7 +337,7 @@ namespace Findstaff
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(50, 79);
+            this.label5.Location = new System.Drawing.Point(102, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 20);
             this.label5.TabIndex = 271;
@@ -340,28 +352,28 @@ namespace Findstaff
             this.dgvReq2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReq2.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvReq2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReq2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReq2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvReq2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReq2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
             this.Column4});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReq2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century", 12F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReq2.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvReq2.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvReq2.Location = new System.Drawing.Point(100, 181);
+            this.dgvReq2.Location = new System.Drawing.Point(100, 216);
             this.dgvReq2.MultiSelect = false;
             this.dgvReq2.Name = "dgvReq2";
             this.dgvReq2.ReadOnly = true;
@@ -389,7 +401,7 @@ namespace Findstaff
             this.btnAddRequire2.FlatAppearance.BorderSize = 0;
             this.btnAddRequire2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRequire2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddRequire2.Location = new System.Drawing.Point(449, 127);
+            this.btnAddRequire2.Location = new System.Drawing.Point(499, 175);
             this.btnAddRequire2.Name = "btnAddRequire2";
             this.btnAddRequire2.Size = new System.Drawing.Size(100, 30);
             this.btnAddRequire2.TabIndex = 275;
@@ -403,7 +415,7 @@ namespace Findstaff
             this.btnRemoveRequire2.FlatAppearance.BorderSize = 0;
             this.btnRemoveRequire2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveRequire2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveRequire2.Location = new System.Drawing.Point(918, 367);
+            this.btnRemoveRequire2.Location = new System.Drawing.Point(918, 402);
             this.btnRemoveRequire2.Name = "btnRemoveRequire2";
             this.btnRemoveRequire2.Size = new System.Drawing.Size(100, 30);
             this.btnRemoveRequire2.TabIndex = 276;
@@ -416,7 +428,7 @@ namespace Findstaff
             this.cbReq2.BackColor = System.Drawing.Color.White;
             this.cbReq2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbReq2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbReq2.Location = new System.Drawing.Point(213, 130);
+            this.cbReq2.Location = new System.Drawing.Point(263, 177);
             this.cbReq2.Name = "cbReq2";
             this.cbReq2.Size = new System.Drawing.Size(230, 28);
             this.cbReq2.TabIndex = 277;
@@ -426,7 +438,7 @@ namespace Findstaff
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(50, 138);
+            this.label1.Location = new System.Drawing.Point(100, 182);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 20);
             this.label1.TabIndex = 264;
@@ -438,7 +450,7 @@ namespace Findstaff
             this.txtCountryName2.Enabled = false;
             this.txtCountryName2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountryName2.ForeColor = System.Drawing.Color.Black;
-            this.txtCountryName2.Location = new System.Drawing.Point(468, 76);
+            this.txtCountryName2.Location = new System.Drawing.Point(520, 76);
             this.txtCountryName2.MaxLength = 30;
             this.txtCountryName2.Name = "txtCountryName2";
             this.txtCountryName2.Size = new System.Drawing.Size(197, 27);
@@ -450,7 +462,7 @@ namespace Findstaff
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(340, 79);
+            this.label3.Location = new System.Drawing.Point(392, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 20);
             this.label3.TabIndex = 106;
@@ -458,6 +470,10 @@ namespace Findstaff
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtSymbol1);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.txtCurrency1);
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.btnCancel1);
             this.panel1.Controls.Add(this.btnAddCountry);
@@ -471,7 +487,7 @@ namespace Findstaff
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 500);
+            this.panel1.Size = new System.Drawing.Size(109, 500);
             this.panel1.TabIndex = 2;
             // 
             // label6
@@ -497,7 +513,7 @@ namespace Findstaff
             this.btnCancel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel1.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel1.Location = new System.Drawing.Point(581, 408);
+            this.btnCancel1.Location = new System.Drawing.Point(581, 424);
             this.btnCancel1.Name = "btnCancel1";
             this.btnCancel1.Size = new System.Drawing.Size(110, 38);
             this.btnCancel1.TabIndex = 271;
@@ -516,7 +532,7 @@ namespace Findstaff
             this.btnAddCountry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCountry.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCountry.ForeColor = System.Drawing.Color.Black;
-            this.btnAddCountry.Location = new System.Drawing.Point(455, 408);
+            this.btnAddCountry.Location = new System.Drawing.Point(455, 424);
             this.btnAddCountry.Name = "btnAddCountry";
             this.btnAddCountry.Size = new System.Drawing.Size(110, 38);
             this.btnAddCountry.TabIndex = 270;
@@ -533,27 +549,27 @@ namespace Findstaff
             this.dgvCountry.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCountry.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvCountry.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCountry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCountry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCountry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCountry.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCountry.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century", 12F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCountry.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCountry.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvCountry.Location = new System.Drawing.Point(114, 181);
+            this.dgvCountry.Location = new System.Drawing.Point(114, 202);
             this.dgvCountry.MultiSelect = false;
             this.dgvCountry.Name = "dgvCountry";
             this.dgvCountry.ReadOnly = true;
@@ -577,7 +593,7 @@ namespace Findstaff
             this.btnRemoveRequire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveRequire.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveRequire.ForeColor = System.Drawing.Color.Black;
-            this.btnRemoveRequire.Location = new System.Drawing.Point(933, 367);
+            this.btnRemoveRequire.Location = new System.Drawing.Point(933, 388);
             this.btnRemoveRequire.Name = "btnRemoveRequire";
             this.btnRemoveRequire.Size = new System.Drawing.Size(100, 30);
             this.btnRemoveRequire.TabIndex = 267;
@@ -593,7 +609,7 @@ namespace Findstaff
             this.btnAddRequire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRequire.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddRequire.ForeColor = System.Drawing.Color.Black;
-            this.btnAddRequire.Location = new System.Drawing.Point(456, 128);
+            this.btnAddRequire.Location = new System.Drawing.Point(522, 166);
             this.btnAddRequire.Name = "btnAddRequire";
             this.btnAddRequire.Size = new System.Drawing.Size(100, 30);
             this.btnAddRequire.TabIndex = 266;
@@ -609,7 +625,7 @@ namespace Findstaff
             this.cbReq.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbReq.ForeColor = System.Drawing.Color.Black;
             this.cbReq.FormattingEnabled = true;
-            this.cbReq.Location = new System.Drawing.Point(201, 130);
+            this.cbReq.Location = new System.Drawing.Point(267, 168);
             this.cbReq.Name = "cbReq";
             this.cbReq.Size = new System.Drawing.Size(249, 28);
             this.cbReq.TabIndex = 265;
@@ -619,7 +635,7 @@ namespace Findstaff
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(46, 133);
+            this.label7.Location = new System.Drawing.Point(112, 171);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(158, 20);
             this.label7.TabIndex = 264;
@@ -630,7 +646,7 @@ namespace Findstaff
             this.txtCountryName1.BackColor = System.Drawing.Color.White;
             this.txtCountryName1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountryName1.ForeColor = System.Drawing.Color.Black;
-            this.txtCountryName1.Location = new System.Drawing.Point(175, 76);
+            this.txtCountryName1.Location = new System.Drawing.Point(250, 69);
             this.txtCountryName1.MaxLength = 30;
             this.txtCountryName1.Name = "txtCountryName1";
             this.txtCountryName1.Size = new System.Drawing.Size(200, 27);
@@ -642,11 +658,103 @@ namespace Findstaff
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(46, 79);
+            this.label8.Location = new System.Drawing.Point(112, 72);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 20);
             this.label8.TabIndex = 106;
             this.label8.Text = "Country Name:";
+            // 
+            // txtSymbol1
+            // 
+            this.txtSymbol1.BackColor = System.Drawing.Color.White;
+            this.txtSymbol1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSymbol1.ForeColor = System.Drawing.Color.Black;
+            this.txtSymbol1.Location = new System.Drawing.Point(208, 134);
+            this.txtSymbol1.MaxLength = 5;
+            this.txtSymbol1.Name = "txtSymbol1";
+            this.txtSymbol1.Size = new System.Drawing.Size(242, 27);
+            this.txtSymbol1.TabIndex = 283;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(112, 137);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 20);
+            this.label9.TabIndex = 282;
+            this.label9.Text = "Symbol:";
+            // 
+            // txtCurrency1
+            // 
+            this.txtCurrency1.BackColor = System.Drawing.Color.White;
+            this.txtCurrency1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrency1.ForeColor = System.Drawing.Color.Black;
+            this.txtCurrency1.Location = new System.Drawing.Point(208, 102);
+            this.txtCurrency1.MaxLength = 30;
+            this.txtCurrency1.Name = "txtCurrency1";
+            this.txtCurrency1.Size = new System.Drawing.Size(242, 27);
+            this.txtCurrency1.TabIndex = 281;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(112, 105);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 20);
+            this.label10.TabIndex = 280;
+            this.label10.Text = "Currency:";
+            // 
+            // txtSymbol2
+            // 
+            this.txtSymbol2.BackColor = System.Drawing.Color.White;
+            this.txtSymbol2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSymbol2.ForeColor = System.Drawing.Color.Black;
+            this.txtSymbol2.Location = new System.Drawing.Point(203, 144);
+            this.txtSymbol2.MaxLength = 30;
+            this.txtSymbol2.Name = "txtSymbol2";
+            this.txtSymbol2.Size = new System.Drawing.Size(242, 27);
+            this.txtSymbol2.TabIndex = 292;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(103, 148);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 20);
+            this.label11.TabIndex = 291;
+            this.label11.Text = "Symbol:";
+            // 
+            // txtCurrency2
+            // 
+            this.txtCurrency2.BackColor = System.Drawing.Color.White;
+            this.txtCurrency2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrency2.ForeColor = System.Drawing.Color.Black;
+            this.txtCurrency2.Location = new System.Drawing.Point(203, 111);
+            this.txtCurrency2.MaxLength = 30;
+            this.txtCurrency2.Name = "txtCurrency2";
+            this.txtCurrency2.Size = new System.Drawing.Size(242, 27);
+            this.txtCurrency2.TabIndex = 290;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(101, 114);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(83, 20);
+            this.label12.TabIndex = 289;
+            this.label12.Text = "Currency:";
             // 
             // ucCountryAddEdit
             // 
@@ -711,5 +819,13 @@ namespace Findstaff
         private DataGridViewTextBoxColumn Column2;
         private Label label4;
         private Label label6;
+        private TextBox txtSymbol1;
+        private Label label9;
+        private TextBox txtCurrency1;
+        private Label label10;
+        private TextBox txtSymbol2;
+        private Label label11;
+        private TextBox txtCurrency2;
+        private Label label12;
     }
 }

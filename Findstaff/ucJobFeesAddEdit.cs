@@ -125,14 +125,13 @@ namespace Findstaff
 
         private void btnAddFee1_Click(object sender, EventArgs e)
         {
-            if(cbFees1.Text != "" && txtAmount1.Text != "" && cbPaymentType.Text !="")
+            if(cbFees1.Text != "" && txtAmount1.Text != "")
             {
                 dgvFees1.ColumnCount = 3;
-                dgvFees1.Rows.Add(cbFees1.Text, txtAmount1.Text, cbPaymentType.Text);
+                dgvFees1.Rows.Add(cbFees1.Text, txtAmount1.Text);
                 cbFees1.Items.Remove(cbFees1.Text);
                 cbFees1.SelectedIndex = -1;
                 txtAmount1.Clear();
-                cbPaymentType.SelectedIndex = -1;
             }
         }
 
@@ -168,7 +167,6 @@ namespace Findstaff
             {
                 cbFees1.Enabled = true;
                 txtAmount1.Enabled = true;
-                cbPaymentType.Enabled = true;
                 btnAddFee1.Enabled = true;
                 btnRemoveFee.Enabled = true;
                 btnAddAll.Enabled = true;

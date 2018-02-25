@@ -27,14 +27,14 @@ namespace Findstaff
         {
             connection.Open();
             int ctr = 0;
-            if(txtSkillName1.Text != "")
+            if(txtSkillName1.Text != "" && cbSkillType.SelectedIndex != 0)
             {
                 string check = "Select Count(Skillname) from Genskills_t where Skillname = '" + txtSkillName1.Text + "'";
                 com = new MySqlCommand(check, connection);
                 ctr = int.Parse(com.ExecuteScalar() + "");
                 if (ctr == 0)
                 {
-                    string cmd = "Insert into Genskills_t (skillname) values ('" + txtSkillName1.Text + "')";
+                    string cmd = "Insert into Genskills_t (skillname, skilltype) values ('" + txtSkillName1.Text + "', '"+cbSkillType.Text+"')";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
                     MessageBox.Show("Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -56,6 +56,7 @@ namespace Findstaff
         private void btnCancel1_Click(object sender, EventArgs e)
         {
             txtSkillName1.Clear();
+            cbSkillType.SelectedIndex = 0;
             this.Hide();
         }
 
@@ -70,10 +71,10 @@ namespace Findstaff
             else
             {
                 DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
-                    + "\nSkill ID: " + txtSkillID.Text + "\nNew Skill Name: " + txtSkillName2.Text, "Confirmation", MessageBoxButtons.YesNo);
+                    + "\nSkill ID: " + txtSkillID.Text + "\nNew Skill Name: " + txtSkillName2.Text + "\nNew Skill Type: " + cbSkillType2.Text, "Confirmation", MessageBoxButtons.YesNo);
                 if (rs == DialogResult.Yes)
                 {
-                    cmd = "Update Genskills_t set skillname = '" + txtSkillName2.Text + "' where Skill_id = '" + txtSkillID.Text + "';";
+                    cmd = "Update Genskills_t set skillname = '" + txtSkillName2.Text + "', skilltype = '"+cbSkillType2.Text+"' where Skill_id = '" + txtSkillID.Text + "';";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
                     MessageBox.Show("Changes Saved!", "Updated Skill Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);

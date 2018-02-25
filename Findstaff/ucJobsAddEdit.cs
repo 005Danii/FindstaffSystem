@@ -63,10 +63,34 @@ namespace Findstaff
                     cmd = "insert into job_t (category_id, jobname, jobtype_id) values ('" + categID + "','" + jobname + "','" + jobtypeID + "');";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
+                    string jobID = "", skillID = "";
+                    cmd = "select job_id from job_t where jobname = '" + jobname + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        jobID = dr[0].ToString();
+                    }
+                    dr.Close();
+                    foreach (string s in clbSkills1.CheckedItems)
+                    {
+                        cmd = "select skill_id from genskills_t where skillname = '" + s + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        dr = com.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            skillID = dr[0].ToString();
+                        }
+                        dr.Close();
+                        cmd = "insert into specskills_t (skill_id, job_id) values ('" + skillID + "','" + jobID + "')";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                    }
                     MessageBox.Show("Job Record Added!", "New Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtJobs.Clear();
                     cbCategory.SelectedIndex = -1;
                     cbJobType.SelectedIndex = -1;
+                    clbSkills1.Items.Clear();
                     this.Hide();
                 }
                 else
@@ -171,6 +195,15 @@ namespace Findstaff
                     cbJobType2.Items.Add(dr[0].ToString());
                 }
                 dr.Close();
+                cmd = "Select skillname from genskills_t where skilltype = 'Specific';";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    clbSkills1.Items.Add(dr[0].ToString());
+                    clbSkills2.Items.Add(dr[0].ToString());
+                }
+                dr.Close();
                 connection.Close();
             }
             else
@@ -179,6 +212,8 @@ namespace Findstaff
                 cbCategory1.Items.Clear();
                 cbJobType.Items.Clear();
                 cbJobType2.Items.Clear();
+                clbSkills1.Items.Clear();
+                clbSkills2.Items.Clear();
             }
         }
 
