@@ -144,7 +144,7 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            cmd = "select jf.jorder_id, e.employername from employer_t e join jobfees_t jf on e.employer_id = jf.employer_id where jorder_id = '" + dgvJobFees.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            cmd = "select jf.jorder_id, e.employername from employer_t e join jobfees_t jf on e.employer_id = jf.employer_id where e.employername = '" + dgvJobFees.SelectedRows[0].Cells[1].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())
@@ -154,7 +154,7 @@ namespace Findstaff
             }
             dr.Close();
 
-            cmd = "select g.feename'Fee Name', jf.amount'Amount' from jobfees_t jf join genfees_t g on jf.fee_id = g.fee_id where jorder_id = '" + dgvJobFees.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            cmd = "select g.feename'Fee Name', jf.amount'Amount' from jobfees_t jf join genfees_t g on jf.fee_id = g.fee_id where jorder_id = '" + ucJobFeesView.jorderid.Text + "'";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
