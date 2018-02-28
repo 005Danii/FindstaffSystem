@@ -69,6 +69,7 @@ namespace Findstaff
                     com.ExecuteNonQuery();
                     MessageBox.Show("Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtFees1.Clear();
+                    dgvFees.Rows.Clear();
                     this.Hide();
 
                 }

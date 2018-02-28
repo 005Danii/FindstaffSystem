@@ -75,6 +75,13 @@ namespace Findstaff
                 ucIntListInit.Visible = true;
             }
         }
+
+        private void ucInterviewInit_Load(object sender, EventArgs e)
+        {
+            Connection con = new Connection();
+            connection = con.dbConnection();
+            dateTimePicker1.MinDate = DateTime.Now;
+        }
         
         private void ucIntListInit_VisibleChanged(object sender, EventArgs e)
         {
@@ -93,13 +100,6 @@ namespace Findstaff
                     dgvInitInt.DataSource = ds.Tables[0];
                 }
             }
-        }
-
-        private void ucInterviewInit_Load(object sender, EventArgs e)
-        {
-            Connection con = new Connection();
-            connection = con.dbConnection();
-            dateTimePicker1.MinDate = DateTime.Now;
         }
     }
 }

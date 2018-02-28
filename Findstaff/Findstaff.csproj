@@ -243,6 +243,12 @@
     <Compile Include="ucEmployer.Designer.cs">
       <DependentUpon>ucEmployer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucEmployerTermination.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmployerTermination.Designer.cs">
+      <DependentUpon>ucEmployerTermination.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucEmployerView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -562,6 +568,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucEmployer.resx">
       <DependentUpon>ucEmployer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEmployerTermination.resx">
+      <DependentUpon>ucEmployerTermination.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucEmployerView.resx">
       <DependentUpon>ucEmployerView.cs</DependentUpon>

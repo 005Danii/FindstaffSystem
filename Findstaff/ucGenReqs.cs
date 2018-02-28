@@ -80,7 +80,7 @@ namespace Findstaff
             ucJobs.Visible = false;
             ucJobType.Visible = false;
 
-            string com = "Select Skill_ID'Skill ID', skillname'Skill Name' from Genskills_t";
+            string com = "Select Skill_ID'Skill ID', skillname'Skill Name', Skilltype'Skill Type' from Genskills_t";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))

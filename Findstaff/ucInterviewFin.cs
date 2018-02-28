@@ -58,7 +58,7 @@ namespace Findstaff
                 dr.Close();
                 cmd = "select app.app_no'Application No.', a.app_id'Applicant ID', concat(a.lname, ', ', a.fname, ' ', a.mname)'Applicant Name' from applications_t app "
                     + "join app_t a on app.app_id = a.app_id where app.appstats = 'Active' and a.appstatus = 'For Final Interview' "
-                    + "and app.jorder_id = '" + jorder + "' and app.job_id = '" + jobID + "' and app.employer_id = '" + empID + "' and finalinterviewstatus is null and initinterviewstatus = 'Passed'";
+                    + "and app.jorder_id = '" + jorder + "' and app.job_id = '" + jobID + "' and app.employer_id = '" + empID + "' and app.finalinterviewstatus is null and app.initinterviewstatus = 'Passed'";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -76,7 +76,14 @@ namespace Findstaff
                 ucIntListFinal.Visible = true;
             }
         }
-        
+
+        private void ucInterviewFin_Load(object sender, EventArgs e)
+        {
+            Connection con = new Connection();
+            connection = con.dbConnection();
+            dateTimePicker1.MinDate = DateTime.Now;
+        }
+
         private void ucIntListFinal_VisibleChanged(object sender, EventArgs e)
         {
             Connection con = new Connection();
@@ -94,13 +101,6 @@ namespace Findstaff
                     dgvFinInt.DataSource = ds.Tables[0];
                 }
             }
-        }
-
-        private void ucInterviewFin_Load(object sender, EventArgs e)
-        {
-            Connection con = new Connection();
-            connection = con.dbConnection();
-            dateTimePicker1.MinDate = DateTime.Now;
         }
     }
 }

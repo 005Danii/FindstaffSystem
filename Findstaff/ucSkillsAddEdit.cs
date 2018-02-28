@@ -48,7 +48,7 @@ namespace Findstaff
             }
             else
             {
-                MessageBox.Show("Skill Name Field Empty", "Error Message");
+                MessageBox.Show("Empty Field Present", "Error Message");
             }
             connection.Close();
         }

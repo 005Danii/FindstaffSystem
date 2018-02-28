@@ -108,7 +108,7 @@ namespace Findstaff
             if (this.Visible == true)
             {
                 connection.Open();
-                cmd = "Select employername from employer_t";
+                cmd = "Select distinct(e.employername) from employer_t e join jobfees_t j on e.employer_id <> j.employer_id";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())

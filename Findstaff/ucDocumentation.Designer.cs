@@ -151,6 +151,7 @@
             this.ucDocAppDetails.Size = new System.Drawing.Size(10, 10);
             this.ucDocAppDetails.TabIndex = 52;
             this.ucDocAppDetails.Visible = false;
+            this.ucDocAppDetails.VisibleChanged += new System.EventHandler(this.ucDocAppDetails_VisibleChanged);
             // 
             // ucDocumentation
             // 

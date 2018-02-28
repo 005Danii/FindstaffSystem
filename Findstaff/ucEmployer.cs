@@ -53,13 +53,27 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            connection.Open();
-            string cmd = "delete from employer_t where employer_id = '" + dgvEmployer.SelectedRows[0].Cells[0].Value.ToString() + "';";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            dgvEmployer.Rows.Remove(dgvEmployer.SelectedRows[0]);
-            MessageBox.Show("Employer Deleted!", "Employer Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            connection.Close();
+            DialogResult r = MessageBox.Show("Do you want to delete the selected employer?", "Delete Employer Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(r == DialogResult.Yes)
+            {
+                connection.Open();
+                ucEmployerTermination.txtEmp1.Text = dgvEmployer.SelectedRows[0].Cells[1].Value.ToString();
+                cmd = "select fname, mname, lname from employer_t where employer_id = '" + dgvEmployer.SelectedRows[0].Cells[0].Value.ToString() + "';";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    ucEmployerTermination.txtFName1.Text = dr[0].ToString();
+                    ucEmployerTermination.txtMName1.Text = dr[1].ToString();
+                    ucEmployerTermination.txtLName1.Text = dr[2].ToString();
+                }
+                dr.Close();
+                connection.Close();
+                ucEmployerTermination.Dock = DockStyle.Fill;
+                ucEmployerTermination.Visible = true;
+                //dgvEmployer.Rows.Remove(dgvEmployer.SelectedRows[0]);
+                //MessageBox.Show("Employer Deleted!", "Employer Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public void searchData(string valueToFind)
@@ -68,7 +82,7 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            string cmd = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.fname, ' ',e.lname)'Foreign Principal', c.countryname'Country' "
+            cmd = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.fname, ' ',e.lname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
                 + "on e.country_id = c.country_id WHERE concat(e.employer_id, e.employername, e.fname, ' ',e.lname, c.countryname) LIKE '%" + valueToFind + "%'";
             com = new MySqlCommand(cmd, connection);
@@ -84,12 +98,12 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.fname, ' ',e.lname)'Foreign Principal', c.countryname'Country' "
+            cmd = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.lname, ', ',e.fname, ' ' e.mname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
                 + "on e.country_id = c.country_id;";
             using (connection)
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
                 {
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
@@ -112,7 +126,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.fname, ' ',e.lname)'Foreign Principal', c.countryname'Country' "
+            string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.lname, ', ',e.fname, ' ', e.mname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
                 + "on e.country_id = c.country_id;";
             using (connection)
@@ -156,6 +170,24 @@ namespace Findstaff
 
             ucEmployerView.Dock = DockStyle.Fill;
             ucEmployerView.Visible = true;
+        }
+
+        private void ucEmployerTermination1_VisibleChanged(object sender, EventArgs e)
+        {
+            Connection con = new Connection();
+            connection = con.dbConnection();
+            string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.lname, ', ',e.fname, ' ', e.mname)'Foreign Principal', c.countryname'Country' "
+                + "from employer_t e join country_t c "
+                + "on e.country_id = c.country_id;";
+            using (connection)
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))
+                {
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dgvEmployer.DataSource = ds.Tables[0];
+                }
+            }
         }
     }
 }

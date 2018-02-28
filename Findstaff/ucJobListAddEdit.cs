@@ -31,8 +31,7 @@ namespace Findstaff
             string empID = "", catID = "", jobID = "", gender = "";
             connection.Open();
             if(cbEmployer1.Text != "" || cbCategory1.Text != "" || cbJob1.Text != "" || nddEmployees1.Value != 0 || txtSalary1.Text != "" 
-                || cbMonth.Text != "" || cbDay.Text != "" || cbYear.Text != "" || dgvSkills1.Rows.Count != 0 || dgvReqdDocs1.Rows.Count != 0
-                || !(cbMale.Checked == false) || !(cbFemale.Checked == false))
+                || dgvSkills1.Rows.Count != 0 || dgvReqdDocs1.Rows.Count != 0 || !(cbMale.Checked == false) || !(cbFemale.Checked == false))
             {
                 DialogResult r = MessageBox.Show("Do you want to add the job order with the ff. description?\nEmployer: " + cbEmployer1.Text 
                     + "\nCategory: " + cbCategory1.Text + "\nJob Title: " + cbJob1.Text, "Add Job Order Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -74,13 +73,13 @@ namespace Findstaff
                     {
                         gender = "All";
                     }
-                    cmd = "Select count(*) from joborder_t where  employer_id = '" + empID + "' and category_id = '" + catID + "' and job_id = '" + jobID + "' and monthname(CNTRCTSTART) = '" + cbMonth.Text + "' and day(cntrctstart) = '" + cbDay.Text + "' and year(cntrctstart) = '" + cbYear.Text + "'";
+                    cmd = "Select count(*) from joborder_t where  employer_id = '" + empID + "' and category_id = '" + catID + "' and job_id = '" + jobID + "' and cntrctstart = '" + dtp1.Value.ToString("yyyy-MM-dd") + "'";
                     com = new MySqlCommand(cmd, connection);
                     int ctr = int.Parse(com.ExecuteScalar() + "");
                     if (ctr == 0)
                     {
                         cmd = "insert into joborder_t (Employer_id, category_id, job_id, reqapp, salary, gender, heightreq, weightreq, cntrctstart, cntrctend, cntrctstat) "
-                        + "values ('" + empID + "','" + catID + "','" + jobID + "','" + nddEmployees1.Value + "','" + txtSalary1.Text + "','" + gender + "','" + txtHeight.Text + "','" + txtWeight.Text + "', '" + cbYear.Text + "-" + (cbMonth.SelectedIndex + 1).ToString() + "-" + cbDay.Text + "','" + (Convert.ToInt32(cbYear.Text) + 5).ToString() + "-" + (cbMonth.SelectedIndex + 1).ToString() + "-" + cbDay.Text + "', 'Active')";
+                        + "values ('" + empID + "','" + catID + "','" + jobID + "','" + nddEmployees1.Value + "','" + txtSalary1.Text + "','" + gender + "','" + txtHeight.Text + "','" + txtWeight.Text + "', '" + dtp1.Value.ToString("yyyy-MM-dd") + "','" + (Convert.ToInt32(dtp1.Value.ToString("yyyy"))+5).ToString() + "-" + dtp1.Value.ToString("MM") + "-" + dtp1.Value.ToString("dd") + "', 'Active')";
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
                         string cmd2 = "", joID = "", sID = "", reqID = "";
@@ -130,15 +129,12 @@ namespace Findstaff
                         }
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
-                        MessageBox.Show("Job Added!", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Job Order Added!", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         connection.Close();
 
                         cbEmployer1.Items.Clear();
                         cbCategory1.Items.Clear();
                         cbJob1.Items.Clear();
-                        cbMonth.SelectedIndex = -1;
-                        cbDay.SelectedIndex = -1;
-                        cbYear.SelectedIndex = -1;
                         cbMale.Checked = false;
                         cbFemale.Checked = false;
                         nddEmployees1.Value = 1;
@@ -175,9 +171,6 @@ namespace Findstaff
             cbEmployer1.Items.Clear();
             cbCategory1.Items.Clear();
             cbJob1.Items.Clear();
-            cbMonth.SelectedIndex = -1;
-            cbDay.SelectedIndex = -1;
-            cbYear.SelectedIndex = -1;
             cbMale.Checked = false;
             cbFemale.Checked = false;
             nddEmployees1.Value = 1;
@@ -287,6 +280,7 @@ namespace Findstaff
                 cbReqName.Items.Clear();
                 cbReqName2.Items.Clear();
             }
+            dtp1.MinDate = DateTime.Now;
         }
 
         private void btnAddSkill_Click(object sender, EventArgs e)
@@ -419,33 +413,6 @@ namespace Findstaff
                 for (int x = 1; x <= 28; x++)
                 {
                     cbDay2.Items.Add(x);
-                }
-            }
-        }
-
-        private void cbMonth_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbDay.Items.Clear();
-            if (cbMonth.SelectedIndex == 0 || cbMonth.SelectedIndex == 2 || cbMonth.SelectedIndex == 4 || cbMonth.SelectedIndex == 6 ||
-                cbMonth.SelectedIndex == 7 || cbMonth.SelectedIndex == 9 || cbMonth.SelectedIndex == 11)
-            {
-                for (int x = 1; x <= 31; x++)
-                {
-                    cbDay.Items.Add(x);
-                }
-            }
-            else if (cbMonth.SelectedIndex == 3 || cbMonth.SelectedIndex == 5 || cbMonth.SelectedIndex == 8)
-            {
-                for (int x = 1; x <= 30; x++)
-                {
-                    cbDay.Items.Add(x);
-                }
-            }
-            else
-            {
-                for (int x = 1; x <= 28; x++)
-                {
-                    cbDay.Items.Add(x);
                 }
             }
         }

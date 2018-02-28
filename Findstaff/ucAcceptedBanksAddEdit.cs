@@ -42,7 +42,7 @@ namespace Findstaff
             if(this.Visible == true)
             {
                 connection.Open();
-                cmd = "Select c.countryname from country_t c where (select count(b.country_id) from banksallowed_t b join country_t c on b.country_id = c.country_id) = 0";
+                cmd = "Select distinct(c.countryname) from country_t c join banksallowed_t b on c.country_id <> b.country_id";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())

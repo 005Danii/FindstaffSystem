@@ -39,6 +39,7 @@
             this.btnEmpEdit = new System.Windows.Forms.Button();
             this.btnEmpAdd = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
+            this.ucEmployerTermination = new Findstaff.ucEmployerTermination();
             this.ucEmployerView = new Findstaff.ucEmployerView();
             this.ucEmployerAddEdit = new Findstaff.ucEmployerAddEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployer)).BeginInit();
@@ -136,13 +137,13 @@
             this.btnEmpDel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnEmpDel.FlatAppearance.BorderSize = 0;
             this.btnEmpDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpDel.Font = new System.Drawing.Font("Century", 12F);
+            this.btnEmpDel.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpDel.ForeColor = System.Drawing.Color.Black;
             this.btnEmpDel.Location = new System.Drawing.Point(579, 439);
             this.btnEmpDel.Name = "btnEmpDel";
             this.btnEmpDel.Size = new System.Drawing.Size(100, 38);
             this.btnEmpDel.TabIndex = 49;
-            this.btnEmpDel.Text = "DELETE";
+            this.btnEmpDel.Text = "TERMINATE\r\nCONTRACT";
             this.btnEmpDel.UseVisualStyleBackColor = false;
             this.btnEmpDel.Click += new System.EventHandler(this.btnEmpDel_Click);
             // 
@@ -194,6 +195,15 @@
             this.btnView.UseVisualStyleBackColor = false;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
+            // ucEmployerTermination
+            // 
+            this.ucEmployerTermination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucEmployerTermination.Location = new System.Drawing.Point(13, 0);
+            this.ucEmployerTermination.Name = "ucEmployerTermination";
+            this.ucEmployerTermination.Size = new System.Drawing.Size(10, 10);
+            this.ucEmployerTermination.TabIndex = 53;
+            this.ucEmployerTermination.VisibleChanged += new System.EventHandler(this.ucEmployerTermination1_VisibleChanged);
+            // 
             // ucEmployerView
             // 
             this.ucEmployerView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -218,6 +228,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.ucEmployerTermination);
             this.Controls.Add(this.ucEmployerView);
             this.Controls.Add(this.ucEmployerAddEdit);
             this.Controls.Add(this.btnEmpDel);
@@ -249,5 +260,6 @@
         private ucEmployerAddEdit ucEmployerAddEdit;
         private System.Windows.Forms.Button btnView;
         private ucEmployerView ucEmployerView;
+        private ucEmployerTermination ucEmployerTermination;
     }
 }
