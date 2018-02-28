@@ -200,6 +200,7 @@
             this.Controls.Add(this.lblAddEmp);
             this.Name = "ucEmployerTermination";
             this.Size = new System.Drawing.Size(1150, 500);
+            this.VisibleChanged += new System.EventHandler(this.ucEmployerTermination_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

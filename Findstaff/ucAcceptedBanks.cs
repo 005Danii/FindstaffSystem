@@ -13,7 +13,6 @@ namespace Findstaff
 {
     public partial class ucAcceptedBanks : UserControl
     {
-        private MySqlCommand com;
         private MySqlConnection connection;
         private MySqlDataAdapter adapter;
         private string cmd = "";

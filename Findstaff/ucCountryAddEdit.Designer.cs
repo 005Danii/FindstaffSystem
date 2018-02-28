@@ -275,7 +275,7 @@ namespace Findstaff
             this.txtSymbol2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSymbol2.ForeColor = System.Drawing.Color.Black;
             this.txtSymbol2.Location = new System.Drawing.Point(203, 144);
-            this.txtSymbol2.MaxLength = 30;
+            this.txtSymbol2.MaxLength = 5;
             this.txtSymbol2.Name = "txtSymbol2";
             this.txtSymbol2.Size = new System.Drawing.Size(242, 27);
             this.txtSymbol2.TabIndex = 292;
@@ -533,7 +533,7 @@ namespace Findstaff
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1072, 500);
+            this.panel1.Size = new System.Drawing.Size(10, 500);
             this.panel1.TabIndex = 2;
             // 
             // txtSymbol1
@@ -823,9 +823,9 @@ namespace Findstaff
         private Label label9;
         private TextBox txtCurrency1;
         private Label label10;
-        private TextBox txtSymbol2;
         private Label label11;
-        private TextBox txtCurrency2;
         private Label label12;
+        public TextBox txtSymbol2;
+        public TextBox txtCurrency2;
     }
 }

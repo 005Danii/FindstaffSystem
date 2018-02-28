@@ -70,6 +70,8 @@ namespace Findstaff
                         com.ExecuteNonQuery();
                         MessageBox.Show("Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtCountryName1.Clear();
+                        txtCurrency1.Clear();
+                        txtSymbol1.Clear();
                         dgvCountry.Rows.Clear();
                         cbReq.Items.Clear();
                         this.Hide();
@@ -124,6 +126,8 @@ namespace Findstaff
         private void btnCancel2_Click(object sender, EventArgs e)
         {
             txtCountryID2.Clear();
+            txtCurrency2.Clear();
+            txtSymbol2.Clear();
             cbReq2.Items.Clear();
             dgvReq2.Rows.Clear();
             this.Hide();

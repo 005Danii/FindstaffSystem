@@ -13,8 +13,8 @@ namespace Findstaff
 {
     public partial class ucJobType : UserControl
     {
-        MySqlCommand com;
         MySqlConnection connection;
+        private string cmd = "";
 
         public ucJobType()
         {
@@ -46,10 +46,10 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string com = "Select JobType_ID'Jobtype ID', Typename'Job Types' from Jobtype_t";
+            cmd = "Select JobType_ID'Jobtype ID', Typename'Job Types' from Jobtype_t";
             using (connection)
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
                 {
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);

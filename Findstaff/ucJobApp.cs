@@ -150,11 +150,11 @@ namespace Findstaff
             int a = 0;
             if (gender != "None")
             {
-                cmd = "select count(a.app_id) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + cbJobOrder.Text + "' and gender = '" + gender + "'";
+                cmd = "select count(a.app_id) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats = 'Inactive') and position = '" + cbJobOrder.Text + "' and gender = '" + gender + "'";
             }
             else
             {
-                cmd = "select count(a.app_id) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats <> 'Active') and position = '" + cbJobOrder.Text + "'";
+                cmd = "select count(a.app_id) from app_t a left join applications_t b on a.app_id = b.app_id where (b.appstats is null or b.appstats = 'Inactive') and position = '" + cbJobOrder.Text + "'";
             }
             com = new MySqlCommand(cmd, connection);
             y = int.Parse(com.ExecuteScalar() + "");
@@ -184,12 +184,12 @@ namespace Findstaff
                     for (int b = 0; b < z; b++)
                     {
                         int c = 0;
-                        cmd = "select skill_id, proficiency from appskills_t where app_id = '" + apps[x, 0] + "'";
+                        cmd = "select Count(skill_id) from appskills_t where app_id = '" + apps[x, 0] + "'";
                         com = new MySqlCommand(cmd, connection);
                         dr = com.ExecuteReader();
                         while (dr.Read())
                         {
-                            c++;
+                            c = Convert.ToInt32(dr[0]);
                         }
                         dr.Close();
                         string[,] skill = new string[c, 3];

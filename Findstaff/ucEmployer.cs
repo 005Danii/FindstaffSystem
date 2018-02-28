@@ -57,20 +57,20 @@ namespace Findstaff
             if(r == DialogResult.Yes)
             {
                 connection.Open();
-                ucEmployerTermination1.txtEmp1.Text = dgvEmployer.SelectedRows[0].Cells[1].Value.ToString();
+                ucEmployerTermination.txtEmp1.Text = dgvEmployer.SelectedRows[0].Cells[1].Value.ToString();
                 cmd = "select fname, mname, lname from employer_t where employer_id = '" + dgvEmployer.SelectedRows[0].Cells[0].Value.ToString() + "';";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    ucEmployerTermination1.txtFName1.Text = dr[0].ToString();
-                    ucEmployerTermination1.txtMName1.Text = dr[1].ToString();
-                    ucEmployerTermination1.txtLName1.Text = dr[2].ToString();
+                    ucEmployerTermination.txtFName1.Text = dr[0].ToString();
+                    ucEmployerTermination.txtMName1.Text = dr[1].ToString();
+                    ucEmployerTermination.txtLName1.Text = dr[2].ToString();
                 }
                 dr.Close();
                 connection.Close();
-                ucEmployerTermination1.Dock = DockStyle.Fill;
-                ucEmployerTermination1.Visible = true;
+                ucEmployerTermination.Dock = DockStyle.Fill;
+                ucEmployerTermination.Visible = true;
                 //dgvEmployer.Rows.Remove(dgvEmployer.SelectedRows[0]);
                 //MessageBox.Show("Employer Deleted!", "Employer Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

@@ -84,8 +84,8 @@ namespace Findstaff
                 + "on jo.job_id = j.job_id join jobcategory_t jc "
                 + "on jo.category_id = jc.category_id join employer_t e "
                 + "on jo.employer_id = e.employer_id "
-                + "where jo.jorder_id = '" + details[1] + "' and e.employername = '" + details[0] + "' "
-                + "and j.jobname = '" + details[2] + "'";
+                + "where jo.jorder_id = '" + details[1] + "' and e.employer_id = '" + details[0] + "' "
+                + "and j.job_id = '" + details[2] + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())
@@ -143,14 +143,19 @@ namespace Findstaff
             }
             if (appNo != "")
             {
-                cmd = "insert into applications_t (app_no, app_id, jorder_id, employer_id, category_id, job_id, initinterviewdate, appstats) "
-                    + "values ('" + appNo + "','" + apps + "','" + jorder + "','" + empId + "','" + jobcateg + "','" + jobId + "','" + dtp.Value.ToString("yyyy-MM-dd") + "','Active')";
+                cmd = "insert into applications_t (app_no, app_id, jorder_id, employer_id, category_id, job_id, initinterviewdate, appstats, dateadded) "
+                    + "values ('" + appNo + "','" + apps + "','" + jorder + "','" + empId + "','" + jobcateg + "','" + jobId + "','" + dtp.Value.ToString("yyyy-MM-dd") + "','Active', current_date())";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
             }
             MessageBox.Show("Applicants set for Initial Interview", "Schedule Initial Interview", MessageBoxButtons.OK, MessageBoxIcon.None);
             this.Close();
             connection.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

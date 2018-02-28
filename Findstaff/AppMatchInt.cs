@@ -173,8 +173,8 @@ namespace Findstaff
                         jobcateg = dr[3].ToString();
                     }
                     dr.Close();
-                    cmd = "insert into applications_t (app_no, app_id, jorder_id, employer_id, category_id, job_id, initinterviewdate, appstats) "
-                        + "values ('" + appNo + "','" + apps[x] + "','" + details[1] + "','" + empId + "','" + jobcateg + "','" + jobId + "','" + dtp.Value.ToString("yyyy-MM-dd") + "','Active')";
+                    cmd = "insert into applications_t (app_no, app_id, jorder_id, employer_id, category_id, job_id, initinterviewdate, appstats, dateadded) "
+                        + "values ('" + appNo + "','" + apps[x] + "','" + details[1] + "','" + empId + "','" + jobcateg + "','" + jobId + "','" + dtp.Value.ToString("yyyy-MM-dd") + "','Active', current_date())";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
                 }

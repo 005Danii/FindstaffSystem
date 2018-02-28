@@ -186,7 +186,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lbl;
         public System.Windows.Forms.DataGridView dgvJobType;
-        private ucJobTypeAddEdit ucJobTypeAddEdit;
         private ucJobTypeAddEdit ucJobTypeAddEdit1;
     }
 }
