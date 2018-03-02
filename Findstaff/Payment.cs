@@ -102,10 +102,10 @@ namespace Findstaff
                     int cnt = int.Parse(com.ExecuteScalar() + "");
                     if(cnt == 0)
                     {
-                        cmd = "update app_t set appstatus = 'Deployed' where app_id = '" + appID + "'";
+                        cmd = "update app_t set appstatus = 'For Deployment' where app_id = '" + appID + "'";
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
-                        MessageBox.Show("All fees are paid. Applicant status is deployed.", "Payment of Fees");
+                        MessageBox.Show("All fees are paid. Applicant status is for deployment.", "Payment of Fees");
                     }
 
                     //cmd = "select f.feename'Fee Name', j.amount'Amount', p.feestatus'Status', from genfees_t f " +

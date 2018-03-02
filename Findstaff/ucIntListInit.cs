@@ -63,7 +63,7 @@ namespace Findstaff
             cmd = "update app_t set appstatus = 'For Final Interview' where Concat(lname, ', ', fname, ' ', mname) = '" + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
-            MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString() + " passed the Initial Interview!", "Initial Interview Status", MessageBoxButtons.OK, MessageBoxIcon.None);
+            MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " passed the Initial Interview!", "Initial Interview Status", MessageBoxButtons.OK, MessageBoxIcon.None);
             string jobID = "", empID = "";
             cmd = "select job_id from job_t where jobname = '" + jobname.Text + "'";
             com = new MySqlCommand(cmd, connection);
@@ -105,7 +105,7 @@ namespace Findstaff
             cmd = "update app_t set appstatus = 'Archived' where Concat(lname, ', ', fname, ' ', mname) = '" + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
-            MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString() + " failed the Initial Interview!", "Initial Interview Status", MessageBoxButtons.OK, MessageBoxIcon.None);
+            MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " failed the Initial Interview!", "Initial Interview Status", MessageBoxButtons.OK, MessageBoxIcon.None);
             string jobID = "", empID = "";
             cmd = "select job_id from job_t where jobname = '" + jobname.Text + "'";
             com = new MySqlCommand(cmd, connection);
