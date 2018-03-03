@@ -78,79 +78,86 @@ namespace Findstaff
         private void btnSchedule_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string jorder = "", empId = "", jobId = "", jobcateg = "";
-            cmd = "Select jo.jorder_id, jo.employer_id, jo.job_id, jc.category_id from joborder_t jo "
-                + "join job_t j "
-                + "on jo.job_id = j.job_id join jobcategory_t jc "
-                + "on jo.category_id = jc.category_id join employer_t e "
-                + "on jo.employer_id = e.employer_id "
-                + "where jo.jorder_id = '" + details[1] + "' and e.employer_id = '" + details[0] + "' "
-                + "and j.job_id = '" + details[2] + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
+            if (dtp.Value.Day.ToString() == "Saturday" || dtp.Value.Day.ToString() == "Sunday")
             {
-                jorder = dr[0].ToString();
-                empId = dr[1].ToString();
-                jobId = dr[2].ToString();
-                jobcateg = dr[3].ToString();
-            }
-            dr.Close();
-            int ctr = 0;
-            string appNo = "";
-            string cou = "select count(*) from applications_t;";
-            com = new MySqlCommand(cou, connection);
-            ctr = int.Parse(com.ExecuteScalar() + "");
-            if ((ctr + "").Length == 1)
-            {
-                appNo = "A00000000" + ctr + "";
-            }
-            else if ((ctr + "").Length == 2)
-            {
-                appNo = "A0000000" + ctr + "";
-            }
-            else if ((ctr + "").Length == 3)
-            {
-                appNo = "A000000" + ctr + "";
-            }
-            else if ((ctr + "").Length == 4)
-            {
-                appNo = "A00000" + ctr + "";
-            }
-            else if ((ctr + "").Length == 5)
-            {
-                appNo = "A0000" + ctr + "";
-            }
-            else if ((ctr + "").Length == 6)
-            {
-                appNo = "A000" + ctr + "";
-            }
-            else if ((ctr + "").Length == 7)
-            {
-                appNo = "A00" + ctr + "";
-            }
-            else if ((ctr + "").Length == 8)
-            {
-                appNo = "A0" + ctr + "";
-            }
-            else if ((ctr + "").Length == 9)
-            {
-                appNo = "A" + ctr + "";
+                string jorder = "", empId = "", jobId = "", jobcateg = "";
+                cmd = "Select jo.jorder_id, jo.employer_id, jo.job_id, jc.category_id from joborder_t jo "
+                    + "join job_t j "
+                    + "on jo.job_id = j.job_id join jobcategory_t jc "
+                    + "on jo.category_id = jc.category_id join employer_t e "
+                    + "on jo.employer_id = e.employer_id "
+                    + "where jo.jorder_id = '" + details[1] + "' and e.employer_id = '" + details[0] + "' "
+                    + "and j.job_id = '" + details[2] + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    jorder = dr[0].ToString();
+                    empId = dr[1].ToString();
+                    jobId = dr[2].ToString();
+                    jobcateg = dr[3].ToString();
+                }
+                dr.Close();
+                int ctr = 0;
+                string appNo = "";
+                string cou = "select count(*) from applications_t;";
+                com = new MySqlCommand(cou, connection);
+                ctr = int.Parse(com.ExecuteScalar() + "");
+                if ((ctr + "").Length == 1)
+                {
+                    appNo = "A00000000" + ctr + "";
+                }
+                else if ((ctr + "").Length == 2)
+                {
+                    appNo = "A0000000" + ctr + "";
+                }
+                else if ((ctr + "").Length == 3)
+                {
+                    appNo = "A000000" + ctr + "";
+                }
+                else if ((ctr + "").Length == 4)
+                {
+                    appNo = "A00000" + ctr + "";
+                }
+                else if ((ctr + "").Length == 5)
+                {
+                    appNo = "A0000" + ctr + "";
+                }
+                else if ((ctr + "").Length == 6)
+                {
+                    appNo = "A000" + ctr + "";
+                }
+                else if ((ctr + "").Length == 7)
+                {
+                    appNo = "A00" + ctr + "";
+                }
+                else if ((ctr + "").Length == 8)
+                {
+                    appNo = "A0" + ctr + "";
+                }
+                else if ((ctr + "").Length == 9)
+                {
+                    appNo = "A" + ctr + "";
+                }
+                else
+                {
+                    MessageBox.Show("Table in the database will not be able to handle more records.", "Full Application Records");
+                }
+                if (appNo != "")
+                {
+                    cmd = "insert into applications_t (app_no, app_id, jorder_id, employer_id, category_id, job_id, initinterviewdate, appstats, dateadded) "
+                        + "values ('" + appNo + "','" + apps + "','" + jorder + "','" + empId + "','" + jobcateg + "','" + jobId + "','" + dtp.Value.ToString("yyyy-MM-dd") + "','Active', current_date())";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                }
+                MessageBox.Show("Applicants set for Initial Interview", "Schedule Initial Interview", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Close();
+                connection.Close();
             }
             else
             {
-                MessageBox.Show("Table in the database will not be able to handle more records.", "Full Application Records");
+                MessageBox.Show("Cannot set interview day on a weekend", "Initial Interview Schedule Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-            if (appNo != "")
-            {
-                cmd = "insert into applications_t (app_no, app_id, jorder_id, employer_id, category_id, job_id, initinterviewdate, appstats, dateadded) "
-                    + "values ('" + appNo + "','" + apps + "','" + jorder + "','" + empId + "','" + jobcateg + "','" + jobId + "','" + dtp.Value.ToString("yyyy-MM-dd") + "','Active', current_date())";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-            }
-            MessageBox.Show("Applicants set for Initial Interview", "Schedule Initial Interview", MessageBoxButtons.OK, MessageBoxIcon.None);
-            this.Close();
-            connection.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -49,7 +49,15 @@ namespace Findstaff
             {
                 cbEmployer.Items.Clear();
                 cbJobOrder.Items.Clear();
+                txtFirst.Text = "First Name";
+                txtFirst.ForeColor = Color.Gray;
+                txtLast.Text = "Last Name";
+                txtLast.ForeColor = Color.Gray;
+                txtMiddle.Text = "Middle Name";
+                txtMiddle.ForeColor = Color.Gray;
                 txtJob.Text = "";
+                dgvAppMatch.Rows.Clear();
+                dgvJobSuggest.Rows.Clear();
             }
         }
 

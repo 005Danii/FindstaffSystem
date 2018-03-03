@@ -212,9 +212,9 @@ namespace Findstaff
             rbMale.Checked = false;
             rbFemale.Checked = false;
             cbCivilStat.Items.Clear();
-            cbMonth.Items.Clear();
-            cbDay.Items.Clear();
-            cbYear.Items.Clear();
+            cbMonth.SelectedIndex = -1;
+            cbDay.SelectedIndex = -1;
+            cbYear.SelectedIndex = -1;
             dgvChildren.Rows.Clear();
             dgvContactPersons.Rows.Clear();
             dgvEducBack.Rows.Clear();
@@ -231,9 +231,9 @@ namespace Findstaff
             rbMale.Checked = false;
             rbFemale.Checked = false;
             cbCivilStat.Items.Clear();
-            cbMonth.Items.Clear();
-            cbDay.Items.Clear();
-            cbYear.Items.Clear();
+            cbMonth.SelectedIndex = -1;
+            cbDay.SelectedIndex = -1;
+            cbYear.SelectedIndex = -1;
             dgvChildren.Rows.Clear();
             dgvContactPersons.Rows.Clear();
             dgvEducBack.Rows.Clear();
