@@ -43,7 +43,7 @@ namespace Findstaff
                         countID = dr[0].ToString();
                     }
                     dr.Close();
-                    if(txtMName1.ForeColor == Color.Gray)
+                    if(txtMName1.ForeColor == Color.Gray || txtMName1.Text == "")
                     {
                         string cmd = "Insert into Employer_t (employername, fname, lname, country_id, email, contact, companyadd) values ('" + txtEmp1.Text + "','" + txtFName1.Text + "', '" + txtLName1.Text + "','" + countID + "','" + txtEmail1.Text + "','" + txtContact1.Text + "','" + txtCompAddress1.Text + "')";
                         com = new MySqlCommand(cmd, connection);

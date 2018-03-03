@@ -122,7 +122,7 @@
             this.pnlTabs.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTabs.Location = new System.Drawing.Point(0, 0);
             this.pnlTabs.Name = "pnlTabs";
-            this.pnlTabs.Size = new System.Drawing.Size(1138, 50);
+            this.pnlTabs.Size = new System.Drawing.Size(1121, 50);
             this.pnlTabs.TabIndex = 469;
             // 
             // btnPassed1
@@ -140,7 +140,7 @@
             this.btnPassed1.Name = "btnPassed1";
             this.btnPassed1.Size = new System.Drawing.Size(120, 30);
             this.btnPassed1.TabIndex = 471;
-            this.btnPassed1.Text = "PASS";
+            this.btnPassed1.Text = "RECIEVE";
             this.btnPassed1.UseVisualStyleBackColor = false;
             this.btnPassed1.Click += new System.EventHandler(this.btnPassed1_Click);
             // 
@@ -250,7 +250,7 @@
             // 
             // btnPassed2
             // 
-            this.btnPassed2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnPassed2.BackColor = System.Drawing.Color.White;
             this.btnPassed2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPassed2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnPassed2.FlatAppearance.BorderSize = 0;
@@ -263,7 +263,7 @@
             this.btnPassed2.Name = "btnPassed2";
             this.btnPassed2.Size = new System.Drawing.Size(120, 30);
             this.btnPassed2.TabIndex = 479;
-            this.btnPassed2.Text = "PASS";
+            this.btnPassed2.Text = "RECEIVE";
             this.btnPassed2.UseVisualStyleBackColor = false;
             this.btnPassed2.Click += new System.EventHandler(this.btnPassed2_Click);
             // 
@@ -376,7 +376,7 @@
             this.Controls.Add(this.pnlButtons);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ucDocAppDetails";
-            this.Size = new System.Drawing.Size(1138, 500);
+            this.Size = new System.Drawing.Size(1121, 500);
             this.Load += new System.EventHandler(this.ucDocAppDetails_Load);
             this.VisibleChanged += new System.EventHandler(this.ucDocAppDetails_VisibleChanged);
             this.pnlButtons.ResumeLayout(false);
