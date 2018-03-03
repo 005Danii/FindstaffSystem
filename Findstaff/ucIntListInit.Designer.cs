@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblIntervieweeList = new System.Windows.Forms.Label();
             this.lblEmp = new System.Windows.Forms.Label();
             this.lblJobOrder = new System.Windows.Forms.Label();
@@ -43,6 +43,7 @@
             this.btnPassInt = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnIntApp = new System.Windows.Forms.Button();
+            this.btnAssess = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervieweeList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,23 +100,23 @@
             this.dgvIntervieweeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvIntervieweeList.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvIntervieweeList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIntervieweeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIntervieweeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvIntervieweeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIntervieweeList.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIntervieweeList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvIntervieweeList.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvIntervieweeList.Location = new System.Drawing.Point(53, 106);
             this.dgvIntervieweeList.MultiSelect = false;
@@ -236,11 +237,27 @@
             this.btnIntApp.Text = "INTERVIEW APPLICANT";
             this.btnIntApp.UseVisualStyleBackColor = false;
             // 
+            // btnAssess
+            // 
+            this.btnAssess.BackColor = System.Drawing.Color.White;
+            this.btnAssess.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAssess.FlatAppearance.BorderSize = 0;
+            this.btnAssess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAssess.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssess.ForeColor = System.Drawing.Color.Black;
+            this.btnAssess.Location = new System.Drawing.Point(1009, 445);
+            this.btnAssess.Name = "btnAssess";
+            this.btnAssess.Size = new System.Drawing.Size(100, 38);
+            this.btnAssess.TabIndex = 500;
+            this.btnAssess.Text = "ASSESS";
+            this.btnAssess.UseVisualStyleBackColor = false;
+            // 
             // ucIntListInit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.btnAssess);
             this.Controls.Add(this.btnFailInt);
             this.Controls.Add(this.btnPassInt);
             this.Controls.Add(this.btnClose);
@@ -279,5 +296,6 @@
         private System.Windows.Forms.Button btnPassInt;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnIntApp;
+        private System.Windows.Forms.Button btnAssess;
     }
 }

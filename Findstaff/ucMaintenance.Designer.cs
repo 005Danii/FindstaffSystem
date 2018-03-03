@@ -33,10 +33,10 @@
             this.rbAcceptedBanks = new System.Windows.Forms.RadioButton();
             this.rbGeneralRequirements = new System.Windows.Forms.RadioButton();
             this.rbCountry = new System.Windows.Forms.RadioButton();
+            this.ucBanks = new Findstaff.ucBanks();
+            this.ucAcceptedBanks = new Findstaff.ucAcceptedBanks();
             this.ucGenReqs = new Findstaff.ucGenReqs();
             this.ucCountry = new Findstaff.ucCountry();
-            this.ucAcceptedBanks = new Findstaff.ucAcceptedBanks();
-            this.ucBanks = new Findstaff.ucBanks();
             this.pnlTabs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             this.pnlTabs.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTabs.Location = new System.Drawing.Point(0, 0);
             this.pnlTabs.Name = "pnlTabs";
-            this.pnlTabs.Size = new System.Drawing.Size(1118, 50);
+            this.pnlTabs.Size = new System.Drawing.Size(1155, 50);
             this.pnlTabs.TabIndex = 31;
             // 
             // rbBank
@@ -137,6 +137,25 @@
             this.rbCountry.UseVisualStyleBackColor = false;
             this.rbCountry.CheckedChanged += new System.EventHandler(this.rbCountry_CheckedChanged);
             // 
+            // ucBanks
+            // 
+            this.ucBanks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucBanks.ForeColor = System.Drawing.Color.Black;
+            this.ucBanks.Location = new System.Drawing.Point(108, 56);
+            this.ucBanks.Name = "ucBanks";
+            this.ucBanks.Size = new System.Drawing.Size(100, 100);
+            this.ucBanks.TabIndex = 47;
+            this.ucBanks.Visible = false;
+            // 
+            // ucAcceptedBanks
+            // 
+            this.ucAcceptedBanks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucAcceptedBanks.ForeColor = System.Drawing.Color.Black;
+            this.ucAcceptedBanks.Location = new System.Drawing.Point(214, 56);
+            this.ucAcceptedBanks.Name = "ucAcceptedBanks";
+            this.ucAcceptedBanks.Size = new System.Drawing.Size(100, 100);
+            this.ucAcceptedBanks.TabIndex = 46;
+            // 
             // ucGenReqs
             // 
             this.ucGenReqs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -156,25 +175,6 @@
             this.ucCountry.TabIndex = 43;
             this.ucCountry.Visible = false;
             // 
-            // ucAcceptedBanks
-            // 
-            this.ucAcceptedBanks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucAcceptedBanks.ForeColor = System.Drawing.Color.Black;
-            this.ucAcceptedBanks.Location = new System.Drawing.Point(214, 56);
-            this.ucAcceptedBanks.Name = "ucAcceptedBanks";
-            this.ucAcceptedBanks.Size = new System.Drawing.Size(100, 100);
-            this.ucAcceptedBanks.TabIndex = 46;
-            // 
-            // ucBanks
-            // 
-            this.ucBanks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucBanks.ForeColor = System.Drawing.Color.Black;
-            this.ucBanks.Location = new System.Drawing.Point(108, 56);
-            this.ucBanks.Name = "ucBanks";
-            this.ucBanks.Size = new System.Drawing.Size(100, 100);
-            this.ucBanks.TabIndex = 47;
-            this.ucBanks.Visible = false;
-            // 
             // ucMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,7 +186,7 @@
             this.Controls.Add(this.ucCountry);
             this.Controls.Add(this.pnlTabs);
             this.Name = "ucMaintenance";
-            this.Size = new System.Drawing.Size(1118, 500);
+            this.Size = new System.Drawing.Size(1155, 500);
             this.VisibleChanged += new System.EventHandler(this.ucMaintenance_VisibleChanged);
             this.pnlTabs.ResumeLayout(false);
             this.ResumeLayout(false);

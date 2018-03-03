@@ -93,7 +93,7 @@
             this.txtJob.Enabled = false;
             this.txtJob.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtJob.ForeColor = System.Drawing.Color.Black;
-            this.txtJob.Location = new System.Drawing.Point(680, 15);
+            this.txtJob.Location = new System.Drawing.Point(660, 16);
             this.txtJob.MaxLength = 30;
             this.txtJob.Name = "txtJob";
             this.txtJob.Size = new System.Drawing.Size(200, 27);
@@ -172,11 +172,11 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilter.ForeColor = System.Drawing.Color.Black;
-            this.btnFilter.Location = new System.Drawing.Point(976, 13);
+            this.btnFilter.Location = new System.Drawing.Point(886, 13);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(100, 30);
+            this.btnFilter.Size = new System.Drawing.Size(190, 30);
             this.btnFilter.TabIndex = 17;
-            this.btnFilter.Text = "FILTER";
+            this.btnFilter.Text = "APPLY JOB MATCH";
             this.btnFilter.UseVisualStyleBackColor = false;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 

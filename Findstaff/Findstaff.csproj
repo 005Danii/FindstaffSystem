@@ -177,6 +177,12 @@
     <Compile Include="ucBookFlight.Designer.cs">
       <DependentUpon>ucBookFlight.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucCollectionsMonitoringReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCollectionsMonitoringReport.Designer.cs">
+      <DependentUpon>ucCollectionsMonitoringReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucCountry.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,6 +212,12 @@
     </Compile>
     <Compile Include="ucCurrencyAddEdit.Designer.cs">
       <DependentUpon>ucCurrencyAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDeploymentMonitoringReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDeploymentMonitoringReport.Designer.cs">
+      <DependentUpon>ucDeploymentMonitoringReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ucDocAppDetails.cs">
       <SubType>UserControl</SubType>
@@ -273,6 +285,12 @@
     <Compile Include="ucFeesAddEdit.Designer.cs">
       <DependentUpon>ucFeesAddEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucFinInAssess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFinInAssess.Designer.cs">
+      <DependentUpon>ucFinInAssess.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucFlightBooking.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -284,6 +302,12 @@
     </Compile>
     <Compile Include="ucGenReqs.Designer.cs">
       <DependentUpon>ucGenReqs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucInIntAssess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucInIntAssess.Designer.cs">
+      <DependentUpon>ucInIntAssess.cs</DependentUpon>
     </Compile>
     <Compile Include="ucInterviewCriteria.cs">
       <SubType>UserControl</SubType>
@@ -447,17 +471,23 @@
     <Compile Include="ucAppView.Designer.cs">
       <DependentUpon>ucAppView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucReports.cs">
+    <Compile Include="ucApplicationStatus.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucReports.Designer.cs">
-      <DependentUpon>ucReports.cs</DependentUpon>
+    <Compile Include="ucApplicationStatus.Designer.cs">
+      <DependentUpon>ucApplicationStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="ucAccoView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucAccoView.Designer.cs">
       <DependentUpon>ucAccoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucReports.Designer.cs">
+      <DependentUpon>ucReports.cs</DependentUpon>
     </Compile>
     <Compile Include="ucRequirements.cs">
       <SubType>UserControl</SubType>
@@ -548,6 +578,9 @@
     <EmbeddedResource Include="ucBookFlight.resx">
       <DependentUpon>ucBookFlight.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucCollectionsMonitoringReport.resx">
+      <DependentUpon>ucCollectionsMonitoringReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucCountry.resx">
       <DependentUpon>ucCountry.cs</DependentUpon>
     </EmbeddedResource>
@@ -562,6 +595,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucCurrencyAddEdit.resx">
       <DependentUpon>ucCurrencyAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDeploymentMonitoringReport.resx">
+      <DependentUpon>ucDeploymentMonitoringReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucDocAppDetails.resx">
       <DependentUpon>ucDocAppDetails.cs</DependentUpon>
@@ -596,11 +632,17 @@
     <EmbeddedResource Include="ucFeesAddEdit.resx">
       <DependentUpon>ucFeesAddEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucFinInAssess.resx">
+      <DependentUpon>ucFinInAssess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucFlightBooking.resx">
       <DependentUpon>ucFlightBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucGenReqs.resx">
       <DependentUpon>ucGenReqs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucInIntAssess.resx">
+      <DependentUpon>ucInIntAssess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucInterviewCriteria.resx">
       <DependentUpon>ucInterviewCriteria.cs</DependentUpon>
@@ -680,11 +722,14 @@
     <EmbeddedResource Include="ucAppView.resx">
       <DependentUpon>ucAppView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucReports.resx">
-      <DependentUpon>ucReports.cs</DependentUpon>
+    <EmbeddedResource Include="ucApplicationStatus.resx">
+      <DependentUpon>ucApplicationStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucAccoView.resx">
       <DependentUpon>ucAccoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucReports.resx">
+      <DependentUpon>ucReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucRequirements.resx">
       <DependentUpon>ucRequirements.cs</DependentUpon>
