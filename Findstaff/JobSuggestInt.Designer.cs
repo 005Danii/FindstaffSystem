@@ -147,7 +147,7 @@
             // 
             this.dtp.CalendarFont = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp.Location = new System.Drawing.Point(105, 77);
+            this.dtp.Location = new System.Drawing.Point(105, 76);
             this.dtp.MinDate = new System.DateTime(2018, 2, 16, 0, 0, 0, 0);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(399, 27);
@@ -157,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(554, 184);
             this.ControlBox = false;
             this.Controls.Add(this.dtp);

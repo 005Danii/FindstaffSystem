@@ -171,6 +171,12 @@
     <Compile Include="ucBanks.Designer.cs">
       <DependentUpon>ucBanks.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucBookFlight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBookFlight.Designer.cs">
+      <DependentUpon>ucBookFlight.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucCountry.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -465,6 +471,12 @@
     <Compile Include="ucRequirementsAddEdit.Designer.cs">
       <DependentUpon>ucRequirementsAddEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucReschedFlight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucReschedFlight.Designer.cs">
+      <DependentUpon>ucReschedFlight.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucSkills.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -532,6 +544,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucBanks.resx">
       <DependentUpon>ucBanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucBookFlight.resx">
+      <DependentUpon>ucBookFlight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucCountry.resx">
       <DependentUpon>ucCountry.cs</DependentUpon>
@@ -676,6 +691,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucRequirementsAddEdit.resx">
       <DependentUpon>ucRequirementsAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucReschedFlight.resx">
+      <DependentUpon>ucReschedFlight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucSkills.resx">
       <DependentUpon>ucSkills.cs</DependentUpon>

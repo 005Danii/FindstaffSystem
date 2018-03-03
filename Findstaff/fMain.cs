@@ -26,6 +26,7 @@ namespace Findstaff
             ucRecruitment.Dock = DockStyle.Fill;
             //ucDocumentation.Dock = DockStyle.Fill;
             ucAcco.Dock = DockStyle.Fill;
+            ucFlightBooking.Dock = DockStyle.Fill;
             ucMaintenance.Dock = DockStyle.Fill;
             ucUtilities.Dock = DockStyle.Fill;
             ucQueries.Dock = DockStyle.Fill;
@@ -61,8 +62,9 @@ namespace Findstaff
                 rbRecruitment.Enabled = true;
                 //rbDocumentation.Enabled = false;
                 rbAcco.Enabled = false;
+                rbFlightBooking.Enabled = false;
                 rbMaintenance.Enabled = false;
-                rbUtilities.Enabled = false;
+                rbReports.Enabled = false;
             }
             else if (dept == "Documentation")
             {
@@ -70,8 +72,9 @@ namespace Findstaff
                 rbRecruitment.Enabled = false;
                 //rbDocumentation.Enabled = true;
                 rbAcco.Enabled = false;
+                rbFlightBooking.Enabled = true;
                 rbMaintenance.Enabled = false;
-                rbUtilities.Enabled = false;
+                rbReports.Enabled = false;
             }
             else if (dept == "Accounting")
             {
@@ -79,8 +82,9 @@ namespace Findstaff
                 rbRecruitment.Enabled = false;
                 //rbDocumentation.Enabled = false;
                 rbAcco.Enabled = true;
+                rbFlightBooking.Enabled = false;
                 rbMaintenance.Enabled = false;
-                rbUtilities.Enabled = false;
+                rbReports.Enabled = false;
             }
             else if (dept == "Marketing")
             {
@@ -88,8 +92,9 @@ namespace Findstaff
                 rbRecruitment.Enabled = false;
                 //rbDocumentation.Enabled = false;
                 rbAcco.Enabled = false;
-                rbMaintenance.Enabled = true;
-                rbUtilities.Enabled = false;
+                rbFlightBooking.Enabled = false;
+                rbMaintenance.Enabled = false;
+                rbReports.Enabled = false;
             }
         }
 
@@ -135,6 +140,7 @@ namespace Findstaff
             //ucDocumentation.Visible = false;
             ucAcco.Visible = false;
             ucMaintenance.Visible = false;
+            ucFlightBooking.Visible = false;
             ucUtilities.Visible = false;
             ucQueries.Visible = false;
             ucReports.Visible = false;
@@ -147,6 +153,7 @@ namespace Findstaff
             //ucDocumentation.Visible = false;
             ucAcco.Visible = false;
             ucMaintenance.Visible = false;
+            ucFlightBooking.Visible = false;
             ucUtilities.Visible = false;
             ucQueries.Visible = false;
             ucReports.Visible = false;
@@ -159,6 +166,7 @@ namespace Findstaff
             //ucDocumentation.Visible = true;
             ucAcco.Visible = false;
             ucMaintenance.Visible = false;
+            ucFlightBooking.Visible = false;
             ucReports.Visible = false;
             ucUtilities.Visible = false;
             ucQueries.Visible = false;
@@ -171,18 +179,7 @@ namespace Findstaff
             //ucDocumentation.Visible = false;
             ucAcco.Visible = true;
             ucMaintenance.Visible = false;
-            ucReports.Visible = false;
-            ucUtilities.Visible = false;
-            ucQueries.Visible = false;
-        }
-
-        private void rbFlightBooking_CheckedChanged(object sender, EventArgs e)
-        {
-            ucJobOrderManagement.Visible = false;
-            ucRecruitment.Visible = false;
-            //ucDocumentation.Visible = false;
-            ucAcco.Visible = false;
-            ucMaintenance.Visible = false;
+            ucFlightBooking.Visible = false;
             ucReports.Visible = false;
             ucUtilities.Visible = false;
             ucQueries.Visible = false;
@@ -195,6 +192,7 @@ namespace Findstaff
             //ucDocumentation.Visible = false;
             ucAcco.Visible = false;
             ucMaintenance.Visible = true;
+            ucFlightBooking.Visible = false;
             ucReports.Visible = false;
             ucUtilities.Visible = false;
             ucQueries.Visible = false;
@@ -207,6 +205,7 @@ namespace Findstaff
             //ucDocumentation.Visible = false;
             ucAcco.Visible = false;
             ucMaintenance.Visible = false;
+            ucFlightBooking.Visible = false;
             ucReports.Visible = false;
             ucUtilities.Visible = true;
             ucQueries.Visible = false;
@@ -218,6 +217,7 @@ namespace Findstaff
             ucRecruitment.Visible = false;
             //ucDocumentation.Visible = false;
             ucAcco.Visible = false;
+            ucFlightBooking.Visible = false;
             ucMaintenance.Visible = false;
             ucReports.Visible = false;
             ucUtilities.Visible = false;
@@ -230,6 +230,7 @@ namespace Findstaff
             ucRecruitment.Visible = false;
             //ucDocumentation.Visible = false;
             ucAcco.Visible = false;
+            ucFlightBooking.Visible = false;
             ucMaintenance.Visible = false;
             ucUtilities.Visible = false;
             ucQueries.Visible = false;
@@ -237,11 +238,24 @@ namespace Findstaff
             
         }
 
+        private void rbFlightBooking_CheckedChanged(object sender, EventArgs e)
+        {
+            ucJobOrderManagement.Visible = false;
+            ucRecruitment.Visible = false;
+            //ucDocumentation.Visible = false;
+            ucAcco.Visible = false;
+            ucFlightBooking.Visible = true;
+            ucMaintenance.Visible = false;
+            ucUtilities.Visible = false;
+            ucQueries.Visible = false;
+            ucReports.Visible = false;
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblDate.Text = DateTime.Now.ToLongDateString();
             lblTime.Text = DateTime.Now.ToShortTimeString();
         }
-
+        
     }
 }

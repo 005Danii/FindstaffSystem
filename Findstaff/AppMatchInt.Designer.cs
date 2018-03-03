@@ -45,7 +45,7 @@
             this.cbYear.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbYear.ForeColor = System.Drawing.Color.Black;
             this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(394, 81);
+            this.cbYear.Location = new System.Drawing.Point(394, 80);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(110, 28);
             this.cbYear.TabIndex = 53;
@@ -57,7 +57,7 @@
             this.cbDay.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDay.ForeColor = System.Drawing.Color.Black;
             this.cbDay.FormattingEnabled = true;
-            this.cbDay.Location = new System.Drawing.Point(311, 81);
+            this.cbDay.Location = new System.Drawing.Point(311, 80);
             this.cbDay.Name = "cbDay";
             this.cbDay.Size = new System.Drawing.Size(77, 28);
             this.cbDay.TabIndex = 52;

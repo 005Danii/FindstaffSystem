@@ -36,6 +36,8 @@
             this.dgvFlightBooking = new System.Windows.Forms.DataGridView();
             this.lblFlightBooking = new System.Windows.Forms.Label();
             this.btnViewDetails = new System.Windows.Forms.Button();
+            this.ucReschedFlight = new Findstaff.ucReschedFlight();
+            this.ucBookFlight = new Findstaff.ucBookFlight();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlightBooking)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             // 
             // btnReschedule
             // 
-            this.btnReschedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnReschedule.BackColor = System.Drawing.Color.White;
             this.btnReschedule.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnReschedule.FlatAppearance.BorderSize = 0;
             this.btnReschedule.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
@@ -58,7 +60,7 @@
             this.btnReschedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReschedule.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReschedule.ForeColor = System.Drawing.Color.Black;
-            this.btnReschedule.Location = new System.Drawing.Point(484, 400);
+            this.btnReschedule.Location = new System.Drawing.Point(487, 472);
             this.btnReschedule.Name = "btnReschedule";
             this.btnReschedule.Size = new System.Drawing.Size(150, 50);
             this.btnReschedule.TabIndex = 65;
@@ -68,7 +70,7 @@
             // 
             // btnBookFlight
             // 
-            this.btnBookFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnBookFlight.BackColor = System.Drawing.Color.White;
             this.btnBookFlight.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnBookFlight.FlatAppearance.BorderSize = 0;
             this.btnBookFlight.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
@@ -76,11 +78,11 @@
             this.btnBookFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBookFlight.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBookFlight.ForeColor = System.Drawing.Color.Black;
-            this.btnBookFlight.Location = new System.Drawing.Point(328, 400);
+            this.btnBookFlight.Location = new System.Drawing.Point(331, 472);
             this.btnBookFlight.Name = "btnBookFlight";
             this.btnBookFlight.Size = new System.Drawing.Size(150, 50);
             this.btnBookFlight.TabIndex = 64;
-            this.btnBookFlight.Text = "BOOK FLIGHT";
+            this.btnBookFlight.Text = "SCHEDULE FLIGHT";
             this.btnBookFlight.UseVisualStyleBackColor = false;
             this.btnBookFlight.Click += new System.EventHandler(this.btnBookFlight_Click);
             // 
@@ -111,14 +113,14 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFlightBooking.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFlightBooking.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvFlightBooking.Location = new System.Drawing.Point(100, 150);
+            this.dgvFlightBooking.Location = new System.Drawing.Point(47, 137);
             this.dgvFlightBooking.MultiSelect = false;
             this.dgvFlightBooking.Name = "dgvFlightBooking";
             this.dgvFlightBooking.ReadOnly = true;
             this.dgvFlightBooking.RowHeadersVisible = false;
             this.dgvFlightBooking.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFlightBooking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFlightBooking.Size = new System.Drawing.Size(918, 200);
+            this.dgvFlightBooking.Size = new System.Drawing.Size(1028, 315);
             this.dgvFlightBooking.TabIndex = 63;
             // 
             // lblFlightBooking
@@ -127,7 +129,7 @@
             this.lblFlightBooking.BackColor = System.Drawing.Color.Transparent;
             this.lblFlightBooking.Font = new System.Drawing.Font("Rockwell", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFlightBooking.ForeColor = System.Drawing.Color.Black;
-            this.lblFlightBooking.Location = new System.Drawing.Point(25, 75);
+            this.lblFlightBooking.Location = new System.Drawing.Point(19, 67);
             this.lblFlightBooking.Name = "lblFlightBooking";
             this.lblFlightBooking.Size = new System.Drawing.Size(249, 39);
             this.lblFlightBooking.TabIndex = 62;
@@ -135,7 +137,7 @@
             // 
             // btnViewDetails
             // 
-            this.btnViewDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnViewDetails.BackColor = System.Drawing.Color.White;
             this.btnViewDetails.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnViewDetails.FlatAppearance.BorderSize = 0;
             this.btnViewDetails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
@@ -143,7 +145,7 @@
             this.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDetails.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.ForeColor = System.Drawing.Color.Black;
-            this.btnViewDetails.Location = new System.Drawing.Point(640, 400);
+            this.btnViewDetails.Location = new System.Drawing.Point(643, 472);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.Size = new System.Drawing.Size(150, 50);
             this.btnViewDetails.TabIndex = 66;
@@ -151,11 +153,31 @@
             this.btnViewDetails.UseVisualStyleBackColor = false;
             this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
+            // ucReschedFlight
+            // 
+            this.ucReschedFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucReschedFlight.Location = new System.Drawing.Point(26, 56);
+            this.ucReschedFlight.Name = "ucReschedFlight";
+            this.ucReschedFlight.Size = new System.Drawing.Size(10, 10);
+            this.ucReschedFlight.TabIndex = 68;
+            this.ucReschedFlight.VisibleChanged += new System.EventHandler(this.ucReschedFlight_VisibleChanged);
+            // 
+            // ucBookFlight
+            // 
+            this.ucBookFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucBookFlight.Location = new System.Drawing.Point(6, 56);
+            this.ucBookFlight.Name = "ucBookFlight";
+            this.ucBookFlight.Size = new System.Drawing.Size(10, 10);
+            this.ucBookFlight.TabIndex = 67;
+            this.ucBookFlight.VisibleChanged += new System.EventHandler(this.ucBookFlight_VisibleChanged);
+            // 
             // ucFlightBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.ucReschedFlight);
+            this.Controls.Add(this.ucBookFlight);
             this.Controls.Add(this.btnViewDetails);
             this.Controls.Add(this.btnReschedule);
             this.Controls.Add(this.btnBookFlight);
@@ -163,7 +185,8 @@
             this.Controls.Add(this.lblFlightBooking);
             this.Controls.Add(this.pnlTabs);
             this.Name = "ucFlightBooking";
-            this.Size = new System.Drawing.Size(1118, 500);
+            this.Size = new System.Drawing.Size(1118, 546);
+            this.Load += new System.EventHandler(this.ucFlightBooking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlightBooking)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -178,5 +201,7 @@
         public System.Windows.Forms.DataGridView dgvFlightBooking;
         private System.Windows.Forms.Label lblFlightBooking;
         private System.Windows.Forms.Button btnViewDetails;
+        private ucBookFlight ucBookFlight;
+        private ucReschedFlight ucReschedFlight;
     }
 }
