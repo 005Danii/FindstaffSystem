@@ -42,6 +42,7 @@
             this.btnFailInt = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAssess = new System.Windows.Forms.Button();
+            this.ucFinInAssess = new Findstaff.ucFinInAssess();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervieweeList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -225,11 +226,21 @@
             this.btnAssess.Text = "ASSESS";
             this.btnAssess.UseVisualStyleBackColor = false;
             // 
+            // ucFinInAssess
+            // 
+            this.ucFinInAssess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucFinInAssess.Location = new System.Drawing.Point(3, 3);
+            this.ucFinInAssess.Name = "ucFinInAssess";
+            this.ucFinInAssess.Size = new System.Drawing.Size(10, 10);
+            this.ucFinInAssess.TabIndex = 502;
+            this.ucFinInAssess.Visible = false;
+            // 
             // ucIntListFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.ucFinInAssess);
             this.Controls.Add(this.btnAssess);
             this.Controls.Add(this.employer);
             this.Controls.Add(this.joborder);
@@ -265,5 +276,6 @@
         public System.Windows.Forms.Label joborder;
         public System.Windows.Forms.Label jobname;
         private System.Windows.Forms.Button btnAssess;
+        private ucFinInAssess ucFinInAssess;
     }
 }
