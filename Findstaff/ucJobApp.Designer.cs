@@ -34,7 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAppMatch = new System.Windows.Forms.TabPage();
-            this.txtJob = new System.Windows.Forms.TextBox();
             this.btnAppMatchInt = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvAppMatch = new System.Windows.Forms.DataGridView();
@@ -71,7 +70,6 @@
             // tabAppMatch
             // 
             this.tabAppMatch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.tabAppMatch.Controls.Add(this.txtJob);
             this.tabAppMatch.Controls.Add(this.btnAppMatchInt);
             this.tabAppMatch.Controls.Add(this.label1);
             this.tabAppMatch.Controls.Add(this.dgvAppMatch);
@@ -86,19 +84,6 @@
             this.tabAppMatch.Size = new System.Drawing.Size(1097, 415);
             this.tabAppMatch.TabIndex = 0;
             this.tabAppMatch.Text = "Applicant Matching";
-            // 
-            // txtJob
-            // 
-            this.txtJob.BackColor = System.Drawing.Color.White;
-            this.txtJob.Enabled = false;
-            this.txtJob.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJob.ForeColor = System.Drawing.Color.Black;
-            this.txtJob.Location = new System.Drawing.Point(660, 16);
-            this.txtJob.MaxLength = 30;
-            this.txtJob.Name = "txtJob";
-            this.txtJob.Size = new System.Drawing.Size(200, 27);
-            this.txtJob.TabIndex = 284;
-            this.txtJob.Visible = false;
             // 
             // btnAppMatchInt
             // 
@@ -191,7 +176,6 @@
             this.cbJobOrder.Name = "cbJobOrder";
             this.cbJobOrder.Size = new System.Drawing.Size(200, 28);
             this.cbJobOrder.TabIndex = 16;
-            this.cbJobOrder.SelectedIndexChanged += new System.EventHandler(this.cbJobOrder_SelectedIndexChanged);
             // 
             // cbEmployer
             // 
@@ -395,6 +379,5 @@
         public System.Windows.Forms.ComboBox cbEmployer;
         private System.Windows.Forms.TextBox txtMiddle;
         private System.Windows.Forms.TextBox txtFirst;
-        public System.Windows.Forms.TextBox txtJob;
     }
 }

@@ -31,13 +31,19 @@
             this.btnFailInt = new System.Windows.Forms.Button();
             this.btnPassInt = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.rtbRemarks3 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.rtbRemarks2 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbRemarks1 = new System.Windows.Forms.RichTextBox();
             this.lblApp = new System.Windows.Forms.Label();
             this.lblViewAcco = new System.Windows.Forms.Label();
+            this.appname = new System.Windows.Forms.Label();
+            this.applicant = new System.Windows.Forms.Label();
+            this.application = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnFailInt
@@ -54,6 +60,7 @@
             this.btnFailInt.TabIndex = 512;
             this.btnFailInt.Text = "FAIL INTERVIEWEE";
             this.btnFailInt.UseVisualStyleBackColor = false;
+            this.btnFailInt.Click += new System.EventHandler(this.btnFailInt_Click);
             // 
             // btnPassInt
             // 
@@ -69,6 +76,7 @@
             this.btnPassInt.TabIndex = 511;
             this.btnPassInt.Text = "PASS INTERVIEWEE";
             this.btnPassInt.UseVisualStyleBackColor = false;
+            this.btnPassInt.Click += new System.EventHandler(this.btnPassInt_Click);
             // 
             // btnClose
             // 
@@ -86,13 +94,14 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // richTextBox3
+            // rtbRemarks3
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(355, 302);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(459, 97);
-            this.richTextBox3.TabIndex = 509;
-            this.richTextBox3.Text = "";
+            this.rtbRemarks3.Font = new System.Drawing.Font("Century", 12F);
+            this.rtbRemarks3.Location = new System.Drawing.Point(355, 320);
+            this.rtbRemarks3.Name = "rtbRemarks3";
+            this.rtbRemarks3.Size = new System.Drawing.Size(459, 75);
+            this.rtbRemarks3.TabIndex = 509;
+            this.rtbRemarks3.Text = "";
             // 
             // label2
             // 
@@ -100,19 +109,20 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(270, 302);
+            this.label2.Location = new System.Drawing.Point(270, 320);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 508;
             this.label2.Text = "Remarks:";
             // 
-            // richTextBox2
+            // rtbRemarks2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(355, 185);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(459, 97);
-            this.richTextBox2.TabIndex = 507;
-            this.richTextBox2.Text = "";
+            this.rtbRemarks2.Font = new System.Drawing.Font("Century", 12F);
+            this.rtbRemarks2.Location = new System.Drawing.Point(355, 237);
+            this.rtbRemarks2.Name = "rtbRemarks2";
+            this.rtbRemarks2.Size = new System.Drawing.Size(459, 75);
+            this.rtbRemarks2.TabIndex = 507;
+            this.rtbRemarks2.Text = "";
             // 
             // label1
             // 
@@ -120,19 +130,20 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(270, 185);
+            this.label1.Location = new System.Drawing.Point(270, 237);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 506;
             this.label1.Text = "Remarks:";
             // 
-            // richTextBox1
+            // rtbRemarks1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(355, 62);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(459, 97);
-            this.richTextBox1.TabIndex = 505;
-            this.richTextBox1.Text = "";
+            this.rtbRemarks1.Font = new System.Drawing.Font("Century", 12F);
+            this.rtbRemarks1.Location = new System.Drawing.Point(355, 153);
+            this.rtbRemarks1.Name = "rtbRemarks1";
+            this.rtbRemarks1.Size = new System.Drawing.Size(459, 75);
+            this.rtbRemarks1.TabIndex = 505;
+            this.rtbRemarks1.Text = "";
             // 
             // lblApp
             // 
@@ -140,7 +151,7 @@
             this.lblApp.BackColor = System.Drawing.Color.Transparent;
             this.lblApp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApp.ForeColor = System.Drawing.Color.Black;
-            this.lblApp.Location = new System.Drawing.Point(270, 62);
+            this.lblApp.Location = new System.Drawing.Point(270, 153);
             this.lblApp.Name = "lblApp";
             this.lblApp.Size = new System.Drawing.Size(79, 20);
             this.lblApp.TabIndex = 504;
@@ -158,23 +169,102 @@
             this.lblViewAcco.TabIndex = 503;
             this.lblViewAcco.Text = "Assessment";
             // 
+            // appname
+            // 
+            this.appname.AutoSize = true;
+            this.appname.BackColor = System.Drawing.Color.Transparent;
+            this.appname.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appname.ForeColor = System.Drawing.Color.Black;
+            this.appname.Location = new System.Drawing.Point(794, 70);
+            this.appname.Name = "appname";
+            this.appname.Size = new System.Drawing.Size(77, 20);
+            this.appname.TabIndex = 524;
+            this.appname.Text = "appname";
+            // 
+            // applicant
+            // 
+            this.applicant.AutoSize = true;
+            this.applicant.BackColor = System.Drawing.Color.Transparent;
+            this.applicant.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.applicant.ForeColor = System.Drawing.Color.Black;
+            this.applicant.Location = new System.Drawing.Point(347, 99);
+            this.applicant.Name = "applicant";
+            this.applicant.Size = new System.Drawing.Size(78, 20);
+            this.applicant.TabIndex = 523;
+            this.applicant.Text = "applicant";
+            // 
+            // application
+            // 
+            this.application.AutoSize = true;
+            this.application.BackColor = System.Drawing.Color.Transparent;
+            this.application.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.application.ForeColor = System.Drawing.Color.Black;
+            this.application.Location = new System.Drawing.Point(347, 70);
+            this.application.Name = "application";
+            this.application.Size = new System.Drawing.Size(91, 20);
+            this.application.TabIndex = 522;
+            this.application.Text = "application";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(655, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(133, 20);
+            this.label5.TabIndex = 521;
+            this.label5.Text = "Applicant Name:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(218, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 20);
+            this.label4.TabIndex = 520;
+            this.label4.Text = "Applicant ID:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(218, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 20);
+            this.label3.TabIndex = 519;
+            this.label3.Text = "Application No:";
+            // 
             // ucFinInAssess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.appname);
+            this.Controls.Add(this.applicant);
+            this.Controls.Add(this.application);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnFailInt);
             this.Controls.Add(this.btnPassInt);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.rtbRemarks3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.rtbRemarks2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbRemarks1);
             this.Controls.Add(this.lblApp);
             this.Controls.Add(this.lblViewAcco);
             this.Name = "ucFinInAssess";
             this.Size = new System.Drawing.Size(1155, 500);
+            this.VisibleChanged += new System.EventHandler(this.ucFinInAssess_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,12 +275,18 @@
         private System.Windows.Forms.Button btnFailInt;
         private System.Windows.Forms.Button btnPassInt;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox rtbRemarks3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox rtbRemarks2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbRemarks1;
         private System.Windows.Forms.Label lblApp;
         private System.Windows.Forms.Label lblViewAcco;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label appname;
+        public System.Windows.Forms.Label applicant;
+        public System.Windows.Forms.Label application;
     }
 }

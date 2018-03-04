@@ -64,35 +64,6 @@ namespace Findstaff
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
             MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " passed the Initial Interview!", "Initial Interview Status", MessageBoxButtons.OK, MessageBoxIcon.None);
-            string jobID = "", empID = "";
-            cmd = "select job_id from job_t where jobname = '" + jobname.Text + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                jobID = dr[0].ToString();
-            }
-            dr.Close();
-            cmd = "select employer_id from employer_t where employername = '" + employer.Text + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                empID = dr[0].ToString();
-            }
-            dr.Close();
-            cmd = "select app.app_no'Application No.', a.app_id'Applicant ID', concat(a.lname, ', ', a.fname, ' ', a.mname)'Applicant Name', app.initinterviewdate'Interview Date' from applications_t app "
-                    + "join app_t a on app.app_id = a.app_id where app.appstats = 'Active' and a.appstatus = 'For Initial Interview' "
-                    + "and app.jorder_id = '" + jorder + "' and app.job_id = '" + jobID + "' and app.employer_id = '" + empID + "' and initinterviewstatus is null";
-            using (connection)
-            {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dgvIntervieweeList.DataSource = ds.Tables[0];
-                }
-            }
             connection.Close();
         }
 
@@ -106,6 +77,21 @@ namespace Findstaff
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
             MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " failed the Initial Interview!", "Initial Interview Status", MessageBoxButtons.OK, MessageBoxIcon.None);
+            connection.Close();
+        }
+
+        private void btnAssess_Click(object sender, EventArgs e)
+        {
+            ucInIntAssess.application.Text = dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString();
+            ucInIntAssess.applicant.Text = dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString();
+            ucInIntAssess.appname.Text = dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString();
+            ucInIntAssess.Dock = DockStyle.Fill;
+            ucInIntAssess.Visible = true;
+        }
+
+        private void ucInIntAssess_VisibleChanged(object sender, EventArgs e)
+        {
+            connection.Open();
             string jobID = "", empID = "";
             cmd = "select job_id from job_t where jobname = '" + jobname.Text + "'";
             com = new MySqlCommand(cmd, connection);

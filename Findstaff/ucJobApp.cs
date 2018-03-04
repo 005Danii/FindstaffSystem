@@ -55,7 +55,6 @@ namespace Findstaff
                 txtLast.ForeColor = Color.Gray;
                 txtMiddle.Text = "Middle Name";
                 txtMiddle.ForeColor = Color.Gray;
-                txtJob.Text = "";
                 dgvAppMatch.Rows.Clear();
                 dgvJobSuggest.Rows.Clear();
             }
@@ -64,7 +63,6 @@ namespace Findstaff
         private void cbEmployer_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbJobOrder.Items.Clear();
-            txtJob.Text = "";
             connection.Open();
             cmd = "Select jo.jobname from joborder_t j join employer_t e "
                 + "on j.employer_id = e.employer_id "
@@ -75,20 +73,6 @@ namespace Findstaff
             while (dr.Read())
             {
                 cbJobOrder.Items.Add(dr[0]);
-            }
-            dr.Close();
-            connection.Close();
-        }
-
-        private void cbJobOrder_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            connection.Open();
-            cmd = "select job.jobname from joborder_t j join job_t job on j.job_id = job.job_id where j.jorder_id = '"+cbJobOrder.Text+"'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                txtJob.Text = dr[0].ToString();
             }
             dr.Close();
             connection.Close();
