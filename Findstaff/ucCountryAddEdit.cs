@@ -68,7 +68,13 @@ namespace Findstaff
                         }
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
-                        MessageBox.Show("Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        for(int x = 0; x < dgvAirports1.Rows.Count; x++)
+                        {
+                            cmd = "insert into countryairports_t (country_id, airportname) values ('"+cID+"','"+dgvAirports1.Rows[x].Cells[0].Value.ToString()+"')";
+                            com = new MySqlCommand(cmd, connection);
+                            com.ExecuteNonQuery();
+                        }
+                        MessageBox.Show("Country Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtCountryName1.Clear();
                         txtCurrency1.Clear();
                         txtSymbol1.Clear();
@@ -265,6 +271,23 @@ namespace Findstaff
                 dgvReq2.Rows.Clear();
             }
             connection.Close();
+        }
+
+        private void btnAddAirport1_Click(object sender, EventArgs e)
+        {
+            if(txtAirport1.Text != "")
+            {
+                dgvAirports1.ColumnCount = 1;
+                dgvAirports1.Rows.Add(txtAirport1.Text);
+            }
+        }
+
+        private void btnRemoveAirport1_Click(object sender, EventArgs e)
+        {
+            if(dgvAirports1.Rows.Count != 0)
+            {
+                dgvAirports1.Rows.Remove(dgvAirports1.SelectedRows[0]);
+            }
         }
     }
 }

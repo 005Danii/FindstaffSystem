@@ -39,12 +39,9 @@
             this.joborder = new System.Windows.Forms.Label();
             this.jobname = new System.Windows.Forms.Label();
             this.ucInterviewCriteria = new Findstaff.ucInterviewCriteria();
-            this.btnFailInt = new System.Windows.Forms.Button();
-            this.btnPassInt = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnIntApp = new System.Windows.Forms.Button();
-            this.btnAssess = new System.Windows.Forms.Button();
             this.ucInIntAssess = new Findstaff.ucInIntAssess();
+            this.btnAssess = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervieweeList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,85 +172,6 @@
             this.ucInterviewCriteria.Size = new System.Drawing.Size(10, 10);
             this.ucInterviewCriteria.TabIndex = 493;
             // 
-            // btnFailInt
-            // 
-            this.btnFailInt.BackColor = System.Drawing.Color.White;
-            this.btnFailInt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnFailInt.FlatAppearance.BorderSize = 0;
-            this.btnFailInt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFailInt.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFailInt.ForeColor = System.Drawing.Color.Black;
-            this.btnFailInt.Location = new System.Drawing.Point(527, 445);
-            this.btnFailInt.Name = "btnFailInt";
-            this.btnFailInt.Size = new System.Drawing.Size(238, 38);
-            this.btnFailInt.TabIndex = 499;
-            this.btnFailInt.Text = "FAIL INTERVIEWEE";
-            this.btnFailInt.UseVisualStyleBackColor = false;
-            this.btnFailInt.Click += new System.EventHandler(this.btnFailInt_Click);
-            // 
-            // btnPassInt
-            // 
-            this.btnPassInt.BackColor = System.Drawing.Color.White;
-            this.btnPassInt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnPassInt.FlatAppearance.BorderSize = 0;
-            this.btnPassInt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPassInt.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPassInt.ForeColor = System.Drawing.Color.Black;
-            this.btnPassInt.Location = new System.Drawing.Point(283, 445);
-            this.btnPassInt.Name = "btnPassInt";
-            this.btnPassInt.Size = new System.Drawing.Size(238, 38);
-            this.btnPassInt.TabIndex = 498;
-            this.btnPassInt.Text = "PASS INTERVIEWEE";
-            this.btnPassInt.UseVisualStyleBackColor = false;
-            this.btnPassInt.Click += new System.EventHandler(this.btnPassInt_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.White;
-            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(771, 445);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(100, 38);
-            this.btnClose.TabIndex = 497;
-            this.btnClose.Text = "CLOSE";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnIntApp
-            // 
-            this.btnIntApp.BackColor = System.Drawing.Color.White;
-            this.btnIntApp.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnIntApp.FlatAppearance.BorderSize = 0;
-            this.btnIntApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIntApp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIntApp.ForeColor = System.Drawing.Color.Black;
-            this.btnIntApp.Location = new System.Drawing.Point(525, 445);
-            this.btnIntApp.Name = "btnIntApp";
-            this.btnIntApp.Size = new System.Drawing.Size(238, 38);
-            this.btnIntApp.TabIndex = 496;
-            this.btnIntApp.Text = "INTERVIEW APPLICANT";
-            this.btnIntApp.UseVisualStyleBackColor = false;
-            // 
-            // btnAssess
-            // 
-            this.btnAssess.BackColor = System.Drawing.Color.White;
-            this.btnAssess.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAssess.FlatAppearance.BorderSize = 0;
-            this.btnAssess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAssess.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssess.ForeColor = System.Drawing.Color.Black;
-            this.btnAssess.Location = new System.Drawing.Point(1009, 445);
-            this.btnAssess.Name = "btnAssess";
-            this.btnAssess.Size = new System.Drawing.Size(100, 38);
-            this.btnAssess.TabIndex = 500;
-            this.btnAssess.Text = "ASSESS";
-            this.btnAssess.UseVisualStyleBackColor = false;
-            this.btnAssess.Click += new System.EventHandler(this.btnAssess_Click);
-            // 
             // ucInIntAssess
             // 
             this.ucInIntAssess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -264,17 +182,43 @@
             this.ucInIntAssess.Visible = false;
             this.ucInIntAssess.VisibleChanged += new System.EventHandler(this.ucInIntAssess_VisibleChanged);
             // 
+            // btnAssess
+            // 
+            this.btnAssess.BackColor = System.Drawing.Color.White;
+            this.btnAssess.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAssess.FlatAppearance.BorderSize = 0;
+            this.btnAssess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAssess.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssess.ForeColor = System.Drawing.Color.Black;
+            this.btnAssess.Location = new System.Drawing.Point(474, 445);
+            this.btnAssess.Name = "btnAssess";
+            this.btnAssess.Size = new System.Drawing.Size(100, 38);
+            this.btnAssess.TabIndex = 503;
+            this.btnAssess.Text = "ASSESS";
+            this.btnAssess.UseVisualStyleBackColor = false;
+            this.btnAssess.Click += new System.EventHandler(this.btnAssess_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.White;
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.Black;
+            this.btnClose.Location = new System.Drawing.Point(580, 445);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(100, 38);
+            this.btnClose.TabIndex = 502;
+            this.btnClose.Text = "CLOSE";
+            this.btnClose.UseVisualStyleBackColor = false;
+            // 
             // ucIntListInit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.Controls.Add(this.ucInIntAssess);
-            this.Controls.Add(this.btnAssess);
-            this.Controls.Add(this.btnFailInt);
-            this.Controls.Add(this.btnPassInt);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnIntApp);
             this.Controls.Add(this.employer);
             this.Controls.Add(this.joborder);
             this.Controls.Add(this.jobname);
@@ -283,6 +227,8 @@
             this.Controls.Add(this.lblEmp);
             this.Controls.Add(this.lblJobOrder);
             this.Controls.Add(this.lblIntervieweeList);
+            this.Controls.Add(this.btnAssess);
+            this.Controls.Add(this.btnClose);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ucIntListInit";
             this.Size = new System.Drawing.Size(1155, 500);
@@ -304,11 +250,8 @@
         public System.Windows.Forms.Label joborder;
         public System.Windows.Forms.Label jobname;
         private ucInterviewCriteria ucInterviewCriteria;
-        private System.Windows.Forms.Button btnFailInt;
-        private System.Windows.Forms.Button btnPassInt;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnIntApp;
-        private System.Windows.Forms.Button btnAssess;
         private ucInIntAssess ucInIntAssess;
+        private System.Windows.Forms.Button btnAssess;
+        private System.Windows.Forms.Button btnClose;
     }
 }

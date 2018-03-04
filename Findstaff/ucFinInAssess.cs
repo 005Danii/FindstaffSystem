@@ -178,5 +178,30 @@ namespace Findstaff
             }
             connection.Close();
         }
+
+        private void rtbRemarks1_TextChanged(object sender, EventArgs e)
+        {
+            if (rtbRemarks1.Text != "")
+            {
+                rtbRemarks2.Enabled = true;
+            }
+            else
+            {
+                rtbRemarks2.Enabled = false;
+                rtbRemarks2.Clear();
+            }
+        }
+
+        private void rtbRemarks2_TextChanged(object sender, EventArgs e)
+        {
+            if (rtbRemarks2.Text != "")
+            {
+                rtbRemarks3.Enabled = true;
+            }
+            else
+            {
+                rtbRemarks3.Enabled = false;
+            }
+        }
     }
 }
