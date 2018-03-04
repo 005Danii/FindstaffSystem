@@ -76,7 +76,7 @@ namespace Findstaff
             cbEmployer1.Items.Clear();
             cbJobName1.Items.Clear();
             cbFees1.Items.Clear();
-            txtAmount1.Clear();
+            nudAmount1.Value = 0;
             dgvFees1.Rows.Clear();
         }
 
@@ -85,7 +85,7 @@ namespace Findstaff
             cbEmployer1.Items.Clear();
             cbJobName1.Items.Clear();
             cbFees1.Items.Clear();
-            txtAmount1.Clear();
+            nudAmount1.Value = 0;
             dgvFees1.Rows.Clear();
             this.Hide();
         }
@@ -136,13 +136,13 @@ namespace Findstaff
 
         private void btnAddFee1_Click(object sender, EventArgs e)
         {
-            if(cbFees1.Text != "" && txtAmount1.Text != "")
+            if(cbFees1.Text != "" && nudAmount1.Value != 0)
             {
-                dgvFees1.ColumnCount = 3;
-                dgvFees1.Rows.Add(cbFees1.Text, txtAmount1.Text);
+                dgvFees1.ColumnCount = 2;
+                dgvFees1.Rows.Add(cbFees1.Text, nudAmount1.Text);
                 cbFees1.Items.Remove(cbFees1.Text);
                 cbFees1.SelectedIndex = -1;
-                txtAmount1.Clear();
+                nudAmount1.Value = 0;
             }
         }
 
@@ -177,7 +177,7 @@ namespace Findstaff
             if(cbEmployer1.Text != "" && cbJobName1.Text != "")
             {
                 cbFees1.Enabled = true;
-                txtAmount1.Enabled = true;
+                nudAmount1.Enabled = true;
                 btnAddFee1.Enabled = true;
                 btnRemoveFee.Enabled = true;
                 btnAddAll.Enabled = true;

@@ -262,7 +262,6 @@
             this.Controls.Add(this.btnPassInt);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnIntApp);
-            this.Controls.Add(this.ucInterviewCriteria);
             this.Controls.Add(this.employer);
             this.Controls.Add(this.joborder);
             this.Controls.Add(this.jobname);
