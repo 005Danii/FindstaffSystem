@@ -266,5 +266,11 @@ namespace Findstaff
             }
             connection.Close();
         }
+
+        private void btnAddAirport1_Click(object sender, EventArgs e)
+        {
+            dgvAirports1.ColumnCount = 1;
+            dgvAirports1.Rows.Add(txtAirport1.Text);
+        }
     }
 }

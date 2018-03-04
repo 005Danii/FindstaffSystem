@@ -89,7 +89,7 @@ namespace Findstaff
         private void btnSchedule_Click(object sender, EventArgs e)
         {
             connection.Open();
-            if(dtp.Value.Day.ToString() == "Saturday" || dtp.Value.Day.ToString() == "Sunday")
+            if(dtp.Value.ToString("dddd") != "Saturday" || dtp.Value.ToString("dddd") != "Sunday")
             {
                 string jorder = "", empId = "", jobId = "", jobcateg = "";
                 cmd = "Select jo.jorder_id, jo.employer_id, jo.job_id, jc.category_id from joborder_t jo"
@@ -186,12 +186,12 @@ namespace Findstaff
                     }
                 }
                 this.Close();
-                connection.Close();
             }
             else
             {
                 MessageBox.Show("Cannot set interview day on a weekend", "Initial Interview Schedule Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+            connection.Close();
         }
     }
 }

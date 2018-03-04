@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTabs = new System.Windows.Forms.Panel();
             this.btnReschedule = new System.Windows.Forms.Button();
             this.btnBookFlight = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             this.btnReschedule.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btnReschedule.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnReschedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReschedule.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReschedule.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReschedule.ForeColor = System.Drawing.Color.Black;
             this.btnReschedule.Location = new System.Drawing.Point(487, 472);
             this.btnReschedule.Name = "btnReschedule";
@@ -76,7 +76,7 @@
             this.btnBookFlight.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btnBookFlight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnBookFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBookFlight.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookFlight.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBookFlight.ForeColor = System.Drawing.Color.Black;
             this.btnBookFlight.Location = new System.Drawing.Point(331, 472);
             this.btnBookFlight.Name = "btnBookFlight";
@@ -95,23 +95,23 @@
             this.dgvFlightBooking.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFlightBooking.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvFlightBooking.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFlightBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFlightBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFlightBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFlightBooking.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFlightBooking.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFlightBooking.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvFlightBooking.Location = new System.Drawing.Point(47, 120);
             this.dgvFlightBooking.MultiSelect = false;
@@ -131,7 +131,7 @@
             this.lblFlightBooking.ForeColor = System.Drawing.Color.Black;
             this.lblFlightBooking.Location = new System.Drawing.Point(21, 69);
             this.lblFlightBooking.Name = "lblFlightBooking";
-            this.lblFlightBooking.Size = new System.Drawing.Size(249, 39);
+            this.lblFlightBooking.Size = new System.Drawing.Size(193, 28);
             this.lblFlightBooking.TabIndex = 62;
             this.lblFlightBooking.Text = "Flight Booking";
             // 
@@ -143,7 +143,7 @@
             this.btnViewDetails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btnViewDetails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewDetails.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewDetails.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.ForeColor = System.Drawing.Color.Black;
             this.btnViewDetails.Location = new System.Drawing.Point(643, 472);
             this.btnViewDetails.Name = "btnViewDetails";

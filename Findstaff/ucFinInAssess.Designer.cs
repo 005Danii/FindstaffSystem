@@ -123,6 +123,7 @@
             this.rtbRemarks2.Size = new System.Drawing.Size(459, 75);
             this.rtbRemarks2.TabIndex = 507;
             this.rtbRemarks2.Text = "";
+            this.rtbRemarks2.TextChanged += new System.EventHandler(this.rtbRemarks2_TextChanged);
             // 
             // label1
             // 
@@ -144,6 +145,7 @@
             this.rtbRemarks1.Size = new System.Drawing.Size(459, 75);
             this.rtbRemarks1.TabIndex = 505;
             this.rtbRemarks1.Text = "";
+            this.rtbRemarks1.TextChanged += new System.EventHandler(this.rtbRemarks1_TextChanged);
             // 
             // lblApp
             // 

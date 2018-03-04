@@ -428,10 +428,10 @@ namespace Findstaff
                     {
                         apps[x] = dgvAppMatch.SelectedRows[x].Cells[0].Value.ToString();
                     }
+                    connection.Close();
                     InitialInterviewDate intdate = new InitialInterviewDate();
                     intdate.initComponents(apps, job, length);
                     intdate.Show();
-                    connection.Close();
                 }
             }
         }
