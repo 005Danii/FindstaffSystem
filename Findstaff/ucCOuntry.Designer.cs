@@ -37,8 +37,8 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lbl = new System.Windows.Forms.Label();
             this.btnView = new System.Windows.Forms.Button();
-            this.ucCountryAddEdit = new Findstaff.ucCountryAddEdit();
             this.ucCountryView = new Findstaff.ucCountryView();
+            this.ucCountryAddEdit = new Findstaff.ucCountryAddEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCountry)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,6 +167,15 @@
             this.btnView.UseVisualStyleBackColor = false;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
+            // ucCountryView
+            // 
+            this.ucCountryView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucCountryView.Location = new System.Drawing.Point(29, 3);
+            this.ucCountryView.Name = "ucCountryView";
+            this.ucCountryView.Size = new System.Drawing.Size(10, 10);
+            this.ucCountryView.TabIndex = 121;
+            this.ucCountryView.Visible = false;
+            // 
             // ucCountryAddEdit
             // 
             this.ucCountryAddEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -177,15 +186,6 @@
             this.ucCountryAddEdit.TabIndex = 120;
             this.ucCountryAddEdit.Visible = false;
             this.ucCountryAddEdit.VisibleChanged += new System.EventHandler(this.ucCountryAddEdit_VisibleChanged);
-            // 
-            // ucCountryView
-            // 
-            this.ucCountryView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucCountryView.Location = new System.Drawing.Point(29, 3);
-            this.ucCountryView.Name = "ucCountryView";
-            this.ucCountryView.Size = new System.Drawing.Size(10, 10);
-            this.ucCountryView.TabIndex = 121;
-            this.ucCountryView.Visible = false;
             // 
             // ucCountry
             // 

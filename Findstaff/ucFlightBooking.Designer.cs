@@ -113,7 +113,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFlightBooking.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFlightBooking.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvFlightBooking.Location = new System.Drawing.Point(47, 137);
+            this.dgvFlightBooking.Location = new System.Drawing.Point(47, 120);
             this.dgvFlightBooking.MultiSelect = false;
             this.dgvFlightBooking.Name = "dgvFlightBooking";
             this.dgvFlightBooking.ReadOnly = true;
@@ -127,13 +127,13 @@
             // 
             this.lblFlightBooking.AutoSize = true;
             this.lblFlightBooking.BackColor = System.Drawing.Color.Transparent;
-            this.lblFlightBooking.Font = new System.Drawing.Font("Rockwell", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlightBooking.Font = new System.Drawing.Font("Century", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFlightBooking.ForeColor = System.Drawing.Color.Black;
-            this.lblFlightBooking.Location = new System.Drawing.Point(19, 67);
+            this.lblFlightBooking.Location = new System.Drawing.Point(21, 69);
             this.lblFlightBooking.Name = "lblFlightBooking";
-            this.lblFlightBooking.Size = new System.Drawing.Size(246, 39);
+            this.lblFlightBooking.Size = new System.Drawing.Size(249, 39);
             this.lblFlightBooking.TabIndex = 62;
-            this.lblFlightBooking.Text = "Flight Records";
+            this.lblFlightBooking.Text = "Flight Booking";
             // 
             // btnViewDetails
             // 

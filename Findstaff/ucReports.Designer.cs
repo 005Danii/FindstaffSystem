@@ -28,181 +28,140 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvReports = new System.Windows.Forms.DataGridView();
-            this.cbUnderDept = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnLoad = new System.Windows.Forms.Button();
             this.pnlTabs = new System.Windows.Forms.Panel();
-            this.btnCreatePdf = new System.Windows.Forms.Button();
-            this.lbl = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
+            this.rbDepMonRep = new System.Windows.Forms.RadioButton();
+            this.rbCollMonRep = new System.Windows.Forms.RadioButton();
+            this.rbApplicationStatus = new System.Windows.Forms.RadioButton();
+            this.ucApplicationStatus = new Findstaff.ucApplicationStatus();
+            this.ucDeploymentMonitoringReport = new Findstaff.ucDeploymentMonitoringReport();
+            this.ucCollectionsMonitoringReport = new Findstaff.ucCollectionsMonitoringReport();
+            this.pnlTabs.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dgvReports
-            // 
-            this.dgvReports.AllowUserToAddRows = false;
-            this.dgvReports.AllowUserToDeleteRows = false;
-            this.dgvReports.AllowUserToResizeColumns = false;
-            this.dgvReports.AllowUserToResizeRows = false;
-            this.dgvReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvReports.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvReports.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReports.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReports.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvReports.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvReports.Location = new System.Drawing.Point(50, 111);
-            this.dgvReports.MultiSelect = false;
-            this.dgvReports.Name = "dgvReports";
-            this.dgvReports.ReadOnly = true;
-            this.dgvReports.RowHeadersVisible = false;
-            this.dgvReports.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReports.Size = new System.Drawing.Size(1059, 373);
-            this.dgvReports.TabIndex = 57;
-            // 
-            // cbUnderDept
-            // 
-            this.cbUnderDept.BackColor = System.Drawing.Color.White;
-            this.cbUnderDept.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbUnderDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUnderDept.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbUnderDept.ForeColor = System.Drawing.Color.Black;
-            this.cbUnderDept.FormattingEnabled = true;
-            this.cbUnderDept.Items.AddRange(new object[] {
-            "For Selection",
-            "Selected",
-            "For Deployment",
-            "Deployed",
-            "Withdrawn",
-            "Select All"});
-            this.cbUnderDept.Location = new System.Drawing.Point(197, 73);
-            this.cbUnderDept.Name = "cbUnderDept";
-            this.cbUnderDept.Size = new System.Drawing.Size(211, 28);
-            this.cbUnderDept.TabIndex = 307;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(46, 76);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(150, 20);
-            this.label8.TabIndex = 306;
-            this.label8.Text = "Application Status:";
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.BackColor = System.Drawing.Color.White;
-            this.btnLoad.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnLoad.FlatAppearance.BorderSize = 0;
-            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.ForeColor = System.Drawing.Color.Black;
-            this.btnLoad.Location = new System.Drawing.Point(734, 71);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(114, 30);
-            this.btnLoad.TabIndex = 308;
-            this.btnLoad.Text = "GENERATE";
-            this.btnLoad.UseVisualStyleBackColor = false;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // pnlTabs
             // 
             this.pnlTabs.BackColor = System.Drawing.Color.White;
+            this.pnlTabs.Controls.Add(this.rbDepMonRep);
+            this.pnlTabs.Controls.Add(this.rbCollMonRep);
+            this.pnlTabs.Controls.Add(this.rbApplicationStatus);
             this.pnlTabs.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTabs.Location = new System.Drawing.Point(0, 0);
             this.pnlTabs.Name = "pnlTabs";
             this.pnlTabs.Size = new System.Drawing.Size(1155, 50);
-            this.pnlTabs.TabIndex = 309;
+            this.pnlTabs.TabIndex = 32;
             // 
-            // btnCreatePdf
+            // rbDepMonRep
             // 
-            this.btnCreatePdf.BackColor = System.Drawing.Color.White;
-            this.btnCreatePdf.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreatePdf.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnCreatePdf.FlatAppearance.BorderSize = 0;
-            this.btnCreatePdf.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnCreatePdf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnCreatePdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreatePdf.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreatePdf.ForeColor = System.Drawing.Color.Black;
-            this.btnCreatePdf.Location = new System.Drawing.Point(479, 492);
-            this.btnCreatePdf.Name = "btnCreatePdf";
-            this.btnCreatePdf.Size = new System.Drawing.Size(200, 39);
-            this.btnCreatePdf.TabIndex = 310;
-            this.btnCreatePdf.Text = "CREATE PDF";
-            this.btnCreatePdf.UseVisualStyleBackColor = false;
-            this.btnCreatePdf.Click += new System.EventHandler(this.btnCreatePdf_Click);
+            this.rbDepMonRep.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbDepMonRep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(63)))));
+            this.rbDepMonRep.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.rbDepMonRep.FlatAppearance.BorderSize = 0;
+            this.rbDepMonRep.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray;
+            this.rbDepMonRep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rbDepMonRep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.rbDepMonRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbDepMonRep.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDepMonRep.ForeColor = System.Drawing.Color.White;
+            this.rbDepMonRep.Location = new System.Drawing.Point(256, 10);
+            this.rbDepMonRep.Name = "rbDepMonRep";
+            this.rbDepMonRep.Size = new System.Drawing.Size(350, 40);
+            this.rbDepMonRep.TabIndex = 46;
+            this.rbDepMonRep.Text = "Deployment Monitoring Report";
+            this.rbDepMonRep.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbDepMonRep.UseVisualStyleBackColor = false;
+            this.rbDepMonRep.CheckedChanged += new System.EventHandler(this.rbAcceptedBanks_CheckedChanged);
             // 
-            // lbl
+            // rbCollMonRep
             // 
-            this.lbl.AutoSize = true;
-            this.lbl.BackColor = System.Drawing.Color.Transparent;
-            this.lbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.ForeColor = System.Drawing.Color.Black;
-            this.lbl.Location = new System.Drawing.Point(447, 76);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(48, 20);
-            this.lbl.TabIndex = 312;
-            this.lbl.Text = "Date:";
+            this.rbCollMonRep.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbCollMonRep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(63)))));
+            this.rbCollMonRep.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.rbCollMonRep.FlatAppearance.BorderSize = 0;
+            this.rbCollMonRep.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray;
+            this.rbCollMonRep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rbCollMonRep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.rbCollMonRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbCollMonRep.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCollMonRep.ForeColor = System.Drawing.Color.White;
+            this.rbCollMonRep.Location = new System.Drawing.Point(612, 10);
+            this.rbCollMonRep.Name = "rbCollMonRep";
+            this.rbCollMonRep.Size = new System.Drawing.Size(350, 40);
+            this.rbCollMonRep.TabIndex = 8;
+            this.rbCollMonRep.Text = "Collections Monitoring Report";
+            this.rbCollMonRep.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbCollMonRep.UseVisualStyleBackColor = false;
+            this.rbCollMonRep.CheckedChanged += new System.EventHandler(this.rbGeneralRequirements_CheckedChanged);
             // 
-            // dateTimePicker1
+            // rbApplicationStatus
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(501, 76);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 311;
+            this.rbApplicationStatus.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbApplicationStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(63)))));
+            this.rbApplicationStatus.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.rbApplicationStatus.FlatAppearance.BorderSize = 0;
+            this.rbApplicationStatus.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray;
+            this.rbApplicationStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rbApplicationStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.rbApplicationStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbApplicationStatus.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbApplicationStatus.ForeColor = System.Drawing.Color.White;
+            this.rbApplicationStatus.Location = new System.Drawing.Point(0, 10);
+            this.rbApplicationStatus.Name = "rbApplicationStatus";
+            this.rbApplicationStatus.Size = new System.Drawing.Size(250, 40);
+            this.rbApplicationStatus.TabIndex = 3;
+            this.rbApplicationStatus.Text = "Application Status";
+            this.rbApplicationStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbApplicationStatus.UseVisualStyleBackColor = false;
+            this.rbApplicationStatus.CheckedChanged += new System.EventHandler(this.rbCountry_CheckedChanged);
+            // 
+            // ucApplicationStatus
+            // 
+            this.ucApplicationStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucApplicationStatus.ForeColor = System.Drawing.Color.Black;
+            this.ucApplicationStatus.Location = new System.Drawing.Point(0, 56);
+            this.ucApplicationStatus.Name = "ucApplicationStatus";
+            this.ucApplicationStatus.Size = new System.Drawing.Size(250, 250);
+            this.ucApplicationStatus.TabIndex = 33;
+            // 
+            // ucDeploymentMonitoringReport
+            // 
+            this.ucDeploymentMonitoringReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucDeploymentMonitoringReport.Location = new System.Drawing.Point(256, 56);
+            this.ucDeploymentMonitoringReport.Name = "ucDeploymentMonitoringReport";
+            this.ucDeploymentMonitoringReport.Size = new System.Drawing.Size(350, 350);
+            this.ucDeploymentMonitoringReport.TabIndex = 34;
+            // 
+            // ucCollectionsMonitoringReport
+            // 
+            this.ucCollectionsMonitoringReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucCollectionsMonitoringReport.Location = new System.Drawing.Point(612, 56);
+            this.ucCollectionsMonitoringReport.Name = "ucCollectionsMonitoringReport";
+            this.ucCollectionsMonitoringReport.Size = new System.Drawing.Size(350, 350);
+            this.ucCollectionsMonitoringReport.TabIndex = 35;
             // 
             // ucReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.Controls.Add(this.lbl);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.btnCreatePdf);
+            this.Controls.Add(this.ucCollectionsMonitoringReport);
+            this.Controls.Add(this.ucDeploymentMonitoringReport);
+            this.Controls.Add(this.ucApplicationStatus);
             this.Controls.Add(this.pnlTabs);
-            this.Controls.Add(this.btnLoad);
-            this.Controls.Add(this.cbUnderDept);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.dgvReports);
-            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ucReports";
-            this.Size = new System.Drawing.Size(1155, 547);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).EndInit();
+            this.Size = new System.Drawing.Size(1155, 500);
+            this.pnlTabs.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cbUnderDept;
-        private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.DataGridView dgvReports;
-        private System.Windows.Forms.Button btnLoad;
+
         private System.Windows.Forms.Panel pnlTabs;
-        private System.Windows.Forms.Button btnCreatePdf;
-        private System.Windows.Forms.Label lbl;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.RadioButton rbDepMonRep;
+        private System.Windows.Forms.RadioButton rbCollMonRep;
+        private System.Windows.Forms.RadioButton rbApplicationStatus;
+        private ucApplicationStatus ucApplicationStatus;
+        private ucDeploymentMonitoringReport ucDeploymentMonitoringReport;
+        private ucCollectionsMonitoringReport ucCollectionsMonitoringReport;
     }
 }

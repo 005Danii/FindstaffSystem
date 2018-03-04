@@ -41,6 +41,7 @@
             this.btnPassInt = new System.Windows.Forms.Button();
             this.btnFailInt = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnAssess = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervieweeList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,11 +210,27 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnAssess
+            // 
+            this.btnAssess.BackColor = System.Drawing.Color.White;
+            this.btnAssess.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAssess.FlatAppearance.BorderSize = 0;
+            this.btnAssess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAssess.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssess.ForeColor = System.Drawing.Color.Black;
+            this.btnAssess.Location = new System.Drawing.Point(1009, 447);
+            this.btnAssess.Name = "btnAssess";
+            this.btnAssess.Size = new System.Drawing.Size(100, 38);
+            this.btnAssess.TabIndex = 501;
+            this.btnAssess.Text = "ASSESS";
+            this.btnAssess.UseVisualStyleBackColor = false;
+            // 
             // ucIntListFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.btnAssess);
             this.Controls.Add(this.employer);
             this.Controls.Add(this.joborder);
             this.Controls.Add(this.jobname);
@@ -247,5 +264,6 @@
         public System.Windows.Forms.Label employer;
         public System.Windows.Forms.Label joborder;
         public System.Windows.Forms.Label jobname;
+        private System.Windows.Forms.Button btnAssess;
     }
 }
