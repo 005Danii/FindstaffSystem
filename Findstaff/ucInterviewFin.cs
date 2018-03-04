@@ -56,7 +56,7 @@ namespace Findstaff
                     empID = dr[0].ToString();
                 }
                 dr.Close();
-                cmd = "select app.app_no'Application No.', a.app_id'Applicant ID', concat(a.lname, ', ', a.fname, ' ', a.mname)'Applicant Name' from applications_t app "
+                cmd = "select app.app_no'Application No.', a.app_id'Applicant ID', concat(a.lname, ', ', a.fname, ' ', a.mname)'Applicant Name', a.appstatus'Status', app.finalinterviewdate'Final Interview Date' from applications_t app "
                     + "join app_t a on app.app_id = a.app_id where app.appstats = 'Active' and a.appstatus = 'For Final Interview' "
                     + "and app.jorder_id = '" + jorder + "' and app.job_id = '" + jobID + "' and app.employer_id = '" + empID + "' and app.finalinterviewstatus is null and app.initinterviewstatus = 'Passed'";
                 using (connection)

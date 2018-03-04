@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvIntervieweeList = new System.Windows.Forms.DataGridView();
             this.lblJob = new System.Windows.Forms.Label();
             this.lblEmp = new System.Windows.Forms.Label();
@@ -38,10 +38,9 @@
             this.employer = new System.Windows.Forms.Label();
             this.joborder = new System.Windows.Forms.Label();
             this.jobname = new System.Windows.Forms.Label();
-            this.btnPassInt = new System.Windows.Forms.Button();
-            this.btnFailInt = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnAssess = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnFinalInterviewSched = new System.Windows.Forms.Button();
             this.ucFinInAssess = new Findstaff.ucFinInAssess();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervieweeList)).BeginInit();
             this.SuspendLayout();
@@ -55,23 +54,23 @@
             this.dgvIntervieweeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvIntervieweeList.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvIntervieweeList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIntervieweeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIntervieweeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvIntervieweeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIntervieweeList.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIntervieweeList.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvIntervieweeList.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvIntervieweeList.Location = new System.Drawing.Point(53, 106);
             this.dgvIntervieweeList.MultiSelect = false;
@@ -163,37 +162,21 @@
             this.jobname.TabIndex = 485;
             this.jobname.Text = "jobname";
             // 
-            // btnPassInt
+            // btnAssess
             // 
-            this.btnPassInt.BackColor = System.Drawing.Color.White;
-            this.btnPassInt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnPassInt.FlatAppearance.BorderSize = 0;
-            this.btnPassInt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPassInt.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPassInt.ForeColor = System.Drawing.Color.Black;
-            this.btnPassInt.Location = new System.Drawing.Point(275, 447);
-            this.btnPassInt.Name = "btnPassInt";
-            this.btnPassInt.Size = new System.Drawing.Size(238, 38);
-            this.btnPassInt.TabIndex = 52;
-            this.btnPassInt.Text = "PASS INTERVIEWEE";
-            this.btnPassInt.UseVisualStyleBackColor = false;
-            this.btnPassInt.Click += new System.EventHandler(this.btnPassInt_Click);
-            // 
-            // btnFailInt
-            // 
-            this.btnFailInt.BackColor = System.Drawing.Color.White;
-            this.btnFailInt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnFailInt.FlatAppearance.BorderSize = 0;
-            this.btnFailInt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFailInt.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFailInt.ForeColor = System.Drawing.Color.Black;
-            this.btnFailInt.Location = new System.Drawing.Point(519, 447);
-            this.btnFailInt.Name = "btnFailInt";
-            this.btnFailInt.Size = new System.Drawing.Size(238, 38);
-            this.btnFailInt.TabIndex = 53;
-            this.btnFailInt.Text = "FAIL INTERVIEWEE";
-            this.btnFailInt.UseVisualStyleBackColor = false;
-            this.btnFailInt.Click += new System.EventHandler(this.btnFailInt_Click);
+            this.btnAssess.BackColor = System.Drawing.Color.White;
+            this.btnAssess.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAssess.FlatAppearance.BorderSize = 0;
+            this.btnAssess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAssess.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssess.ForeColor = System.Drawing.Color.Black;
+            this.btnAssess.Location = new System.Drawing.Point(600, 446);
+            this.btnAssess.Name = "btnAssess";
+            this.btnAssess.Size = new System.Drawing.Size(100, 38);
+            this.btnAssess.TabIndex = 505;
+            this.btnAssess.Text = "ASSESS";
+            this.btnAssess.UseVisualStyleBackColor = false;
+            this.btnAssess.Click += new System.EventHandler(this.btnAssess_Click);
             // 
             // btnClose
             // 
@@ -203,28 +186,28 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(763, 447);
+            this.btnClose.Location = new System.Drawing.Point(706, 446);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(106, 38);
-            this.btnClose.TabIndex = 54;
+            this.btnClose.TabIndex = 504;
             this.btnClose.Text = "CLOSE";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnAssess
+            // btnFinalInterviewSched
             // 
-            this.btnAssess.BackColor = System.Drawing.Color.White;
-            this.btnAssess.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAssess.FlatAppearance.BorderSize = 0;
-            this.btnAssess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAssess.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssess.ForeColor = System.Drawing.Color.Black;
-            this.btnAssess.Location = new System.Drawing.Point(1009, 447);
-            this.btnAssess.Name = "btnAssess";
-            this.btnAssess.Size = new System.Drawing.Size(100, 38);
-            this.btnAssess.TabIndex = 501;
-            this.btnAssess.Text = "ASSESS";
-            this.btnAssess.UseVisualStyleBackColor = false;
+            this.btnFinalInterviewSched.BackColor = System.Drawing.Color.White;
+            this.btnFinalInterviewSched.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnFinalInterviewSched.FlatAppearance.BorderSize = 0;
+            this.btnFinalInterviewSched.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalInterviewSched.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalInterviewSched.ForeColor = System.Drawing.Color.Black;
+            this.btnFinalInterviewSched.Location = new System.Drawing.Point(343, 446);
+            this.btnFinalInterviewSched.Name = "btnFinalInterviewSched";
+            this.btnFinalInterviewSched.Size = new System.Drawing.Size(251, 38);
+            this.btnFinalInterviewSched.TabIndex = 503;
+            this.btnFinalInterviewSched.Text = "SCHEDULE INTERVIEWEE";
+            this.btnFinalInterviewSched.UseVisualStyleBackColor = false;
             // 
             // ucFinInAssess
             // 
@@ -234,20 +217,20 @@
             this.ucFinInAssess.Size = new System.Drawing.Size(10, 10);
             this.ucFinInAssess.TabIndex = 502;
             this.ucFinInAssess.Visible = false;
+            this.ucFinInAssess.VisibleChanged += new System.EventHandler(this.ucFinInAssess_VisibleChanged);
             // 
             // ucIntListFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.Controls.Add(this.ucFinInAssess);
             this.Controls.Add(this.btnAssess);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnFinalInterviewSched);
+            this.Controls.Add(this.ucFinInAssess);
             this.Controls.Add(this.employer);
             this.Controls.Add(this.joborder);
             this.Controls.Add(this.jobname);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnFailInt);
-            this.Controls.Add(this.btnPassInt);
             this.Controls.Add(this.dgvIntervieweeList);
             this.Controls.Add(this.lblJob);
             this.Controls.Add(this.lblEmp);
@@ -269,13 +252,12 @@
         private System.Windows.Forms.Label lblJobOrder;
         private System.Windows.Forms.Label lblIntervieweeList;
         public System.Windows.Forms.DataGridView dgvIntervieweeList;
-        private System.Windows.Forms.Button btnPassInt;
-        private System.Windows.Forms.Button btnFailInt;
-        private System.Windows.Forms.Button btnClose;
         public System.Windows.Forms.Label employer;
         public System.Windows.Forms.Label joborder;
         public System.Windows.Forms.Label jobname;
-        private System.Windows.Forms.Button btnAssess;
         private ucFinInAssess ucFinInAssess;
+        private System.Windows.Forms.Button btnAssess;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnFinalInterviewSched;
     }
 }
