@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvIntervieweeList = new System.Windows.Forms.DataGridView();
             this.lblJob = new System.Windows.Forms.Label();
             this.lblEmp = new System.Windows.Forms.Label();
@@ -42,11 +42,11 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnFinalInterviewSched = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCountry = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSchedule = new System.Windows.Forms.Button();
-            this.lblCountry = new System.Windows.Forms.Label();
             this.ucFinInAssess = new Findstaff.ucFinInAssess();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntervieweeList)).BeginInit();
             this.panel1.SuspendLayout();
@@ -61,23 +61,23 @@
             this.dgvIntervieweeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvIntervieweeList.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvIntervieweeList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIntervieweeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIntervieweeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvIntervieweeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIntervieweeList.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIntervieweeList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvIntervieweeList.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvIntervieweeList.Location = new System.Drawing.Point(53, 106);
             this.dgvIntervieweeList.MultiSelect = false;
@@ -232,6 +232,17 @@
             this.panel1.Visible = false;
             this.panel1.VisibleChanged += new System.EventHandler(this.panel1_VisibleChanged);
             // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Font = new System.Drawing.Font("Century", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountry.ForeColor = System.Drawing.Color.Black;
+            this.lblCountry.Location = new System.Drawing.Point(122, 22);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(310, 28);
+            this.lblCountry.TabIndex = 75;
+            this.lblCountry.Text = "Date for Final Interview";
+            // 
             // dtp
             // 
             this.dtp.CalendarFont = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -286,17 +297,6 @@
             this.btnSchedule.UseVisualStyleBackColor = false;
             this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
-            // lblCountry
-            // 
-            this.lblCountry.AutoSize = true;
-            this.lblCountry.Font = new System.Drawing.Font("Century", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry.ForeColor = System.Drawing.Color.Black;
-            this.lblCountry.Location = new System.Drawing.Point(122, 22);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(310, 28);
-            this.lblCountry.TabIndex = 75;
-            this.lblCountry.Text = "Date for Final Interview";
-            // 
             // ucFinInAssess
             // 
             this.ucFinInAssess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -313,9 +313,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnAssess);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnFinalInterviewSched);
             this.Controls.Add(this.ucFinInAssess);
             this.Controls.Add(this.employer);
             this.Controls.Add(this.joborder);
@@ -325,6 +322,9 @@
             this.Controls.Add(this.lblEmp);
             this.Controls.Add(this.lblJobOrder);
             this.Controls.Add(this.lblIntervieweeList);
+            this.Controls.Add(this.btnAssess);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnFinalInterviewSched);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ucIntListFinal";
             this.Size = new System.Drawing.Size(1155, 500);

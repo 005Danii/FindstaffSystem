@@ -138,13 +138,17 @@ namespace Findstaff
 
         private void btnFinalInterviewSched_Click(object sender, EventArgs e)
         {
-            if(dgvIntervieweeList.SelectedRows[0].Cells[3].Value.ToString() != "Scheduled for Final Interview")
+            if(dgvIntervieweeList.Rows.Count != 0)
             {
-                panel1.Visible = true;
-            }
-            else
-            {
-                MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " already has a schedule for final interview.", "Final Interview Schedule Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                if (dgvIntervieweeList.SelectedRows[0].Cells[3].Value.ToString() != "Scheduled for Final Interview")
+                {
+                    panel1.Visible = true;
+                    this.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " already has a schedule for final interview.", "Final Interview Schedule Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
             }
         }
 

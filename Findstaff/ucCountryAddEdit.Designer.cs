@@ -82,7 +82,7 @@ namespace Findstaff
             this.btnCancel1 = new System.Windows.Forms.Button();
             this.dgvAirports1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoveAirport1 = new System.Windows.Forms.Button();
             this.btnAddAirport1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txtSymbol1 = new System.Windows.Forms.TextBox();
@@ -653,7 +653,7 @@ namespace Findstaff
             this.panel1.Controls.Add(this.txtAirport1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.dgvAirports1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnRemoveAirport1);
             this.panel1.Controls.Add(this.btnAddAirport1);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.txtSymbol1);
@@ -671,7 +671,7 @@ namespace Findstaff
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(731, 500);
+            this.panel1.Size = new System.Drawing.Size(10, 500);
             this.panel1.TabIndex = 2;
             // 
             // txtAirport1
@@ -777,20 +777,21 @@ namespace Findstaff
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // button1
+            // btnRemoveAirport1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(933, 670);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 287;
-            this.button1.Text = "REMOVE";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnRemoveAirport1.BackColor = System.Drawing.Color.White;
+            this.btnRemoveAirport1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnRemoveAirport1.FlatAppearance.BorderSize = 0;
+            this.btnRemoveAirport1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveAirport1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveAirport1.ForeColor = System.Drawing.Color.Black;
+            this.btnRemoveAirport1.Location = new System.Drawing.Point(933, 670);
+            this.btnRemoveAirport1.Name = "btnRemoveAirport1";
+            this.btnRemoveAirport1.Size = new System.Drawing.Size(100, 30);
+            this.btnRemoveAirport1.TabIndex = 287;
+            this.btnRemoveAirport1.Text = "REMOVE";
+            this.btnRemoveAirport1.UseVisualStyleBackColor = false;
+            this.btnRemoveAirport1.Click += new System.EventHandler(this.btnRemoveAirport1_Click);
             // 
             // btnAddAirport1
             // 
@@ -1084,7 +1085,7 @@ namespace Findstaff
         private Label label14;
         private DataGridView dgvAirports1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private Button button1;
+        private Button btnRemoveAirport1;
         private Button btnAddAirport1;
         private Label label13;
         public TextBox txtAirport2;
