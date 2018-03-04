@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
+using System.Drawing.Imaging;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -124,7 +124,7 @@ namespace Findstaff
                 }
             }
         }
-        #endregion
+        #endregion Load
 
         #region Create
         private void btnCreatePdf_Click(object sender, EventArgs e)
@@ -211,7 +211,7 @@ namespace Findstaff
             }
             else if (cbUnderDept.SelectedIndex == 5)
             {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', ap.appstatus'Under Department', ap.appstats'Application Status' from app_t a " +
+                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Applicant Status', ap.appstats'Application Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id;";
                 using (connection)
                 {
@@ -223,13 +223,13 @@ namespace Findstaff
                     }
                 }
             }
-            #endregion
+            #endregion Query
 
             #region PDF
             Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Report.pdf", FileMode.Create));
+            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Application Status Report.pdf", FileMode.OpenOrCreate));
             doc.Open();
-
+            
             doc = BindingData(doc);
 
             doc.Close();
@@ -288,12 +288,19 @@ namespace Findstaff
             TotDate.HorizontalAlignment = 2;
             tblMain.AddCell(TotDate);
 
-            Chunk header7 = new Chunk("\n \n", arial);
+            Chunk header7 = new Chunk("\n APPLICATION STATUS REPORT", arial);
             PdfPCell rowHeader7 = new PdfPCell(new Phrase(header7));
             rowHeader7.Border = 0;
             rowHeader7.HorizontalAlignment = 1;
             rowHeader7.Colspan = 1;
             tblMain.AddCell(rowHeader7);
+            
+            Chunk header8 = new Chunk("\n", arial);
+            PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
+            rowHeader8.Border = 0;
+            rowHeader8.HorizontalAlignment = 1;
+            rowHeader8.Colspan = 1;
+            tblMain.AddCell(rowHeader8);
 
             PdfPTable table = new PdfPTable(dgvReports.Columns.Count);
             for (int j = 0; j < dgvReports.Columns.Count; j++)
