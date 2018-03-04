@@ -19,6 +19,7 @@ namespace Findstaff
     {
         private MySqlConnection connection;
         MySqlCommand com = new MySqlCommand();
+        MySqlDataReader dr;
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         private string cmd = "";
 
@@ -33,7 +34,7 @@ namespace Findstaff
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
-
+            
             if (cbUnderDept.SelectedIndex == 0)
             {
                 cmd = "select app_id'Applicant ID', Concat(fname, ' ', mname, ' ', lname)'Name', position'Position', appstatus'Status' from app_t " +
@@ -123,6 +124,7 @@ namespace Findstaff
                     }
                 }
             }
+            connection.Close();
         }
         #endregion Load
 
@@ -131,9 +133,9 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            connection.Open();
-
+            
             #region Query
+            connection.Open();
             if (cbUnderDept.SelectedIndex == 0)
             {
                 cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', ap.appstatus'Under Department', ap.appstats'Application Status' from app_t a " +
@@ -295,7 +297,7 @@ namespace Findstaff
             rowHeader7.Colspan = 1;
             tblMain.AddCell(rowHeader7);
             
-            Chunk header8 = new Chunk("\n", arial);
+            Chunk header8 = new Chunk("(From "+dateTimePicker1.Text+" to "+dateTimePicker2.Text+") \n", arial);
             PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
             rowHeader8.Border = 0;
             rowHeader8.HorizontalAlignment = 1;
@@ -321,11 +323,33 @@ namespace Findstaff
                     }
                 }
             }
-
             tblMain.AddCell(table);
+
+            Chunk header9 = new Chunk("\n Prepared by: "+name.Text+"", arial);
+            PdfPCell rowHeader9 = new PdfPCell(new Phrase(header9));
+            rowHeader9.Border = 0;
+            rowHeader9.HorizontalAlignment = 2;
+            rowHeader9.Colspan = 1;
+            tblMain.AddCell(rowHeader9);
 
             doc.Add(tblMain);
             return doc;
+        }
+
+        private void ucApplicationStatus_VisibleChanged(object sender, EventArgs e)
+        {
+            //connection.Open();
+            //cmd = "SELECT concat(E.fname, ' ', E.mname, ' ', E.lname) FROM EMP_T E JOIN LOGS_T L"
+            //    + " ON E.EMP_ID = L.EMP_ID where LOG_ID = (SELECT MAX(LOG_ID) FROM LOGS_T);";
+            //com = new MySqlCommand(cmd, connection);
+            //dr = com.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    name.Text = dr[0].ToString();
+            //}
+            //dr.Close();
+
+            //connection.Close();
         }
     }
 }

@@ -84,6 +84,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.lblEditJobList = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtp1 = new System.Windows.Forms.DateTimePicker();
             this.cbFemale = new System.Windows.Forms.CheckBox();
             this.cbMale = new System.Windows.Forms.CheckBox();
             this.txtSalaryCur = new System.Windows.Forms.TextBox();
@@ -126,7 +127,6 @@
             this.lblCountry1 = new System.Windows.Forms.Label();
             this.lblEmp1 = new System.Windows.Forms.Label();
             this.lblAddJobList = new System.Windows.Forms.Label();
-            this.dtp1 = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nddEmployees2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -917,8 +917,18 @@
             this.panel1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(95, 450);
+            this.panel1.Size = new System.Drawing.Size(1072, 450);
             this.panel1.TabIndex = 16;
+            // 
+            // dtp1
+            // 
+            this.dtp1.CalendarFont = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp1.Location = new System.Drawing.Point(197, 207);
+            this.dtp1.MinDate = new System.DateTime(2018, 2, 16, 0, 0, 0, 0);
+            this.dtp1.Name = "dtp1";
+            this.dtp1.Size = new System.Drawing.Size(298, 27);
+            this.dtp1.TabIndex = 286;
             // 
             // cbFemale
             // 
@@ -1499,16 +1509,6 @@
             this.lblAddJobList.Size = new System.Drawing.Size(189, 28);
             this.lblAddJobList.TabIndex = 33;
             this.lblAddJobList.Text = "Add Job Order";
-            // 
-            // dtp1
-            // 
-            this.dtp1.CalendarFont = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp1.Location = new System.Drawing.Point(197, 207);
-            this.dtp1.MinDate = new System.DateTime(2018, 2, 16, 0, 0, 0, 0);
-            this.dtp1.Name = "dtp1";
-            this.dtp1.Size = new System.Drawing.Size(298, 27);
-            this.dtp1.TabIndex = 286;
             // 
             // ucJobListAddEdit
             // 

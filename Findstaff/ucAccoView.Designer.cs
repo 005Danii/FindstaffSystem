@@ -43,6 +43,7 @@
             this.jobname = new System.Windows.Forms.Label();
             this.joborder = new System.Windows.Forms.Label();
             this.employer = new System.Windows.Forms.Label();
+            this.btnGenerateReceipt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewAcco)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,9 +153,9 @@
             this.btnPayBal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPayBal.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayBal.ForeColor = System.Drawing.Color.Black;
-            this.btnPayBal.Location = new System.Drawing.Point(443, 435);
+            this.btnPayBal.Location = new System.Drawing.Point(296, 435);
             this.btnPayBal.Name = "btnPayBal";
-            this.btnPayBal.Size = new System.Drawing.Size(111, 50);
+            this.btnPayBal.Size = new System.Drawing.Size(178, 36);
             this.btnPayBal.TabIndex = 6;
             this.btnPayBal.Text = "PAY BALANCE";
             this.btnPayBal.UseVisualStyleBackColor = false;
@@ -179,9 +180,9 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(560, 435);
+            this.btnClose.Location = new System.Drawing.Point(714, 435);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(100, 50);
+            this.btnClose.Size = new System.Drawing.Size(90, 36);
             this.btnClose.TabIndex = 61;
             this.btnClose.Text = "CLOSE";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -235,12 +236,30 @@
             this.employer.TabIndex = 65;
             this.employer.Text = "employer";
             // 
+            // btnGenerateReceipt
+            // 
+            this.btnGenerateReceipt.BackColor = System.Drawing.Color.White;
+            this.btnGenerateReceipt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGenerateReceipt.FlatAppearance.BorderSize = 0;
+            this.btnGenerateReceipt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnGenerateReceipt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnGenerateReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateReceipt.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateReceipt.ForeColor = System.Drawing.Color.Black;
+            this.btnGenerateReceipt.Location = new System.Drawing.Point(480, 435);
+            this.btnGenerateReceipt.Name = "btnGenerateReceipt";
+            this.btnGenerateReceipt.Size = new System.Drawing.Size(228, 36);
+            this.btnGenerateReceipt.TabIndex = 66;
+            this.btnGenerateReceipt.Text = "GENERATE RECEIPT";
+            this.btnGenerateReceipt.UseVisualStyleBackColor = false;
+            // 
             // ucAccoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.btnGenerateReceipt);
             this.Controls.Add(this.employer);
             this.Controls.Add(this.joborder);
             this.Controls.Add(this.jobname);
@@ -280,5 +299,6 @@
         public System.Windows.Forms.Label jobname;
         public System.Windows.Forms.Label joborder;
         public System.Windows.Forms.Label employer;
+        private System.Windows.Forms.Button btnGenerateReceipt;
     }
 }

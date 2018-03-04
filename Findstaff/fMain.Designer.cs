@@ -42,6 +42,7 @@
             this.rbRecruitment = new System.Windows.Forms.RadioButton();
             this.rbJobOrderManagement = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ucReports = new Findstaff.ucReports();
             this.ucAcco = new Findstaff.ucAcco();
             this.ucQueries = new Findstaff.ucQueries();
             this.ucUtilities = new Findstaff.ucUtilities();
@@ -56,7 +57,6 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblCopyright = new System.Windows.Forms.Label();
-            this.ucReports = new Findstaff.ucReports();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -295,6 +295,14 @@
             this.panel2.Size = new System.Drawing.Size(1150, 548);
             this.panel2.TabIndex = 18;
             // 
+            // ucReports
+            // 
+            this.ucReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucReports.Location = new System.Drawing.Point(3, 352);
+            this.ucReports.Name = "ucReports";
+            this.ucReports.Size = new System.Drawing.Size(200, 50);
+            this.ucReports.TabIndex = 19;
+            // 
             // ucAcco
             // 
             this.ucAcco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -349,6 +357,7 @@
             // ucFlightBooking
             // 
             this.ucFlightBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucFlightBooking.ForeColor = System.Drawing.Color.Black;
             this.ucFlightBooking.Location = new System.Drawing.Point(3, 155);
             this.ucFlightBooking.Name = "ucFlightBooking";
             this.ucFlightBooking.Size = new System.Drawing.Size(200, 50);
@@ -448,14 +457,6 @@
             this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCopyright.Visible = false;
             // 
-            // ucReports
-            // 
-            this.ucReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucReports.Location = new System.Drawing.Point(3, 352);
-            this.ucReports.Name = "ucReports";
-            this.ucReports.Size = new System.Drawing.Size(200, 50);
-            this.ucReports.TabIndex = 19;
-            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,7 +488,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblDept;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -514,5 +514,6 @@
         private System.Windows.Forms.RadioButton rbReports;
         private ucFlightBooking ucFlightBooking;
         private ucReports ucReports;
+        public System.Windows.Forms.Label lblName;
     }
 }

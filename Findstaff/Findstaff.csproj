@@ -453,6 +453,12 @@
     <Compile Include="ucAppList.Designer.cs">
       <DependentUpon>ucAppList.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPrintReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPrintReceipt.Designer.cs">
+      <DependentUpon>ucPrintReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucQueries.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -712,6 +718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucAppAddEdit.resx">
       <DependentUpon>ucAppAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPrintReceipt.resx">
+      <DependentUpon>ucPrintReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucQueries.resx">
       <DependentUpon>ucQueries.cs</DependentUpon>

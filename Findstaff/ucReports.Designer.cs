@@ -32,9 +32,9 @@
             this.rbDepMonRep = new System.Windows.Forms.RadioButton();
             this.rbCollMonRep = new System.Windows.Forms.RadioButton();
             this.rbApplicationStatus = new System.Windows.Forms.RadioButton();
-            this.ucApplicationStatus = new Findstaff.ucApplicationStatus();
-            this.ucDeploymentMonitoringReport = new Findstaff.ucDeploymentMonitoringReport();
             this.ucCollectionsMonitoringReport = new Findstaff.ucCollectionsMonitoringReport();
+            this.ucDeploymentMonitoringReport = new Findstaff.ucDeploymentMonitoringReport();
+            this.ucApplicationStatus = new Findstaff.ucApplicationStatus();
             this.pnlTabs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,6 +113,24 @@
             this.rbApplicationStatus.UseVisualStyleBackColor = false;
             this.rbApplicationStatus.CheckedChanged += new System.EventHandler(this.rbCountry_CheckedChanged);
             // 
+            // ucCollectionsMonitoringReport
+            // 
+            this.ucCollectionsMonitoringReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucCollectionsMonitoringReport.ForeColor = System.Drawing.Color.Black;
+            this.ucCollectionsMonitoringReport.Location = new System.Drawing.Point(612, 56);
+            this.ucCollectionsMonitoringReport.Name = "ucCollectionsMonitoringReport";
+            this.ucCollectionsMonitoringReport.Size = new System.Drawing.Size(350, 350);
+            this.ucCollectionsMonitoringReport.TabIndex = 35;
+            // 
+            // ucDeploymentMonitoringReport
+            // 
+            this.ucDeploymentMonitoringReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucDeploymentMonitoringReport.ForeColor = System.Drawing.Color.Black;
+            this.ucDeploymentMonitoringReport.Location = new System.Drawing.Point(256, 56);
+            this.ucDeploymentMonitoringReport.Name = "ucDeploymentMonitoringReport";
+            this.ucDeploymentMonitoringReport.Size = new System.Drawing.Size(350, 350);
+            this.ucDeploymentMonitoringReport.TabIndex = 34;
+            // 
             // ucApplicationStatus
             // 
             this.ucApplicationStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -121,22 +139,6 @@
             this.ucApplicationStatus.Name = "ucApplicationStatus";
             this.ucApplicationStatus.Size = new System.Drawing.Size(250, 250);
             this.ucApplicationStatus.TabIndex = 33;
-            // 
-            // ucDeploymentMonitoringReport
-            // 
-            this.ucDeploymentMonitoringReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucDeploymentMonitoringReport.Location = new System.Drawing.Point(256, 56);
-            this.ucDeploymentMonitoringReport.Name = "ucDeploymentMonitoringReport";
-            this.ucDeploymentMonitoringReport.Size = new System.Drawing.Size(350, 350);
-            this.ucDeploymentMonitoringReport.TabIndex = 34;
-            // 
-            // ucCollectionsMonitoringReport
-            // 
-            this.ucCollectionsMonitoringReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucCollectionsMonitoringReport.Location = new System.Drawing.Point(612, 56);
-            this.ucCollectionsMonitoringReport.Name = "ucCollectionsMonitoringReport";
-            this.ucCollectionsMonitoringReport.Size = new System.Drawing.Size(350, 350);
-            this.ucCollectionsMonitoringReport.TabIndex = 35;
             // 
             // ucReports
             // 
@@ -149,6 +151,7 @@
             this.Controls.Add(this.pnlTabs);
             this.Name = "ucReports";
             this.Size = new System.Drawing.Size(1155, 500);
+            this.Load += new System.EventHandler(this.ucReports_Load);
             this.pnlTabs.ResumeLayout(false);
             this.ResumeLayout(false);
 
