@@ -131,9 +131,9 @@
             this.lblFlightBooking.ForeColor = System.Drawing.Color.Black;
             this.lblFlightBooking.Location = new System.Drawing.Point(21, 69);
             this.lblFlightBooking.Name = "lblFlightBooking";
-            this.lblFlightBooking.Size = new System.Drawing.Size(193, 28);
+            this.lblFlightBooking.Size = new System.Drawing.Size(182, 28);
             this.lblFlightBooking.TabIndex = 62;
-            this.lblFlightBooking.Text = "Flight Booking";
+            this.lblFlightBooking.Text = "Flight Details";
             // 
             // btnViewDetails
             // 

@@ -49,6 +49,8 @@
             this.lblEmploymentDetails = new System.Windows.Forms.Label();
             this.lblAppName = new System.Windows.Forms.Label();
             this.lblReschedFlight = new System.Windows.Forms.Label();
+            this.txtCountry = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -101,7 +103,7 @@
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Century", 12F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(453, 287);
+            this.dateTimePicker1.Location = new System.Drawing.Point(453, 278);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(365, 27);
             this.dateTimePicker1.TabIndex = 280;
@@ -124,7 +126,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(341, 330);
+            this.label6.Location = new System.Drawing.Point(341, 340);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 20);
             this.label6.TabIndex = 278;
@@ -135,7 +137,7 @@
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(418, 327);
+            this.textBox1.Location = new System.Drawing.Point(418, 337);
             this.textBox1.MaxLength = 30;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(400, 27);
@@ -147,7 +149,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(341, 288);
+            this.label5.Location = new System.Drawing.Point(341, 279);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 20);
             this.label5.TabIndex = 276;
@@ -183,7 +185,7 @@
             this.lblResched.BackColor = System.Drawing.Color.Transparent;
             this.lblResched.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResched.ForeColor = System.Drawing.Color.Black;
-            this.lblResched.Location = new System.Drawing.Point(300, 208);
+            this.lblResched.Location = new System.Drawing.Point(300, 176);
             this.lblResched.Name = "lblResched";
             this.lblResched.Size = new System.Drawing.Size(197, 20);
             this.lblResched.TabIndex = 273;
@@ -195,7 +197,7 @@
             this.employer.BackColor = System.Drawing.Color.Transparent;
             this.employer.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employer.ForeColor = System.Drawing.Color.Black;
-            this.employer.Location = new System.Drawing.Point(813, 119);
+            this.employer.Location = new System.Drawing.Point(813, 102);
             this.employer.Name = "employer";
             this.employer.Size = new System.Drawing.Size(77, 20);
             this.employer.TabIndex = 272;
@@ -207,7 +209,7 @@
             this.jobname.BackColor = System.Drawing.Color.Transparent;
             this.jobname.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jobname.ForeColor = System.Drawing.Color.Black;
-            this.jobname.Location = new System.Drawing.Point(308, 154);
+            this.jobname.Location = new System.Drawing.Point(308, 137);
             this.jobname.Name = "jobname";
             this.jobname.Size = new System.Drawing.Size(72, 20);
             this.jobname.TabIndex = 271;
@@ -219,7 +221,7 @@
             this.joborder.BackColor = System.Drawing.Color.Transparent;
             this.joborder.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.joborder.ForeColor = System.Drawing.Color.Black;
-            this.joborder.Location = new System.Drawing.Point(813, 153);
+            this.joborder.Location = new System.Drawing.Point(813, 136);
             this.joborder.Name = "joborder";
             this.joborder.Size = new System.Drawing.Size(70, 20);
             this.joborder.TabIndex = 270;
@@ -231,7 +233,7 @@
             this.appname.BackColor = System.Drawing.Color.Transparent;
             this.appname.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appname.ForeColor = System.Drawing.Color.Black;
-            this.appname.Location = new System.Drawing.Point(406, 119);
+            this.appname.Location = new System.Drawing.Point(406, 102);
             this.appname.Name = "appname";
             this.appname.Size = new System.Drawing.Size(77, 20);
             this.appname.TabIndex = 269;
@@ -243,7 +245,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(720, 119);
+            this.label2.Location = new System.Drawing.Point(720, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 268;
@@ -255,7 +257,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(263, 154);
+            this.label1.Location = new System.Drawing.Point(263, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 20);
             this.label1.TabIndex = 267;
@@ -267,7 +269,7 @@
             this.lblJobOrder.BackColor = System.Drawing.Color.Transparent;
             this.lblJobOrder.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJobOrder.ForeColor = System.Drawing.Color.Black;
-            this.lblJobOrder.Location = new System.Drawing.Point(721, 154);
+            this.lblJobOrder.Location = new System.Drawing.Point(721, 137);
             this.lblJobOrder.Name = "lblJobOrder";
             this.lblJobOrder.Size = new System.Drawing.Size(86, 20);
             this.lblJobOrder.TabIndex = 266;
@@ -279,7 +281,7 @@
             this.lblEmploymentDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblEmploymentDetails.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmploymentDetails.ForeColor = System.Drawing.Color.Black;
-            this.lblEmploymentDetails.Location = new System.Drawing.Point(234, 84);
+            this.lblEmploymentDetails.Location = new System.Drawing.Point(234, 67);
             this.lblEmploymentDetails.Name = "lblEmploymentDetails";
             this.lblEmploymentDetails.Size = new System.Drawing.Size(211, 20);
             this.lblEmploymentDetails.TabIndex = 265;
@@ -291,7 +293,7 @@
             this.lblAppName.BackColor = System.Drawing.Color.Transparent;
             this.lblAppName.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppName.ForeColor = System.Drawing.Color.Black;
-            this.lblAppName.Location = new System.Drawing.Point(263, 119);
+            this.lblAppName.Location = new System.Drawing.Point(263, 102);
             this.lblAppName.Name = "lblAppName";
             this.lblAppName.Size = new System.Drawing.Size(133, 20);
             this.lblAppName.TabIndex = 264;
@@ -305,15 +307,40 @@
             this.lblReschedFlight.ForeColor = System.Drawing.Color.Black;
             this.lblReschedFlight.Location = new System.Drawing.Point(18, 20);
             this.lblReschedFlight.Name = "lblReschedFlight";
-            this.lblReschedFlight.Size = new System.Drawing.Size(232, 28);
+            this.lblReschedFlight.Size = new System.Drawing.Size(433, 28);
             this.lblReschedFlight.TabIndex = 263;
-            this.lblReschedFlight.Text = "Reschedule Flight";
+            this.lblReschedFlight.Text = "Record Rescheduled Flight Details";
+            // 
+            // txtCountry
+            // 
+            this.txtCountry.BackColor = System.Drawing.Color.White;
+            this.txtCountry.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCountry.ForeColor = System.Drawing.Color.Black;
+            this.txtCountry.Location = new System.Drawing.Point(418, 212);
+            this.txtCountry.MaxLength = 5;
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Size = new System.Drawing.Size(242, 27);
+            this.txtCountry.TabIndex = 286;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(337, 215);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 20);
+            this.label7.TabIndex = 285;
+            this.label7.Text = "Country :";
             // 
             // ucReschedFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.txtCountry);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnReschedFlight);
             this.Controls.Add(this.dateTimePicker2);
@@ -364,5 +391,7 @@
         public System.Windows.Forms.Label jobname;
         public System.Windows.Forms.Label joborder;
         public System.Windows.Forms.Label appname;
+        private System.Windows.Forms.TextBox txtCountry;
+        private System.Windows.Forms.Label label7;
     }
 }
