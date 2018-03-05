@@ -139,7 +139,7 @@ namespace Findstaff
             rowHeader7.Colspan = 1;
             tblMain.AddCell(rowHeader7);
 
-            Chunk header8 = new Chunk("\n", arial);
+            Chunk header8 = new Chunk("(From " + dateTimePicker1.Text + " to " + dateTimePicker2.Text + ") \n \n", arial);
             PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
             rowHeader8.Border = 0;
             rowHeader8.HorizontalAlignment = 1;
@@ -167,6 +167,13 @@ namespace Findstaff
             }
 
             tblMain.AddCell(table);
+
+            Chunk header9 = new Chunk("\n \n Prepared by: " + name.Text + "", arial);
+            PdfPCell rowHeader9 = new PdfPCell(new Phrase(header9));
+            rowHeader9.Border = 0;
+            rowHeader9.HorizontalAlignment = 2;
+            rowHeader9.Colspan = 1;
+            tblMain.AddCell(rowHeader9);
 
             doc.Add(tblMain);
             return doc;

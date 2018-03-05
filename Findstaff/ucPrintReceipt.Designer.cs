@@ -28,53 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvViewAppDetails = new System.Windows.Forms.DataGridView();
             this.lblViewAcco = new System.Windows.Forms.Label();
-            this.dgvPaid = new System.Windows.Forms.DataGridView();
-            this.btnGenerate = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvViewAppDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).BeginInit();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtAmountWords = new System.Windows.Forms.TextBox();
+            this.amount = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblapp = new System.Windows.Forms.Label();
+            this.name = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // dgvViewAppDetails
-            // 
-            this.dgvViewAppDetails.AllowUserToAddRows = false;
-            this.dgvViewAppDetails.AllowUserToDeleteRows = false;
-            this.dgvViewAppDetails.AllowUserToResizeColumns = false;
-            this.dgvViewAppDetails.AllowUserToResizeRows = false;
-            this.dgvViewAppDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvViewAppDetails.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvViewAppDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewAppDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvViewAppDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvViewAppDetails.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvViewAppDetails.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvViewAppDetails.Location = new System.Drawing.Point(49, 65);
-            this.dgvViewAppDetails.Name = "dgvViewAppDetails";
-            this.dgvViewAppDetails.ReadOnly = true;
-            this.dgvViewAppDetails.RowHeadersVisible = false;
-            this.dgvViewAppDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvViewAppDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvViewAppDetails.Size = new System.Drawing.Size(332, 80);
-            this.dgvViewAppDetails.TabIndex = 7;
             // 
             // lblViewAcco
             // 
@@ -88,83 +52,152 @@
             this.lblViewAcco.TabIndex = 6;
             this.lblViewAcco.Text = "Print Receipt";
             // 
-            // dgvPaid
+            // btnPrint
             // 
-            this.dgvPaid.AllowUserToAddRows = false;
-            this.dgvPaid.AllowUserToDeleteRows = false;
-            this.dgvPaid.AllowUserToResizeColumns = false;
-            this.dgvPaid.AllowUserToResizeRows = false;
-            this.dgvPaid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPaid.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvPaid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPaid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvPaid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPaid.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvPaid.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvPaid.Location = new System.Drawing.Point(49, 161);
-            this.dgvPaid.Name = "dgvPaid";
-            this.dgvPaid.ReadOnly = true;
-            this.dgvPaid.RowHeadersVisible = false;
-            this.dgvPaid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvPaid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPaid.Size = new System.Drawing.Size(1018, 237);
-            this.dgvPaid.TabIndex = 9;
+            this.btnPrint.BackColor = System.Drawing.Color.White;
+            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.Black;
+            this.btnPrint.Location = new System.Drawing.Point(491, 293);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(125, 50);
+            this.btnPrint.TabIndex = 325;
+            this.btnPrint.Text = "PRINT";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // btnGenerate
+            // label4
             // 
-            this.btnGenerate.BackColor = System.Drawing.Color.White;
-            this.btnGenerate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnGenerate.FlatAppearance.BorderSize = 0;
-            this.btnGenerate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnGenerate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerate.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.ForeColor = System.Drawing.Color.Black;
-            this.btnGenerate.Location = new System.Drawing.Point(496, 432);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(125, 50);
-            this.btnGenerate.TabIndex = 67;
-            this.btnGenerate.Text = "GENERATE";
-            this.btnGenerate.UseVisualStyleBackColor = false;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(354, 209);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(138, 20);
+            this.label4.TabIndex = 341;
+            this.label4.Text = "Amount in words:";
+            // 
+            // txtAmountWords
+            // 
+            this.txtAmountWords.BackColor = System.Drawing.Color.White;
+            this.txtAmountWords.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAmountWords.ForeColor = System.Drawing.Color.DimGray;
+            this.txtAmountWords.Location = new System.Drawing.Point(502, 206);
+            this.txtAmountWords.MaxLength = 30;
+            this.txtAmountWords.Name = "txtAmountWords";
+            this.txtAmountWords.Size = new System.Drawing.Size(408, 27);
+            this.txtAmountWords.TabIndex = 340;
+            // 
+            // amount
+            // 
+            this.amount.AutoSize = true;
+            this.amount.BackColor = System.Drawing.Color.Transparent;
+            this.amount.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amount.ForeColor = System.Drawing.Color.Black;
+            this.amount.Location = new System.Drawing.Point(498, 169);
+            this.amount.Name = "amount";
+            this.amount.Size = new System.Drawing.Size(66, 20);
+            this.amount.TabIndex = 339;
+            this.amount.Text = "amount";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(381, 169);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 20);
+            this.label3.TabIndex = 338;
+            this.label3.Text = "Amount Paid:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(404, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.TabIndex = 337;
+            this.label1.Text = "Fee Name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(498, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 20);
+            this.label2.TabIndex = 336;
+            this.label2.Text = "feename";
+            // 
+            // lblapp
+            // 
+            this.lblapp.AutoSize = true;
+            this.lblapp.BackColor = System.Drawing.Color.Transparent;
+            this.lblapp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapp.ForeColor = System.Drawing.Color.Black;
+            this.lblapp.Location = new System.Drawing.Point(359, 99);
+            this.lblapp.Name = "lblapp";
+            this.lblapp.Size = new System.Drawing.Size(133, 20);
+            this.lblapp.TabIndex = 335;
+            this.lblapp.Text = "Applicant Name:";
+            // 
+            // name
+            // 
+            this.name.AutoSize = true;
+            this.name.BackColor = System.Drawing.Color.Transparent;
+            this.name.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.ForeColor = System.Drawing.Color.Black;
+            this.name.Location = new System.Drawing.Point(498, 99);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(50, 20);
+            this.name.TabIndex = 334;
+            this.name.Text = "name";
             // 
             // ucPrintReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.Controls.Add(this.btnGenerate);
-            this.Controls.Add(this.dgvPaid);
-            this.Controls.Add(this.dgvViewAppDetails);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtAmountWords);
+            this.Controls.Add(this.amount);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblapp);
+            this.Controls.Add(this.name);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.lblViewAcco);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ucPrintReceipt";
             this.Size = new System.Drawing.Size(1118, 500);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvViewAppDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        public System.Windows.Forms.DataGridView dgvViewAppDetails;
         private System.Windows.Forms.Label lblViewAcco;
-        public System.Windows.Forms.DataGridView dgvPaid;
-        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtAmountWords;
+        private System.Windows.Forms.Label amount;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblapp;
+        public System.Windows.Forms.Label name;
     }
 }

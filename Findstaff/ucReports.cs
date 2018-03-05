@@ -48,6 +48,18 @@ namespace Findstaff
 
         private void rbAcceptedBanks_CheckedChanged(object sender, EventArgs e)
         {
+            connection.Open();
+            cmd = "SELECT concat(E.fname, ' ', E.mname, ' ', E.lname) FROM EMP_T E JOIN LOGS_T L"
+                + " ON E.EMP_ID = L.EMP_ID where LOG_ID = (SELECT MAX(LOG_ID) FROM LOGS_T);";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                ucDeploymentMonitoringReport.name.Text = dr[0].ToString();
+            }
+            dr.Close();
+
+            connection.Close();
             ucApplicationStatus.Visible = false;
             ucDeploymentMonitoringReport.Visible = true;
             ucCollectionsMonitoringReport.Visible = false;
@@ -55,6 +67,18 @@ namespace Findstaff
 
         private void rbGeneralRequirements_CheckedChanged(object sender, EventArgs e)
         {
+            connection.Open();
+            cmd = "SELECT concat(E.fname, ' ', E.mname, ' ', E.lname) FROM EMP_T E JOIN LOGS_T L"
+                + " ON E.EMP_ID = L.EMP_ID where LOG_ID = (SELECT MAX(LOG_ID) FROM LOGS_T);";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                ucCollectionsMonitoringReport.name.Text = dr[0].ToString();
+            }
+            dr.Close();
+
+            connection.Close();
             ucApplicationStatus.Visible = false;
             ucDeploymentMonitoringReport.Visible = false;
             ucCollectionsMonitoringReport.Visible = true;
