@@ -53,8 +53,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ucPrintReceipt = new Findstaff.ucPrintReceipt();
+            this.nudAmount = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewAcco)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // lblViewAcco
@@ -266,6 +268,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.nudAmount);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnPay);
             this.panel1.Controls.Add(this.lblBalance);
@@ -381,6 +384,20 @@
             this.ucPrintReceipt.Size = new System.Drawing.Size(10, 10);
             this.ucPrintReceipt.TabIndex = 69;
             // 
+            // nudAmount
+            // 
+            this.nudAmount.DecimalPlaces = 2;
+            this.nudAmount.Font = new System.Drawing.Font("Century", 12F);
+            this.nudAmount.Location = new System.Drawing.Point(126, 136);
+            this.nudAmount.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nudAmount.Name = "nudAmount";
+            this.nudAmount.Size = new System.Drawing.Size(200, 27);
+            this.nudAmount.TabIndex = 85;
+            // 
             // ucAccoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,6 +428,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewAcco)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,5 +459,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private ucPrintReceipt ucPrintReceipt;
+        private System.Windows.Forms.NumericUpDown nudAmount;
     }
 }

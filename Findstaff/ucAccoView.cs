@@ -56,7 +56,7 @@ namespace Findstaff
         private void btnPay_Click(object sender, EventArgs e)
         {
             connection.Open();
-            if (Convert.ToDecimal(txtAmount.Text) >= Convert.ToDecimal(lblBalance.Text))
+            if (Convert.ToDecimal(nudAmount.Text) >= Convert.ToDecimal(lblBalance.Text))
             {
                 int ctr = 0;
                 cmd = "select count(*) from receipts_t";
@@ -85,10 +85,10 @@ namespace Findstaff
                 }
                 if (payID != "")
                 {
-                    cmd = "insert into receipts_t values ('" + payID + "','" + appID + "','" + lblBalance.Text + "','" + txtAmount.Text + "','" + (Convert.ToDecimal(txtAmount.Text) - Convert.ToDecimal(lblBalance.Text)) + "',current_date())";
+                    cmd = "insert into receipts_t values ('" + payID + "','" + appID + "','" + Convert.ToDecimal(lblBalance.Text) + "','" + (Convert.ToDecimal(nudAmount.Text) - Convert.ToDecimal(lblBalance.Text)) + "',current_date(),'" + Convert.ToDecimal(nudAmount.Text) + "')";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
-                    MessageBox.Show("Total Amount Paid: P" + lblBalance.Text + "\nPayment: P" + txtAmount.Text + "\nChange: P" + (Convert.ToInt32(txtAmount.Text) - Convert.ToInt32(lblBalance.Text)), "Payment Info");
+                    MessageBox.Show("Total Amount Paid: P" + lblBalance.Text + "\nPayment: P" + nudAmount.Text + "\nChange: P" + (Convert.ToDecimal(nudAmount.Text) - Convert.ToDecimal(lblBalance.Text)), "Payment Info");
                     for (int x = 0; x < dgvViewAcco.SelectedRows.Count; x++)
                     {
                         cmd = "update payables_t set feestatus = 'Paid', datepaid = current_date(), pay_id = '" + payID + "' where app_no = '" + appNo + "' and app_id = '" + appID + "' and fee_id = '" + fees[x] + "'";
