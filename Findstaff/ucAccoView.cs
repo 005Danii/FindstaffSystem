@@ -18,8 +18,104 @@ namespace Findstaff
         MySqlDataReader dr;
         MySqlDataAdapter adapter;
         private string cmd = "";
-        private string appNo = "", appName = "";
-        private string jorder = "", jobID = "", empID = "", jobName = "", employerName = "", appID = "";
+        private string appNo = "", appName = "", fee = "";
+        private string jorder = "", jobID = "", empID = "", jobName = "", employerName = "", appID = "", jobtype = "";
+        private string[] fees;
+        private decimal total = 0;
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+        }
+
+        private void panel1_VisibleChanged(object sender, EventArgs e)
+        {
+            if(panel1.Visible == true)
+            {
+                dgvViewAcco.Enabled = false;
+                btnClose.Enabled = false;
+                btnPayBal.Enabled = false;
+            }
+            else
+            {
+                dgvViewAcco.Enabled = true;
+                btnClose.Enabled = true;
+                btnPayBal.Enabled = true;
+            }
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            if (Convert.ToDecimal(txtAmount.Text) >= Convert.ToDecimal(lblBalance.Text))
+            {
+                int ctr = 0;
+                cmd = "select count(*) from receipts_t";
+                com = new MySqlCommand(cmd, connection);
+                ctr = int.Parse(com.ExecuteScalar() + "");
+                string payID = "";
+                if (ctr.ToString().Length == 1)
+                {
+                    payID = "P0000" + ctr.ToString();
+                }
+                else if (ctr.ToString().Length == 2)
+                {
+                    payID = "P000" + ctr.ToString();
+                }
+                else if (ctr.ToString().Length == 3)
+                {
+                    payID = "P00" + ctr.ToString();
+                }
+                else if (ctr.ToString().Length == 4)
+                {
+                    payID = "P0" + ctr.ToString();
+                }
+                else if (ctr.ToString().Length == 5)
+                {
+                    payID = "P" + ctr.ToString();
+                }
+                if (payID != "")
+                {
+                    cmd = "insert into receipts_t values ('" + payID + "','" + appID + "','" + lblBalance.Text + "','" + txtAmount.Text + "','" + (Convert.ToInt32(txtAmount.Text) - Convert.ToInt32(lblBalance.Text)) + "',current_date())";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Total Amount Paid: P" + lblBalance.Text + "\nPayment: P" + txtAmount.Text + "\nChange: P" + (Convert.ToInt32(txtAmount.Text) - Convert.ToInt32(lblBalance.Text)), "Payment Info");
+                    for (int x = 0; x < dgvViewAcco.SelectedRows.Count; x++)
+                    {
+                        cmd = "update payables_t set feestatus = 'Paid', datepaid = current_date(), pay_id = '" + payID + "' where app_no = '" + appNo + "' and app_id = '" + appID + "' and fee_id = '" + fees[x] + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                    }
+                    cmd = "select count(fee_id) from payables_t where feestatus <> 'Paid' and app_no = '" + appNo + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    int cnt = int.Parse(com.ExecuteScalar() + "");
+                    if (cnt == 0)
+                    {
+                        cmd = "update app_t set appstatus = 'For Deployment' where app_id = '" + appID + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("All fees are paid. Applicant status is for deployment.", "Payment of Fees");
+                    }
+                    ucPrintReceipt.init(payID);
+                    ucPrintReceipt.name.Text = applicant.Text;
+                    ucPrintReceipt.amount.Text = lblBalance.Text;
+                    string allfees = "";
+                    for(int x = 0; x < dgvViewAcco.SelectedRows.Count; x++)
+                    {
+                        allfees += dgvViewAcco.SelectedRows[x].Cells[0].Value.ToString() + "; ";
+                    }
+                    ucPrintReceipt.feename.Text = allfees;
+                    ucPrintReceipt.Dock = DockStyle.Fill;
+                    ucPrintReceipt.Visible = true;
+                    resetTable();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Cannot accept payment lower than the balance set for the applicant.", "Payment Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            connection.Close();
+        }
 
         public ucAccoView()
         {
@@ -41,10 +137,7 @@ namespace Findstaff
         private void btnPayBal_Click(object sender, EventArgs e)
         {
             connection.Open();
-            int total = 0;
-            string[] fees = new string[dgvViewAcco.SelectedRows.Count];
-            string fee = "";
-            string jobtype = "";
+            fees = new string[dgvViewAcco.SelectedRows.Count];
             cmd = "select jt.typename from job_t j join applications_t a join jobtype_t jt on j.jobtype_id = jt.jobtype_id where a.app_no = '" + appNo + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
@@ -53,38 +146,41 @@ namespace Findstaff
                 jobtype = dr[0].ToString();
             }
             dr.Close();
-            if (jobtype == "Skilled")
+            for (int x = 0; x < dgvViewAcco.SelectedRows.Count; x++)
             {
-                for (int x = 0; x < dgvViewAcco.SelectedRows.Count; x++)
-                {
-                    cmd = "select fee_id from genfees_t where feename = '" + dgvViewAcco.SelectedRows[x].Cells[0].Value.ToString() + "'";
-                    com = new MySqlCommand(cmd, connection);
-                    dr = com.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        fees[x] = dr[0].ToString();
-                    }
-                    dr.Close();
-                    fee += dgvViewAcco.SelectedRows[x].Cells[0].Value.ToString() + "\n";
-                    total += Convert.ToInt32(dgvViewAcco.SelectedRows[x].Cells[1].Value.ToString());
-                    
-                }
-                DialogResult y = MessageBox.Show("Are you sure you want to pay the balance(s)? \n" + fee, "Pay Balance?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (DialogResult.Yes == y)
-                {
-                    Payment p = new Payment();
-                    p.init(appNo, appID, fees, total, dgvViewAcco.SelectedRows.Count);
-                    p.Show();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Applicant doesn't need to pay the any fees.\nApplicant status already set to deployed.");
-                cmd = "update app_t set appstatus = 'Deployed' where app_no = '" + appNo + "'";
+                cmd = "select fee_id from genfees_t where feename = '" + dgvViewAcco.SelectedRows[x].Cells[0].Value.ToString() + "'";
                 com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                this.Hide();
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    fees[x] = dr[0].ToString();
+                }
+                dr.Close();
+                fee += dgvViewAcco.SelectedRows[x].Cells[0].Value.ToString() + "\n";
+                total += Convert.ToDecimal(dgvViewAcco.SelectedRows[x].Cells[1].Value.ToString());
+
             }
+            DialogResult y = MessageBox.Show("Are you sure you want to pay the balance(s)? \n" + fee, "Pay Balance?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DialogResult.Yes == y)
+            {
+                panel1.Visible = true;
+                lblBalance.Text = total.ToString();
+                //Payment p = new Payment();
+                //p.init(appNo, appID, fees, total, dgvViewAcco.SelectedRows.Count);
+                //p.Show();
+            }
+            //if (jobtype == "Skilled")
+            //{
+                
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Applicant doesn't need to pay the any fees.\nApplicant status already set to deployed.");
+            //    cmd = "update app_t set appstatus = 'Deployed' where app_no = '" + appNo + "'";
+            //    com = new MySqlCommand(cmd, connection);
+            //    com.ExecuteNonQuery();
+            //    this.Hide();
+            //}
             connection.Close();
         }
 

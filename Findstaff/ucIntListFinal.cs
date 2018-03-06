@@ -159,7 +159,20 @@ namespace Findstaff
 
         private void panel1_VisibleChanged(object sender, EventArgs e)
         {
-            dgvIntervieweeList.Enabled = false;
+            if(panel1.Visible == true)
+            {
+                dgvIntervieweeList.Enabled = false;
+                btnFinalInterviewSched.Enabled = false;
+                btnAssess.Enabled = false;
+                btnClose.Enabled = false;
+            }
+            else
+            {
+                dgvIntervieweeList.Enabled = true;
+                btnFinalInterviewSched.Enabled = true;
+                btnAssess.Enabled = true;
+                btnClose.Enabled = true;
+            }
         }
     }
 }

@@ -96,6 +96,7 @@
             // 
             // rtbRemarks3
             // 
+            this.rtbRemarks3.Enabled = false;
             this.rtbRemarks3.Font = new System.Drawing.Font("Century", 12F);
             this.rtbRemarks3.Location = new System.Drawing.Point(355, 320);
             this.rtbRemarks3.Name = "rtbRemarks3";
@@ -117,6 +118,7 @@
             // 
             // rtbRemarks2
             // 
+            this.rtbRemarks2.Enabled = false;
             this.rtbRemarks2.Font = new System.Drawing.Font("Century", 12F);
             this.rtbRemarks2.Location = new System.Drawing.Point(355, 237);
             this.rtbRemarks2.Name = "rtbRemarks2";

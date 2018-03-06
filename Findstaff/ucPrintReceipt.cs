@@ -21,11 +21,17 @@ namespace Findstaff
         MySqlCommand com = new MySqlCommand();
         MySqlDataReader dr;
         MySqlDataAdapter adapter = new MySqlDataAdapter();
-        private string cmd = "";
+        private string cmd = "", payID = "";
+
 
         public ucPrintReceipt()
         {
             InitializeComponent();
+        }
+
+        public void init(string pay_id)
+        {
+            payID = pay_id;
         }
 
         #region Print

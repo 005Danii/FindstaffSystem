@@ -30,7 +30,7 @@ namespace Findstaff
                 if(dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "For Deployment")
                 {
                     connection.Open();
-                    string jobID = "", empID = "", jorderID = "";
+                    string jobID = "", empID = "", jorderID = "", countryID = "";
                     cmd = "select job_id, employer_id, jorder_id from applications_t where app_no = '" + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + "'";
                     com = new MySqlCommand(cmd, connection);
                     dr = com.ExecuteReader();
@@ -51,14 +51,33 @@ namespace Findstaff
                         ucBookFlight.jobname.Text = dr[0].ToString();
                     }
                     dr.Close();
-                    cmd = "select employername from employer_t where employer_id = '" + empID + "'";
+                    cmd = "select country_id, employername from employer_t where employer_id = '" + empID + "'";
                     com = new MySqlCommand(cmd, connection);
                     dr = com.ExecuteReader();
                     while (dr.Read())
                     {
-                        ucBookFlight.employer.Text = dr[0].ToString();
+                        countryID = dr[0].ToString();
+                        ucBookFlight.employer.Text = dr[1].ToString();
                     }
                     dr.Close();
+                    cmd = "select countryname from country_t where country_id = '" + countryID + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ucBookFlight.txtCountry.Text = dr[0].ToString();
+                    }
+                    dr.Close();
+                    ucBookFlight.cbAirport.Items.Clear();
+                    cmd = "select airportname from countryairports_t where country_id = '" + countryID + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ucBookFlight.cbAirport.Items.Add(dr[0]);
+                    }
+                    dr.Close();
+                    ucBookFlight.init(dgvFlightBooking.SelectedRows[0].Cells[0].Value.ToString(), dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString());
                     ucBookFlight.Dock = DockStyle.Fill;
                     ucBookFlight.Visible = true;
                     connection.Close();
@@ -126,9 +145,9 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', appstatus'Status' "
-                    + "from app_t app join applications_t a on a.app_id = app.app_id "
-                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule') and a.appstats = 'Active' ";
+            cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
+                    + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
+                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' ";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -142,9 +161,9 @@ namespace Findstaff
 
         private void ucBookFlight_VisibleChanged(object sender, EventArgs e)
         {
-            cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', appstatus'Status' "
-                    + "from app_t app join applications_t a on a.app_id = app.app_id "
-                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule') and a.appstats = 'Active' ";
+            cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
+                    + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
+                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' ";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -158,9 +177,9 @@ namespace Findstaff
 
         private void ucReschedFlight_VisibleChanged(object sender, EventArgs e)
         {
-            cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', appstatus'Status' "
-                    + "from app_t app join applications_t a on a.app_id = app.app_id "
-                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule') and a.appstats = 'Active' ";
+            cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
+                    + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
+                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' ";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))

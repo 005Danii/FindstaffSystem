@@ -44,7 +44,17 @@
             this.joborder = new System.Windows.Forms.Label();
             this.employer = new System.Windows.Forms.Label();
             this.btnGenerateReceipt = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ucPrintReceipt = new Findstaff.ucPrintReceipt();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewAcco)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblViewAcco
@@ -253,12 +263,131 @@
             this.btnGenerateReceipt.Text = "GENERATE RECEIPT";
             this.btnGenerateReceipt.UseVisualStyleBackColor = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnPay);
+            this.panel1.Controls.Add(this.lblBalance);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtAmount);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(374, 120);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(371, 261);
+            this.panel1.TabIndex = 68;
+            this.panel1.Visible = false;
+            this.panel1.VisibleChanged += new System.EventHandler(this.panel1_VisibleChanged);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(188, 197);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 30);
+            this.btnCancel.TabIndex = 84;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnPay
+            // 
+            this.btnPay.BackColor = System.Drawing.Color.White;
+            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPay.FlatAppearance.BorderSize = 0;
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPay.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.ForeColor = System.Drawing.Color.Black;
+            this.btnPay.Location = new System.Drawing.Point(82, 197);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(100, 30);
+            this.btnPay.TabIndex = 83;
+            this.btnPay.Text = "PAY";
+            this.btnPay.UseVisualStyleBackColor = false;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.BackColor = System.Drawing.Color.Transparent;
+            this.lblBalance.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.ForeColor = System.Drawing.Color.Black;
+            this.lblBalance.Location = new System.Drawing.Point(139, 107);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(66, 20);
+            this.lblBalance.TabIndex = 82;
+            this.lblBalance.Text = "balance";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(45, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 20);
+            this.label1.TabIndex = 81;
+            this.label1.Text = "Balance :";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.BackColor = System.Drawing.Color.White;
+            this.txtAmount.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAmount.ForeColor = System.Drawing.Color.Black;
+            this.txtAmount.Location = new System.Drawing.Point(126, 135);
+            this.txtAmount.MaxLength = 30;
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(200, 27);
+            this.txtAmount.TabIndex = 80;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(45, 138);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 20);
+            this.label2.TabIndex = 79;
+            this.label2.Text = "Amount :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(116, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 28);
+            this.label3.TabIndex = 78;
+            this.label3.Text = "Payment";
+            // 
+            // ucPrintReceipt
+            // 
+            this.ucPrintReceipt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucPrintReceipt.ForeColor = System.Drawing.Color.Black;
+            this.ucPrintReceipt.Location = new System.Drawing.Point(3, 56);
+            this.ucPrintReceipt.Name = "ucPrintReceipt";
+            this.ucPrintReceipt.Size = new System.Drawing.Size(10, 10);
+            this.ucPrintReceipt.TabIndex = 69;
+            // 
             // ucAccoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.ucPrintReceipt);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnGenerateReceipt);
             this.Controls.Add(this.employer);
             this.Controls.Add(this.joborder);
@@ -279,6 +408,8 @@
             this.Load += new System.EventHandler(this.ucAccoView_Load);
             this.VisibleChanged += new System.EventHandler(this.ucAccoView_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewAcco)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +431,14 @@
         public System.Windows.Forms.Label joborder;
         public System.Windows.Forms.Label employer;
         private System.Windows.Forms.Button btnGenerateReceipt;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnPay;
+        public System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private ucPrintReceipt ucPrintReceipt;
     }
 }

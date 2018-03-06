@@ -203,6 +203,7 @@
             this.btnBookFlight.TabIndex = 239;
             this.btnBookFlight.Text = "SAVE";
             this.btnBookFlight.UseVisualStyleBackColor = false;
+            this.btnBookFlight.Click += new System.EventHandler(this.btnBookFlight_Click);
             // 
             // label5
             // 
@@ -280,6 +281,7 @@
             // txtCountry
             // 
             this.txtCountry.BackColor = System.Drawing.Color.White;
+            this.txtCountry.Enabled = false;
             this.txtCountry.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountry.ForeColor = System.Drawing.Color.Black;
             this.txtCountry.Location = new System.Drawing.Point(418, 241);
@@ -339,6 +341,6 @@
         public System.Windows.Forms.Label appname;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.ComboBox cbAirport;
-        private System.Windows.Forms.TextBox txtCountry;
+        public System.Windows.Forms.TextBox txtCountry;
     }
 }

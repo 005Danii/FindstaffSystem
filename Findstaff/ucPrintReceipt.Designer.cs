@@ -35,7 +35,7 @@
             this.amount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.feename = new System.Windows.Forms.Label();
             this.lblapp = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -99,7 +99,7 @@
             this.amount.BackColor = System.Drawing.Color.Transparent;
             this.amount.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amount.ForeColor = System.Drawing.Color.Black;
-            this.amount.Location = new System.Drawing.Point(498, 169);
+            this.amount.Location = new System.Drawing.Point(516, 169);
             this.amount.Name = "amount";
             this.amount.Size = new System.Drawing.Size(66, 20);
             this.amount.TabIndex = 339;
@@ -113,9 +113,9 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(381, 169);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 20);
+            this.label3.Size = new System.Drawing.Size(134, 20);
             this.label3.TabIndex = 338;
-            this.label3.Text = "Amount Paid:";
+            this.label3.Text = "Amount Paid:   P";
             // 
             // label1
             // 
@@ -129,17 +129,17 @@
             this.label1.TabIndex = 337;
             this.label1.Text = "Fee Name:";
             // 
-            // label2
+            // feename
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(498, 132);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
-            this.label2.TabIndex = 336;
-            this.label2.Text = "feename";
+            this.feename.AutoSize = true;
+            this.feename.BackColor = System.Drawing.Color.Transparent;
+            this.feename.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feename.ForeColor = System.Drawing.Color.Black;
+            this.feename.Location = new System.Drawing.Point(498, 132);
+            this.feename.Name = "feename";
+            this.feename.Size = new System.Drawing.Size(71, 20);
+            this.feename.TabIndex = 336;
+            this.feename.Text = "feename";
             // 
             // lblapp
             // 
@@ -175,7 +175,7 @@
             this.Controls.Add(this.amount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.feename);
             this.Controls.Add(this.lblapp);
             this.Controls.Add(this.name);
             this.Controls.Add(this.btnPrint);
@@ -193,11 +193,11 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAmountWords;
-        private System.Windows.Forms.Label amount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label feename;
         private System.Windows.Forms.Label lblapp;
         public System.Windows.Forms.Label name;
+        public System.Windows.Forms.Label amount;
     }
 }
