@@ -44,6 +44,11 @@ namespace Findstaff
             }
         }
 
+        private void btnGenerateReceipt_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnPay_Click(object sender, EventArgs e)
         {
             connection.Open();

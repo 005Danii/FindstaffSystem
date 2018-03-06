@@ -102,18 +102,46 @@ namespace Findstaff
             rowHeader6.Colspan = 1;
             tblMain.AddCell(rowHeader6);
 
-            PdfPCell TotDate = new PdfPCell(new Phrase(DateTime.Now.ToString(), arial));
-            TotDate.Border = 0;
-            TotDate.Colspan = 1;
-            TotDate.HorizontalAlignment = 2;
-            tblMain.AddCell(TotDate);
-
             Chunk header7 = new Chunk("\n OFFICIAL RECEIPT", arial);
             PdfPCell rowHeader7 = new PdfPCell(new Phrase(header7));
             rowHeader7.Border = 0;
             rowHeader7.HorizontalAlignment = 1;
             rowHeader7.Colspan = 1;
             tblMain.AddCell(rowHeader7);
+
+            PdfPCell TotDate = new PdfPCell(new Phrase(DateTime.Now.ToString(), arial));
+            TotDate.Border = 0;
+            TotDate.Colspan = 1;
+            TotDate.HorizontalAlignment = 1;
+            tblMain.AddCell(TotDate);
+
+            Chunk header8 = new Chunk("\n \n Received from " + name.Text + " with TIN " + number.Text + "", arial);
+            PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
+            rowHeader8.Border = 0;
+            rowHeader8.HorizontalAlignment = 1;
+            rowHeader8.Colspan = 1;
+            tblMain.AddCell(rowHeader8);
+
+            Chunk header9 = new Chunk("\n the sum of " + txtAmountWords.Text + " pesos", arial);
+            PdfPCell rowHeader9 = new PdfPCell(new Phrase(header9));
+            rowHeader9.Border = 0;
+            rowHeader9.HorizontalAlignment = 1;
+            rowHeader9.Colspan = 1;
+            tblMain.AddCell(rowHeader9);
+
+            Chunk header10 = new Chunk("\n (P " + amount.Text + " ) in full payment for " + feename + " ", arial);
+            PdfPCell rowHeader10 = new PdfPCell(new Phrase(header9));
+            rowHeader10.Border = 0;
+            rowHeader10.HorizontalAlignment = 1;
+            rowHeader10.Colspan = 1;
+            tblMain.AddCell(rowHeader10);
+
+            Chunk header11 = new Chunk("\n \n By: ", arial);
+            PdfPCell rowHeader11 = new PdfPCell(new Phrase(header9));
+            rowHeader11.Border = 0;
+            rowHeader11.HorizontalAlignment = 1;
+            rowHeader11.Colspan = 1;
+            tblMain.AddCell(rowHeader11);
 
             doc.Add(tblMain);
             return doc;
