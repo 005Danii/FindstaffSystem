@@ -18,7 +18,7 @@ namespace Findstaff
         MySqlDataReader dr;
         MySqlDataAdapter adapter;
         private string cmd = "";
-        private string appNo = "", appName = "", fee = "";
+        private string appNo = "", appName = "";
         private string jorder = "", jobID = "", empID = "", jobName = "", employerName = "", appID = "", jobtype = "";
         private string[] fees;
         private decimal total = 0;
@@ -41,6 +41,15 @@ namespace Findstaff
                 dgvViewAcco.Enabled = true;
                 btnClose.Enabled = true;
                 btnPayBal.Enabled = true;
+            }
+        }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsSymbol(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar) || Char.IsPunctuation(e.KeyChar)
+                || Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
 
@@ -137,6 +146,7 @@ namespace Findstaff
         private void btnPayBal_Click(object sender, EventArgs e)
         {
             connection.Open();
+            string fee = "";
             fees = new string[dgvViewAcco.SelectedRows.Count];
             cmd = "select jt.typename from job_t j join applications_t a join jobtype_t jt on j.jobtype_id = jt.jobtype_id where a.app_no = '" + appNo + "'";
             com = new MySqlCommand(cmd, connection);

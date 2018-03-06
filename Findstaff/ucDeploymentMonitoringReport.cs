@@ -20,7 +20,10 @@ namespace Findstaff
         private MySqlConnection connection;
         MySqlCommand com = new MySqlCommand();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
+        MySqlDataReader dr;
         private string cmd = "";
+        private string[,] results;
+        private string countryID = "", employerID = "";
 
         public ucDeploymentMonitoringReport()
         {
@@ -34,17 +37,76 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
+            int ctr = 0;
             cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id;";
-            using (connection)
+                            "join applications_t ap on a.app_id = ap.app_id where (a.dateadded between '"+dtpFrom.Value.ToString("yyyy-MM-dd")+"' and '" + dtpTo.Value.ToString("yyyy-MM-dd") + "') and appstatus in ('For Deployment','With Flight Schedule', 'On Flight', 'Arrived','Deployed') ;";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dgvReports.DataSource = ds.Tables[0];
-                }
+                ctr++;
             }
+            dr.Close();
+            results = new string[ctr, 8];
+            ctr = 0;
+            cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status', ap.app_no from app_t a " +
+                            "join applications_t ap on a.app_id = ap.app_id where (a.dateadded between '" + dtpFrom.Value.ToString("yyyy-MM-dd") + "' and '" + dtpTo.Value.ToString("yyyy-MM-dd") + "') and a.appstatus in ('For Deployment','With Flight Schedule', 'On Flight', 'Arrived','Deployed') and ap.appstats = 'Active';";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                results[ctr, 0] = dr[0].ToString();
+                results[ctr, 1] = dr[1].ToString();
+                results[ctr, 2] = dr[2].ToString();
+                results[ctr, 3] = dr[3].ToString();
+                results[ctr, 4] = dr[4].ToString();
+                results[ctr, 7] = dr[5].ToString();
+                ctr++;
+            }
+            dr.Close();
+            
+            for (int x = 0; x < ctr; x++)
+            {
+                cmd = "select employer_id from applications_t where app_no = '" + results[x, 7] + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    employerID = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "select e.employername, c.countryname from employer_t e join country_t c on e.country_id = c.country_id where e.employer_id = '" + employerID + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    results[x, 5] = dr[0].ToString();
+                    results[x, 6] = dr[1].ToString();
+                }
+                dr.Close();
+            }
+            dgvReports.ColumnCount = 7;
+            dgvReports.Columns[0].HeaderText = "Applicant ID";
+            dgvReports.Columns[1].HeaderText = "Applicant Name";
+            dgvReports.Columns[2].HeaderText = "Job Title";
+            dgvReports.Columns[3].HeaderText = "Applicant Status";
+            dgvReports.Columns[4].HeaderText = "Application Status";
+            dgvReports.Columns[5].HeaderText = "Employer";
+            dgvReports.Columns[6].HeaderText = "Country of Destination";
+            for(int x = 0; x < ctr; x++)
+            {
+                dgvReports.Rows.Add(results[x, 0], results[x, 1], results[x, 2], results[x, 3], results[x, 4], results[x, 5], results[x, 6]);
+            }
+            //using (connection)
+            //{
+            //    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+            //    {
+            //        DataSet ds = new DataSet();
+            //        adapter.Fill(ds);
+            //        dgvReports.DataSource = ds.Tables[0];
+            //    }
+            //}
+            connection.Close();
         }
         #endregion Load
 
@@ -139,7 +201,7 @@ namespace Findstaff
             rowHeader7.Colspan = 1;
             tblMain.AddCell(rowHeader7);
 
-            Chunk header8 = new Chunk("(From " + dateTimePicker1.Text + " to " + dateTimePicker2.Text + ") \n \n", arial);
+            Chunk header8 = new Chunk("(From " + dtpFrom.Text + " to " + dtpTo.Text + ") \n \n", arial);
             PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
             rowHeader8.Border = 0;
             rowHeader8.HorizontalAlignment = 1;
