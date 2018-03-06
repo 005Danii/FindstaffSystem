@@ -197,7 +197,12 @@ namespace Findstaff
             {
                 if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "With Flight Schedule")
                 {
-                    DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + "arrived in the airport");
+                    if(dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString() == DateTime.Now.ToString())
+                    {
+
+                    }
+                    DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + "arrived in the airport and already on flight?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
                 }
                 else
                 {
