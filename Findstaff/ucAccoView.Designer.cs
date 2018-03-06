@@ -262,7 +262,6 @@
             this.btnGenerateReceipt.TabIndex = 66;
             this.btnGenerateReceipt.Text = "GENERATE RECEIPT";
             this.btnGenerateReceipt.UseVisualStyleBackColor = false;
-            this.btnGenerateReceipt.Click += new System.EventHandler(this.btnGenerateReceipt_Click);
             // 
             // panel1
             // 

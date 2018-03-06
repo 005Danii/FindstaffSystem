@@ -144,7 +144,10 @@ namespace Findstaff
                 if (dgvIntervieweeList.SelectedRows[0].Cells[3].Value.ToString() != "Scheduled for Final Interview")
                 {
                     panel1.Visible = true;
-                    this.Enabled = false;
+                    dgvIntervieweeList.Enabled = false;
+                    btnAssess.Enabled = false;
+                    btnClose.Enabled = false;
+                    btnFinalInterviewSched.Enabled = false;
                 }
                 else
                 {
@@ -156,6 +159,10 @@ namespace Findstaff
         private void btnCancel_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
+            dgvIntervieweeList.Enabled = true;
+            btnAssess.Enabled = true;
+            btnClose.Enabled = true;
+            btnFinalInterviewSched.Enabled = true;
         }
 
         private void panel1_VisibleChanged(object sender, EventArgs e)

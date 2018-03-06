@@ -190,5 +190,20 @@ namespace Findstaff
                 }
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvFlightBooking.Rows.Count != 0)
+            {
+                if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "With Flight Schedule")
+                {
+                    DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + "arrived in the airport");
+                }
+                else
+                {
+                    MessageBox.Show(dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " doesn't have a flight schedule yet.", "Reschedule Flight Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }
