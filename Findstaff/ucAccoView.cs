@@ -105,7 +105,7 @@ namespace Findstaff
                         com.ExecuteNonQuery();
                         MessageBox.Show("All fees are paid. Applicant status is for deployment.", "Payment of Fees");
                     }
-                    ucPrintReceipt.init(payID);
+                    ucPrintReceipt.number.Text = payID;
                     ucPrintReceipt.name.Text = applicant.Text;
                     ucPrintReceipt.amount.Text = lblBalance.Text;
                     string allfees = "";
