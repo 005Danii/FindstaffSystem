@@ -21,7 +21,12 @@ namespace Findstaff
         MySqlCommand com = new MySqlCommand();
         MySqlDataReader dr;
         MySqlDataAdapter adapter = new MySqlDataAdapter();
-        private string cmd = "";
+        private string cmd = "", user = "";
+
+        public void init(string name)
+        {
+            user = name;
+        }
 
         public ucApplicationStatus()
         {

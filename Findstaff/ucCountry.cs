@@ -36,7 +36,7 @@ namespace Findstaff
             ucCountryAddEdit.txtCountryID2.Text = dgvCountry.SelectedRows[0].Cells[0].Value.ToString();
             ucCountryAddEdit.txtCountryName2.Text = dgvCountry.SelectedRows[0].Cells[1].Value.ToString();
             connection.Open();
-            cmd = "select currency, symbol from country_t where country_id = '"+ dgvCountry.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            cmd = "select currencyname, symbol from country_t where country_id = '"+ dgvCountry.SelectedRows[0].Cells[0].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())

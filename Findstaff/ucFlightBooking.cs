@@ -193,6 +193,7 @@ namespace Findstaff
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            connection.Open();
             if (dgvFlightBooking.Rows.Count != 0)
             {
                 if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "With Flight Schedule")
@@ -200,18 +201,44 @@ namespace Findstaff
                     DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + "arrived in the airport and already on flight?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if(dr1 == DialogResult.Yes)
                     {
-
+                        cmd = "update app_t set appstatus = 'On Flight' where app_t = '"+dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString()+"'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Updated Status: " + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + " is currently on flight now.","Status Update", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     //if(dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString() == DateTime.Now.ToString("dd/MM/yyyy"))
                     //{
 
                     //}
                 }
+                else if(dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "On Flight")
+                {
+                    DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + "arrived in the country of destination?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr1 == DialogResult.Yes)
+                    {
+                        cmd = "update app_t set appstatus = 'Arrived' where app_t = '" + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Updated Status: " + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + " arrived in the country of destination.", "Status Update", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "Arrived")
+                {
+                    DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " been deployed in the country?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr1 == DialogResult.Yes)
+                    {
+                        cmd = "update app_t set appstatus = 'Deployed' where app_t = '" + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Updated Status: " + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + " is now deployed.", "Status Update", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
                 else
                 {
                     MessageBox.Show(dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " doesn't have a flight schedule yet.", "Reschedule Flight Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }
             }
+            connection.Close();
         }
     }
 }

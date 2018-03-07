@@ -17,7 +17,12 @@ namespace Findstaff
         MySqlCommand com = new MySqlCommand();
         MySqlDataReader dr;
         MySqlDataAdapter adapter = new MySqlDataAdapter();
-        private string cmd = "";
+        private string cmd = "", user = "";
+
+        public void init(string name)
+        {
+            user = name;
+        }
 
         public ucReports()
         {
@@ -25,22 +30,14 @@ namespace Findstaff
             ucApplicationStatus.Dock = DockStyle.Fill;
             ucCollectionsMonitoringReport.Dock = DockStyle.Fill;
             ucDeploymentMonitoringReport.Dock = DockStyle.Fill;
+            ucApplicationStatus.Visible = false;
+            ucDeploymentMonitoringReport.Visible = false;
+            ucCollectionsMonitoringReport.Visible = false;
         }
 
         private void rbCountry_CheckedChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            cmd = "SELECT concat(E.fname, ' ', E.mname, ' ', E.lname) FROM EMP_T E JOIN LOGS_T L"
-                + " ON E.EMP_ID = L.EMP_ID where LOG_ID = (SELECT MAX(LOG_ID) FROM LOGS_T);";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                ucApplicationStatus.name.Text = dr[0].ToString();
-            }
-            dr.Close();
-
-            connection.Close();
+            ucApplicationStatus.name.Text = user;
             ucApplicationStatus.Visible = true;
             ucDeploymentMonitoringReport.Visible = false;
             ucCollectionsMonitoringReport.Visible = false;
@@ -48,18 +45,7 @@ namespace Findstaff
 
         private void rbAcceptedBanks_CheckedChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            cmd = "SELECT concat(E.fname, ' ', E.mname, ' ', E.lname) FROM EMP_T E JOIN LOGS_T L"
-                + " ON E.EMP_ID = L.EMP_ID where LOG_ID = (SELECT MAX(LOG_ID) FROM LOGS_T);";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                ucDeploymentMonitoringReport.name.Text = dr[0].ToString();
-            }
-            dr.Close();
-
-            connection.Close();
+            ucDeploymentMonitoringReport.name.Text = user;
             ucApplicationStatus.Visible = false;
             ucDeploymentMonitoringReport.Visible = true;
             ucCollectionsMonitoringReport.Visible = false;
@@ -67,18 +53,7 @@ namespace Findstaff
 
         private void rbGeneralRequirements_CheckedChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            cmd = "SELECT concat(E.fname, ' ', E.mname, ' ', E.lname) FROM EMP_T E JOIN LOGS_T L"
-                + " ON E.EMP_ID = L.EMP_ID where LOG_ID = (SELECT MAX(LOG_ID) FROM LOGS_T);";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                ucCollectionsMonitoringReport.name.Text = dr[0].ToString();
-            }
-            dr.Close();
-
-            connection.Close();
+            ucCollectionsMonitoringReport.name.Text = user;
             ucApplicationStatus.Visible = false;
             ucDeploymentMonitoringReport.Visible = false;
             ucCollectionsMonitoringReport.Visible = true;

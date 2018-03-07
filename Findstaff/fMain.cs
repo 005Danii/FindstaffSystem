@@ -183,6 +183,7 @@ namespace Findstaff
             ucReports.Visible = false;
             ucUtilities.Visible = false;
             ucQueries.Visible = false;
+            ucAcco.init(lblName.Text);
         }
 
         private void rbMaintenance_CheckedChanged(object sender, EventArgs e)
@@ -235,6 +236,7 @@ namespace Findstaff
             ucUtilities.Visible = false;
             ucQueries.Visible = false;
             ucReports.Visible = true;
+            ucReports.init(lblName.Text);
             
         }
 

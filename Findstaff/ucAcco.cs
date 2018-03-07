@@ -21,7 +21,7 @@ namespace Findstaff
         private MySqlConnection connection;
         MySqlCommand com = new MySqlCommand();
         MySqlDataAdapter adapter;
-        private string cmd = "";
+        private string cmd = "", user = "";
 
         private void btnAdvSe_Click(object sender, EventArgs e)
         {
@@ -29,12 +29,17 @@ namespace Findstaff
             fas.Show();
         }
 
+        public void init(string name)
+        {
+            user = name;
+        }
+
         private void btnViewAcco_Click(object sender, EventArgs e)
         {
             if(dgvAccounting.Rows.Count != 0)
             {
                 string appNo = dgvAccounting.SelectedRows[0].Cells[0].Value.ToString(), appName = dgvAccounting.SelectedRows[0].Cells[1].Value.ToString();
-                ucAccoView.init(appNo, appName);
+                ucAccoView.init(appNo, appName, user);
                 ucAccoView.Dock = DockStyle.Fill;
                 ucAccoView.Visible = true;
             }

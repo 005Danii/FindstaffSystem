@@ -17,11 +17,16 @@ namespace Findstaff
         MySqlCommand com = new MySqlCommand();
         MySqlDataReader dr;
         MySqlDataAdapter adapter;
-        private string cmd = "";
+        private string cmd = "", user = "";
         private string appNo = "", appName = "";
         private string jorder = "", jobID = "", empID = "", jobName = "", employerName = "", appID = "", jobtype = "";
         private string[] fees;
         private decimal total = 0;
+
+        public void init(string name)
+        {
+            user = name;
+        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -105,6 +110,7 @@ namespace Findstaff
                         com.ExecuteNonQuery();
                         MessageBox.Show("All fees are paid. Applicant status is for deployment.", "Payment of Fees");
                     }
+                    ucPrintReceipt.init(user);
                     ucPrintReceipt.number.Text = payID;
                     ucPrintReceipt.name.Text = applicant.Text;
                     ucPrintReceipt.amount.Text = lblBalance.Text;
@@ -131,10 +137,11 @@ namespace Findstaff
             InitializeComponent();
         }
 
-        public void init(string appno, string appname)
+        public void init(string appno, string appname, string name)
         {
             appNo = appno;
             appID = appname;
+            user = name;
         }
 
         private void ucAccoView_Load(object sender, EventArgs e)

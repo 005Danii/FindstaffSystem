@@ -21,17 +21,17 @@ namespace Findstaff
         MySqlCommand com = new MySqlCommand();
         MySqlDataReader dr;
         MySqlDataAdapter adapter = new MySqlDataAdapter();
-        private string cmd = "", payID = "";
-
+        private string cmd = "", payID = "", user = "";
+        
 
         public ucPrintReceipt()
         {
             InitializeComponent();
         }
 
-        public void init(string pay_id)
+        public void init(string name)
         {
-            payID = pay_id;
+            user = name;
         }
 
         #region Print
@@ -138,7 +138,7 @@ namespace Findstaff
             rowHeader10.Colspan = 1;
             tblMain.AddCell(rowHeader10);
 
-            Chunk header11 = new Chunk("\n \n By: ", arial);
+            Chunk header11 = new Chunk("\n \n By: " + user, arial);
             PdfPCell rowHeader11 = new PdfPCell(new Phrase(header9));
             rowHeader11.Border = 0;
             rowHeader11.HorizontalAlignment = 1;
