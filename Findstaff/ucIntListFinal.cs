@@ -88,52 +88,51 @@ namespace Findstaff
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            cmd = "update app_t set appstatus = 'Scheduled for Final Interview' where app_id = '" + dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString() + "'";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            cmd = "update applications_t set finalinterviewdate = '" + dtp.Value.ToString("yyyy-MM-dd") + "' where app_no = '" + dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " has been scheduled for final interview.", "Final Interview Schedule", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            panel1.Visible = false;
-            string jobID = "", empID = "";
-            cmd = "select job_id from job_t where jobname = '" + jobname.Text + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
+            if (dtp.Value.ToString("dddd") != "Saturday" || dtp.Value.ToString("dddd") != "Sunday")
             {
-                jobID = dr[0].ToString();
-            }
-            dr.Close();
-            cmd = "select employer_id from employer_t where employername = '" + employer.Text + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                empID = dr[0].ToString();
-            }
-            dr.Close();
-            cmd = "select app.app_no'Application No.', a.app_id'Applicant ID', concat(a.lname, ', ', a.fname, ' ', a.mname)'Applicant Name', a.appstatus'Status', app.finalinterviewdate'Final Interview Date' from applications_t app "
-                + "join app_t a on app.app_id = a.app_id where app.appstats = 'Active' and (a.appstatus = 'For Final Interview' or a.appstatus = 'Scheduled for Final Interview') "
-                + "and app.jorder_id = '" + joborder.Text + "' and app.job_id = '" + jobID + "' and app.employer_id = '" + empID + "' and app.finalinterviewstatus is null and app.initinterviewstatus = 'Passed'";
-            using (connection)
-            {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                connection.Open();
+                cmd = "update app_t set appstatus = 'Scheduled for Final Interview' where app_id = '" + dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString() + "'";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "update applications_t set finalinterviewdate = '" + dtp.Value.ToString("yyyy-MM-dd") + "' where app_no = '" + dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " has been scheduled for final interview.", "Final Interview Schedule", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                panel1.Visible = false;
+                string jobID = "", empID = "";
+                cmd = "select job_id from job_t where jobname = '" + jobname.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
                 {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dgvIntervieweeList.DataSource = ds.Tables[0];
+                    jobID = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "select employer_id from employer_t where employername = '" + employer.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    empID = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "select app.app_no'Application No.', a.app_id'Applicant ID', concat(a.lname, ', ', a.fname, ' ', a.mname)'Applicant Name', a.appstatus'Status', app.finalinterviewdate'Final Interview Date' from applications_t app "
+                    + "join app_t a on app.app_id = a.app_id where app.appstats = 'Active' and (a.appstatus = 'For Final Interview' or a.appstatus = 'Scheduled for Final Interview') "
+                    + "and app.jorder_id = '" + joborder.Text + "' and app.job_id = '" + jobID + "' and app.employer_id = '" + empID + "' and app.finalinterviewstatus is null and app.initinterviewstatus = 'Passed'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvIntervieweeList.DataSource = ds.Tables[0];
+                    }
                 }
             }
-            //if (dtp.Value.ToString("dddd") != "Saturday" || dtp.Value.ToString("dddd") != "Sunday")
-            //{
-                
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Cannot set final interview date on weekends", "Final Interview Date Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-            //}
+            else
+            {
+                MessageBox.Show("Cannot set final interview date on weekends", "Final Interview Date Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
             connection.Close();
         }
 

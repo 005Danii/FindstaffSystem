@@ -33,6 +33,7 @@ namespace Findstaff
         #region Load
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            dgvReports.Rows.Clear();
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
@@ -97,15 +98,6 @@ namespace Findstaff
             {
                 dgvReports.Rows.Add(results[x, 0], results[x, 1], results[x, 2], results[x, 3], results[x, 4], results[x, 5], results[x, 6]);
             }
-            //using (connection)
-            //{
-            //    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-            //    {
-            //        DataSet ds = new DataSet();
-            //        adapter.Fill(ds);
-            //        dgvReports.DataSource = ds.Tables[0];
-            //    }
-            //}
             connection.Close();
         }
         #endregion Load
@@ -113,27 +105,10 @@ namespace Findstaff
         #region Create
         private void btnCreatePdf_Click(object sender, EventArgs e)
         {
-            Connection con = new Connection();
-            connection = con.dbConnection();
-            connection.Open();
-
-            #region Query
-            cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Applicant Status', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id;";
-            using (connection)
-            {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dgvReports.DataSource = ds.Tables[0];
-                }
-            }
-            #endregion Query
-
             #region PDF
             Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Deployment Monitoring Report.pdf", FileMode.Create));
+            //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Deployment Monitoring Report.pdf", FileMode.Create));
+            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Deployment Monitoring Report.pdf", FileMode.Create));
             doc.Open();
 
             doc = BindingData(doc);
@@ -227,7 +202,6 @@ namespace Findstaff
                     }
                 }
             }
-
             tblMain.AddCell(table);
 
             Chunk header9 = new Chunk("\n \n Prepared by: " + name.Text + "", arial);

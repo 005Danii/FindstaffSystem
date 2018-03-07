@@ -20,7 +20,9 @@ namespace Findstaff
         private MySqlConnection connection;
         MySqlCommand com = new MySqlCommand();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
+        MySqlDataReader dr;
         private string cmd = "";
+        private string[,] results;
 
         public ucCollectionsMonitoringReport()
         {
@@ -30,48 +32,119 @@ namespace Findstaff
         #region Load
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            dgvReports.Rows.Clear();
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
 
+            dgvReports.ColumnCount = 10;
+            dgvReports.Columns[0].HeaderText = "Applicant ID";
+            dgvReports.Columns[1].HeaderText = "Applicant Name";
+            dgvReports.Columns[2].HeaderText = "Job Title";
+            dgvReports.Columns[3].HeaderText = "Applicant Status";
+            dgvReports.Columns[4].HeaderText = "Application Status";
+            dgvReports.Columns[5].HeaderText = "Total No. Of Fees to Be Payed";
+            dgvReports.Columns[6].HeaderText = "No. of Fees Paid";
+            dgvReports.Columns[7].HeaderText = "No. of Fees to be Paid";
+            dgvReports.Columns[8].HeaderText = "Fees to be Payed";
+            dgvReports.Columns[9].HeaderText = "Status";
+            int ctr = 0;
             cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
-                "join applications_t ap on a.app_id = ap.app_id;";
-            using (connection)
+                            "join applications_t ap on a.app_id = ap.app_id where (a.dateadded between '" + dtpFrom.Value.ToString("yyyy-MM-dd") + "' and '" + dtpTo.Value.ToString("yyyy-MM-dd") + "') and appstatus in ('For Deployment','With Flight Schedule', 'On Flight', 'Arrived','Deployed') ;";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                ctr++;
+            }
+            dr.Close();
+            results = new string[ctr, 11];
+            ctr = 0;
+            cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status', ap.app_no from app_t a " +
+                            "join applications_t ap on a.app_id = ap.app_id where (a.dateadded between '" + dtpFrom.Value.ToString("yyyy-MM-dd") + "' and '" + dtpTo.Value.ToString("yyyy-MM-dd") + "') and a.appstatus in ('For Deployment','With Flight Schedule', 'On Flight', 'Arrived','Deployed') and ap.appstats = 'Active';";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                results[ctr, 0] = dr[0].ToString();
+                results[ctr, 1] = dr[1].ToString();
+                results[ctr, 2] = dr[2].ToString();
+                results[ctr, 3] = dr[3].ToString();
+                results[ctr, 4] = dr[4].ToString();
+                results[ctr, 10] = dr[5].ToString();
+                ctr++;
+            }
+            dr.Close();
+            for (int x = 0; x < ctr; x++)
+            {
+                cmd = "select count(app_no) from payables_t where app_no = '"+results[x,10]+"'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
                 {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dgvReports.DataSource = ds.Tables[0];
+                    results[x, 5] = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "select count(app_no) from payables_t where app_no = '" + results[x, 10] + "' and feestatus = 'Paid'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    results[x, 6] = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "select count(app_no) from payables_t where app_no = '" + results[x, 10] + "' and feestatus = 'Balance'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    results[x, 7] = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "select g.feename from payables_t p join genfees_t g on p.fee_id = g.fee_id where app_no = '" + results[x, 10] + "' and feestatus = 'Balance'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    results[x, 8] += dr[0].ToString() + "; ";
+                }
+                dr.Close();
+                results[x, 8] += " ";
+                if (Convert.ToInt32(results[x,5]) > Convert.ToInt32(results[x, 6]))
+                {
+                    results[x, 9] = "Partially Paid";
+                }
+                else if (Convert.ToInt32(results[x, 5]) == Convert.ToInt32(results[x, 6]))
+                {
+                    results[x, 9] = "Fully Paid";
                 }
             }
+            for(int x = 0; x < ctr; x++)
+            {
+                dgvReports.Rows.Add(results[x, 0], results[x, 1], results[x, 2], results[x, 3], results[x, 4], results[x, 5], results[x, 6], results[x, 7], results[x, 8], results[x, 9]);
+            }
+            connection.Close();
+            //cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
+            //    "join applications_t ap on a.app_id = ap.app_id;";
+            //using (connection)
+            //{
+            //    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+            //    {
+            //        DataSet ds = new DataSet();
+            //        adapter.Fill(ds);
+            //        dgvReports.DataSource = ds.Tables[0];
+            //    }
+            //}
         }
         #endregion Load
 
         #region Create
         private void btnCreatePdf_Click(object sender, EventArgs e)
         {
-            Connection con = new Connection();
-            connection = con.dbConnection();
-            connection.Open();
-
-            #region Query
-            cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Applicant Status', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id;";
-            using (connection)
-            {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dgvReports.DataSource = ds.Tables[0];
-                }
-            }
-            #endregion Query
-
             #region PDF
             Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
+            //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
+            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
             doc.Open();
 
             doc = BindingData(doc);
@@ -139,7 +212,7 @@ namespace Findstaff
             rowHeader7.Colspan = 1;
             tblMain.AddCell(rowHeader7);
 
-            Chunk header8 = new Chunk("(From " + dateTimePicker1.Text + " to " + dateTimePicker2.Text + ") \n \n", arial);
+            Chunk header8 = new Chunk("(From " + dtpFrom.Text + " to " + dtpTo.Text + ") \n \n", arial);
             PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
             rowHeader8.Border = 0;
             rowHeader8.HorizontalAlignment = 1;

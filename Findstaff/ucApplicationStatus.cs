@@ -36,6 +36,7 @@ namespace Findstaff
         #region Load
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            dgvReports.Rows.Clear();
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
@@ -136,105 +137,10 @@ namespace Findstaff
         #region Create
         private void btnCreatePdf_Click(object sender, EventArgs e)
         {
-            Connection con = new Connection();
-            connection = con.dbConnection();
-            
-            #region Query
-            connection.Open();
-            if (cbUnderDept.SelectedIndex == 0)
-            {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', ap.appstatus'Under Department', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstatus = 'Recruitment' and ap.appstats = 'Active';";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvReports.DataSource = ds.Tables[0];
-                    }
-                }
-            }
-            else if (cbUnderDept.SelectedIndex == 1)
-            {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', ap.appstatus'Under Department', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstatus = 'Documentation' and ap.appstats = 'Active';";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvReports.DataSource = ds.Tables[0];
-                    }
-                }
-            }
-            else if (cbUnderDept.SelectedIndex == 2)
-            {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', ap.appstatus'Under Department', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstatus = 'Accounting' and ap.appstats = 'Active';";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvReports.DataSource = ds.Tables[0];
-                    }
-                }
-            }
-            else if (cbUnderDept.SelectedIndex == 3)
-            {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', ap.appstatus'Under Department' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstatus = 'Deployed';";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvReports.DataSource = ds.Tables[0];
-                    }
-                }
-            }
-            else if (cbUnderDept.SelectedIndex == 4)
-            {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id " +
-                            "where ap.appstats = 'Forfeited';";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvReports.DataSource = ds.Tables[0];
-                    }
-                }
-            }
-            else if (cbUnderDept.SelectedIndex == 5)
-            {
-                cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Applicant Status', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id;";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvReports.DataSource = ds.Tables[0];
-                    }
-                }
-            }
-            #endregion Query
-
             #region PDF
             Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Application Status Report.pdf", FileMode.OpenOrCreate));
+            //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Application Status Report.pdf", FileMode.OpenOrCreate));
+            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
             doc.Open();
             
             doc = BindingData(doc);
