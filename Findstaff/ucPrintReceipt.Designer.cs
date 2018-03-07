@@ -80,7 +80,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(354, 209);
+            this.label4.Location = new System.Drawing.Point(354, 240);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(138, 20);
             this.label4.TabIndex = 341;
@@ -91,7 +91,7 @@
             this.txtAmountWords.BackColor = System.Drawing.Color.White;
             this.txtAmountWords.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmountWords.ForeColor = System.Drawing.Color.DimGray;
-            this.txtAmountWords.Location = new System.Drawing.Point(502, 206);
+            this.txtAmountWords.Location = new System.Drawing.Point(502, 237);
             this.txtAmountWords.MaxLength = 30;
             this.txtAmountWords.Name = "txtAmountWords";
             this.txtAmountWords.Size = new System.Drawing.Size(408, 27);
@@ -103,7 +103,7 @@
             this.amount.BackColor = System.Drawing.Color.Transparent;
             this.amount.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amount.ForeColor = System.Drawing.Color.Black;
-            this.amount.Location = new System.Drawing.Point(516, 169);
+            this.amount.Location = new System.Drawing.Point(516, 200);
             this.amount.Name = "amount";
             this.amount.Size = new System.Drawing.Size(66, 20);
             this.amount.TabIndex = 339;
@@ -115,7 +115,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(381, 169);
+            this.label3.Location = new System.Drawing.Point(381, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 20);
             this.label3.TabIndex = 338;
@@ -127,7 +127,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(404, 132);
+            this.label1.Location = new System.Drawing.Point(404, 163);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 20);
             this.label1.TabIndex = 337;
@@ -139,7 +139,7 @@
             this.feename.BackColor = System.Drawing.Color.Transparent;
             this.feename.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feename.ForeColor = System.Drawing.Color.Black;
-            this.feename.Location = new System.Drawing.Point(498, 132);
+            this.feename.Location = new System.Drawing.Point(498, 163);
             this.feename.Name = "feename";
             this.feename.Size = new System.Drawing.Size(71, 20);
             this.feename.TabIndex = 336;
@@ -151,7 +151,7 @@
             this.lblapp.BackColor = System.Drawing.Color.Transparent;
             this.lblapp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblapp.ForeColor = System.Drawing.Color.Black;
-            this.lblapp.Location = new System.Drawing.Point(359, 99);
+            this.lblapp.Location = new System.Drawing.Point(359, 130);
             this.lblapp.Name = "lblapp";
             this.lblapp.Size = new System.Drawing.Size(133, 20);
             this.lblapp.TabIndex = 335;
@@ -163,7 +163,7 @@
             this.name.BackColor = System.Drawing.Color.Transparent;
             this.name.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.ForeColor = System.Drawing.Color.Black;
-            this.name.Location = new System.Drawing.Point(498, 99);
+            this.name.Location = new System.Drawing.Point(498, 130);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(50, 20);
             this.name.TabIndex = 334;
@@ -175,7 +175,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(355, 67);
+            this.label2.Location = new System.Drawing.Point(355, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 20);
             this.label2.TabIndex = 343;
@@ -187,7 +187,7 @@
             this.number.BackColor = System.Drawing.Color.Transparent;
             this.number.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.number.ForeColor = System.Drawing.Color.Black;
-            this.number.Location = new System.Drawing.Point(494, 67);
+            this.number.Location = new System.Drawing.Point(494, 98);
             this.number.Name = "number";
             this.number.Size = new System.Drawing.Size(67, 20);
             this.number.TabIndex = 342;
@@ -204,6 +204,7 @@
             this.label5.Size = new System.Drawing.Size(34, 20);
             this.label5.TabIndex = 345;
             this.label5.Text = "By:";
+            this.label5.Visible = false;
             // 
             // empname
             // 
@@ -216,6 +217,7 @@
             this.empname.Size = new System.Drawing.Size(81, 20);
             this.empname.TabIndex = 344;
             this.empname.Text = "empname";
+            this.empname.Visible = false;
             // 
             // ucPrintReceipt
             // 
