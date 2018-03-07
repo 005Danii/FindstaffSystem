@@ -97,10 +97,10 @@ namespace Findstaff
             rowHeader6.Colspan = 1;
             tblMain.AddCell(rowHeader6);
 
-            Chunk header7 = new Chunk("OFFICIAL RECEIPT", arial);
+            Chunk header7 = new Chunk("OFFICIAL RECEIPT \n", arial);
             PdfPCell rowHeader7 = new PdfPCell(new Phrase(header7));
             rowHeader7.Border = 0;
-            rowHeader7.HorizontalAlignment = 0;
+            rowHeader7.HorizontalAlignment = 1;
             rowHeader7.Colspan = 1;
             tblMain.AddCell(rowHeader7);
 
@@ -132,7 +132,7 @@ namespace Findstaff
             //tblMain.AddCell(rowHeader10);
 
             Chunk header11 = new Chunk("\n \n By: " + user, arial);
-            PdfPCell rowHeader11 = new PdfPCell(new Phrase(header9));
+            PdfPCell rowHeader11 = new PdfPCell(new Phrase(header11));
             rowHeader11.Border = 0;
             rowHeader11.HorizontalAlignment = 2;
             rowHeader11.Colspan = 1;
