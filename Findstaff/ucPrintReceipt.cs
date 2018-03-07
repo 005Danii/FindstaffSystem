@@ -47,7 +47,7 @@ namespace Findstaff
 
             #region PDF
             Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Deployment Monitoring Report.pdf", FileMode.Create));
+            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Receipt.pdf", FileMode.Create));
             doc.Open();
 
             doc = BindingData(doc);
@@ -76,13 +76,6 @@ namespace Findstaff
             rowHeader1.Colspan = 1;
             tblMain.AddCell(rowHeader1);
 
-            Chunk header3 = new Chunk("''Pioneer in the Recruitment Industry''", arial);
-            PdfPCell rowHeader3 = new PdfPCell(new Phrase(header3));
-            rowHeader3.Border = 0;
-            rowHeader3.HorizontalAlignment = 1;
-            rowHeader3.Colspan = 1;
-            tblMain.AddCell(rowHeader3);
-
             Chunk header4 = new Chunk("2082 F. Benitez St., Malate, Manila, Philippines 1004", arial);
             PdfPCell rowHeader4 = new PdfPCell(new Phrase(header4));
             rowHeader4.Border = 0;
@@ -90,7 +83,7 @@ namespace Findstaff
             rowHeader4.Colspan = 1;
             tblMain.AddCell(rowHeader4);
 
-            Chunk header5 = new Chunk("Tel. No. (+632) 5214116", arial);
+            Chunk header5 = new Chunk("VAT Reg. TIN: " + number.Text + " ", arial);
             PdfPCell rowHeader5 = new PdfPCell(new Phrase(header5));
             rowHeader5.Border = 0;
             rowHeader5.HorizontalAlignment = 1;
@@ -104,46 +97,53 @@ namespace Findstaff
             rowHeader6.Colspan = 1;
             tblMain.AddCell(rowHeader6);
 
-            Chunk header7 = new Chunk("\n OFFICIAL RECEIPT", arial);
+            Chunk header7 = new Chunk("OFFICIAL RECEIPT", arial);
             PdfPCell rowHeader7 = new PdfPCell(new Phrase(header7));
             rowHeader7.Border = 0;
-            rowHeader7.HorizontalAlignment = 1;
+            rowHeader7.HorizontalAlignment = 0;
             rowHeader7.Colspan = 1;
             tblMain.AddCell(rowHeader7);
 
             PdfPCell TotDate = new PdfPCell(new Phrase(DateTime.Now.ToString(), arial));
             TotDate.Border = 0;
             TotDate.Colspan = 1;
-            TotDate.HorizontalAlignment = 1;
+            TotDate.HorizontalAlignment = 2;
             tblMain.AddCell(TotDate);
 
-            Chunk header8 = new Chunk("\n \n Received from " + name.Text + " with TIN " + number.Text + "", arial);
+            Chunk header8 = new Chunk("\n \n Received from " + name.Text + " with TIN " + number.Text + " the sum of " + txtAmountWords.Text + " pesos (P " + amount.Text + " ) in full payment for " + feename.Text + " ", arial);
             PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
             rowHeader8.Border = 0;
-            rowHeader8.HorizontalAlignment = 1;
+            rowHeader8.HorizontalAlignment = 0;
             rowHeader8.Colspan = 1;
             tblMain.AddCell(rowHeader8);
 
-            Chunk header9 = new Chunk("\n the sum of " + txtAmountWords.Text + " pesos", arial);
-            PdfPCell rowHeader9 = new PdfPCell(new Phrase(header9));
-            rowHeader9.Border = 0;
-            rowHeader9.HorizontalAlignment = 1;
-            rowHeader9.Colspan = 1;
-            tblMain.AddCell(rowHeader9);
+            //Chunk header9 = new Chunk("\n " + txtAmountWords.Text + " pesos (P " + amount.Text + " ) in full payment for ", arial);
+            //PdfPCell rowHeader9 = new PdfPCell(new Phrase(header9));
+            //rowHeader9.Border = 0;
+            //rowHeader9.HorizontalAlignment = 1;
+            //rowHeader9.Colspan = 1;
+            //tblMain.AddCell(rowHeader9);
 
-            Chunk header10 = new Chunk("\n (P " + amount.Text + " ) in full payment for " + feename + " ", arial);
-            PdfPCell rowHeader10 = new PdfPCell(new Phrase(header9));
-            rowHeader10.Border = 0;
-            rowHeader10.HorizontalAlignment = 1;
-            rowHeader10.Colspan = 1;
-            tblMain.AddCell(rowHeader10);
+            //Chunk header10 = new Chunk("\n " + feename.Text + " ", arial);
+            //PdfPCell rowHeader10 = new PdfPCell(new Phrase(header10));
+            //rowHeader10.Border = 0;
+            //rowHeader10.HorizontalAlignment = 1;
+            //rowHeader10.Colspan = 1;
+            //tblMain.AddCell(rowHeader10);
 
             Chunk header11 = new Chunk("\n \n By: " + user, arial);
             PdfPCell rowHeader11 = new PdfPCell(new Phrase(header9));
             rowHeader11.Border = 0;
-            rowHeader11.HorizontalAlignment = 1;
+            rowHeader11.HorizontalAlignment = 2;
             rowHeader11.Colspan = 1;
             tblMain.AddCell(rowHeader11);
+
+            Chunk header12 = new Chunk("\n \n \n THIS OFFICIAL RECEIPT SHALL BE VALID FOR FIVE (5) YEARS FROM THE DATE OF ATP", arial);
+            PdfPCell rowHeader12 = new PdfPCell(new Phrase(header12));
+            rowHeader12.Border = 0;
+            rowHeader12.HorizontalAlignment = 1;
+            rowHeader12.Colspan = 1;
+            tblMain.AddCell(rowHeader12);
 
             doc.Add(tblMain);
             return doc;

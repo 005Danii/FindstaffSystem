@@ -40,6 +40,8 @@
             this.name = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.number = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.empname = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblViewAcco
@@ -64,7 +66,7 @@
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.ForeColor = System.Drawing.Color.Black;
-            this.btnPrint.Location = new System.Drawing.Point(491, 293);
+            this.btnPrint.Location = new System.Drawing.Point(498, 375);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(125, 50);
             this.btnPrint.TabIndex = 325;
@@ -191,11 +193,37 @@
             this.number.TabIndex = 342;
             this.number.Text = "number";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(586, 298);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 20);
+            this.label5.TabIndex = 345;
+            this.label5.Text = "By:";
+            // 
+            // empname
+            // 
+            this.empname.AutoSize = true;
+            this.empname.BackColor = System.Drawing.Color.Transparent;
+            this.empname.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empname.ForeColor = System.Drawing.Color.Black;
+            this.empname.Location = new System.Drawing.Point(626, 298);
+            this.empname.Name = "empname";
+            this.empname.Size = new System.Drawing.Size(81, 20);
+            this.empname.TabIndex = 344;
+            this.empname.Text = "empname";
+            // 
             // ucPrintReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.empname);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.number);
             this.Controls.Add(this.label4);
@@ -229,5 +257,7 @@
         public System.Windows.Forms.Label amount;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label number;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label empname;
     }
 }
