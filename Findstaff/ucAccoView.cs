@@ -123,6 +123,7 @@ namespace Findstaff
                     ucPrintReceipt.Dock = DockStyle.Fill;
                     ucPrintReceipt.Visible = true;
                     resetTable();
+                    panel1.Visible = false;
                 }
             }
             else

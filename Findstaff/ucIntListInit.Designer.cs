@@ -212,6 +212,7 @@
             this.btnClose.TabIndex = 502;
             this.btnClose.Text = "CLOSE";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // ucIntListInit
             // 

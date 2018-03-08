@@ -140,7 +140,7 @@ namespace Findstaff
             #region PDF
             Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
             //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Application Status Report.pdf", FileMode.OpenOrCreate));
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
+            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Application Status Report.pdf", FileMode.Create));
             doc.Open();
             
             doc = BindingData(doc);
