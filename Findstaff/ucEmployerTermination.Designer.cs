@@ -49,9 +49,9 @@
             this.lblAddEmp.ForeColor = System.Drawing.Color.Black;
             this.lblAddEmp.Location = new System.Drawing.Point(25, 23);
             this.lblAddEmp.Name = "lblAddEmp";
-            this.lblAddEmp.Size = new System.Drawing.Size(375, 28);
+            this.lblAddEmp.Size = new System.Drawing.Size(416, 28);
             this.lblAddEmp.TabIndex = 3;
-            this.lblAddEmp.Text = "Terminate Employer Contract";
+            this.lblAddEmp.Text = "Terminate Employer Partnership";
             // 
             // btnCancel1
             // 

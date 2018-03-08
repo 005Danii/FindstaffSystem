@@ -14,6 +14,7 @@ namespace Findstaff
     public partial class ucJobType : UserControl
     {
         MySqlConnection connection;
+        MySqlCommand com;
         private string cmd = "";
 
         public ucJobType()
@@ -56,6 +57,27 @@ namespace Findstaff
                     dgvJobType.DataSource = ds.Tables[0];
                 }
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            DialogResult r = MessageBox.Show("Do you want to delete the job type " + dgvJobType.SelectedRows[0].Cells[1].Value.ToString() + "?", "Delete Skill confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                string cmd = "delete from jobtype_t where jobtype_id = '" + dgvJobType.SelectedRows[0].Cells[0].Value.ToString() + "';";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                dgvJobType.Rows.Remove(dgvJobType.SelectedRows[0]);
+                MessageBox.Show("Job Type Deleted!", "Job Type Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            connection.Close();
+        }
+
+        private void ucJobType_Load(object sender, EventArgs e)
+        {
+            Connection con = new Findstaff.Connection();
+            connection = con.dbConnection();
         }
     }
 }

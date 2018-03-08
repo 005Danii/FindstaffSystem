@@ -122,40 +122,50 @@ namespace Findstaff
             }
             else
             {
-                DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
+                cmd = "select count(jobname) from job_t where jobname = '" + txtJobs2.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                int ctr = int.Parse(com.ExecuteScalar() + "");
+                if(ctr == 0)
+                {
+                    DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
                     + "\nJob ID: " + txtID.Text
                     + "\nNew Category: " + cbCategory1.Text
                     + "\nNew Job Name: " + txtJobs2.Text
                     + "\nNew TobType: " + cbJobType2.Text, "Confirmation", MessageBoxButtons.YesNo);
-                if (rs == DialogResult.Yes)
+                    if (rs == DialogResult.Yes)
+                    {
+                        string categID = "", jobtypeID = "";
+                        cmd = "select category_id from jobcategory_t where categoryname = '" + cbCategory1.Text + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        dr = com.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            categID = dr[0].ToString();
+                        }
+                        dr.Close();
+
+                        cmd = "select jobtype_id from jobtype_t where typename = '" + cbJobType2.Text + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        dr = com.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            jobtypeID = dr[0].ToString();
+                        }
+                        dr.Close();
+
+                        cmd = "Update Job_t set category_id = '" + categID + "', jobname = '" + txtJobs2.Text + "', jobtype_id = '" + jobtypeID + "' where job_id = '" + txtID.Text + "';";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Changes Saved!", "Updated Requirement Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtID.Clear();
+                        cbCategory1.SelectedIndex = -1;
+                        txtJobs2.Clear();
+                        this.Hide();
+                    }
+                }
+                else
                 {
-                    string categID = "", jobtypeID = "";
-                    cmd = "select category_id from jobcategory_t where categoryname = '" + cbCategory1.Text + "'";
-                    com = new MySqlCommand(cmd, connection);
-                    dr = com.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        categID = dr[0].ToString();
-                    }
-                    dr.Close();
-
-                    cmd = "select jobtype_id from jobtype_t where typename = '" + cbJobType2.Text + "'";
-                    com = new MySqlCommand(cmd, connection);
-                    dr = com.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        jobtypeID = dr[0].ToString();
-                    }
-                    dr.Close();
-
-                    cmd = "Update Job_t set category_id = '" + categID + "', jobname = '" + txtJobs2.Text + "', jobtype_id = '"+jobtypeID+"' where job_id = '" + txtID.Text + "';";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                    MessageBox.Show("Changes Saved!", "Updated Requirement Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtID.Clear();
-                    cbCategory1.SelectedIndex = -1;
-                    txtJobs2.Clear();
-                    this.Hide();
+                    MessageBox.Show("Job already exists.", "Update Job Record Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             connection.Close();
@@ -176,6 +186,8 @@ namespace Findstaff
             connection = con.dbConnection();
             if(this.Visible == true)
             {
+                string id = "";
+                int count = 0;
                 connection.Open();
                 cmd = "Select categoryname from jobcategory_t;";
                 com = new MySqlCommand(cmd, connection);
@@ -204,6 +216,26 @@ namespace Findstaff
                     clbSkills2.Items.Add(dr[0].ToString());
                 }
                 dr.Close();
+                //foreach (string s in clbSkills2.Items)
+                //{
+                //    cmd = "select skill_id from genskills_t where skillname = '" + s + "'";
+                //    com = new MySqlCommand(cmd, connection);
+                //    dr = com.ExecuteReader();
+                //    while (dr.Read())
+                //    {
+                //        id = dr[0].ToString();
+                //    }
+                //    dr.Close();
+                //    cmd = "select count(job_id) from specskills_t where skill_id = '" + txtID.Text
+                //        + "' and job_id = '" + id + "'";
+                //    com = new MySqlCommand(cmd, connection);
+                //    int ctr = int.Parse(com.ExecuteScalar() + "");
+                //    if (ctr != 0)
+                //    {
+                //        clbSkills2.SetItemChecked(count, true);
+                //    }
+                //    count++;
+                //}
                 connection.Close();
             }
             else

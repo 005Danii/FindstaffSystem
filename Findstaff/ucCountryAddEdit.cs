@@ -120,7 +120,7 @@ namespace Findstaff
                 + txtCurrency2.Text + "\nNew Currency Symbol: " + txtSymbol2.Text, "Update Country Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if(r == DialogResult.Yes)
             {
-                cmd = "update country_t set countryname = '"+txtCountryName2.Text+"', currency = '"+txtCurrency2.Text+"', symbol = '"+txtSymbol2.Text+"' where country_id = '"+txtCountryID2.Text+"'";
+                cmd = "update country_t set countryname = '"+txtCountryName2.Text+"', currencyname = '"+txtCurrency2.Text+"', symbol = '"+txtSymbol2.Text+"' where country_id = '"+txtCountryID2.Text+"'";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
                 MessageBox.Show("Updated Country!", "Saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);

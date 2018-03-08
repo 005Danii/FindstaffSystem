@@ -55,7 +55,7 @@ namespace Findstaff
         private void btnDelete_Click(object sender, EventArgs e)
         {
             connection.Open();
-            DialogResult rs = MessageBox.Show("Are you sure you want to delete the country " + dgvCountry.SelectedRows[0].Cells[1].Value.ToString()
+            DialogResult rs = MessageBox.Show("Do you want to delete the country " + dgvCountry.SelectedRows[0].Cells[1].Value.ToString()
                 + " from the list of countries?", "Delete Country Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (rs == DialogResult.Yes)
             {
@@ -63,7 +63,7 @@ namespace Findstaff
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
                 dgvCountry.Rows.Remove(dgvCountry.SelectedRows[0]);
-                MessageBox.Show("Country Deleted!", "Coutry Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Country Deleted!", "Country Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             connection.Close();
         }

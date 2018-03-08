@@ -81,20 +81,30 @@ namespace Findstaff
             }
             else
             {
-                DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
-                    + "\nRequirement ID: " + txtRequirementID.Text + "\nNew Requirement Name: " + txtRequirement2.Text
-                    +"\nNew Designation: "+ cbDesignation1.Text + "\nNew Description: "+rtbDesc2.Text, "Confirmation", MessageBoxButtons.YesNo);
-                if (rs == DialogResult.Yes)
+                cmd = "select count(reqname) from genreqs_t where reqname = '" + txtRequirement2.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                int ctr = int.Parse(com.ExecuteScalar()+"");
+                if(ctr == 0)
                 {
-                    cmd = "Update Genreqs_t set reqname = '" + txtRequirement2.Text + "', Allocation = '"+cbDesignation1.Text+"', Description = '"+rtbDesc2.Text+"'  where Req_id = '" + txtRequirementID.Text + "';";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                    MessageBox.Show("Changes Saved!", "Updated Requirement Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtRequirementID.Clear();
-                    txtRequirement2.Clear();
-                    rtbDesc2.Clear();
-                    cbDesignation1.SelectedIndex = -1;
-                    this.Hide();
+                    DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
+                    + "\nRequirement ID: " + txtRequirementID.Text + "\nNew Requirement Name: " + txtRequirement2.Text
+                    + "\nNew Designation: " + cbDesignation1.Text + "\nNew Description: " + rtbDesc2.Text, "Confirmation", MessageBoxButtons.YesNo);
+                    if (rs == DialogResult.Yes)
+                    {
+                        cmd = "Update Genreqs_t set reqname = '" + txtRequirement2.Text + "', Allocation = '" + cbDesignation1.Text + "', Description = '" + rtbDesc2.Text + "'  where Req_id = '" + txtRequirementID.Text + "';";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Changes Saved!", "Updated Requirement Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtRequirementID.Clear();
+                        txtRequirement2.Clear();
+                        rtbDesc2.Clear();
+                        cbDesignation1.SelectedIndex = -1;
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Documentary requirement already exists.", "Update Documentary Requirement Record Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             connection.Close();

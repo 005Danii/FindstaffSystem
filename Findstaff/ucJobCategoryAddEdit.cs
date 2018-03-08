@@ -71,17 +71,27 @@ namespace Findstaff
             }
             else
             {
-                DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
-                    + "\nCategory ID: " + txtID.Text + "\nNew Catogory Name: " + txtCategory2.Text, "Confirmation", MessageBoxButtons.YesNo);
-                if (rs == DialogResult.Yes)
+                cmd = "select count(categoryname) from jobcategory_t where categoryname = '"+txtCategory2.Text+"'";
+                com = new MySqlCommand(cmd, connection);
+                int ctr = int.Parse(com.ExecuteScalar() + "");
+                if(ctr == 0)
                 {
-                    cmd = "Update jobcategory_t set categoryname = '" + txtCategory2.Text + "' where Category_id = '" + txtID.Text + "';";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                    MessageBox.Show("Changes Saved!", "Update Fee Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtID.Clear();
-                    txtCategory2.Clear();
-                    this.Hide();
+                    DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
+                    + "\nCategory ID: " + txtID.Text + "\nNew Catogory Name: " + txtCategory2.Text, "Confirmation", MessageBoxButtons.YesNo);
+                    if (rs == DialogResult.Yes)
+                    {
+                        cmd = "Update jobcategory_t set categoryname = '" + txtCategory2.Text + "' where Category_id = '" + txtID.Text + "';";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Changes Saved!", "Update Fee Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtID.Clear();
+                        txtCategory2.Clear();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Category already exists.", "Update Category Record Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             connection.Close();

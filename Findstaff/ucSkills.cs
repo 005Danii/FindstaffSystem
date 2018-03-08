@@ -35,6 +35,7 @@ namespace Findstaff
             {
                 ucSkillsAddEdit.txtSkillID.Text = dgvSkills.SelectedRows[0].Cells[0].Value.ToString();
                 ucSkillsAddEdit.txtSkillName2.Text = dgvSkills.SelectedRows[0].Cells[1].Value.ToString();
+                ucSkillsAddEdit.cbSkillType2.Text = dgvSkills.SelectedRows[0].Cells[2].Value.ToString();
                 ucSkillsAddEdit.Dock = DockStyle.Fill;
                 ucSkillsAddEdit.Visible = true;
                 ucSkillsAddEdit.panel1.Visible = false;
@@ -51,11 +52,15 @@ namespace Findstaff
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
-            string cmd = "delete from genskills_t where skill_id = '" + dgvSkills.SelectedRows[0].Cells[0].Value.ToString() + "';";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            dgvSkills.Rows.Remove(dgvSkills.SelectedRows[0]);
-            MessageBox.Show("Skills Deleted!", "Skills Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult r = MessageBox.Show("Do you want to delete the skill " + dgvSkills.SelectedRows[0].Cells[1].Value.ToString() + "?", "Delete Skill confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(r == DialogResult.Yes)
+            {
+                string cmd = "delete from genskills_t where skill_id = '" + dgvSkills.SelectedRows[0].Cells[0].Value.ToString() + "';";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                dgvSkills.Rows.Remove(dgvSkills.SelectedRows[0]);
+                MessageBox.Show("Skills Deleted!", "Skills Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             connection.Close();
         }
 

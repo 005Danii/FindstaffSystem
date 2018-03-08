@@ -51,11 +51,15 @@ namespace Findstaff
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
-            string cmd = "delete from genfees_t where fee_id = '" + dgvFees.SelectedRows[0].Cells[0].Value.ToString() + "';";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            dgvFees.Rows.Remove(dgvFees.SelectedRows[0]);
-            MessageBox.Show("Fee Deleted!", "Fee Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult r = MessageBox.Show("Do you want to delete the fee " + dgvFees.SelectedRows[0].Cells[1].Value.ToString() + "?", "Delete Skill confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                string cmd = "delete from genfees_t where fee_id = '" + dgvFees.SelectedRows[0].Cells[0].Value.ToString() + "';";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                dgvFees.Rows.Remove(dgvFees.SelectedRows[0]);
+                MessageBox.Show("Fee Deleted!", "Fee Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             connection.Close();
         }
 

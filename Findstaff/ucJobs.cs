@@ -14,7 +14,9 @@ namespace Findstaff
     public partial class ucJobs : UserControl
     {
         private MySqlConnection connection;
+        MySqlDataReader dr;
         MySqlCommand com = new MySqlCommand();
+        private string cmd = "";
 
         public ucJobs()
         {
@@ -33,14 +35,15 @@ namespace Findstaff
         {
             if (dgvJobs.Rows.Count != 0)
             {
+                string categ = dgvJobs.SelectedRows[0].Cells[2].Value.ToString(), type = dgvJobs.SelectedRows[0].Cells[3].Value.ToString();
                 ucJobsAddEdit.Dock = DockStyle.Fill;
                 ucJobsAddEdit.txtID.Text = dgvJobs.SelectedRows[0].Cells[0].Value.ToString();
                 ucJobsAddEdit.txtJobs2.Text = dgvJobs.SelectedRows[0].Cells[1].Value.ToString();
-                ucJobsAddEdit.cbCategory1.Text = dgvJobs.SelectedRows[0].Cells[2].Value.ToString();
-                ucJobsAddEdit.cbJobType2.Text = dgvJobs.SelectedRows[0].Cells[3].Value.ToString();
                 ucJobsAddEdit.Visible = true;
                 ucJobsAddEdit.panel1.Visible = false;
                 ucJobsAddEdit.panel2.Visible = true;
+                ucJobsAddEdit.cbCategory1.Text = categ;
+                ucJobsAddEdit.cbJobType2.Text = type;
             }
             else
             {
@@ -53,11 +56,15 @@ namespace Findstaff
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
-            string cmd = "delete from job_t where job_id = '" + dgvJobs.SelectedRows[0].Cells[0].Value.ToString() + "';";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            dgvJobs.Rows.Remove(dgvJobs.SelectedRows[0]);
-            MessageBox.Show("Job Deleted!", "Job Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult r = MessageBox.Show("Do you want to delete the job " + dgvJobs.SelectedRows[0].Cells[1].Value.ToString() + "?", "Delete Skill confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                string cmd = "delete from job_t where job_id = '" + dgvJobs.SelectedRows[0].Cells[0].Value.ToString() + "';";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                dgvJobs.Rows.Remove(dgvJobs.SelectedRows[0]);
+                MessageBox.Show("Job Deleted!", "Job Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             connection.Close();
         }
 

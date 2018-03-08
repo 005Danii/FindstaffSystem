@@ -70,17 +70,27 @@ namespace Findstaff
             }
             else
             {
-                DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
-                    + "\nSkill ID: " + txtSkillID.Text + "\nNew Skill Name: " + txtSkillName2.Text + "\nNew Skill Type: " + cbSkillType2.Text, "Confirmation", MessageBoxButtons.YesNo);
-                if (rs == DialogResult.Yes)
+                cmd = "select count(skillname) from genskills_t where skillname = '"+txtSkillName2.Text+"'";
+                com = new MySqlCommand(cmd, connection);
+                int ctr = int.Parse(com.ExecuteScalar()+"");
+                if(ctr == 0)
                 {
-                    cmd = "Update Genskills_t set skillname = '" + txtSkillName2.Text + "', skilltype = '"+cbSkillType2.Text+"' where Skill_id = '" + txtSkillID.Text + "';";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                    MessageBox.Show("Changes Saved!", "Updated Skill Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtSkillID.Clear();
-                    txtSkillName2.Clear();
-                    this.Hide();
+                    DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
+                    + "\nSkill ID: " + txtSkillID.Text + "\nNew Skill Name: " + txtSkillName2.Text + "\nNew Skill Type: " + cbSkillType2.Text, "Confirmation", MessageBoxButtons.YesNo);
+                    if (rs == DialogResult.Yes)
+                    {
+                        cmd = "Update Genskills_t set skillname = '" + txtSkillName2.Text + "', skilltype = '" + cbSkillType2.Text + "' where Skill_id = '" + txtSkillID.Text + "';";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Changes Saved!", "Updated Skill Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtSkillID.Clear();
+                        txtSkillName2.Clear();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Skill already exists.", "Update Skill Record Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             connection.Close();

@@ -141,11 +141,11 @@
             // 
             this.lbl.AutoSize = true;
             this.lbl.BackColor = System.Drawing.Color.Transparent;
-            this.lbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lbl.ForeColor = System.Drawing.Color.Black;
             this.lbl.Location = new System.Drawing.Point(25, 25);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(64, 20);
+            this.lbl.Size = new System.Drawing.Size(60, 21);
             this.lbl.TabIndex = 111;
             this.lbl.Text = "Search:";
             // 

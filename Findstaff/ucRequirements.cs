@@ -35,12 +35,12 @@ namespace Findstaff
             {
                 ucRequirementsAddEdit.txtRequirementID.Text = dgvRequirements.SelectedRows[0].Cells[0].Value.ToString();
                 ucRequirementsAddEdit.txtRequirement2.Text = dgvRequirements.SelectedRows[0].Cells[1].Value.ToString();
+                ucRequirementsAddEdit.cbDesignation1.Text = dgvRequirements.SelectedRows[0].Cells[2].Value.ToString();
+                ucRequirementsAddEdit.rtbDesc2.Text = dgvRequirements.SelectedRows[0].Cells[3].Value.ToString();
                 ucRequirementsAddEdit.Dock = DockStyle.Fill;
                 ucRequirementsAddEdit.Visible = true;
                 ucRequirementsAddEdit.panel1.Visible = false;
                 ucRequirementsAddEdit.panel2.Visible = true;
-                ucRequirementsAddEdit.cbDesignation1.Text = dgvRequirements.SelectedRows[0].Cells[2].Value.ToString();
-                ucRequirementsAddEdit.rtbDesc2.Text = dgvRequirements.SelectedRows[0].Cells[3].Value.ToString();
             }
             else
             {
@@ -53,11 +53,15 @@ namespace Findstaff
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
-            string cmd = "delete from genreqs_t where req_id = '" + dgvRequirements.SelectedRows[0].Cells[0].Value.ToString() + "';";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            dgvRequirements.Rows.Remove(dgvRequirements.SelectedRows[0]);
-            MessageBox.Show("Requirement Deleted!", "Requirement Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult r = MessageBox.Show("Do you want to delete the documentary requirement " + dgvRequirements.SelectedRows[0].Cells[1].Value.ToString() + "?", "Delete Skill confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                string cmd = "delete from genreqs_t where req_id = '" + dgvRequirements.SelectedRows[0].Cells[0].Value.ToString() + "';";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                dgvRequirements.Rows.Remove(dgvRequirements.SelectedRows[0]);
+                MessageBox.Show("Requirement Deleted!", "Requirement Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             connection.Close();
         }
 

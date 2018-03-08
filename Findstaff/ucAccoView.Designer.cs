@@ -43,8 +43,8 @@
             this.jobname = new System.Windows.Forms.Label();
             this.joborder = new System.Windows.Forms.Label();
             this.employer = new System.Windows.Forms.Label();
-            this.btnGenerateReceipt = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
             this.lblBalance = new System.Windows.Forms.Label();
@@ -53,7 +53,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ucPrintReceipt = new Findstaff.ucPrintReceipt();
-            this.nudAmount = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewAcco)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
@@ -165,7 +164,7 @@
             this.btnPayBal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPayBal.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayBal.ForeColor = System.Drawing.Color.Black;
-            this.btnPayBal.Location = new System.Drawing.Point(296, 435);
+            this.btnPayBal.Location = new System.Drawing.Point(423, 435);
             this.btnPayBal.Name = "btnPayBal";
             this.btnPayBal.Size = new System.Drawing.Size(178, 36);
             this.btnPayBal.TabIndex = 6;
@@ -192,7 +191,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(714, 435);
+            this.btnClose.Location = new System.Drawing.Point(607, 435);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(90, 36);
             this.btnClose.TabIndex = 61;
@@ -248,23 +247,6 @@
             this.employer.TabIndex = 65;
             this.employer.Text = "employer";
             // 
-            // btnGenerateReceipt
-            // 
-            this.btnGenerateReceipt.BackColor = System.Drawing.Color.White;
-            this.btnGenerateReceipt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnGenerateReceipt.FlatAppearance.BorderSize = 0;
-            this.btnGenerateReceipt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnGenerateReceipt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnGenerateReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerateReceipt.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerateReceipt.ForeColor = System.Drawing.Color.Black;
-            this.btnGenerateReceipt.Location = new System.Drawing.Point(480, 435);
-            this.btnGenerateReceipt.Name = "btnGenerateReceipt";
-            this.btnGenerateReceipt.Size = new System.Drawing.Size(228, 36);
-            this.btnGenerateReceipt.TabIndex = 66;
-            this.btnGenerateReceipt.Text = "GENERATE RECEIPT";
-            this.btnGenerateReceipt.UseVisualStyleBackColor = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -282,6 +264,20 @@
             this.panel1.TabIndex = 68;
             this.panel1.Visible = false;
             this.panel1.VisibleChanged += new System.EventHandler(this.panel1_VisibleChanged);
+            // 
+            // nudAmount
+            // 
+            this.nudAmount.DecimalPlaces = 2;
+            this.nudAmount.Font = new System.Drawing.Font("Century", 12F);
+            this.nudAmount.Location = new System.Drawing.Point(126, 136);
+            this.nudAmount.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nudAmount.Name = "nudAmount";
+            this.nudAmount.Size = new System.Drawing.Size(200, 27);
+            this.nudAmount.TabIndex = 85;
             // 
             // btnCancel
             // 
@@ -384,20 +380,6 @@
             this.ucPrintReceipt.Size = new System.Drawing.Size(10, 10);
             this.ucPrintReceipt.TabIndex = 69;
             // 
-            // nudAmount
-            // 
-            this.nudAmount.DecimalPlaces = 2;
-            this.nudAmount.Font = new System.Drawing.Font("Century", 12F);
-            this.nudAmount.Location = new System.Drawing.Point(126, 136);
-            this.nudAmount.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.nudAmount.Name = "nudAmount";
-            this.nudAmount.Size = new System.Drawing.Size(200, 27);
-            this.nudAmount.TabIndex = 85;
-            // 
             // ucAccoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,7 +388,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.Controls.Add(this.ucPrintReceipt);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnGenerateReceipt);
             this.Controls.Add(this.employer);
             this.Controls.Add(this.joborder);
             this.Controls.Add(this.jobname);
@@ -449,7 +430,6 @@
         public System.Windows.Forms.Label jobname;
         public System.Windows.Forms.Label joborder;
         public System.Windows.Forms.Label employer;
-        private System.Windows.Forms.Button btnGenerateReceipt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnPay;
