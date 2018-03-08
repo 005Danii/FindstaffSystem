@@ -93,7 +93,7 @@
             this.btnMoveToAcco.Name = "btnMoveToAcco";
             this.btnMoveToAcco.Size = new System.Drawing.Size(150, 50);
             this.btnMoveToAcco.TabIndex = 83;
-            this.btnMoveToAcco.Text = "MOVE TO ACCOUNTING";
+            this.btnMoveToAcco.Text = "MOVE TO PAYMENT";
             this.btnMoveToAcco.UseVisualStyleBackColor = false;
             this.btnMoveToAcco.Click += new System.EventHandler(this.btnMoveToAcco_Click);
             // 
@@ -122,7 +122,7 @@
             this.pnlTabs.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTabs.Location = new System.Drawing.Point(0, 0);
             this.pnlTabs.Name = "pnlTabs";
-            this.pnlTabs.Size = new System.Drawing.Size(1104, 50);
+            this.pnlTabs.Size = new System.Drawing.Size(1087, 50);
             this.pnlTabs.TabIndex = 469;
             // 
             // btnPassed1
@@ -376,7 +376,7 @@
             this.Controls.Add(this.pnlButtons);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ucDocAppDetails";
-            this.Size = new System.Drawing.Size(1104, 500);
+            this.Size = new System.Drawing.Size(1087, 500);
             this.Load += new System.EventHandler(this.ucDocAppDetails_Load);
             this.VisibleChanged += new System.EventHandler(this.ucDocAppDetails_VisibleChanged);
             this.pnlButtons.ResumeLayout(false);
