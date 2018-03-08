@@ -53,6 +53,7 @@ namespace Findstaff
             doc = BindingData(doc);
 
             doc.Close();
+            System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Receipt.pdf");
             MessageBox.Show("PDF Created Successfully!");
             txtAmountWords.Clear();
             this.Hide();
@@ -116,20 +117,6 @@ namespace Findstaff
             rowHeader8.HorizontalAlignment = 0;
             rowHeader8.Colspan = 1;
             tblMain.AddCell(rowHeader8);
-
-            //Chunk header9 = new Chunk("\n " + txtAmountWords.Text + " pesos (P " + amount.Text + " ) in full payment for ", arial);
-            //PdfPCell rowHeader9 = new PdfPCell(new Phrase(header9));
-            //rowHeader9.Border = 0;
-            //rowHeader9.HorizontalAlignment = 1;
-            //rowHeader9.Colspan = 1;
-            //tblMain.AddCell(rowHeader9);
-
-            //Chunk header10 = new Chunk("\n " + feename.Text + " ", arial);
-            //PdfPCell rowHeader10 = new PdfPCell(new Phrase(header10));
-            //rowHeader10.Border = 0;
-            //rowHeader10.HorizontalAlignment = 1;
-            //rowHeader10.Colspan = 1;
-            //tblMain.AddCell(rowHeader10);
 
             Chunk header11 = new Chunk("\n \n By: " + user, arial);
             PdfPCell rowHeader11 = new PdfPCell(new Phrase(header11));
