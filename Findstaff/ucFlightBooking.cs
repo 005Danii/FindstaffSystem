@@ -141,8 +141,31 @@ namespace Findstaff
 
         }
 
-        private void ucFlightBooking_Load(object sender, EventArgs e)
+        public void searchData(string valueToFind)
         {
+            Connection con = new Connection();
+            connection = con.dbConnection();
+            connection.Open();
+
+            cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
+                    + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
+                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' AND concat(a.app_no, app.app_id, app.fname, ' ',app.lname, ' ',app.mname, app.appstatus, f.flightdate) LIKE '%" + valueToFind + "%'";
+            com = new MySqlCommand(cmd, connection);
+            com.ExecuteNonQuery();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dgvFlightBooking.DataSource = table;
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            searchData(txtName.Text);
+        }
+
+        private void ucFlightBooking_Load(object sender, EventArgs e)
+        {  
             Connection con = new Connection();
             connection = con.dbConnection();
             cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
@@ -157,6 +180,7 @@ namespace Findstaff
                     dgvFlightBooking.DataSource = ds.Tables[0];
                 }
             }
+            searchData(txtName.Text);
         }
 
         private void ucBookFlight_VisibleChanged(object sender, EventArgs e)
@@ -280,5 +304,7 @@ namespace Findstaff
             }
             connection.Close();
         }
+
+        
     }
 }

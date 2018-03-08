@@ -117,7 +117,7 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            string cmd = cmd = "select j.jobname'Job Title', e.employername'Employer', count(jf.fee_id)'No. of Fees to be Collected From Applicant' from joborder_t jo join job_t j on jo.job_id = j.job_id join jobfees_t jf on jo.jorder_id = jf.jorder_id join employer_t e on jo.employer_id = e.employer_id WHERE jo.jorder_id LIKE '%" + valueToFind + "%' group by jf.jorder_id";
+            string cmd = cmd = "select j.jobname'Job Title', e.employername'Employer', count(jf.fee_id)'No. of Fees to be Collected From Applicant' from joborder_t jo join job_t j on jo.job_id = j.job_id join jobfees_t jf on jo.jorder_id = jf.jorder_id join employer_t e on jo.employer_id = e.employer_id WHERE concat (j.jobname, e.employername) LIKE '%" + valueToFind + "%' group by jf.jorder_id";
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
 

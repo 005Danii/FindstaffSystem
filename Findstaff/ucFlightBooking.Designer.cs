@@ -39,6 +39,8 @@
             this.ucReschedFlight = new Findstaff.ucReschedFlight();
             this.ucBookFlight = new Findstaff.ucBookFlight();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlightBooking)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,14 +116,14 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFlightBooking.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFlightBooking.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvFlightBooking.Location = new System.Drawing.Point(47, 120);
+            this.dgvFlightBooking.Location = new System.Drawing.Point(47, 155);
             this.dgvFlightBooking.MultiSelect = false;
             this.dgvFlightBooking.Name = "dgvFlightBooking";
             this.dgvFlightBooking.ReadOnly = true;
             this.dgvFlightBooking.RowHeadersVisible = false;
             this.dgvFlightBooking.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFlightBooking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFlightBooking.Size = new System.Drawing.Size(1028, 315);
+            this.dgvFlightBooking.Size = new System.Drawing.Size(1028, 299);
             this.dgvFlightBooking.TabIndex = 63;
             // 
             // lblFlightBooking
@@ -190,11 +192,37 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // txtName
+            // 
+            this.txtName.BackColor = System.Drawing.Color.White;
+            this.txtName.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.ForeColor = System.Drawing.Color.Black;
+            this.txtName.Location = new System.Drawing.Point(96, 109);
+            this.txtName.MaxLength = 30;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(200, 26);
+            this.txtName.TabIndex = 71;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.BackColor = System.Drawing.Color.Transparent;
+            this.lblSearch.Font = new System.Drawing.Font("Century", 12F);
+            this.lblSearch.ForeColor = System.Drawing.Color.Black;
+            this.lblSearch.Location = new System.Drawing.Point(22, 114);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(68, 20);
+            this.lblSearch.TabIndex = 70;
+            this.lblSearch.Text = "Search :";
+            // 
             // ucFlightBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.ucReschedFlight);
             this.Controls.Add(this.ucBookFlight);
             this.Controls.Add(this.btnViewDetails);
@@ -225,5 +253,7 @@
         private ucBookFlight ucBookFlight;
         private ucReschedFlight ucReschedFlight;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label lblSearch;
     }
 }
