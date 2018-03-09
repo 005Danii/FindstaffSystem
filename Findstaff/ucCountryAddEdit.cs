@@ -34,58 +34,69 @@ namespace Findstaff
                 string cID = "", cmd2 = "";
                 if (dgvCountry.Rows.Count != 0)
                 {
-                    string check = "Select Count(Countryname) from Country_t where Countryname = '" + txtCountryName1.Text + "'";
-                    com = new MySqlCommand(check, connection);
-                    ctr = int.Parse(com.ExecuteScalar() + "");
-                    if (ctr == 0)
+                    if(dgvAirports1.Rows.Count != 0)
                     {
-                        cmd = "Insert into Country_t (countryname, currencyname, symbol) values ('" + txtCountryName1.Text + "', '"+txtCurrency1.Text+"', '"+txtSymbol1.Text+"')";
-                        com = new MySqlCommand(cmd, connection);
-                        com.ExecuteNonQuery();
-                        cmd = "Select country_id from country_t where countryname = '"+txtCountryName1.Text+"'";
-                        com = new MySqlCommand(cmd, connection);
-                        dr = com.ExecuteReader();
-                        while (dr.Read())
+                        string check = "Select Count(Countryname) from Country_t where Countryname = '" + txtCountryName1.Text + "'";
+                        com = new MySqlCommand(check, connection);
+                        ctr = int.Parse(com.ExecuteScalar() + "");
+                        if (ctr == 0)
                         {
-                            cID = dr[0].ToString();
-                        }
-                        dr.Close();
-                        cmd = "Insert into countryreqs_t (country_id, req_id) values ";
-                        for(int x = 0; x < dgvCountry.Rows.Count; x++)
-                        {
-                            cmd2 = "select req_id from genreqs_t where reqname = '"+dgvCountry.Rows[x].Cells[0].Value.ToString()+"'";
-                            com = new MySqlCommand(cmd2, connection);
+                            cmd = "Insert into Country_t (countryname, currencyname, symbol) values ('" + txtCountryName1.Text + "', '" + txtCurrency1.Text + "', '" + txtSymbol1.Text + "')";
+                            com = new MySqlCommand(cmd, connection);
+                            com.ExecuteNonQuery();
+                            cmd = "Select country_id from country_t where countryname = '" + txtCountryName1.Text + "'";
+                            com = new MySqlCommand(cmd, connection);
                             dr = com.ExecuteReader();
                             while (dr.Read())
                             {
-                                cmd += "('"+cID+"','"+dr[0].ToString()+"')";
+                                cID = dr[0].ToString();
                             }
                             dr.Close();
-                            if(x < dgvCountry.Rows.Count - 1)
+                            cmd = "Insert into countryreqs_t (country_id, req_id) values ";
+                            for (int x = 0; x < dgvCountry.Rows.Count; x++)
                             {
-                                cmd += ",";
+                                cmd2 = "select req_id from genreqs_t where reqname = '" + dgvCountry.Rows[x].Cells[0].Value.ToString() + "'";
+                                com = new MySqlCommand(cmd2, connection);
+                                dr = com.ExecuteReader();
+                                while (dr.Read())
+                                {
+                                    cmd += "('" + cID + "','" + dr[0].ToString() + "', '"+ dgvCountry.Rows[x].Cells[1].Value.ToString() + "')";
+                                }
+                                dr.Close();
+                                if (x < dgvCountry.Rows.Count - 1)
+                                {
+                                    cmd += ",";
+                                }
                             }
-                        }
-                        com = new MySqlCommand(cmd, connection);
-                        com.ExecuteNonQuery();
-                        for(int x = 0; x < dgvAirports1.Rows.Count; x++)
-                        {
-                            cmd = "insert into countryairports_t (country_id, airportname) values ('"+cID+"','"+dgvAirports1.Rows[x].Cells[0].Value.ToString()+"')";
                             com = new MySqlCommand(cmd, connection);
                             com.ExecuteNonQuery();
+                            for (int x = 0; x < dgvAirports1.Rows.Count; x++)
+                            {
+                                cmd = "insert into countryairports_t (country_id, airportname) values ('" + cID + "','" + dgvAirports1.Rows[x].Cells[0].Value.ToString() + "')";
+                                com = new MySqlCommand(cmd, connection);
+                                com.ExecuteNonQuery();
+                            }
+                            MessageBox.Show("Country Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtCountryName1.Clear();
+                            txtCurrency1.Clear();
+                            txtSymbol1.Clear();
+                            dgvCountry.Rows.Clear();
+                            dgvAirports1.Rows.Clear();
+                            txtDocDetails1.Clear();
+                            txtAirport1.Clear();
+                            cbReq.Items.Clear();
+                            this.Hide();
                         }
-                        MessageBox.Show("Country Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtCountryName1.Clear();
-                        txtCurrency1.Clear();
-                        txtSymbol1.Clear();
-                        dgvCountry.Rows.Clear();
-                        cbReq.Items.Clear();
-                        this.Hide();
+                        else if (ctr != 0)
+                        {
+                            MessageBox.Show("Record already exists.", "Error Message");
+                        }
                     }
-                    else if (ctr != 0)
+                    else
                     {
-                        MessageBox.Show("Record already exists.", "Error Message");
+                        MessageBox.Show("No airports specified for the country", "Add Country Error");
                     }
+                    
                 }
                 else
                 {
@@ -143,8 +154,8 @@ namespace Findstaff
         {
             if(cbReq.Text != "")
             {
-                dgvCountry.ColumnCount = 1;
-                dgvCountry.Rows.Add(cbReq.Text);
+                dgvCountry.ColumnCount = 2;
+                dgvCountry.Rows.Add(cbReq.Text, txtDocDetails1.Text);
                 cbReq.Items.Remove(cbReq.Text);
             }
         }
@@ -160,7 +171,7 @@ namespace Findstaff
         
         private void btnAddRequire2_Click(object sender, EventArgs e)
         {
-            if (cbReq2.Text != "")
+            if (cbReq2.Text != "" || txtDocDetails2.Text != "")
             {
                 string reqId = "";
                 dgvReq2.Rows.Add(txtCountryID2.Text, cbReq2.Text);
@@ -173,10 +184,11 @@ namespace Findstaff
                 }
                 dr.Close();
 
-                cmd = "insert into countryreqs_t values ('"+txtCountryID2.Text+"','"+reqId+"')";
+                cmd = "insert into countryreqs_t values ('"+txtCountryID2.Text+"','"+reqId+"', '"+txtDocDetails2.Text+"')";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
                 cbReq2.Items.Remove(cbReq2.Text);
+                txtDocDetails2.Clear();
             }
         }
 
@@ -203,6 +215,38 @@ namespace Findstaff
                     cmd = "delete from countryreqs_t where country_id = '"+txtCountryID2.Text+"' and req_id = '"+reqId+"'";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
+                    cmd = "Select c.COUNTRY_ID'Country ID', g.Reqname'Requirement Name', cr.specdetails'Requirement Details' from country_t c join countryreqs_t cr"
+                + " on c.country_id = cr.country_id join genreqs_t g on cr.req_id = g.req_id"
+                + " where c.countryname = '" + txtCountryName2.Text + "'";
+                    int y = 0;
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        y++;
+                    }
+                    dr.Close();
+
+                    string[,] reqlist = new string[3, y];
+                    cmd = "Select c.COUNTRY_ID'Country ID', g.Reqname'Requirement Name', cr.specdetails'Requirement Details' from country_t c join countryreqs_t cr"
+                    + " on c.country_id = cr.country_id join genreqs_t g on cr.req_id = g.req_id"
+                    + " where c.countryname = '" + txtCountryName2.Text + "'";
+                    int z = 0;
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        reqlist[0, z] = dr[0].ToString();
+                        reqlist[1, z] = dr[1].ToString();
+                        reqlist[2, z] = dr[2].ToString();
+                        z++;
+                    }
+                    dr.Close();
+                    dgvReq2.ColumnCount = 3;
+                    for (int x = 0; x < y; x++)
+                    {
+                        dgvReq2.Rows.Add(reqlist[0, x], reqlist[1, x], reqlist[2, x]);
+                    }
                 }
             }
             connection.Close();
@@ -224,7 +268,7 @@ namespace Findstaff
                 }
                 dr.Close();
 
-                cmd = "Select c.COUNTRY_ID'Country ID', g.Reqname'Requirement Name' from country_t c join countryreqs_t cr"
+                cmd = "Select c.COUNTRY_ID'Country ID', g.Reqname'Requirement Name', cr.specdetails'Requirement Details' from country_t c join countryreqs_t cr"
                 + " on c.country_id = cr.country_id join genreqs_t g on cr.req_id = g.req_id"
                 + " where c.countryname = '" + txtCountryName2.Text + "'";
                 int y = 0;
@@ -236,8 +280,8 @@ namespace Findstaff
                 }
                 dr.Close();
 
-                string[,] reqlist = new string[2,y];
-                cmd = "Select c.COUNTRY_ID'Country ID', g.Reqname'Requirement Name' from country_t c join countryreqs_t cr"
+                string[,] reqlist = new string[3,y];
+                cmd = "Select c.COUNTRY_ID'Country ID', g.Reqname'Requirement Name', cr.specdetails'Requirement Details' from country_t c join countryreqs_t cr"
                 + " on c.country_id = cr.country_id join genreqs_t g on cr.req_id = g.req_id"
                 + " where c.countryname = '" + txtCountryName2.Text + "'";
                 int z = 0;
@@ -247,13 +291,14 @@ namespace Findstaff
                 {
                     reqlist[0,z] = dr[0].ToString();
                     reqlist[1,z] = dr[1].ToString();
+                    reqlist[2, z] = dr[2].ToString();
                     z++;
                 }
                 dr.Close();
-                dgvReq2.ColumnCount = 2;
+                dgvReq2.ColumnCount = 3;
                 for(int x = 0; x < y; x++)
                 {
-                    dgvReq2.Rows.Add(reqlist[0,x], reqlist[1,x]);
+                    dgvReq2.Rows.Add(reqlist[0,x], reqlist[1,x], reqlist[2, x]);
                 }
                 
                 for (int x = 0; x < dgvReq2.Rows.Count; x++)
@@ -261,6 +306,16 @@ namespace Findstaff
                     if (cbReq2.Items.Contains(dgvReq2.Rows[x].Cells[1].Value.ToString()))
                     {
                         cbReq2.Items.Remove(dgvReq2.Rows[x].Cells[1].Value.ToString());
+                    }
+                }
+                cmd = "select airportname'Airports' from countryairports_t where country_id = '"+txtCountryID2.Text+"'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvAirports2.DataSource = ds.Tables[0];
                     }
                 }
             }
@@ -288,6 +343,59 @@ namespace Findstaff
             {
                 dgvAirports1.Rows.Remove(dgvAirports1.SelectedRows[0]);
             }
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddAirport2_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            if(txtAirport2.Text != "")
+            {
+                cmd = "select count(airportname) from countryairports_t where airportname = '" + txtAirport2.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                int ctr = int.Parse(com.ExecuteScalar()+"");
+                if(ctr == 0)
+                {
+                    cmd = "insert into countryairports_t (country_id, airportname) values ('" + txtCountryID2.Text + "','" + txtAirport2.Text + "')";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    txtAirport2.Clear();
+                    connection.Close();
+                    cmd = "select airportname'Airports' from countryairports_t where country_id = '" + txtCountryID2.Text + "'";
+                    using (connection)
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                        {
+                            DataSet ds = new DataSet();
+                            adapter.Fill(ds);
+                            dgvAirports2.DataSource = ds.Tables[0];
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Airport already exists.", "Add Airport Error");
+                }
+            }
+        }
+
+        private void btnRemoveAirport2_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            cmd = "delete from countryairports_t where airportname = '" + dgvAirports2.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            com = new MySqlCommand(cmd, connection);
+            com.ExecuteNonQuery();
+            dgvAirports2.Rows.Remove(dgvAirports2.SelectedRows[0]);
+            connection.Close();
         }
     }
 }

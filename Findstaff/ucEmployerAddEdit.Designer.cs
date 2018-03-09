@@ -91,7 +91,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(155, 450);
+            this.panel1.Size = new System.Drawing.Size(10, 450);
             this.panel1.TabIndex = 0;
             // 
             // txtLName1
@@ -172,7 +172,7 @@
             this.txtCompAddress1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCompAddress1.ForeColor = System.Drawing.Color.Black;
             this.txtCompAddress1.Location = new System.Drawing.Point(397, 209);
-            this.txtCompAddress1.MaxLength = 100;
+            this.txtCompAddress1.MaxLength = 200;
             this.txtCompAddress1.Name = "txtCompAddress1";
             this.txtCompAddress1.Size = new System.Drawing.Size(478, 26);
             this.txtCompAddress1.TabIndex = 30;

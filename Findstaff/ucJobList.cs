@@ -137,6 +137,7 @@ namespace Findstaff
 
         private void btnEmpView_Click(object sender, EventArgs e)
         {
+            string symbol = "";
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
@@ -149,6 +150,15 @@ namespace Findstaff
             }
             dr.Close();
 
+            cmd = "select c.symbol from country_t c join employer_t e on c.country_id = e.country_id where e.employername = '" + ucJobListView.employer.Text + "'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                symbol = dr[0].ToString();
+            }
+            dr.Close();
+
             cmd = "select jorder_id, reqapp, salary, gender, heightreq, weightreq, CNTRCTSTART from joborder_t where jorder_id = '" + dgvJobList.SelectedRows[0].Cells[0].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
@@ -156,7 +166,7 @@ namespace Findstaff
             {
                 ucJobListView.jono.Text = dr[0].ToString();
                 ucJobListView.noofempreq.Text = dr[1].ToString();
-                ucJobListView.salary.Text = dr[2].ToString();
+                ucJobListView.salary.Text = symbol + " "+ dr[2].ToString();
                 ucJobListView.gender.Text = dr[3].ToString();
                 ucJobListView.height.Text = dr[4].ToString();
                 ucJobListView.weight.Text = dr[5].ToString();

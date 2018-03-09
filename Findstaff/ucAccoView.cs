@@ -21,7 +21,6 @@ namespace Findstaff
         private string appNo = "", appName = "";
         private string jorder = "", jobID = "", empID = "", jobName = "", employerName = "", appID = "", jobtype = "";
         private string[] fees;
-        private decimal total = 0;
 
         public void init(string name)
         {
@@ -154,6 +153,7 @@ namespace Findstaff
         private void btnPayBal_Click(object sender, EventArgs e)
         {
             connection.Open();
+            decimal total = 0;
             string fee = "";
             fees = new string[dgvViewAcco.SelectedRows.Count];
             cmd = "select jt.typename from job_t j join applications_t a join jobtype_t jt on j.jobtype_id = jt.jobtype_id where a.app_no = '" + appNo + "'";

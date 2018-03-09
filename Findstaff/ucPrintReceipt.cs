@@ -39,11 +39,7 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            connection.Open();
-
-            #region Query
-
-            #endregion Query
+            
 
             #region PDF
             Document doc = new Document(PageSize.A4, 30, 30, 50, 10);

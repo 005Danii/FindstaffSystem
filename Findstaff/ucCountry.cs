@@ -83,7 +83,7 @@ namespace Findstaff
             }
             dr.Close();
 
-            cmd = "Select c.COUNTRY_ID'Country ID', g.Reqname'Requirement Name' from country_t c join countryreqs_t cr"
+            cmd = "Select c.COUNTRY_ID'Country ID', g.Reqname'Requirement Name', cr.specdetails'Requirement Details' from country_t c join countryreqs_t cr"
                 + " on c.country_id = cr.country_id join genreqs_t g on cr.req_id = g.req_id"
                 + " where c.country_id = '" + dgvCountry.SelectedRows[0].Cells[0].Value.ToString() + "'";
             using (connection)
@@ -96,7 +96,7 @@ namespace Findstaff
                 }
             }
             dr.Close();
-
+            connection.Close();
             ucCountryView.Dock = DockStyle.Fill;
             ucCountryView.Visible = true;
         }
@@ -119,6 +119,7 @@ namespace Findstaff
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvCountry.DataSource = table;
+            connection.Close();
         }
 
         private void ucCountryAddEdit1_VisibleChanged(object sender, EventArgs e)
