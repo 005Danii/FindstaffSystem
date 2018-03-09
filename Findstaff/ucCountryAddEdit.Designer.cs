@@ -86,7 +86,6 @@ namespace Findstaff
             this.btnAddAirport1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txtSymbol1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtCurrency1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -98,6 +97,9 @@ namespace Findstaff
             this.label7 = new System.Windows.Forms.Label();
             this.txtCountryName1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtDetails1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEduc)).BeginInit();
             this.pnlButtons1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -650,6 +652,8 @@ namespace Findstaff
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.txtDetails1);
             this.panel1.Controls.Add(this.txtAirport1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.dgvAirports1);
@@ -671,7 +675,7 @@ namespace Findstaff
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 500);
+            this.panel1.Size = new System.Drawing.Size(1139, 500);
             this.panel1.TabIndex = 2;
             // 
             // txtAirport1
@@ -831,18 +835,6 @@ namespace Findstaff
             this.txtSymbol1.Size = new System.Drawing.Size(242, 27);
             this.txtSymbol1.TabIndex = 283;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(112, 137);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 20);
-            this.label9.TabIndex = 282;
-            this.label9.Text = "Symbol:";
-            // 
             // txtCurrency1
             // 
             this.txtCurrency1.BackColor = System.Drawing.Color.White;
@@ -947,7 +939,7 @@ namespace Findstaff
             this.btnAddRequire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRequire.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddRequire.ForeColor = System.Drawing.Color.Black;
-            this.btnAddRequire.Location = new System.Drawing.Point(522, 166);
+            this.btnAddRequire.Location = new System.Drawing.Point(933, 169);
             this.btnAddRequire.Name = "btnAddRequire";
             this.btnAddRequire.Size = new System.Drawing.Size(100, 30);
             this.btnAddRequire.TabIndex = 266;
@@ -1001,6 +993,41 @@ namespace Findstaff
             this.label8.Size = new System.Drawing.Size(123, 20);
             this.label8.TabIndex = 106;
             this.label8.Text = "Country Name:";
+            // 
+            // txtDetails1
+            // 
+            this.txtDetails1.BackColor = System.Drawing.Color.White;
+            this.txtDetails1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetails1.ForeColor = System.Drawing.Color.Black;
+            this.txtDetails1.Location = new System.Drawing.Point(678, 171);
+            this.txtDetails1.MaxLength = 5;
+            this.txtDetails1.Name = "txtDetails1";
+            this.txtDetails1.Size = new System.Drawing.Size(242, 27);
+            this.txtDetails1.TabIndex = 291;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(112, 137);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 20);
+            this.label9.TabIndex = 282;
+            this.label9.Text = "Symbol:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(528, 174);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(144, 20);
+            this.label15.TabIndex = 292;
+            this.label15.Text = "Document Details:";
             // 
             // ucCountryAddEdit
             // 
@@ -1070,7 +1097,6 @@ namespace Findstaff
         private Label label4;
         private Label label6;
         private TextBox txtSymbol1;
-        private Label label9;
         private TextBox txtCurrency1;
         private Label label10;
         private Label label11;
@@ -1091,5 +1117,8 @@ namespace Findstaff
         public TextBox txtAirport2;
         private TextBox txtAirport1;
         private Panel panel4;
+        private Label label15;
+        private TextBox txtDetails1;
+        private Label label9;
     }
 }
