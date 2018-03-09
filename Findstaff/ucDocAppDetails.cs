@@ -82,7 +82,7 @@ namespace Findstaff
                 }
                 dr.Close();
                 int count = 0;
-                cmd = "select count(fee_id) from jobfees_t where jorder_id = '" + jorder + "'";
+                cmd = "select count(fee_id) from feetype_t where jobtype_id = '" + jobtype + "'";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
                 while (dr.Read())
@@ -90,7 +90,11 @@ namespace Findstaff
                     count = Convert.ToInt32(dr[0]);
                 }
                 dr.Close();
-                if(count != 0)
+                if(count != 0 && ctrJ == 0)
+                {
+                    MessageBox.Show("The job order has no fees tagged to it.\nInput in jobfees first.", "Move To Payment Error");
+                }
+                else if(ctrJ != 0 && count != 0)
                 {
                     cmd = "update app_t set appstatus = 'Payment' where app_id = '" + appID + "'";
                     com = new MySqlCommand(cmd, connection);
@@ -105,10 +109,7 @@ namespace Findstaff
                 }
                 else
                 {
-                    cmd = "update app_t set appstatus = 'Deployed' where app_id = '" + appID + "'";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                    cmd = "update app_t set appstatus = 'Deployed' where concat(lname, ',' , fname,' ', mname) = '"+applicant.Text+"'";
+                    cmd = "update app_t set appstatus = 'For Deployement' where app_id = '" + appID + "'";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
                     MessageBox.Show("All documents passed.\nNo fees tagged in job order.\nApplicant is automatically deployed.", "Fulfilled Document Requirements");

@@ -43,15 +43,15 @@ namespace Findstaff
 
             #region PDF
             Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Receipt.pdf", FileMode.Create));
-            //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Receipt.pdf", FileMode.Create));
+            //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Receipt.pdf", FileMode.Create));
+            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Receipt.pdf", FileMode.Create));
             doc.Open();
 
             doc = BindingData(doc);
 
             doc.Close();
-            System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Receipt.pdf");
-            //System.Diagnostics.Process.Start("C:\\Users\\ralmojuela\\Desktop\\Receipt.pdf");
+            //System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Receipt.pdf");
+            System.Diagnostics.Process.Start("C:\\Users\\ralmojuela\\Desktop\\Receipt.pdf");
             MessageBox.Show("PDF Created Successfully!");
             txtAmountWords.Clear();
             this.Hide();
