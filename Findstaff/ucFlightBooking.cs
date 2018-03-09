@@ -141,31 +141,8 @@ namespace Findstaff
 
         }
 
-        public void searchData(string valueToFind)
-        {
-            Connection con = new Connection();
-            connection = con.dbConnection();
-            connection.Open();
-
-            cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
-                    + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
-                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' AND concat(a.app_no, app.app_id, app.fname, ' ',app.lname, ' ',app.mname, app.appstatus, f.flightdate) LIKE '%" + valueToFind + "%'";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            dgvFlightBooking.DataSource = table;
-        }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-            searchData(txtName.Text);
-        }
-
         private void ucFlightBooking_Load(object sender, EventArgs e)
-        {  
+        {
             Connection con = new Connection();
             connection = con.dbConnection();
             cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
@@ -180,7 +157,6 @@ namespace Findstaff
                     dgvFlightBooking.DataSource = ds.Tables[0];
                 }
             }
-            searchData(txtName.Text);
         }
 
         private void ucBookFlight_VisibleChanged(object sender, EventArgs e)
@@ -220,127 +196,89 @@ namespace Findstaff
             connection.Open();
             if (dgvFlightBooking.Rows.Count != 0)
             {
-                panel1.Visible = true;
-            }
-            connection.Close();
-        }
-
-        private void btnOnFlight_Click(object sender, EventArgs e)
-        {
-            connection.Open();
-            if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "With Flight Schedule")
-            {
-                DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " arrived in the airport and already on flight?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr1 == DialogResult.Yes)
+                if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "With Flight Schedule")
                 {
-                    cmd = "update app_t set appstatus = 'On Flight' where app_id = '" + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + "'";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                    MessageBox.Show("Updated Status: " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " is currently on flight now.", "Status Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
-                + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
-                + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' ";
-                    using (connection)
+                    DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " arrived in the airport and already on flight?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(dr1 == DialogResult.Yes)
                     {
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                        cmd = "update app_t set appstatus = 'On Flight' where app_id = '"+dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString()+"'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Updated Status: " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " is currently on flight now.","Status Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
+                    + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
+                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' ";
+                        using (connection)
                         {
-                            DataSet ds = new DataSet();
-                            adapter.Fill(ds);
-                            dgvFlightBooking.DataSource = ds.Tables[0];
+                            using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                            {
+                                DataSet ds = new DataSet();
+                                adapter.Fill(ds);
+                                dgvFlightBooking.DataSource = ds.Tables[0];
+                            }
                         }
                     }
-                    panel1.Visible = false;
-                }
-            }
-            connection.Close();
-        }
+                    //if(dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString() == DateTime.Now.ToString("dd/MM/yyyy"))
+                    //{
 
-        private void btnArrived_Click(object sender, EventArgs e)
-        {
-            connection.Open();
-            if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "On Flight")
-            {
-                DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " arrived in the country of destination?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr1 == DialogResult.Yes)
+                    //}
+                }
+                else if(dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "On Flight")
                 {
-                    cmd = "update app_t set appstatus = 'Arrived' where app_id = '" + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + "'";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                    MessageBox.Show("Updated Status: " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " arrived in the country of destination.", "Status Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
-                + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
-                + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' ";
-                    using (connection)
+                    DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " arrived in the country of destination?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr1 == DialogResult.Yes)
                     {
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                        cmd = "update app_t set appstatus = 'Arrived' where app_id = '" + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Updated Status: " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " arrived in the country of destination.", "Status Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
+                    + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
+                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' ";
+                        using (connection)
                         {
-                            DataSet ds = new DataSet();
-                            adapter.Fill(ds);
-                            dgvFlightBooking.DataSource = ds.Tables[0];
+                            using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                            {
+                                DataSet ds = new DataSet();
+                                adapter.Fill(ds);
+                                dgvFlightBooking.DataSource = ds.Tables[0];
+                            }
                         }
                     }
-                    panel1.Visible = false;
                 }
-            }
-            connection.Close();
-        }
-
-        private void btnDeployed_Click(object sender, EventArgs e)
-        {
-            connection.Open();
-            if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "Arrived")
-            {
-                DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " been deployed in the country?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr1 == DialogResult.Yes)
+                else if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "Arrived")
                 {
-                    cmd = "update app_t set appstatus = 'Deployed' where app_id = '" + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + "'";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
+                    DialogResult dr1 = MessageBox.Show("Has " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " been deployed in the country?", "Update Status", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr1 == DialogResult.Yes)
+                    {
+                        cmd = "update app_t set appstatus = 'Deployed' where app_id = '" + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Updated Status: " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " is now deployed.", "Status Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
+                    + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
+                    + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' ";
+                        using (connection)
+                        {
+                            using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                            {
+                                DataSet ds = new DataSet();
+                                adapter.Fill(ds);
+                                dgvFlightBooking.DataSource = ds.Tables[0];
+                            }
+                        }
+                    }
+                }
+                else if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "Deployed")
+                {
                     MessageBox.Show("Updated Status: " + dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " is now deployed.", "Status Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cmd = "select a.app_no'Application No.', app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', app.appstatus'Status', f.flightdate'Date of Flight' "
-                + "from app_t app join applications_t a on a.app_id = app.app_id left join flights_t f on a.app_id = f.app_id and a.app_no = f.app_no "
-                + "where app.appstatus in ('For Deployment', 'With Flight Schedule', 'On Flight', 'Arrived') and a.appstats = 'Active' ";
-                    using (connection)
-                    {
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                        {
-                            DataSet ds = new DataSet();
-                            adapter.Fill(ds);
-                            dgvFlightBooking.DataSource = ds.Tables[0];
-                        }
-                    }
-
-                    panel1.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show(dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " doesn't have a flight schedule yet.", "Reschedule Flight Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }
             }
             connection.Close();
         }
-
-        private void panel1_VisibleChanged(object sender, EventArgs e)
-        {
-            if(panel1.Visible == true)
-            {
-                btnUpdate.Enabled = false;
-                btnBookFlight.Enabled = false;
-                btnReschedule.Enabled = false;
-                btnViewDetails.Enabled = false;
-                dgvFlightBooking.Enabled = false;
-            }
-            else
-            {
-                btnUpdate.Enabled = true;
-                btnBookFlight.Enabled = true;
-                btnReschedule.Enabled = true;
-                btnViewDetails.Enabled = true;
-                dgvFlightBooking.Enabled = true;
-            }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-        }
-
-        
     }
 }

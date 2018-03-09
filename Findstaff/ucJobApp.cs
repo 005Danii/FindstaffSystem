@@ -212,8 +212,11 @@ namespace Findstaff
                         apps[x, 2] = ctr + ""; 
                     }
                     ctr = 0;
+                }
+                for(int x = 0; x < y; x++)
+                {
                     decimal rate = 0;
-                    rate = (Convert.ToDecimal(apps[x, 2]) / z) * 100;
+                    rate = (Convert.ToDecimal(apps[x,2]) / z) * 100;
                     dgvAppMatch.Rows.Add(apps[x, 0], apps[x, 1], rate);
                 }
                 dgvAppMatch.Sort(dgvAppMatch.Columns[2], ListSortDirection.Descending);

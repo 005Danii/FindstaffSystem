@@ -34,6 +34,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAirport = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.lblReschedFlight = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbAirport = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -102,7 +102,6 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Century", 12F);
             this.dateTimePicker1.Location = new System.Drawing.Point(453, 278);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -132,6 +131,17 @@
             this.label6.Size = new System.Drawing.Size(67, 20);
             this.label6.TabIndex = 278;
             this.label6.Text = "Airport:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Gray;
+            this.textBox1.Location = new System.Drawing.Point(418, 337);
+            this.textBox1.MaxLength = 30;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(400, 27);
+            this.textBox1.TabIndex = 277;
             // 
             // label5
             // 
@@ -304,7 +314,6 @@
             // txtCountry
             // 
             this.txtCountry.BackColor = System.Drawing.Color.White;
-            this.txtCountry.Enabled = false;
             this.txtCountry.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountry.ForeColor = System.Drawing.Color.Black;
             this.txtCountry.Location = new System.Drawing.Point(418, 212);
@@ -325,25 +334,11 @@
             this.label7.TabIndex = 285;
             this.label7.Text = "Country :";
             // 
-            // cbAirport
-            // 
-            this.cbAirport.BackColor = System.Drawing.Color.White;
-            this.cbAirport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbAirport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAirport.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAirport.ForeColor = System.Drawing.Color.Black;
-            this.cbAirport.FormattingEnabled = true;
-            this.cbAirport.Location = new System.Drawing.Point(422, 336);
-            this.cbAirport.Name = "cbAirport";
-            this.cbAirport.Size = new System.Drawing.Size(396, 28);
-            this.cbAirport.TabIndex = 287;
-            // 
             // ucReschedFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.Controls.Add(this.cbAirport);
             this.Controls.Add(this.txtCountry);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCancel);
@@ -352,6 +347,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtAirport);
@@ -380,6 +376,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAirport;
@@ -396,6 +393,5 @@
         public System.Windows.Forms.Label appname;
         private System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.ComboBox cbAirport;
     }
 }
