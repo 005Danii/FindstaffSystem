@@ -55,6 +55,7 @@ namespace Findstaff
 
             doc.Close();
             System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Receipt.pdf");
+            //System.Diagnostics.Process.Start("C:\\Users\\ralmojuela\\Desktop\\Receipt.pdf");
             MessageBox.Show("PDF Created Successfully!");
             txtAmountWords.Clear();
             this.Hide();
