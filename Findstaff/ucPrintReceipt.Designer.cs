@@ -32,16 +32,16 @@
             this.btnPrint = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAmountWords = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.empname = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.number = new System.Windows.Forms.Label();
             this.amount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.feename = new System.Windows.Forms.Label();
             this.lblapp = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.number = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.empname = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblViewAcco
@@ -66,7 +66,7 @@
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.ForeColor = System.Drawing.Color.Black;
-            this.btnPrint.Location = new System.Drawing.Point(498, 375);
+            this.btnPrint.Location = new System.Drawing.Point(499, 334);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(125, 50);
             this.btnPrint.TabIndex = 325;
@@ -80,118 +80,24 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(354, 240);
+            this.label4.Location = new System.Drawing.Point(351, 257);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(138, 20);
             this.label4.TabIndex = 341;
             this.label4.Text = "Amount in words:";
+            this.label4.Visible = false;
             // 
             // txtAmountWords
             // 
             this.txtAmountWords.BackColor = System.Drawing.Color.White;
             this.txtAmountWords.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmountWords.ForeColor = System.Drawing.Color.DimGray;
-            this.txtAmountWords.Location = new System.Drawing.Point(502, 237);
+            this.txtAmountWords.Location = new System.Drawing.Point(499, 254);
             this.txtAmountWords.MaxLength = 30;
             this.txtAmountWords.Name = "txtAmountWords";
             this.txtAmountWords.Size = new System.Drawing.Size(408, 27);
             this.txtAmountWords.TabIndex = 340;
-            // 
-            // amount
-            // 
-            this.amount.AutoSize = true;
-            this.amount.BackColor = System.Drawing.Color.Transparent;
-            this.amount.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amount.ForeColor = System.Drawing.Color.Black;
-            this.amount.Location = new System.Drawing.Point(516, 200);
-            this.amount.Name = "amount";
-            this.amount.Size = new System.Drawing.Size(66, 20);
-            this.amount.TabIndex = 339;
-            this.amount.Text = "amount";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(381, 200);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 20);
-            this.label3.TabIndex = 338;
-            this.label3.Text = "Amount Paid:   P";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(404, 163);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
-            this.label1.TabIndex = 337;
-            this.label1.Text = "Fee Name:";
-            // 
-            // feename
-            // 
-            this.feename.AutoSize = true;
-            this.feename.BackColor = System.Drawing.Color.Transparent;
-            this.feename.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.feename.ForeColor = System.Drawing.Color.Black;
-            this.feename.Location = new System.Drawing.Point(498, 163);
-            this.feename.Name = "feename";
-            this.feename.Size = new System.Drawing.Size(71, 20);
-            this.feename.TabIndex = 336;
-            this.feename.Text = "feename";
-            // 
-            // lblapp
-            // 
-            this.lblapp.AutoSize = true;
-            this.lblapp.BackColor = System.Drawing.Color.Transparent;
-            this.lblapp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblapp.ForeColor = System.Drawing.Color.Black;
-            this.lblapp.Location = new System.Drawing.Point(359, 130);
-            this.lblapp.Name = "lblapp";
-            this.lblapp.Size = new System.Drawing.Size(133, 20);
-            this.lblapp.TabIndex = 335;
-            this.lblapp.Text = "Applicant Name:";
-            // 
-            // name
-            // 
-            this.name.AutoSize = true;
-            this.name.BackColor = System.Drawing.Color.Transparent;
-            this.name.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name.ForeColor = System.Drawing.Color.Black;
-            this.name.Location = new System.Drawing.Point(498, 130);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(50, 20);
-            this.name.TabIndex = 334;
-            this.name.Text = "name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(355, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 20);
-            this.label2.TabIndex = 343;
-            this.label2.Text = "Receipt Number:";
-            // 
-            // number
-            // 
-            this.number.AutoSize = true;
-            this.number.BackColor = System.Drawing.Color.Transparent;
-            this.number.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.number.ForeColor = System.Drawing.Color.Black;
-            this.number.Location = new System.Drawing.Point(494, 98);
-            this.number.Name = "number";
-            this.number.Size = new System.Drawing.Size(67, 20);
-            this.number.TabIndex = 342;
-            this.number.Text = "number";
+            this.txtAmountWords.Visible = false;
             // 
             // label5
             // 
@@ -219,23 +125,119 @@
             this.empname.Text = "empname";
             this.empname.Visible = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(446, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(133, 20);
+            this.label2.TabIndex = 353;
+            this.label2.Text = "Receipt Number:";
+            // 
+            // number
+            // 
+            this.number.AutoSize = true;
+            this.number.BackColor = System.Drawing.Color.Transparent;
+            this.number.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.number.ForeColor = System.Drawing.Color.Black;
+            this.number.Location = new System.Drawing.Point(585, 99);
+            this.number.Name = "number";
+            this.number.Size = new System.Drawing.Size(67, 20);
+            this.number.TabIndex = 352;
+            this.number.Text = "number";
+            // 
+            // amount
+            // 
+            this.amount.AutoSize = true;
+            this.amount.BackColor = System.Drawing.Color.Transparent;
+            this.amount.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amount.ForeColor = System.Drawing.Color.Black;
+            this.amount.Location = new System.Drawing.Point(607, 201);
+            this.amount.Name = "amount";
+            this.amount.Size = new System.Drawing.Size(66, 20);
+            this.amount.TabIndex = 351;
+            this.amount.Text = "amount";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(472, 201);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 20);
+            this.label3.TabIndex = 350;
+            this.label3.Text = "Amount Paid:   P";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(495, 164);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.TabIndex = 349;
+            this.label1.Text = "Fee Name:";
+            // 
+            // feename
+            // 
+            this.feename.AutoSize = true;
+            this.feename.BackColor = System.Drawing.Color.Transparent;
+            this.feename.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feename.ForeColor = System.Drawing.Color.Black;
+            this.feename.Location = new System.Drawing.Point(589, 164);
+            this.feename.Name = "feename";
+            this.feename.Size = new System.Drawing.Size(71, 20);
+            this.feename.TabIndex = 348;
+            this.feename.Text = "feename";
+            // 
+            // lblapp
+            // 
+            this.lblapp.AutoSize = true;
+            this.lblapp.BackColor = System.Drawing.Color.Transparent;
+            this.lblapp.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapp.ForeColor = System.Drawing.Color.Black;
+            this.lblapp.Location = new System.Drawing.Point(450, 131);
+            this.lblapp.Name = "lblapp";
+            this.lblapp.Size = new System.Drawing.Size(133, 20);
+            this.lblapp.TabIndex = 347;
+            this.lblapp.Text = "Applicant Name:";
+            // 
+            // name
+            // 
+            this.name.AutoSize = true;
+            this.name.BackColor = System.Drawing.Color.Transparent;
+            this.name.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.ForeColor = System.Drawing.Color.Black;
+            this.name.Location = new System.Drawing.Point(589, 131);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(50, 20);
+            this.name.TabIndex = 346;
+            this.name.Text = "name";
+            // 
             // ucPrintReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.empname);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.number);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtAmountWords);
             this.Controls.Add(this.amount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.feename);
             this.Controls.Add(this.lblapp);
             this.Controls.Add(this.name);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.empname);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtAmountWords);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.lblViewAcco);
             this.ForeColor = System.Drawing.Color.Black;
@@ -251,15 +253,15 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAmountWords;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label empname;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label number;
+        public System.Windows.Forms.Label amount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label feename;
         private System.Windows.Forms.Label lblapp;
         public System.Windows.Forms.Label name;
-        public System.Windows.Forms.Label amount;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label number;
-        private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label empname;
     }
 }

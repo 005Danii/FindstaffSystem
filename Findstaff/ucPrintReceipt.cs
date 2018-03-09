@@ -112,19 +112,19 @@ namespace Findstaff
             TotDate.HorizontalAlignment = 2;
             tblMain.AddCell(TotDate);
 
-            Chunk header8 = new Chunk("\n \n Received from " + name.Text + " with TIN " + number.Text + " the sum of " + txtAmountWords.Text + " pesos (P " + amount.Text + " ) in full payment for " + feename.Text + " ", arial);
-            PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
-            rowHeader8.Border = 0;
-            rowHeader8.HorizontalAlignment = 0;
-            rowHeader8.Colspan = 1;
-            tblMain.AddCell(rowHeader8);
+            //Chunk header8 = new Chunk("\n \n Received from " + name.Text + " with TIN " + number.Text + " the sum of " + txtAmountWords.Text + " pesos (P " + amount.Text + " ) in full payment for " + feename.Text + " ", arial);
+            //PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
+            //rowHeader8.Border = 0;
+            //rowHeader8.HorizontalAlignment = 0;
+            //rowHeader8.Colspan = 1;
+            //tblMain.AddCell(rowHeader8);
 
-            //Chunk header9 = new Chunk("\n \n Received from " + name.Text + " with TIN " + number.Text + " the sum of PHP " + amount.Text + " in full payment for " + feename.Text + " ", arial);
-            //PdfPCell rowHeader9 = new PdfPCell(new Phrase(header9));
-            //rowHeader9.Border = 0;
-            //rowHeader9.HorizontalAlignment = 0;
-            //rowHeader9.Colspan = 1;
-            //tblMain.AddCell(rowHeader9);
+            Chunk header9 = new Chunk("\n \n Received from " + name.Text + " with TIN " + number.Text + " the sum of PHP " + amount.Text + " in full payment for " + feename.Text + " ", arial);
+            PdfPCell rowHeader9 = new PdfPCell(new Phrase(header9));
+            rowHeader9.Border = 0;
+            rowHeader9.HorizontalAlignment = 0;
+            rowHeader9.Colspan = 1;
+            tblMain.AddCell(rowHeader9);
 
             Chunk header11 = new Chunk("\n \n By: " + user, arial);
             PdfPCell rowHeader11 = new PdfPCell(new Phrase(header11));
