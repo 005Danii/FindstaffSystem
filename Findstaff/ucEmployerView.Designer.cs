@@ -44,6 +44,7 @@
             this.country = new System.Windows.Forms.Label();
             this.employer = new System.Windows.Forms.Label();
             this.empID = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -150,7 +151,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(510, 355);
+            this.btnClose.Location = new System.Drawing.Point(560, 350);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 38);
             this.btnClose.TabIndex = 42;
@@ -242,11 +243,28 @@
             this.empID.TabIndex = 43;
             this.empID.Text = "empID";
             // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.White;
+            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.Black;
+            this.btnPrint.Location = new System.Drawing.Point(449, 350);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(100, 38);
+            this.btnPrint.TabIndex = 50;
+            this.btnPrint.Text = "PRINT";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // ucEmployerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.compEmail);
             this.Controls.Add(this.contact);
             this.Controls.Add(this.compAdd);
@@ -288,5 +306,6 @@
         public System.Windows.Forms.Label country;
         public System.Windows.Forms.Label employer;
         public System.Windows.Forms.Label empID;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

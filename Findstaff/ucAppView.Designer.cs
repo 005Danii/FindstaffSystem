@@ -92,6 +92,7 @@
             this.spouseoccupation = new System.Windows.Forms.Label();
             this.appno = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEducBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkills)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpHistory)).BeginInit();
@@ -153,9 +154,9 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(112, 149);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 20);
+            this.label7.Size = new System.Drawing.Size(71, 20);
             this.label7.TabIndex = 128;
-            this.label7.Text = "Sex :";
+            this.label7.Text = "Gender :";
             // 
             // label4
             // 
@@ -579,11 +580,12 @@
             // pnlButtons1
             // 
             this.pnlButtons1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlButtons1.Controls.Add(this.btnPrint);
             this.pnlButtons1.Controls.Add(this.btnClose);
             this.pnlButtons1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlButtons1.Location = new System.Drawing.Point(493, 1661);
+            this.pnlButtons1.Location = new System.Drawing.Point(387, 1661);
             this.pnlButtons1.Name = "pnlButtons1";
-            this.pnlButtons1.Size = new System.Drawing.Size(107, 58);
+            this.pnlButtons1.Size = new System.Drawing.Size(213, 58);
             this.pnlButtons1.TabIndex = 309;
             // 
             // btnClose
@@ -597,7 +599,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(3, 3);
+            this.btnClose.Location = new System.Drawing.Point(109, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 38);
             this.btnClose.TabIndex = 57;
@@ -635,7 +637,7 @@
             this.sex.BackColor = System.Drawing.Color.Transparent;
             this.sex.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sex.ForeColor = System.Drawing.Color.Black;
-            this.sex.Location = new System.Drawing.Point(163, 149);
+            this.sex.Location = new System.Drawing.Point(189, 149);
             this.sex.Name = "sex";
             this.sex.Size = new System.Drawing.Size(33, 20);
             this.sex.TabIndex = 312;
@@ -857,6 +859,25 @@
             this.label3.TabIndex = 332;
             this.label3.Text = "Applicant Number:";
             // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.White;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.Black;
+            this.btnPrint.Location = new System.Drawing.Point(3, 3);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(100, 38);
+            this.btnPrint.TabIndex = 58;
+            this.btnPrint.Text = "PRINT";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // ucAppView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -917,7 +938,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblViewApp);
             this.Name = "ucAppView";
-            this.Size = new System.Drawing.Size(1098, 500);
+            this.Size = new System.Drawing.Size(1081, 500);
             this.VisibleChanged += new System.EventHandler(this.ucAppView_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEducBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkills)).EndInit();
@@ -986,5 +1007,6 @@
         public System.Windows.Forms.Label spouseoccupation;
         public System.Windows.Forms.Label appno;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnPrint;
     }
 }
