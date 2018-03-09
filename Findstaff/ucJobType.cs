@@ -74,10 +74,32 @@ namespace Findstaff
             connection.Close();
         }
 
+        public void searchData(string valueToFind)
+        {
+            Connection con = new Connection();
+            connection = con.dbConnection();
+            connection.Open();
+
+            cmd = "Select JobType_ID'Jobtype ID', Typename'Job Types' from Jobtype_t WHERE concat(JobType_ID, Typename) LIKE '%" + valueToFind + "%'";
+            com = new MySqlCommand(cmd, connection);
+            com.ExecuteNonQuery();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dgvJobType.DataSource = table;
+        }
+
         private void ucJobType_Load(object sender, EventArgs e)
         {
             Connection con = new Findstaff.Connection();
             connection = con.dbConnection();
+            searchData(txtName.Text);
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            searchData(txtName.Text);
         }
     }
 }

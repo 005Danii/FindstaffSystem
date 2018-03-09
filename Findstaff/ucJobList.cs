@@ -216,7 +216,7 @@ namespace Findstaff
 
             string cmd = "select jo.jorder_id'Job Order ID', j.jobname'Job', e.employername'Employer', jo.reqapp'No. of Required Applicants', jo.cntrctend'Job Order Valid Until' " +
                 "from joborder_t jo join employer_t e on jo.employer_id = e.employer_id " +
-                "join job_t j on jo.job_id = j.job_id where jo.cntrctstat = 'Active' or jo.cntrctstat = 'Renewed' AND concat(jo.jorder_id, j.jobname, e.employername, jo.reqapp) LIKE '%" + valueToFind + "%'";
+                "join job_t j on jo.job_id = j.job_id where jo.cntrctstat = 'Active' or jo.cntrctstat = 'Renewed' AND concat(jo.jorder_id, j.jobname, e.employername, jo.reqapp, jo.cntrctend) LIKE '%" + valueToFind + "%'";
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
 
@@ -261,7 +261,7 @@ namespace Findstaff
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
-            cmd = "select jo.jorder_id'Job Order ID', j.jobname'Job', e.employername'Employer', jo.reqapp'No. of Positions Available', jo.cntrctend'Job Order Valid Until' " +
+            cmd = "select jo.jorder_id'Job Order ID', j.jobname'Job', e.employername'Employer', jo.reqapp'No. of Required Applicants', jo.cntrctend'Job Order Valid Until' " +
                 "from joborder_t jo join employer_t e on jo.employer_id = e.employer_id " +
                 "join job_t j on jo.job_id = j.job_id where jo.cntrctstat = 'Active' or jo.cntrctstat = 'Renewed';";
             using (connection)
@@ -273,6 +273,7 @@ namespace Findstaff
                     dgvJobList.DataSource = ds.Tables[0];
                 }
             }
+            connection.Close();
         }
     }
 }

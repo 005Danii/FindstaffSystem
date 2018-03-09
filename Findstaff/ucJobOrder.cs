@@ -82,7 +82,7 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            string cmd = "Select J.jorder_id 'Job Order ID', e.employername'Employer', j.Cntrctstart 'Contract Start', j.cntrctend'End of Contract' from Joborder_t j join employer_t e on j.employer_id = e.employer_id WHERE concat(j.jorder_id, e.employername, j.Cntrctstart) LIKE '%" + valueToFind + "%'";
+            string cmd = "Select J.jorder_id 'Job Order ID', e.employername'Employer', j.Cntrctstart 'Contract Start', j.cntrctend'End of JO Validity' from Joborder_t j join employer_t e on j.employer_id = e.employer_id WHERE concat(j.jorder_id, e.employername, j.Cntrctstart, j.cntrctend) LIKE '%" + valueToFind + "%'";
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
 

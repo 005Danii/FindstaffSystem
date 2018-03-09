@@ -408,7 +408,7 @@
             this.panel1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1039, 500);
+            this.panel1.Size = new System.Drawing.Size(10, 500);
             this.panel1.TabIndex = 32;
             // 
             // dgvContactPersons
@@ -1996,7 +1996,7 @@
             this.txtPhoneNumber.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhoneNumber.ForeColor = System.Drawing.Color.Black;
             this.txtPhoneNumber.Location = new System.Drawing.Point(248, 1413);
-            this.txtPhoneNumber.MaxLength = 30;
+            this.txtPhoneNumber.MaxLength = 11;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(220, 27);
             this.txtPhoneNumber.TabIndex = 190;

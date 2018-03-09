@@ -74,7 +74,7 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            string cmd = "select j.job_id'Job ID', j.Jobname'Job Name', c.categoryname'Category', jt.typename'Type of Job' from jobcategory_t c join job_t j on c.category_id = j.category_id join jobtype_t jt on j.jobtype_id = jt.jobtype_id WHERE concat(j.job_id, j.Jobname, c.categoryname, jt.typename) LIKE '%" + valueToFind + "%'";
+            string cmd = "select j.job_id'Job ID', j.Jobname'Job Name', c.categoryname'Category', jt.typename'Type of Job' from jobcategory_t c join job_t j on c.category_id = j.category_id join jobtype_t jt where j.jobtype_id = jt.jobtype_id AND concat(j.job_id, j.Jobname, c.categoryname, jt.typename) LIKE '%" + valueToFind + "%'";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -90,10 +90,10 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            string cmd = "select j.job_id'Job ID', j.Jobname'Job Name', c.categoryname'Category', jt.jobtype'Type of Job' from jobcategory_t c join job_t j on c.category_id = j.category_id join jobtype_t jt on j.jobtype_id = jt.jobtype_id";
+            string com = "select j.job_id'Job ID', j.Jobname'Job Name', c.categoryname'Category', jt.typename'Type of Job' from jobcategory_t c join job_t j on c.category_id = j.category_id join jobtype_t jt where j.jobtype_id = jt.jobtype_id";
             using (connection)
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))
                 {
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
