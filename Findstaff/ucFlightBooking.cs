@@ -125,6 +125,32 @@ namespace Findstaff
                         ucReschedFlight.employer.Text = dr[0].ToString();
                     }
                     dr.Close();
+                    cmd = "select c.countryname from country_t c join employer_t e on c.country_id = e.country_id where e.employername = '" + ucReschedFlight.employer.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ucReschedFlight.txtCountry.Text = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cmd = "select c.airportname from countryairports_t c join flights_t f on c.airport_id = f.airport_id where f.app_no = '" + dgvFlightBooking.SelectedRows[0].Cells[0].Value.ToString() +"'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ucReschedFlight.txtAirport.Text = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cmd = "select ca.airportname from countryairports_t ca join country_t c on ca.country_id = c.country_id join employer_t e on c.country_id = e.country_id where e.employername = '" + ucReschedFlight.employer.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ucReschedFlight.cbAirport.Items.Add(dr[0].ToString());
+                    }
+                    dr.Close();
+                    ucReschedFlight.txtDate.Text = dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString();
+                    ucReschedFlight.init(dgvFlightBooking.SelectedRows[0].Cells[0].Value.ToString());
                     ucReschedFlight.Dock = DockStyle.Fill;
                     ucReschedFlight.Visible = true;
                     connection.Close();
@@ -138,7 +164,73 @@ namespace Findstaff
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
-
+            if (dgvFlightBooking.Rows.Count != 0)
+            {
+                if (dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() == "With Flight Schedule")
+                {
+                    connection.Open();
+                    string jobID = "", empID = "", jorderID = "";
+                    cmd = "select job_id, employer_id, jorder_id from applications_t where app_no = '" + dgvFlightBooking.SelectedRows[0].Cells[1].Value.ToString() + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        jobID = dr[0].ToString();
+                        empID = dr[1].ToString();
+                        jorderID = dr[2].ToString();
+                    }
+                    dr.Close();
+                    lblCountry.appname.Text = dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString();
+                    lblCountry.joborder.Text = jorderID;
+                    cmd = "select jobname from job_t where job_id = '" + jobID + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        lblCountry.jobname.Text = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cmd = "select employername from employer_t where employer_id = '" + empID + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        lblCountry.employer.Text = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cmd = "select c.countryname from country_t c join employer_t e on c.country_id = e.country_id where e.employername = '" + ucReschedFlight.employer.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        lblCountry.lblCountryName.Text = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cmd = "select c.airportname from countryairports_t c join flights_t f on c.airport_id = f.airport_id where f.app_no = '" + dgvFlightBooking.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        lblCountry.lblAirport.Text = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cmd = "select concat(monthname(flightdate), ' ', day(flightdate), ', ', year(flightdate)) from flights_t where app_no = '"+dgvFlightBooking.SelectedRows[0].Cells[0].Value.ToString()+"'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        lblCountry.lblDate.Text = dr[0].ToString();
+                    }
+                    dr.Close();
+                    lblCountry.Dock = DockStyle.Fill;
+                    lblCountry.Visible = true;
+                    connection.Close();
+                }
+                else
+                {
+                    MessageBox.Show(dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() + " doesn't have a flight schedule yet.", "Reschedule Flight Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void ucFlightBooking_Load(object sender, EventArgs e)
@@ -196,9 +288,16 @@ namespace Findstaff
             connection.Open();
             if (dgvFlightBooking.Rows.Count != 0)
             {
-                if(dgvFlightBooking.SelectedRows[0].Cells[2].Value.ToString() != "For Deployment")
+                if(dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() != "For Deployment")
                 {
-                    panel1.Visible = true;
+                    if (Convert.ToDateTime(dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString()) == DateTime.Now || Convert.ToDateTime(dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString()) > DateTime.Now)
+                    {
+                        panel1.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Flight Date is on a later date than today.","Update Status Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -257,6 +356,7 @@ namespace Findstaff
                             dgvFlightBooking.DataSource = ds.Tables[0];
                         }
                     }
+                    panel1.Visible = false;
                 }
             }
             connection.Close();
@@ -286,6 +386,7 @@ namespace Findstaff
                             dgvFlightBooking.DataSource = ds.Tables[0];
                         }
                     }
+                    panel1.Visible = false;
                 }
             }
             connection.Close();
@@ -313,8 +414,29 @@ namespace Findstaff
                         dgvFlightBooking.DataSource = ds.Tables[0];
                     }
                 }
+                panel1.Visible = false;
             }
             connection.Close();
+        }
+
+        private void panel1_VisibleChanged_1(object sender, EventArgs e)
+        {
+            if(panel1.Visible == true)
+            {
+                btnBookFlight.Enabled = false;
+                btnReschedule.Enabled = false;
+                btnViewDetails.Enabled = false;
+                btnUpdate.Enabled = false;
+                dgvFlightBooking.Enabled = false;
+            }
+            else
+            {
+                btnBookFlight.Enabled = true;
+                btnReschedule.Enabled = true;
+                btnViewDetails.Enabled = true;
+                btnUpdate.Enabled = true;
+                dgvFlightBooking.Enabled = true;
+            }
         }
     }
 }

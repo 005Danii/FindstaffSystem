@@ -39,16 +39,17 @@ namespace Findstaff
             connection = con.dbConnection();
             connection.Open();
 
-            cmd = "select e.employername from employer_t e join jobfees_t jf on e.employer_id = jf.employer_id where jorder_id = '" + dgvJobFees.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            cmd = "select jf.jorder_id, e.employername from employer_t e join jobfees_t jf on e.employer_id = jf.employer_id where e.employername = '" + dgvJobFees.SelectedRows[0].Cells[1].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())
             {
-                ucJobFeesAddEdit.txtEmployer2.Text = dr[0].ToString();
+                ucJobFeesAddEdit.txtJobOrder2.Text = dr[0].ToString();
+                ucJobFeesAddEdit.txtEmployer2.Text = dr[1].ToString();
             }
             dr.Close();
 
-            cmd = "select g.feename'Fee Name', jf.amount'Amount' from jobfees_t jf join genfees_t g on jf.fee_id = g.fee_id where jorder_id = '" + dgvJobFees.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            cmd = "select g.feename'Fee Name', jf.amount'Amount' from jobfees_t jf join genfees_t g on jf.fee_id = g.fee_id where jorder_id = '" + ucJobFeesAddEdit.txtJobOrder2.Text + "'";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -58,35 +59,7 @@ namespace Findstaff
                     ucJobFeesAddEdit.dgvFees2.DataSource = ds.Tables[0];
                 }
             }
-
-            string type = "";
-            cmd = "select jt.jobtype_id from jobtype_t jt join job_t j on jt.jobtype = j.jobtype_id "
-                + "join joborder_t jo on jo.job_id = j.job_id where jo.jorder_id = '" + dgvJobFees.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                type = dr[0].ToString();
-            }
-            dr.Close();
-
-            cmd = "Select feename from genfees_t where jobtype_id = '" + type + "';";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                ucJobFeesAddEdit.cbFees2.Items.Add(dr[0]);
-            }
-            dr.Close();
-
-            for(int x = 0; x < ucJobFeesAddEdit.dgvFees2.Rows.Count; x++)
-            {
-                if (ucJobFeesAddEdit.cbFees2.Items.Contains(ucJobFeesAddEdit.dgvFees2.Rows[x].Cells[0].Value.ToString()))
-                {
-                    ucJobFeesAddEdit.cbFees2.Items.Remove(ucJobFeesAddEdit.dgvFees2.Rows[x].Cells[0].Value.ToString());
-                }
-            }
-
+            connection.Close();
             ucJobFeesAddEdit.Dock = DockStyle.Fill;
             ucJobFeesAddEdit.Visible = true;
             ucJobFeesAddEdit.panel1.Visible = false;

@@ -35,15 +35,15 @@ namespace Findstaff
         {
             if (dgvJobs.Rows.Count != 0)
             {
-                string categ = dgvJobs.SelectedRows[0].Cells[2].Value.ToString(), type = dgvJobs.SelectedRows[0].Cells[3].Value.ToString();
+                string categ = dgvJobs.SelectedRows[0].Cells[2].Value.ToString(), type = dgvJobs.SelectedRows[0].Cells[3].Value.ToString(), job = dgvJobs.SelectedRows[0].Cells[1].Value.ToString();
                 ucJobsAddEdit.Dock = DockStyle.Fill;
                 ucJobsAddEdit.txtID.Text = dgvJobs.SelectedRows[0].Cells[0].Value.ToString();
-                ucJobsAddEdit.txtJobs2.Text = dgvJobs.SelectedRows[0].Cells[1].Value.ToString();
                 ucJobsAddEdit.Visible = true;
                 ucJobsAddEdit.panel1.Visible = false;
                 ucJobsAddEdit.panel2.Visible = true;
                 ucJobsAddEdit.cbCategory1.Text = categ;
                 ucJobsAddEdit.cbJobType2.Text = type;
+                ucJobsAddEdit.txtJobs2.Text = job;
             }
             else
             {

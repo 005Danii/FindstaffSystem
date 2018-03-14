@@ -56,6 +56,21 @@ namespace Findstaff
                     }
                 }
             }
+            else if(cbQuery.SelectedIndex == 2)
+            {
+                cmd = "Select distinct(c.countryname)'Country Name', Concat(c.symbol, ' ', Max(j.salary))'Salary', jo.jobname'Job Name' from country_t c join employer_t e on c.country_id = e.country_id "
+                    + "join joborder_t j on e.employer_id = j.employer_id join job_t jo on j.job_id = jo.job_id group by c.countryname limit 10;";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvQueries.DataSource = ds.Tables[0];
+                    }
+                }
+                
+            }
         }
     }
 }

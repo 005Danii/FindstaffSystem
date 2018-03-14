@@ -52,7 +52,7 @@ namespace Findstaff
                                 cID = dr[0].ToString();
                             }
                             dr.Close();
-                            cmd = "Insert into countryreqs_t (country_id, req_id) values ";
+                            cmd = "Insert into countryreqs_t (country_id, req_id, specdetails) values ";
                             for (int x = 0; x < dgvCountry.Rows.Count; x++)
                             {
                                 cmd2 = "select req_id from genreqs_t where reqname = '" + dgvCountry.Rows[x].Cells[0].Value.ToString() + "'";

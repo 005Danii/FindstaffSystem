@@ -53,8 +53,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.btnRemoveFee2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAmount2 = new System.Windows.Forms.TextBox();
@@ -384,8 +382,6 @@
             // panel2
             // 
             this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.btnRemoveFee2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtAmount2);
@@ -401,35 +397,10 @@
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1145, 0);
+            this.panel2.Location = new System.Drawing.Point(131, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 500);
+            this.panel2.Size = new System.Drawing.Size(1024, 500);
             this.panel2.TabIndex = 1;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.Black;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(743, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(254, 28);
-            this.comboBox1.TabIndex = 290;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(664, 78);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(78, 20);
-            this.label13.TabIndex = 289;
-            this.label13.Text = "Job Title:";
             // 
             // btnRemoveFee2
             // 
@@ -724,8 +695,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.ComboBox cbJobName1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown nudAmount1;
     }
 }

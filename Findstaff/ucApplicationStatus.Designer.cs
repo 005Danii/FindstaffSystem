@@ -35,10 +35,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnCreatePdf = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.lbl1 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.name = new System.Windows.Forms.Label();
             this.lblPreparedBy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
@@ -147,12 +147,13 @@
             this.btnCreatePdf.UseVisualStyleBackColor = false;
             this.btnCreatePdf.Click += new System.EventHandler(this.btnCreatePdf_Click);
             // 
-            // dateTimePicker1
+            // dtpFrom
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(501, 25);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 311;
+            this.dtpFrom.Location = new System.Drawing.Point(501, 25);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(200, 20);
+            this.dtpFrom.TabIndex = 311;
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // lbl1
             // 
@@ -178,12 +179,12 @@
             this.lbl2.TabIndex = 314;
             this.lbl2.Text = "To:";
             // 
-            // dateTimePicker2
+            // dtpTo
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(760, 26);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 313;
+            this.dtpTo.Location = new System.Drawing.Point(760, 26);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(200, 20);
+            this.dtpTo.TabIndex = 313;
             // 
             // name
             // 
@@ -217,9 +218,9 @@
             this.Controls.Add(this.lblPreparedBy);
             this.Controls.Add(this.name);
             this.Controls.Add(this.lbl2);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpTo);
             this.Controls.Add(this.lbl1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.btnCreatePdf);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.cbUnderDept);
@@ -241,10 +242,10 @@
         public System.Windows.Forms.DataGridView dgvReports;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnCreatePdf;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Label lblPreparedBy;
         public System.Windows.Forms.Label name;
     }

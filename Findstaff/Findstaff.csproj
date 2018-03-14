@@ -531,6 +531,12 @@
     <Compile Include="ucUtilities.Designer.cs">
       <DependentUpon>ucUtilities.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucViewFlight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucViewFlight.Designer.cs">
+      <DependentUpon>ucViewFlight.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fAdvSearch.resx">
       <DependentUpon>fAdvSearch.cs</DependentUpon>
     </EmbeddedResource>
@@ -757,6 +763,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucUtilities.resx">
       <DependentUpon>ucUtilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucViewFlight.resx">
+      <DependentUpon>ucViewFlight.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

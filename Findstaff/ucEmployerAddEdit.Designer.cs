@@ -47,7 +47,7 @@
             this.btnAddEmp = new System.Windows.Forms.Button();
             this.lblAddEmp = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMName2 = new System.Windows.Forms.TextBox();
             this.txtEmail2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtContact2 = new System.Windows.Forms.TextBox();
@@ -57,7 +57,7 @@
             this.btnCancel2 = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.cbCountry2 = new System.Windows.Forms.ComboBox();
-            this.txtPrincipal2 = new System.Windows.Forms.TextBox();
+            this.txtFName2 = new System.Windows.Forms.TextBox();
             this.txtEmp2 = new System.Windows.Forms.TextBox();
             this.txtEmpID = new System.Windows.Forms.TextBox();
             this.lblPrincipal2 = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@
             this.lblEmp2 = new System.Windows.Forms.Label();
             this.lblEmpID = new System.Windows.Forms.Label();
             this.lblEditEmp = new System.Windows.Forms.Label();
+            this.txtLName2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -308,7 +309,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txtLName2);
+            this.panel2.Controls.Add(this.txtMName2);
             this.panel2.Controls.Add(this.txtEmail2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtContact2);
@@ -318,7 +320,7 @@
             this.panel2.Controls.Add(this.btnCancel2);
             this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.cbCountry2);
-            this.panel2.Controls.Add(this.txtPrincipal2);
+            this.panel2.Controls.Add(this.txtFName2);
             this.panel2.Controls.Add(this.txtEmp2);
             this.panel2.Controls.Add(this.txtEmpID);
             this.panel2.Controls.Add(this.lblPrincipal2);
@@ -327,31 +329,31 @@
             this.panel2.Controls.Add(this.lblEmpID);
             this.panel2.Controls.Add(this.lblEditEmp);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1108, 0);
+            this.panel2.Location = new System.Drawing.Point(73, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 450);
+            this.panel2.Size = new System.Drawing.Size(1045, 450);
             this.panel2.TabIndex = 15;
             // 
-            // textBox2
+            // txtMName2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(630, 192);
-            this.textBox2.MaxLength = 30;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 26);
-            this.textBox2.TabIndex = 34;
+            this.txtMName2.BackColor = System.Drawing.Color.White;
+            this.txtMName2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMName2.ForeColor = System.Drawing.Color.Black;
+            this.txtMName2.Location = new System.Drawing.Point(551, 192);
+            this.txtMName2.MaxLength = 30;
+            this.txtMName2.Name = "txtMName2";
+            this.txtMName2.Size = new System.Drawing.Size(156, 26);
+            this.txtMName2.TabIndex = 34;
             // 
             // txtEmail2
             // 
-            this.txtEmail2.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtEmail2.BackColor = System.Drawing.Color.White;
             this.txtEmail2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail2.ForeColor = System.Drawing.Color.Black;
-            this.txtEmail2.Location = new System.Drawing.Point(469, 286);
+            this.txtEmail2.Location = new System.Drawing.Point(391, 286);
             this.txtEmail2.MaxLength = 30;
             this.txtEmail2.Name = "txtEmail2";
-            this.txtEmail2.Size = new System.Drawing.Size(317, 26);
+            this.txtEmail2.Size = new System.Drawing.Size(476, 26);
             this.txtEmail2.TabIndex = 33;
             // 
             // label4
@@ -360,7 +362,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(325, 289);
+            this.label4.Location = new System.Drawing.Point(247, 289);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(135, 19);
             this.label4.TabIndex = 32;
@@ -368,13 +370,13 @@
             // 
             // txtContact2
             // 
-            this.txtContact2.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtContact2.BackColor = System.Drawing.Color.White;
             this.txtContact2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContact2.ForeColor = System.Drawing.Color.Black;
-            this.txtContact2.Location = new System.Drawing.Point(469, 255);
+            this.txtContact2.Location = new System.Drawing.Point(391, 255);
             this.txtContact2.MaxLength = 30;
             this.txtContact2.Name = "txtContact2";
-            this.txtContact2.Size = new System.Drawing.Size(317, 26);
+            this.txtContact2.Size = new System.Drawing.Size(476, 26);
             this.txtContact2.TabIndex = 31;
             // 
             // label5
@@ -383,7 +385,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(371, 258);
+            this.label5.Location = new System.Drawing.Point(293, 258);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 19);
             this.label5.TabIndex = 30;
@@ -391,13 +393,13 @@
             // 
             // txtCompAddress2
             // 
-            this.txtCompAddress2.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtCompAddress2.BackColor = System.Drawing.Color.White;
             this.txtCompAddress2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCompAddress2.ForeColor = System.Drawing.Color.Black;
-            this.txtCompAddress2.Location = new System.Drawing.Point(469, 224);
+            this.txtCompAddress2.Location = new System.Drawing.Point(391, 224);
             this.txtCompAddress2.MaxLength = 30;
             this.txtCompAddress2.Name = "txtCompAddress2";
-            this.txtCompAddress2.Size = new System.Drawing.Size(317, 26);
+            this.txtCompAddress2.Size = new System.Drawing.Size(476, 26);
             this.txtCompAddress2.TabIndex = 29;
             // 
             // label6
@@ -406,7 +408,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(307, 227);
+            this.label6.Location = new System.Drawing.Point(229, 227);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(155, 19);
             this.label6.TabIndex = 28;
@@ -452,31 +454,31 @@
             this.cbCountry2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCountry2.ForeColor = System.Drawing.Color.Black;
             this.cbCountry2.FormattingEnabled = true;
-            this.cbCountry2.Location = new System.Drawing.Point(469, 160);
+            this.cbCountry2.Location = new System.Drawing.Point(391, 160);
             this.cbCountry2.Name = "cbCountry2";
-            this.cbCountry2.Size = new System.Drawing.Size(317, 27);
+            this.cbCountry2.Size = new System.Drawing.Size(476, 27);
             this.cbCountry2.TabIndex = 25;
             // 
-            // txtPrincipal2
+            // txtFName2
             // 
-            this.txtPrincipal2.BackColor = System.Drawing.Color.White;
-            this.txtPrincipal2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrincipal2.ForeColor = System.Drawing.Color.Black;
-            this.txtPrincipal2.Location = new System.Drawing.Point(469, 192);
-            this.txtPrincipal2.MaxLength = 30;
-            this.txtPrincipal2.Name = "txtPrincipal2";
-            this.txtPrincipal2.Size = new System.Drawing.Size(156, 26);
-            this.txtPrincipal2.TabIndex = 24;
+            this.txtFName2.BackColor = System.Drawing.Color.White;
+            this.txtFName2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFName2.ForeColor = System.Drawing.Color.Black;
+            this.txtFName2.Location = new System.Drawing.Point(391, 192);
+            this.txtFName2.MaxLength = 30;
+            this.txtFName2.Name = "txtFName2";
+            this.txtFName2.Size = new System.Drawing.Size(156, 26);
+            this.txtFName2.TabIndex = 24;
             // 
             // txtEmp2
             // 
             this.txtEmp2.BackColor = System.Drawing.Color.White;
             this.txtEmp2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmp2.ForeColor = System.Drawing.Color.Black;
-            this.txtEmp2.Location = new System.Drawing.Point(469, 128);
+            this.txtEmp2.Location = new System.Drawing.Point(391, 128);
             this.txtEmp2.MaxLength = 30;
             this.txtEmp2.Name = "txtEmp2";
-            this.txtEmp2.Size = new System.Drawing.Size(317, 26);
+            this.txtEmp2.Size = new System.Drawing.Size(476, 26);
             this.txtEmp2.TabIndex = 22;
             // 
             // txtEmpID
@@ -485,10 +487,10 @@
             this.txtEmpID.Enabled = false;
             this.txtEmpID.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmpID.ForeColor = System.Drawing.Color.Black;
-            this.txtEmpID.Location = new System.Drawing.Point(469, 96);
+            this.txtEmpID.Location = new System.Drawing.Point(391, 96);
             this.txtEmpID.MaxLength = 30;
             this.txtEmpID.Name = "txtEmpID";
-            this.txtEmpID.Size = new System.Drawing.Size(317, 26);
+            this.txtEmpID.Size = new System.Drawing.Size(476, 26);
             this.txtEmpID.TabIndex = 21;
             // 
             // lblPrincipal2
@@ -497,7 +499,7 @@
             this.lblPrincipal2.BackColor = System.Drawing.Color.Transparent;
             this.lblPrincipal2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrincipal2.ForeColor = System.Drawing.Color.Black;
-            this.lblPrincipal2.Location = new System.Drawing.Point(320, 195);
+            this.lblPrincipal2.Location = new System.Drawing.Point(242, 195);
             this.lblPrincipal2.Name = "lblPrincipal2";
             this.lblPrincipal2.Size = new System.Drawing.Size(147, 20);
             this.lblPrincipal2.TabIndex = 20;
@@ -509,7 +511,7 @@
             this.lblCountry2.BackColor = System.Drawing.Color.Transparent;
             this.lblCountry2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCountry2.ForeColor = System.Drawing.Color.Black;
-            this.lblCountry2.Location = new System.Drawing.Point(385, 163);
+            this.lblCountry2.Location = new System.Drawing.Point(307, 163);
             this.lblCountry2.Name = "lblCountry2";
             this.lblCountry2.Size = new System.Drawing.Size(79, 20);
             this.lblCountry2.TabIndex = 19;
@@ -521,7 +523,7 @@
             this.lblEmp2.BackColor = System.Drawing.Color.Transparent;
             this.lblEmp2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmp2.ForeColor = System.Drawing.Color.Black;
-            this.lblEmp2.Location = new System.Drawing.Point(373, 131);
+            this.lblEmp2.Location = new System.Drawing.Point(295, 131);
             this.lblEmp2.Name = "lblEmp2";
             this.lblEmp2.Size = new System.Drawing.Size(89, 20);
             this.lblEmp2.TabIndex = 18;
@@ -533,7 +535,7 @@
             this.lblEmpID.BackColor = System.Drawing.Color.Transparent;
             this.lblEmpID.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpID.ForeColor = System.Drawing.Color.Black;
-            this.lblEmpID.Location = new System.Drawing.Point(352, 99);
+            this.lblEmpID.Location = new System.Drawing.Point(274, 99);
             this.lblEmpID.Name = "lblEmpID";
             this.lblEmpID.Size = new System.Drawing.Size(112, 20);
             this.lblEmpID.TabIndex = 17;
@@ -550,6 +552,17 @@
             this.lblEditEmp.Size = new System.Drawing.Size(301, 28);
             this.lblEditEmp.TabIndex = 16;
             this.lblEditEmp.Text = "Edit Employer Contract";
+            // 
+            // txtLName2
+            // 
+            this.txtLName2.BackColor = System.Drawing.Color.White;
+            this.txtLName2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLName2.ForeColor = System.Drawing.Color.Black;
+            this.txtLName2.Location = new System.Drawing.Point(711, 192);
+            this.txtLName2.MaxLength = 30;
+            this.txtLName2.Name = "txtLName2";
+            this.txtLName2.Size = new System.Drawing.Size(156, 26);
+            this.txtLName2.TabIndex = 35;
             // 
             // ucEmployerAddEdit
             // 
@@ -583,16 +596,13 @@
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.ComboBox cbCountry2;
-        public System.Windows.Forms.TextBox txtPrincipal2;
+        public System.Windows.Forms.TextBox txtFName2;
         public System.Windows.Forms.TextBox txtEmp2;
         public System.Windows.Forms.TextBox txtEmpID;
-        private System.Windows.Forms.TextBox txtEmail2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtContact2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCompAddress2;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtMName2;
         private System.Windows.Forms.TextBox txtLName1;
         private System.Windows.Forms.TextBox txtMName1;
         private System.Windows.Forms.TextBox txtEmail1;
@@ -607,5 +617,9 @@
         private System.Windows.Forms.Label lblPrincipal1;
         private System.Windows.Forms.Label lblCountry1;
         private System.Windows.Forms.Label lblEmp1;
+        public System.Windows.Forms.TextBox txtLName2;
+        public System.Windows.Forms.TextBox txtEmail2;
+        public System.Windows.Forms.TextBox txtContact2;
+        public System.Windows.Forms.TextBox txtCompAddress2;
     }
 }

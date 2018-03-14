@@ -334,6 +334,13 @@ namespace Findstaff
                     cbSkills2.Items.Add(dr[0].ToString());
                 }
                 dr.Close();
+                for(int x = 0; x < dgvSkills2.Rows.Count; x++)
+                {
+                    if (cbSkills2.Items.Contains(dgvSkills2.Rows[x].Cells[0].Value.ToString()))
+                    {
+                        cbSkills2.Items.Remove(dgvSkills2.Rows[x].Cells[0].Value.ToString());
+                    }
+                }
                 connection.Close();
             }
             else
@@ -872,17 +879,30 @@ namespace Findstaff
 
         private void btnAddEduc2_Click(object sender, EventArgs e)
         {
-            if (txtSchoolName2.Text != "" && cbSchoolType2.Text != ""
-                && txtYearStarted2.Text != "" && txtYearEnded2.Text != "")
+            connection.Open();
+            if (txtSchoolName2.Text != "" || cbSchoolType2.Text != ""
+                || txtYearStarted2.Text != "" || txtYearEnded2.Text != "")
             {
-                dgvEducBack2.ColumnCount = 5;
-                dgvEducBack2.Rows.Add(txtSchoolName2.Text, cbSchoolType2.Text, txtYearStarted2.Text, txtYearEnded2.Text, txtDegree2.Text);
+                cmd = "insert into appschool_t values ('"+txtAppNo.Text+"','"+txtSchoolName2.Text+"','"+cbSchoolType2.Text+"','"+txtYearStarted2.Text+"','"+txtYearEnded2.Text+"','"+txtDegree2.Text+"')";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select schoolname'School Name', schooltype'School Type', yrstart'Year Started', yrend'Year Ended', degree'Degree' from appschool_t where APP_ID = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvEducBack2.DataSource = ds.Tables[0];
+                    }
+                }
                 txtSchoolName2.Clear();
                 cbSchoolType2.SelectedIndex = -1;
                 txtYearStarted2.Clear();
                 txtYearEnded2.Clear();
                 txtDegree2.Clear();
             }
+            connection.Close();
         }
 
         private void btnRemoveEduc2_Click(object sender, EventArgs e)

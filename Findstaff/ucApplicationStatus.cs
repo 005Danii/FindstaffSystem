@@ -138,17 +138,20 @@ namespace Findstaff
         private void btnCreatePdf_Click(object sender, EventArgs e)
         {
             #region PDF
-            Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Application Status Report.pdf", FileMode.OpenOrCreate));
-            //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Application Status Report.pdf", FileMode.Create));
-            doc.Open();
-            
-            doc = BindingData(doc);
+            if (dgvReports.Rows.Count != 0)
+            {
+                Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
+                //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Application Status Report.pdf", FileMode.OpenOrCreate));
+                PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Application Status Report.pdf", FileMode.Create));
+                doc.Open();
 
-            doc.Close();
-            System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Application Status Report.pdf");
-            //System.Diagnostics.Process.Start("C:\\Users\\ralmojuela\\Desktop\\Application Status Report.pdf");
-            MessageBox.Show("PDF Created Successfully!");
+                doc = BindingData(doc);
+
+                doc.Close();
+                //System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Application Status Report.pdf");
+                System.Diagnostics.Process.Start("C:\\Users\\ralmojuela\\Desktop\\Application Status Report.pdf");
+                MessageBox.Show("PDF Created Successfully!");
+            }
             #endregion PDF
         }
         #endregion Create
@@ -210,7 +213,7 @@ namespace Findstaff
             rowHeader7.Colspan = 1;
             tblMain.AddCell(rowHeader7);
             
-            Chunk header8 = new Chunk("(From "+dateTimePicker1.Text+" to "+dateTimePicker2.Text+") \n \n", arial);
+            Chunk header8 = new Chunk("(From "+dtpFrom.Text+" to "+dtpTo.Text+") \n \n", arial);
             PdfPCell rowHeader8 = new PdfPCell(new Phrase(header8));
             rowHeader8.Border = 0;
             rowHeader8.HorizontalAlignment = 1;
@@ -247,6 +250,11 @@ namespace Findstaff
 
             doc.Add(tblMain);
             return doc;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dtpTo.MinDate = dtpFrom.Value;
         }
 
         private void ucApplicationStatus_VisibleChanged(object sender, EventArgs e)

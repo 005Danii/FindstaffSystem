@@ -21,11 +21,30 @@ namespace Findstaff
         
         private void btnAssess_Click(object sender, EventArgs e)
         {
-            ucInIntAssess.application.Text = dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString();
-            ucInIntAssess.applicant.Text = dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString();
-            ucInIntAssess.appname.Text = dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString();
-            ucInIntAssess.Dock = DockStyle.Fill;
-            ucInIntAssess.Visible = true;
+            string date = "";
+            connection.Open();
+            cmd = "select concat(year(initinterviewdate),'-', month(initinterviewdate),'-', day(initinterviewdate)) from applications_t where app_no = '" + dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                date = dr[0].ToString();
+            }
+            dr.Close();
+
+            if (date == DateTime.Now.ToString("yyyy-MM-dd"))
+            {
+                ucInIntAssess.application.Text = dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString();
+                ucInIntAssess.applicant.Text = dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString();
+                ucInIntAssess.appname.Text = dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString();
+                ucInIntAssess.Dock = DockStyle.Fill;
+                ucInIntAssess.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " is not yet for interview today.", "Initial Interview Error");
+            }
+            connection.Close();
         }
 
         private void ucInIntAssess_VisibleChanged(object sender, EventArgs e)

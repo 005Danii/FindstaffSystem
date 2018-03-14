@@ -37,8 +37,8 @@ namespace Findstaff
         #region btnEdit_Click
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            string pos = dgvApplicant.SelectedRows[0].Cells[2].Value.ToString();
             ucAppAddEdit.txtAppNo.Text = dgvApplicant.SelectedRows[0].Cells[0].Value.ToString();
-            ucAppAddEdit.cbPosition2.Text = dgvApplicant.SelectedRows[0].Cells[2].Value.ToString();
 
             Connection con = new Connection();
             connection = con.dbConnection();
@@ -170,8 +170,9 @@ namespace Findstaff
             ucAppAddEdit.Visible = true;
             ucAppAddEdit.panel1.Visible = false;
             ucAppAddEdit.panel2.Visible = true;
+            ucAppAddEdit.cbPosition2.Text = pos;
         }
-#endregion
+        #endregion
 
         #region btnDelete_Click
         private void btnDelete_Click(object sender, EventArgs e)
@@ -325,6 +326,7 @@ namespace Findstaff
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvApplicant.DataSource = table;
+            connection.Close();
         }
 
         private void ucAppAddEdit_VisibleChanged(object sender, EventArgs e)

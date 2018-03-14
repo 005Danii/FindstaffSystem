@@ -39,14 +39,29 @@ namespace Findstaff
 
         private void btnEmpEdit_Click(object sender, EventArgs e)
         {
+            connection.Open();
+            string country = dgvEmployer.SelectedRows[0].Cells[3].Value.ToString();
             ucEmployerAddEdit.txtEmpID.Text = dgvEmployer.SelectedRows[0].Cells[0].Value.ToString();
             ucEmployerAddEdit.txtEmp2.Text = dgvEmployer.SelectedRows[0].Cells[1].Value.ToString();
-            ucEmployerAddEdit.txtPrincipal2.Text = dgvEmployer.SelectedRows[0].Cells[2].Value.ToString();
+            cmd = "select fname, mname, lname, companyadd, contact, email from employer_t where employer_id = '" + dgvEmployer.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                ucEmployerAddEdit.txtFName2.Text = dr[0].ToString();
+                ucEmployerAddEdit.txtMName2.Text = dr[1].ToString();
+                ucEmployerAddEdit.txtLName2.Text = dr[2].ToString();
+                ucEmployerAddEdit.txtCompAddress2.Text = dr[3].ToString();
+                ucEmployerAddEdit.txtContact2.Text = dr[4].ToString();
+                ucEmployerAddEdit.txtEmail2.Text = dr[5].ToString();
+            }
+            dr.Close();
+            connection.Close();
             ucEmployerAddEdit.Dock = DockStyle.Fill;
             ucEmployerAddEdit.Visible = true;
             ucEmployerAddEdit.panel1.Visible = false;
             ucEmployerAddEdit.panel2.Visible = true;
-            ucEmployerAddEdit.cbCountry2.Text = dgvEmployer.SelectedRows[0].Cells[3].Value.ToString();
+            ucEmployerAddEdit.cbCountry2.Text = country;
         }
 
         private void btnEmpDel_Click(object sender, EventArgs e)

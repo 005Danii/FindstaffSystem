@@ -90,18 +90,14 @@ namespace Findstaff
                     count = Convert.ToInt32(dr[0]);
                 }
                 dr.Close();
-                if(count != 0 && ctrJ == 0)
-                {
-                    MessageBox.Show("The job order has no fees tagged to it.\nInput in jobfees first.", "Move To Payment Error");
-                }
-                else if(ctrJ != 0 && count != 0)
+                if(count != 0)
                 {
                     cmd = "update app_t set appstatus = 'Payment' where app_id = '" + appID + "'";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
                     for (x = 0; x < ctrJ; x++)
                     {
-                        cmd = "insert into payables_t (app_no, app_id, fee_id, feestatus) values ('" + appNo+"','"+appID+"','"+feeIDJ[x]+"','Balance')";
+                        cmd = "insert into payables_t (app_no, app_id, fee_id, feestatus) values ('" + appNo + "','" + appID + "','" + feeIDJ[x] + "','Balance')";
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
                     }

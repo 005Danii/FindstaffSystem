@@ -2721,9 +2721,9 @@
             this.panel2.Controls.Add(this.label117);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(1145, 0);
+            this.panel2.Location = new System.Drawing.Point(280, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 500);
+            this.panel2.Size = new System.Drawing.Size(875, 500);
             this.panel2.TabIndex = 33;
             // 
             // cbPosition2

@@ -159,7 +159,7 @@ namespace Findstaff
             }
             dr.Close();
 
-            cmd = "select jorder_id, reqapp, salary, gender, heightreq, weightreq, CNTRCTSTART from joborder_t where jorder_id = '" + dgvJobList.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            cmd = "select jorder_id, reqapp, salary, gender, heightreq, weightreq, concat(monthname(cntrctstart), ' ', day(cntrctstart), ', ', year(cntrctstart)) from joborder_t where jorder_id = '" + dgvJobList.SelectedRows[0].Cells[0].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())

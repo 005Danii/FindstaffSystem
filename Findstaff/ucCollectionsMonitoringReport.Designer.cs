@@ -175,6 +175,7 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(200, 20);
             this.dtpFrom.TabIndex = 329;
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
             // 
             // ucCollectionsMonitoringReport
             // 

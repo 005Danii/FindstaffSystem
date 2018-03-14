@@ -142,17 +142,20 @@ namespace Findstaff
         private void btnCreatePdf_Click(object sender, EventArgs e)
         {
             #region PDF
-            Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
-            //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
-            doc.Open();
+            if(dgvReports.Rows.Count != 0)
+            {
+                Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
+                //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
+                PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
+                doc.Open();
 
-            doc = BindingData(doc);
+                doc = BindingData(doc);
 
-            doc.Close();
-            System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Collections Monitoring Report.pdf");
-            //System.Diagnostics.Process.Start("C:\\Users\\ralmojuela\\Desktop\\Collections Monitoring Report.pdf");
-            MessageBox.Show("PDF Created Successfully!");
+                doc.Close();
+                //System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Collections Monitoring Report.pdf");
+                System.Diagnostics.Process.Start("C:\\Users\\ralmojuela\\Desktop\\Collections Monitoring Report.pdf");
+                MessageBox.Show("PDF Created Successfully!");
+            }
             #endregion PDF
         }
         #endregion Create
@@ -252,6 +255,11 @@ namespace Findstaff
 
             doc.Add(tblMain);
             return doc;
+        }
+
+        private void dtpFrom_ValueChanged(object sender, EventArgs e)
+        {
+            dtpTo.MinDate = dtpFrom.Value;
         }
     }
 }

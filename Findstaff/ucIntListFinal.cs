@@ -43,11 +43,28 @@ namespace Findstaff
             }
             else
             {
-                ucFinInAssess.application.Text = dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString();
-                ucFinInAssess.applicant.Text = dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString();
-                ucFinInAssess.appname.Text = dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString();
-                ucFinInAssess.Dock = DockStyle.Fill;
-                ucFinInAssess.Visible = true;
+                string date = "";
+                connection.Open();
+                cmd = "select concat(year(finalinterviewdate),'-', month(finalinterviewdate),'-', day(finalinterviewdate)) from applications_t where app_no = '" + dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    date = dr[0].ToString();
+                }
+                dr.Close();
+                if(date == DateTime.Now.ToString("yyyy-MM-dd"))
+                {
+                    ucFinInAssess.application.Text = dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString();
+                    ucFinInAssess.applicant.Text = dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString();
+                    ucFinInAssess.appname.Text = dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString();
+                    ucFinInAssess.Dock = DockStyle.Fill;
+                    ucFinInAssess.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " is not yet for interview today.", "Initial Interview Error");
+                }
             }
         }
 

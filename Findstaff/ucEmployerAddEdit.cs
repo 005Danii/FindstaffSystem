@@ -99,31 +99,42 @@ namespace Findstaff
             }
             else
             {
-                DialogResult rs = MessageBox.Show("Are you sure you want to update the record with the following details?"
-                    + "\nEmployer ID: " + txtEmpID.Text + "\nNew Employer Name: " + txtEmp2.Text
-                    + "\nNew Foreign Principal: " + txtPrincipal2.Text + "\nNew Country: " + cbCountry2.Text, "Confirmation", MessageBoxButtons.YesNo);
-
-                if (rs == DialogResult.Yes)
+                cmd = "select count(employername) from employer_t where employername = '"+txtEmp2.Text+"'";
+                com = new MySqlCommand(cmd, connection);
+                int cnt = int.Parse(com.ExecuteScalar() + "");
+                if(cnt == 0)
                 {
-                    string countID = "";
-                    cmd = "select country_id from country_t where countryname = '" + cbCountry2.Text + "'";
-                    com = new MySqlCommand(cmd, connection);
-                    dr = com.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        countID = dr[0].ToString();
-                    }
-                    dr.Close();
+                    DialogResult rs = MessageBox.Show("Are you sure you want to update the record with the following details?"
+                    + "\nEmployer ID: " + txtEmpID.Text + "\nNew Employer Name: " + txtEmp2.Text
+                    + "\nNew Foreign Principal: " + txtLName2.Text + ", " + txtFName2.Text + " " + txtMName2.Text + "\nNew Country: " + cbCountry2.Text
+                    + "\nNew Company Address: " + txtCompAddress2.Text + "\nNew Contact: " + txtContact2.Text + "\nNew Email: " + txtEmail2.Text, "Confirmation", MessageBoxButtons.YesNo);
 
-                    cmd = "Update Employer_T set Employername = '" + txtEmp2.Text + "', Foreignprin = '" + txtPrincipal2.Text + "', Country_id = '" + countID + "', contact = '"+txtContact2.Text+"', email = '"+txtEmail2.Text+"', companyadd = '"+txtCompAddress2.Text+"' where Employer_id = '" + txtEmpID.Text + "';";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                    MessageBox.Show("Changes Saved!", "Updated Employer Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtEmpID.Clear();
-                    txtEmp2.Clear();
-                    txtPrincipal2.Clear();
-                    cbCountry2.SelectedIndex = -1;
-                    this.Hide();
+                    if (rs == DialogResult.Yes)
+                    {
+                        string countID = "";
+                        cmd = "select country_id from country_t where countryname = '" + cbCountry2.Text + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        dr = com.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            countID = dr[0].ToString();
+                        }
+                        dr.Close();
+
+                        cmd = "Update Employer_T set Employername = '" + txtEmp2.Text + "', fname = '" + txtFName2.Text + "',mname = '" + txtMName2.Text + "', lname = '" + txtLName2.Text + "',  Country_id = '" + countID + "', contact = '" + txtContact2.Text + "', email = '" + txtEmail2.Text + "', companyadd = '" + txtCompAddress2.Text + "' where Employer_id = '" + txtEmpID.Text + "';";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Changes Saved!", "Updated Employer Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtEmpID.Clear();
+                        txtEmp2.Clear();
+                        txtFName2.Clear();
+                        cbCountry2.SelectedIndex = -1;
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Employer already exists.", "Update Employer Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 }
             }
             connection.Close();

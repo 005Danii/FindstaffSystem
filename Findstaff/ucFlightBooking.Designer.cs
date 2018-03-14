@@ -28,16 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTabs = new System.Windows.Forms.Panel();
             this.btnReschedule = new System.Windows.Forms.Button();
             this.btnBookFlight = new System.Windows.Forms.Button();
             this.dgvFlightBooking = new System.Windows.Forms.DataGridView();
             this.lblFlightBooking = new System.Windows.Forms.Label();
             this.btnViewDetails = new System.Windows.Forms.Button();
-            this.ucReschedFlight = new Findstaff.ucReschedFlight();
-            this.ucBookFlight = new Findstaff.ucBookFlight();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDeployed = new System.Windows.Forms.Button();
@@ -45,6 +43,9 @@
             this.btnOnFlight = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblCountry = new Findstaff.lblCountry();
+            this.ucReschedFlight = new Findstaff.ucReschedFlight();
+            this.ucBookFlight = new Findstaff.ucBookFlight();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlightBooking)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,23 +104,23 @@
             this.dgvFlightBooking.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFlightBooking.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvFlightBooking.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFlightBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFlightBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFlightBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFlightBooking.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFlightBooking.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFlightBooking.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvFlightBooking.Location = new System.Drawing.Point(47, 155);
             this.dgvFlightBooking.MultiSelect = false;
@@ -161,24 +162,6 @@
             this.btnViewDetails.UseVisualStyleBackColor = false;
             this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
-            // ucReschedFlight
-            // 
-            this.ucReschedFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucReschedFlight.Location = new System.Drawing.Point(26, 56);
-            this.ucReschedFlight.Name = "ucReschedFlight";
-            this.ucReschedFlight.Size = new System.Drawing.Size(10, 10);
-            this.ucReschedFlight.TabIndex = 68;
-            this.ucReschedFlight.VisibleChanged += new System.EventHandler(this.ucReschedFlight_VisibleChanged);
-            // 
-            // ucBookFlight
-            // 
-            this.ucBookFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucBookFlight.Location = new System.Drawing.Point(6, 56);
-            this.ucBookFlight.Name = "ucBookFlight";
-            this.ucBookFlight.Size = new System.Drawing.Size(10, 10);
-            this.ucBookFlight.TabIndex = 67;
-            this.ucBookFlight.VisibleChanged += new System.EventHandler(this.ucBookFlight_VisibleChanged);
-            // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.White;
@@ -210,6 +193,7 @@
             this.panel1.Size = new System.Drawing.Size(346, 282);
             this.panel1.TabIndex = 72;
             this.panel1.Visible = false;
+            this.panel1.VisibleChanged += new System.EventHandler(this.panel1_VisibleChanged_1);
             // 
             // btnDeployed
             // 
@@ -295,11 +279,38 @@
             this.label1.TabIndex = 64;
             this.label1.Text = "Update Status";
             // 
+            // lblCountry
+            // 
+            this.lblCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.lblCountry.Location = new System.Drawing.Point(76, 56);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(10, 10);
+            this.lblCountry.TabIndex = 73;
+            // 
+            // ucReschedFlight
+            // 
+            this.ucReschedFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucReschedFlight.Location = new System.Drawing.Point(26, 56);
+            this.ucReschedFlight.Name = "ucReschedFlight";
+            this.ucReschedFlight.Size = new System.Drawing.Size(10, 10);
+            this.ucReschedFlight.TabIndex = 68;
+            this.ucReschedFlight.VisibleChanged += new System.EventHandler(this.ucReschedFlight_VisibleChanged);
+            // 
+            // ucBookFlight
+            // 
+            this.ucBookFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucBookFlight.Location = new System.Drawing.Point(6, 56);
+            this.ucBookFlight.Name = "ucBookFlight";
+            this.ucBookFlight.Size = new System.Drawing.Size(10, 10);
+            this.ucBookFlight.TabIndex = 67;
+            this.ucBookFlight.VisibleChanged += new System.EventHandler(this.ucBookFlight_VisibleChanged);
+            // 
             // ucFlightBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.Controls.Add(this.lblCountry);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucReschedFlight);
             this.Controls.Add(this.ucBookFlight);
@@ -339,5 +350,6 @@
         private System.Windows.Forms.Button btnOnFlight;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
+        private lblCountry lblCountry;
     }
 }

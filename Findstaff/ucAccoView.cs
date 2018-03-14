@@ -89,7 +89,7 @@ namespace Findstaff
                 }
                 if (payID != "")
                 {
-                    cmd = "insert into receipts_t values ('" + payID + "','" + appID + "','" + Convert.ToDecimal(lblBalance.Text) + "','" + (Convert.ToDecimal(nudAmount.Text) - Convert.ToDecimal(lblBalance.Text)) + "',current_date(),'" + Convert.ToDecimal(nudAmount.Text) + "')";
+                    cmd = "insert into receipts_t values ('" + payID + "','" + appID + "','" + Convert.ToDecimal(lblBalance.Text) + "','" + Convert.ToDecimal(nudAmount.Text) + "','" + (Convert.ToDecimal(nudAmount.Text) - Convert.ToDecimal(lblBalance.Text)) + "',current_date())";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
                     MessageBox.Show("Total Amount Paid: P" + lblBalance.Text + "\nPayment: P" + nudAmount.Text + "\nChange: P" + (Convert.ToDecimal(nudAmount.Text) - Convert.ToDecimal(lblBalance.Text)), "Payment Info");
