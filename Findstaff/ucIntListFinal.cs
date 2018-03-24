@@ -43,17 +43,13 @@ namespace Findstaff
             }
             else
             {
-                string date = "";
+                int ctr = 0;
                 connection.Open();
-                cmd = "select concat(year(finalinterviewdate),'-', month(finalinterviewdate),'-', day(finalinterviewdate)) from applications_t where app_no = '" + dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                cmd = "Select count(*) from applications_t where app_no = '" + dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString() + "' and (finalinterviewdate < current_date() or finalinterviewdate = current_date())";
                 com = new MySqlCommand(cmd, connection);
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    date = dr[0].ToString();
-                }
-                dr.Close();
-                if(date == DateTime.Now.ToString("yyyy-MM-dd"))
+                ctr = int.Parse(com.ExecuteScalar() + "");
+
+                if (ctr == 1)
                 {
                     ucFinInAssess.application.Text = dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString();
                     ucFinInAssess.applicant.Text = dgvIntervieweeList.SelectedRows[0].Cells[1].Value.ToString();
