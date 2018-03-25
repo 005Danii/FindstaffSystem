@@ -123,7 +123,7 @@ namespace Findstaff
                             sID = dr[0].ToString();
                         }
                         dr.Close();
-                        cmd += "('" + cID + "','" + sID + "','" + dgvSkills.Rows[x].Cells[1].Value.ToString() + "')";
+                        cmd += "('" + cID + "','" + sID + "','" + dgvSkills.Rows[x].Cells[1].Value.ToString().Substring(0,1) + "')";
                         if (x != dgvSkills.Rows.Count - 1)
                         {
                             cmd += ",";
@@ -214,6 +214,7 @@ namespace Findstaff
             cbMonth.SelectedIndex = -1;
             cbDay.SelectedIndex = -1;
             cbYear.SelectedIndex = -1;
+            txtAge.Clear();
             dgvChildren.Rows.Clear();
             dgvContactPersons.Rows.Clear();
             dgvEducBack.Rows.Clear();
@@ -407,6 +408,14 @@ namespace Findstaff
                 {
                     cbDay.Items.Add(x);
                 }
+            }
+        }
+
+        private void cbYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbYear.Text != "")
+            {
+                txtAge.Text = (DateTime.Now.Year - Convert.ToInt32(cbYear.Text)).ToString();
             }
         }
 
@@ -905,19 +914,45 @@ namespace Findstaff
 
         private void btnRemoveEduc2_Click(object sender, EventArgs e)
         {
+            connection.Open();
             if (dgvEducBack2.Rows.Count != 0)
             {
-                dgvEducBack2.Rows.Remove(dgvEducBack2.SelectedRows[0]);
+                cmd = "delete from appschool_t where app_id = '" + txtAppNo.Text + "' and Schoolname = '" + dgvEducBack2.SelectedRows[0].Cells[0].Value.ToString() + "' and schooltype = '"+ dgvEducBack2.SelectedRows[0].Cells[1].Value.ToString() + "'";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select schoolname'School Name', schooltype'School Type', yrstart'Year Started', yrend'Year Ended', degree'Degree' from appschool_t where APP_ID = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvEducBack2.DataSource = ds.Tables[0];
+                    }
+                }
             }
+            connection.Close();
         }
 
         private void btnAddEmpHistory2_Click(object sender, EventArgs e)
         {
+            connection.Open();
             if (txtEmp2.Text != "" && txtEmpAdd2.Text != "" && txtPos2.Text != "" && cbMonthStart2.Text != "" && cbYearStart2.Text != "" &&
                 cbMonthEnd2.Text != "" && cbYearEnd2.Text != "")
             {
-                dgvEmpHistory2.ColumnCount = 7;
-                dgvEmpHistory2.Rows.Add(txtEmp2.Text, txtEmpAdd2.Text, txtPos2.Text, cbMonthStart2.Text, cbYearStart2.Text, cbMonthEnd2.Text, cbYearEnd2.Text);
+                cmd = "insert into appworkex_t values ('" + txtAppNo.Text + "','" + txtEmp2.Text + "','" + txtEmpAdd2.Text + "','" + txtPos2.Text + "','" + cbMonthStart2.Text + "','" + cbYearStart2.Text + "','" + cbMonthEnd2.Text + "','" + cbYearEnd2.Text + "')";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select company'Employer', companyadd'Address', position'Position', monthstart'Month Started', yearstart'Year Started', monthend'Month Ended', yearend'Year Ended' from appworkex_t where APP_ID = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvEmpHistory2.DataSource = ds.Tables[0];
+                    }
+                }
                 txtEmp2.Clear();
                 txtEmpAdd2.Clear();
                 txtPos2.Clear();
@@ -926,22 +961,57 @@ namespace Findstaff
                 cbMonthEnd2.SelectedIndex = -1;
                 cbYearEnd2.SelectedIndex = -1;
             }
+            connection.Close();
         }
 
         private void btnRemoveEmpHistory2_Click(object sender, EventArgs e)
         {
+            connection.Open();
             if (dgvEmpHistory2.Rows.Count != 0)
             {
-                dgvEmpHistory2.Rows.Remove(dgvEmpHistory.SelectedRows[0]);
+                cmd = "delete from appworkex_t where app_id = '"+txtAppNo.Text+"' and company = '"+dgvEmpHistory2.SelectedRows[0].Cells[0].Value.ToString()+"' and position = '"+ dgvEmpHistory2.SelectedRows[0].Cells[2].Value.ToString() + "'";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select company'Employer', companyadd'Address', position'Position', monthstart'Month Started', yearstart'Year Started', monthend'Month Ended', yearend'Year Ended' from appworkex_t where APP_ID = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvEmpHistory2.DataSource = ds.Tables[0];
+                    }
+                }
             }
+            connection.Close();
         }
 
         private void btnAddSkills2_Click(object sender, EventArgs e)
         {
             if (cbSkills2.SelectedIndex != -1 && cbProficiency2.SelectedIndex != -1)
             {
-                dgvSkills2.ColumnCount = 2;
-                dgvSkills2.Rows.Add(cbSkills2.Text, cbProficiency2.Text);
+                string skill_id = "";
+                cmd = "select skill_id from genskills_t where skillname = '" + cbSkills2.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    skill_id = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "insert into appskills_t values ('"+txtAppNo.Text+"','"+cbSkills2.Text+"','"+cbProficiency2.Text+"')";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select g.skillname'Skill Name', a.proficiency'Proficiency' from appskills_t a join genskills_t g on a.skill_id = g.skill_id where app_id = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvSkills2.DataSource = ds.Tables[0];
+                    }
+                }
                 cbSkills2.Items.Remove(cbSkills2.Text);
                 cbSkills2.SelectedIndex = -1;
                 cbProficiency2.SelectedIndex = -1;
@@ -950,11 +1020,34 @@ namespace Findstaff
 
         private void btnRemoveSkills2_Click(object sender, EventArgs e)
         {
+            connection.Open();
             if (dgvSkills2.Rows.Count != 0)
             {
+                string skill_id = "";
+                cmd = "select skill_id from genskills_t where skillname = '" + dgvSkills2.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    skill_id = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "delete from appskills_t where app_id = '" + txtAppNo.Text + "' and skill_id = '" + skill_id + "'";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
                 cbSkills2.Items.Add(dgvSkills2.SelectedRows[0].Cells[0].Value.ToString());
-                dgvSkills2.Rows.Remove(dgvSkills2.SelectedRows[0]);
+                cmd = "select g.skillname'Skill Name', a.proficiency'Proficiency' from appskills_t a join genskills_t g on a.skill_id = g.skill_id where app_id = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvSkills2.DataSource = ds.Tables[0];
+                    }
+                }
             }
+            connection.Close();
         }
 
         private void btnAddChild2_Click(object sender, EventArgs e)
@@ -999,6 +1092,7 @@ namespace Findstaff
             }
         }
         #endregion Validations
-        
+
+
     }
 }

@@ -49,6 +49,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.dgvContactPersons = new System.Windows.Forms.DataGridView();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +64,8 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSkills = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -300,6 +304,8 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.txtAge);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.dgvContactPersons);
             this.panel1.Controls.Add(this.dgvChildren);
             this.panel1.Controls.Add(this.dgvEmpHistory);
@@ -410,6 +416,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(10, 500);
             this.panel1.TabIndex = 32;
+            // 
+            // txtAge
+            // 
+            this.txtAge.BackColor = System.Drawing.Color.White;
+            this.txtAge.Enabled = false;
+            this.txtAge.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAge.ForeColor = System.Drawing.Color.Black;
+            this.txtAge.Location = new System.Drawing.Point(565, 170);
+            this.txtAge.MaxLength = 30;
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(75, 27);
+            this.txtAge.TabIndex = 317;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(513, 173);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 20);
+            this.label6.TabIndex = 316;
+            this.label6.Text = "Age :";
             // 
             // dgvContactPersons
             // 
@@ -545,7 +574,9 @@
             this.Column9,
             this.Column10,
             this.Column11,
-            this.Column12});
+            this.Column12,
+            this.Column18,
+            this.Column19});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -579,21 +610,33 @@
             // 
             // Column10
             // 
-            this.Column10.HeaderText = "Date of Employment";
+            this.Column10.HeaderText = "Position";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             // 
             // Column11
             // 
-            this.Column11.HeaderText = "Date of Leave";
+            this.Column11.HeaderText = "Month of Employment";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
             // Column12
             // 
-            this.Column12.HeaderText = "Position";
+            this.Column12.HeaderText = "Year of Employment";
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "Month of Leave";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "Year of Leave";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
             // 
             // dgvSkills
             // 
@@ -1378,14 +1421,14 @@
             this.cbProficiency.ForeColor = System.Drawing.Color.Black;
             this.cbProficiency.FormattingEnabled = true;
             this.cbProficiency.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
+            "1 - Poor",
+            "2 - Fair",
+            "3 - Satisfactory",
+            "4 - Very Satisfactory",
+            "5 - Excellent"});
             this.cbProficiency.Location = new System.Drawing.Point(611, 685);
             this.cbProficiency.Name = "cbProficiency";
-            this.cbProficiency.Size = new System.Drawing.Size(184, 28);
+            this.cbProficiency.Size = new System.Drawing.Size(266, 28);
             this.cbProficiency.TabIndex = 267;
             // 
             // label23
@@ -1846,6 +1889,7 @@
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(100, 28);
             this.cbYear.TabIndex = 202;
+            this.cbYear.SelectedIndexChanged += new System.EventHandler(this.cbYear_SelectedIndexChanged);
             // 
             // cbDay
             // 
@@ -2721,9 +2765,9 @@
             this.panel2.Controls.Add(this.label117);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(280, 0);
+            this.panel2.Location = new System.Drawing.Point(1145, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(875, 500);
+            this.panel2.Size = new System.Drawing.Size(10, 500);
             this.panel2.TabIndex = 33;
             // 
             // cbPosition2
@@ -3894,7 +3938,7 @@
             "5"});
             this.cbProficiency2.Location = new System.Drawing.Point(599, 643);
             this.cbProficiency2.Name = "cbProficiency2";
-            this.cbProficiency2.Size = new System.Drawing.Size(184, 28);
+            this.cbProficiency2.Size = new System.Drawing.Size(251, 28);
             this.cbProficiency2.TabIndex = 282;
             // 
             // label39
@@ -4346,11 +4390,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -4358,5 +4397,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
     }
 }

@@ -1195,7 +1195,7 @@
             this.btnAddSkill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSkill.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSkill.ForeColor = System.Drawing.Color.Black;
-            this.btnAddSkill.Location = new System.Drawing.Point(735, 301);
+            this.btnAddSkill.Location = new System.Drawing.Point(819, 301);
             this.btnAddSkill.Name = "btnAddSkill";
             this.btnAddSkill.Size = new System.Drawing.Size(75, 30);
             this.btnAddSkill.TabIndex = 43;
@@ -1212,14 +1212,14 @@
             this.cbProf.ForeColor = System.Drawing.Color.Black;
             this.cbProf.FormattingEnabled = true;
             this.cbProf.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
+            "1 - Poor",
+            "2 - Fair",
+            "3 - Satisfactory",
+            "4 - Very Satisfactory",
+            "5 - Excellent"});
             this.cbProf.Location = new System.Drawing.Point(579, 304);
             this.cbProf.Name = "cbProf";
-            this.cbProf.Size = new System.Drawing.Size(150, 28);
+            this.cbProf.Size = new System.Drawing.Size(234, 28);
             this.cbProf.TabIndex = 42;
             // 
             // txtWeight

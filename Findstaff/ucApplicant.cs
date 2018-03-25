@@ -178,11 +178,27 @@ namespace Findstaff
         private void btnDelete_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string cmd = "delete from app_t where app_id = '" + dgvApplicant.SelectedRows[0].Cells[0].Value.ToString() + "';";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            dgvApplicant.Rows.Remove(dgvApplicant.SelectedRows[0]);
-            MessageBox.Show("Applicant Deleted!", "Applicant Record Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult r = MessageBox.Show("Are yu sure you want t archive applicant record?", "Archive Applicant Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(r == DialogResult.Yes)
+            {
+                cmd = "update app_t set appstatus = 'Archived' where app_id = '" + dgvApplicant.SelectedRows[0].Cells[0].Value.ToString() + "';";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                MessageBox.Show("Applicant Status Set to Archived!", "Applicant Status Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cmd = "select app.app_id'App ID', concat(app.lname, ', ', app.fname, ' ', app.mname)'Applicant Name', job.jobname'Applying for', App.appstatus'Status' "
+                    + "from app_t app join job_t job "
+                    + "on app.position = job.jobname "
+                    + "left join applications_t a on app.app_id = a.app_id ";
+                using (connection)
+                {
+                    using (adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvApplicant.DataSource = ds.Tables[0];
+                    }
+                }
+            }
             connection.Close();
         }
         #endregion

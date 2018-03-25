@@ -80,6 +80,7 @@ namespace Findstaff
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            int skillcnt = 0;
             dgvAppMatch.Rows.Clear();
             dgvAppMatch.ColumnCount = 3;
             dgvAppMatch.Columns[0].HeaderText = "Applicant ID";
@@ -127,6 +128,7 @@ namespace Findstaff
             com = new MySqlCommand(cmd, connection);
             y = int.Parse(com.ExecuteScalar() + "");
             string[,] jobskills = new string[y, 2];
+            skillcnt = y;
             int z = 0;
             cmd = "Select skill_id, proflevel from jobskills_t where jorder_id = '" + jorderid + "'";
             com = new MySqlCommand(cmd, connection);
@@ -209,11 +211,11 @@ namespace Findstaff
                                 }
                             }
                         }
-                        apps[x, 2] = ctr + ""; 
+                        apps[x, 2] = ctr + "";
+                        ctr = 0;
                     }
-                    ctr = 0;
                     decimal rate = 0;
-                    rate = (Convert.ToDecimal(apps[x, 2]) / z) * 100;
+                    rate = (Convert.ToDecimal(apps[x, 2]) / skillcnt) * 100;
                     dgvAppMatch.Rows.Add(apps[x, 0], apps[x, 1], rate);
                 }
                 dgvAppMatch.Sort(dgvAppMatch.Columns[2], ListSortDirection.Descending);
@@ -376,7 +378,7 @@ namespace Findstaff
                         {
                             if(skills[z,0] == jobskill[a,0])
                             {
-                                if(Convert.ToInt32(skills[z, 1]) > Convert.ToInt32(jobskill[a, 1]) || Convert.ToInt32(skills[z, 1]) == Convert.ToInt32(jobskill[a, 1]))
+                                if(Convert.ToInt32(skills[z, 1]) >= Convert.ToInt32(jobskill[a, 1]))
                                 {
                                     satisfactory++;
                                 }

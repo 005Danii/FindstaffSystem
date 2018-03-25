@@ -102,7 +102,7 @@ namespace Findstaff
                                 sID = dr[0].ToString();
                             }
                             dr.Close();
-                            cmd += "('" + joID + "','" + empID + "','" + catID + "','" + jobID + "','" + sID + "','" + dgvSkills1.Rows[x].Cells[1].Value.ToString() + "')";
+                            cmd += "('" + joID + "','" + empID + "','" + catID + "','" + jobID + "','" + sID + "','" + dgvSkills1.Rows[x].Cells[1].Value.ToString().Substring(0,1) + "')";
                             if (x < dgvSkills1.Rows.Count - 1)
                             {
                                 cmd += ",";
