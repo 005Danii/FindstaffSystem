@@ -149,9 +149,11 @@
             // 
             // dtpFrom
             // 
-            this.dtpFrom.Location = new System.Drawing.Point(501, 25);
+            this.dtpFrom.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(501, 21);
             this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(200, 20);
+            this.dtpFrom.Size = new System.Drawing.Size(200, 27);
             this.dtpFrom.TabIndex = 311;
             this.dtpFrom.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -181,9 +183,11 @@
             // 
             // dtpTo
             // 
-            this.dtpTo.Location = new System.Drawing.Point(760, 26);
+            this.dtpTo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(760, 21);
             this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(200, 20);
+            this.dtpTo.Size = new System.Drawing.Size(200, 27);
             this.dtpTo.TabIndex = 313;
             // 
             // name

@@ -36,7 +36,6 @@ namespace Findstaff
         #region Load
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            dgvReports.Rows.Clear();
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
@@ -45,7 +44,7 @@ namespace Findstaff
             {
                 cmd = "select app_id'Applicant ID', Concat(fname, ' ', mname, ' ', lname)'Name', position'Position', appstatus'Status' from app_t " +
                             
-                            "where appstatus = 'For Selection'";
+                            "where appstatus = 'For Selection' and dateadded between('" + dtpFrom.Value.ToString("yyyy-MM-dd") + "','" + dtpTo.Value.ToString("yyyy-MM-dd") + "')";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -60,7 +59,7 @@ namespace Findstaff
             {
                 cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id " +
-                            "where a.appstatus = 'Selected' and ap.appstats = 'Active';";
+                            "where a.appstatus = 'Selected' and ap.appstats = 'Active' and dateadded between('" + dtpFrom.Value.ToString("yyyy-MM-dd") + "','" + dtpTo.Value.ToString("yyyy-MM-dd") + "');";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -75,7 +74,7 @@ namespace Findstaff
             {
                 cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id " +
-                            "where a.appstatus = 'Payment' and ap.appstats = 'Active';";
+                            "where a.appstatus in ('Payment','For Deployment', 'With Flight Schedule', 'Arrived') and ap.appstats = 'Active' and dateadded between('" + dtpFrom.Value.ToString("yyyy-MM-dd") + "','" + dtpTo.Value.ToString("yyyy-MM-dd") + "');";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -90,7 +89,7 @@ namespace Findstaff
             {
                 cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', a.appstatus'Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id " +
-                            "where a.appstatus = 'Deployed';";
+                            "where a.appstatus = 'Deployed' and dateadded between('" + dtpFrom.Value.ToString("yyyy-MM-dd") + "','" + dtpTo.Value.ToString("yyyy-MM-dd") + "');";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -105,7 +104,7 @@ namespace Findstaff
             {
                 cmd = "select a.app_id'Applicant ID', Concat(a.fname , ' ' , a.mname, ' ', a.lname )'Name', a.position'Position', ap.appstats'Application Status' from app_t a " +
                             "join applications_t ap on a.app_id = ap.app_id " +
-                            "where a.appstatus = 'Archived';";
+                            "where a.appstatus = 'Archived' and dateadded between('" + dtpFrom.Value.ToString("yyyy-MM-dd") + "','" + dtpTo.Value.ToString("yyyy-MM-dd") + "');";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -119,7 +118,7 @@ namespace Findstaff
             else if (cbUnderDept.SelectedIndex == 5)
             {
                 cmd = "select a.app_id'Applicant ID', Concat(a.fname, ' ', a.mname, ' ', a.lname)'Name', a.position'Position', a.appstatus'Status', ap.appstats'Application Status' from app_t a " +
-                            "join applications_t ap on a.app_id = ap.app_id;";
+                            "join applications_t ap on a.app_id = ap.app_id and dateadded between('" + dtpFrom.Value.ToString("yyyy-MM-dd") + "','" + dtpTo.Value.ToString("yyyy-MM-dd") + "');";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
