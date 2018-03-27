@@ -213,29 +213,33 @@ namespace Findstaff
                 while (dr.Read())
                 {
                     clbSkills1.Items.Add(dr[0].ToString());
-                    clbSkills2.Items.Add(dr[0].ToString());
+                    cbSkills2.Items.Add(dr[0].ToString());
                 }
                 dr.Close();
-                //foreach (string s in clbSkills2.Items)
-                //{
-                //    cmd = "select skill_id from genskills_t where skillname = '" + s + "'";
-                //    com = new MySqlCommand(cmd, connection);
-                //    dr = com.ExecuteReader();
-                //    while (dr.Read())
-                //    {
-                //        id = dr[0].ToString();
-                //    }
-                //    dr.Close();
-                //    cmd = "select count(job_id) from specskills_t where skill_id = '" + txtID.Text
-                //        + "' and job_id = '" + id + "'";
-                //    com = new MySqlCommand(cmd, connection);
-                //    int ctr = int.Parse(com.ExecuteScalar() + "");
-                //    if (ctr != 0)
-                //    {
-                //        clbSkills2.SetItemChecked(count, true);
-                //    }
-                //    count++;
-                //}
+                cmd = "select g.skillname from genskills_t g join specskills_t s on g.skill_id = s.skill_id where s.job_id = '"+txtID.Text+"'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    for (int x = 0; x < cbSkills2.Items.Count; x++)
+                    {
+                        if(cbSkills2.Items[x].ToString() == dr[0].ToString())
+                        {
+                            cbSkills2.Items.Remove(dr[0]);
+                        }
+                    }
+                }
+                dr.Close();
+                cmd = "select g.skillname'Skills' from genskills_t g join specskills_t s on g.skill_id = s.skill_id where s.job_id = '" + txtID.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvSkills2.DataSource = ds.Tables[0];
+                    }
+                }
                 connection.Close();
             }
             else
@@ -245,7 +249,7 @@ namespace Findstaff
                 cbJobType.Items.Clear();
                 cbJobType2.Items.Clear();
                 clbSkills1.Items.Clear();
-                clbSkills2.Items.Clear();
+                cbSkills2.Items.Clear();
             }
         }
 
@@ -262,6 +266,70 @@ namespace Findstaff
             if (!(new Regex(@"^[a-zA-Z ]*$").IsMatch(txtJobs2.Text)))
             {
                 txtJobs2.Text = "";
+            }
+        }
+
+        private void btnAddSkill2_Click(object sender, EventArgs e)
+        {
+            if(cbSkills2.Text != "")
+            {
+                connection.Open();
+                string skillID = "";
+                cmd = "select skill_id from genskills_t where skillname = '" + cbSkills2.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    skillID = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "insert into specskills_t values ('" + skillID + "','" + txtID.Text + "')";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select g.skillname'Skills' from genskills_t g join specskills_t s on g.skill_id = s.skill_id where s.job_id = '" + txtID.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvSkills2.DataSource = ds.Tables[0];
+                    }
+                }
+                cbSkills2.Items.Remove(cbSkills2.Text);
+                connection.Close();
+            }
+        }
+
+        private void btnRemoveSkill2_Click(object sender, EventArgs e)
+        {
+            if(dgvSkills2.Rows.Count != 0)
+            {
+                string skillID = "";
+                connection.Open();
+                cbSkills2.Items.Add(dgvSkills2.SelectedRows[0].Cells[0].Value.ToString());
+                cmd = "select skill_id from genskills_t where skillname = '" + dgvSkills2.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    skillID = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "delete from specskills_t where skill_id = '" + skillID + "' and job_id = '" + txtID.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select g.skillname'Skills' from genskills_t g join specskills_t s on g.skill_id = s.skill_id where s.job_id = '" + txtID.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvSkills2.DataSource = ds.Tables[0];
+                    }
+                }
+                connection.Close();
             }
         }
     }
