@@ -211,7 +211,6 @@ namespace Findstaff
             txtMiddleName.Clear();
             rbMale.Checked = false;
             rbFemale.Checked = false;
-            cbCivilStat.Items.Clear();
             cbMonth.SelectedIndex = -1;
             cbDay.SelectedIndex = -1;
             cbYear.SelectedIndex = -1;
