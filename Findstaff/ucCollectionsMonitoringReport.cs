@@ -144,16 +144,17 @@ namespace Findstaff
             #region PDF
             if(dgvReports.Rows.Count != 0)
             {
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Collections Monitoring Report.pdf";
                 Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
                 //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
-                PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Collections Monitoring Report.pdf", FileMode.Create));
+                PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
                 doc.Open();
 
                 doc = BindingData(doc);
 
                 doc.Close();
                 //System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Collections Monitoring Report.pdf");
-                System.Diagnostics.Process.Start("C:\\Users\\ralmojuela\\Desktop\\Collections Monitoring Report.pdf");
+                System.Diagnostics.Process.Start(path);
                 MessageBox.Show("PDF Created Successfully!");
             }
             #endregion PDF

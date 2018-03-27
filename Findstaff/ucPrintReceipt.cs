@@ -39,19 +39,20 @@ namespace Findstaff
         {
             Connection con = new Connection();
             connection = con.dbConnection();
-            
+
 
             #region PDF
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipt.pdf";
             Document doc = new Document(PageSize.A4, 30, 30, 50, 10);
             //PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Philippe\\Desktop\\Receipt.pdf", FileMode.Create));
-            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\ralmojuela\\Desktop\\Receipt.pdf", FileMode.Create));
+            PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
             doc.Open();
 
             doc = BindingData(doc);
 
             doc.Close();
             //System.Diagnostics.Process.Start("C:\\Users\\Philippe\\Desktop\\Receipt.pdf");
-            System.Diagnostics.Process.Start("C:\\Users\\ralmojuela\\Desktop\\Receipt.pdf");
+            System.Diagnostics.Process.Start(path);
             MessageBox.Show("PDF Created Successfully!");
             txtAmountWords.Clear();
             this.Hide();
