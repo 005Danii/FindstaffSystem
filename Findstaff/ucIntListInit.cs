@@ -26,7 +26,7 @@ namespace Findstaff
             cmd = "Select count(*) from applications_t where app_no = '"+ dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString() + "' and (initinterviewdate < current_date() or initinterviewdate = current_date())";
             com = new MySqlCommand(cmd, connection);
             ctr = int.Parse(com.ExecuteScalar() + "");
-
+            connection.Close();
             if (ctr == 1)
             {
                 ucInIntAssess.application.Text = dgvIntervieweeList.SelectedRows[0].Cells[0].Value.ToString();
@@ -39,7 +39,6 @@ namespace Findstaff
             {
                 MessageBox.Show("Applicant " + dgvIntervieweeList.SelectedRows[0].Cells[2].Value.ToString() + " is not yet for interview today.", "Initial Interview Error");
             }
-            connection.Close();
         }
 
         private void ucInIntAssess_VisibleChanged(object sender, EventArgs e)
