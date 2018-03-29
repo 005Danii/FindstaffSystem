@@ -40,11 +40,8 @@ namespace Findstaff
 
         private void btnEmpEdit_Click(object sender, EventArgs e)
         {
-            ucJobListAddEdit.lblJOrder.Text = dgvJobList.SelectedRows[0].Cells[0].Value.ToString();
-            ucJobListAddEdit.cbJobName2.Text = dgvJobList.SelectedRows[0].Cells[1].Value.ToString();
-            ucJobListAddEdit.cbEmployer2.Text = dgvJobList.SelectedRows[0].Cells[2].Value.ToString();
-            ucJobListAddEdit.nddEmployees2.Value = Convert.ToInt32(dgvJobList.SelectedRows[0].Cells[3].Value);
-
+            string joborder = dgvJobList.SelectedRows[0].Cells[0].Value.ToString(), jobName = dgvJobList.SelectedRows[0].Cells[1].Value.ToString(), employer = dgvJobList.SelectedRows[0].Cells[2].Value.ToString(), category = "";
+            
             Connection con = new Connection();
             connection = con.dbConnection();
             connection.Open();
@@ -66,30 +63,22 @@ namespace Findstaff
                 ucJobListAddEdit.txtSalary2.Text = dr[1].ToString();
                 ucJobListAddEdit.txtHeight2.Text = dr[2].ToString();
                 ucJobListAddEdit.txtWeight2.Text = dr[3].ToString();
-                if(ucJobListAddEdit.rbMale2.Text == dr[4].ToString())
+                if(ucJobListAddEdit.cbMale2.Text == dr[4].ToString())
                 {
-                    ucJobListAddEdit.rbMale2.Checked = true;
+                    ucJobListAddEdit.cbMale2.Checked = true;
                 }
-                else if (ucJobListAddEdit.rbFemale2.Text == dr[4].ToString())
+                else if (ucJobListAddEdit.cbFemale2.Text == dr[4].ToString())
                 {
-                    ucJobListAddEdit.rbFemale2.Checked = true;
+                    ucJobListAddEdit.cbFemale2.Checked = true;
                 }
-                else if (ucJobListAddEdit.rbAll2.Text == dr[4].ToString())
+                else
                 {
-                    ucJobListAddEdit.rbAll2.Checked = true;
+                    ucJobListAddEdit.cbMale2.Checked = true;
+                    ucJobListAddEdit.cbFemale2.Checked = true;
                 }
                 ucJobListAddEdit.cbMonth2.Text = dr[5].ToString();
                 ucJobListAddEdit.cbDay2.Text = dr[6].ToString();
                 ucJobListAddEdit.cbYear2.Text = dr[7].ToString();
-            }
-            dr.Close();
-
-            cmd = "select jobname from job_t where jobname <> '"+ dgvJobList.SelectedRows[0].Cells[1].Value.ToString() +"'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                ucJobListAddEdit.cbJobName2.Text = dr[0].ToString();
             }
             dr.Close();
 
@@ -98,36 +87,57 @@ namespace Findstaff
             dr = com.ExecuteReader();
             while (dr.Read())
             {
-                ucJobListAddEdit.cbCategory2.Text = dr[0].ToString();
+                category = dr[0].ToString();
+            }
+            dr.Close();
+            
+            cmd = "select g.skillname'Skill Name', js.proflevel'Proficiency Level' from jobskills_t js join genskills_t g on js.skill_id = g.skill_id where js.jorder_id = '" + dgvJobList.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                ucJobListAddEdit.dgvSkills2.Rows.Add(dr[0].ToString(), dr[1].ToString());
+            }
+            dr.Close();
+            
+            cmd = "select g.reqname'Requirement Name' from jobdocs_t j join genreqs_t g on j.req_id = g.req_id where j.jorder_id = '" + dgvJobList.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                ucJobListAddEdit.dgvReqDocs2.Rows.Add(dr[0].ToString());
             }
             dr.Close();
 
-            cmd = "select g.skillname'Skill Name', js.proflevel'Proficiency Level' from jobskills_t js join genskills_t g on js.skill_id = g.skill_id where js.jorder_id = '" + dgvJobList.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            using (connection)
+            cmd = "select country_id from employer_t where employername = '" + ucJobListAddEdit.cbEmployer2.Text + "'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    ucJobListAddEdit.dgvSkills2.DataSource = ds.Tables[0];
-                }
+                cmd = "select symbol from country_t where country_id = '" + dr[0].ToString() + "'";
             }
+            dr.Close();
+            string symbol = "";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                symbol = dr[0].ToString();
+            }
+            dr.Close();
+            ucJobListAddEdit.txtSalaryCur2.Text = symbol;
+            connection.Close();
 
-            cmd = "select g.reqname'Requirement Name' from jobdocs_t j join genreqs_t g on j.req_id = g.req_id where j.jorder_id = '" + dgvJobList.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            using (connection)
-            {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    ucJobListAddEdit.dgvReqDocs2.DataSource = ds.Tables[0];
-                }
-            }
 
             ucJobListAddEdit.Dock = DockStyle.Fill;
             ucJobListAddEdit.Visible = true;
             ucJobListAddEdit.panel1.Visible = false;
             ucJobListAddEdit.panel2.Visible = true;
+
+            ucJobListAddEdit.lblJOrder.Text = joborder;
+            ucJobListAddEdit.cbJobName2.Text = jobName;
+            ucJobListAddEdit.cbEmployer2.Text = employer;
+            ucJobListAddEdit.cbCategory2.Text = category;
         }
 
         private void btnEmpDel_Click(object sender, EventArgs e)

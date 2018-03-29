@@ -368,27 +368,6 @@ namespace Findstaff
                 e.Handled = true;
             }
         }
-        
-        private void rbMale2_Click(object sender, EventArgs e)
-        {
-            rbMale2.Checked = true;
-            rbFemale2.Checked = false;
-            rbAll2.Checked = false;
-        }
-
-        private void rbFemale2_Click(object sender, EventArgs e)
-        {
-            rbMale2.Checked = false;
-            rbFemale2.Checked = true;
-            rbAll2.Checked = false;
-        }
-
-        private void rbAll2_Click(object sender, EventArgs e)
-        {
-            rbMale2.Checked = false;
-            rbFemale2.Checked = false;
-            rbAll2.Checked = true;
-        }
 
         private void cbMonth2_SelectedIndexChanged(object sender, EventArgs e)
         {

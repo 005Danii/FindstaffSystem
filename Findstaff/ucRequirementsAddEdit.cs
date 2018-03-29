@@ -16,6 +16,8 @@ namespace Findstaff
 
         private MySqlConnection connection;
         MySqlCommand com = new MySqlCommand();
+        MySqlDataReader dr;
+        private string cmd = "";
 
         public ucRequirementsAddEdit()
         {
@@ -37,7 +39,7 @@ namespace Findstaff
                 {
                     if (cbDesignation.SelectedIndex != -1)
                     {
-                        string cmd = "Insert into Genreqs_t (reqname, allocation, Description) values ('" + txtRequirement.Text + "','" + cbDesignation.Text + "', '"+rtbDesc1.Text+"')";
+                        cmd = "Insert into Genreqs_t (reqname, allocation, Description) values ('" + txtRequirement.Text + "','" + cbDesignation.Text + "', '"+rtbDesc1.Text+"')";
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
                         MessageBox.Show("Requirement Record Added!", "Added!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -74,14 +76,22 @@ namespace Findstaff
         private void btnSave_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string cmd = "";
             if (txtRequirement2.Text == "")
             {
                 MessageBox.Show("Requirement name must not be empty.", "Empty Requirement Name Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                cmd = "select count(reqname) from genreqs_t where reqname = '" + txtRequirement2.Text + "'";
+                string allocation = "";
+                cmd = "select allocation from genreqs_t where req_id = '" + txtRequirementID.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    allocation = dr[0].ToString();
+                }
+                dr.Close();
+                cmd = "select count(reqname) from genreqs_t where reqname = '" + txtRequirement2.Text + "' and description = '"+rtbDesc2.Text+"' and allocation = '"+allocation+"'";
                 com = new MySqlCommand(cmd, connection);
                 int ctr = int.Parse(com.ExecuteScalar()+"");
                 if(ctr == 0)
