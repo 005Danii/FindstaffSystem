@@ -152,18 +152,12 @@ namespace Findstaff
                     com.ExecuteNonQuery();
                 }
 
-                if (txtCityAddress.Text != "")
-                {
-                    cmd = "Insert into appaddress_t (app_id, addrss, addcat) values ('"+cID+"','"+txtCityAddress.Text+"','Current');";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                }
-                if (txtProvAdd.Text != "")
-                {
-                    cmd = "Insert into appaddress_t (app_id, addrss, addcat) values ('" + cID + "','" + txtProvAdd.Text + "','Provincial');";
-                    com = new MySqlCommand(cmd, connection);
-                    com.ExecuteNonQuery();
-                }
+                cmd = "Insert into appaddress_t (app_id, addrss, addcat) values ('" + cID + "','" + txtCityAddress.Text + "','Current');";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "Insert into appaddress_t (app_id, addrss, addcat) values ('" + cID + "','" + txtProvAdd.Text + "','Provincial');";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
                 cmd = "Insert into apppersonal_t values ('"+cID+"','"+txtFather.Text+"','"+txtFAge.Text+"','"+txtFOccu.Text+"','"+ txtMother.Text+ "','"+txtMAge.Text+"','"+txtMOccu.Text+ "','" + txtSpouse.Text + "','" + txtSAge.Text + "','" + txtSOccu.Text + "');";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
@@ -276,7 +270,17 @@ namespace Findstaff
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
 
+                    cmd = "update appaddress_t set addrss = '" + txtCityAddress2.Text + "' where app_id = '" + txtAppNo.Text + "' and addcat = 'Current'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
 
+                    cmd = "update appaddress_t set addrss = '" + txtProvAdd2.Text + "' where app_id = '" + txtAppNo.Text + "' and addcat = 'Provincial'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+
+                    cmd = "update apppersonal_t set nameoffather = '"+txtFather2.Text+"', fage = '"+txtFAge2.Text+"', foccupation = '"+txtFOccu2.Text+"', nameofmother = '"+txtMother2.Text+"', mage = '"+txtMAge2.Text+"', moccupation = '"+txtMOccu2.Text+"', nameofspouse = '"+txtSpouse2.Text+"', sage = '"+txtSAge2.Text+"', soccupation = '"+txtSOccu2.Text+"' where app_id = '"+txtAppNo.Text+"'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
 
                     MessageBox.Show("Changes Saved!", "Updated Employee Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -294,6 +298,17 @@ namespace Findstaff
                     cbYear2.SelectedIndex = -1;
                     txtHeight2.Clear();
                     txtWeight2.Clear();
+                    txtCityAddress2.Clear();
+                    txtProvAdd2.Clear();
+                    txtFather2.Clear();
+                    txtFAge2.Clear();
+                    txtFOccu2.Clear();
+                    txtMother2.Clear();
+                    txtMAge2.Clear();
+                    txtMOccu2.Clear();
+                    txtSpouse2.Clear();
+                    txtSAge2.Clear();
+                    txtSOccu2.Clear();
 
                     this.Hide();
                 }
@@ -857,7 +872,7 @@ namespace Findstaff
 
         private void cbChildMonth2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbChildDay.Items.Clear();
+            cbChildDay2.Items.Clear();
             if (cbChildMonth2.SelectedIndex == 0 || cbChildMonth2.SelectedIndex == 2 || cbChildMonth2.SelectedIndex == 4 ||
                 cbChildMonth2.SelectedIndex == 6 || cbChildMonth2.SelectedIndex == 7 || cbChildMonth2.SelectedIndex == 9 ||
                 cbChildMonth2.SelectedIndex == 11)
@@ -1055,8 +1070,21 @@ namespace Findstaff
             if (txtChildName2.Text != "" && cbChildMonth2.Text != "" && cbChildDay2.Text != "" &&
                cbChildYear2.Text != "" && txtChildAge2.Text != "")
             {
-                dgvEmpHistory2.ColumnCount = 3;
-                dgvChildren2.Rows.Add(txtChildName2.Text, txtChildAge2.Text, cbChildYear2.Text + "-" + (cbChildMonth2.SelectedIndex + 1).ToString() + "-" + cbChildDay2.Text);
+                connection.Open();
+                cmd = "insert into appchildren_t values ('" + txtAppNo.Text + "','" + txtChildName2.Text + "','" + txtChildAge2.Text + "','" + cbChildYear2.Text + "-" + (cbChildMonth2.SelectedIndex - 1) + "-" + cbChildDay2.Text + "')";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select childname'Name', age'Age', birthdate'Birthdate' from appchildren_t where APP_ID = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvChildren2.DataSource = ds.Tables[0];
+                    }
+                }
+                connection.Close();
                 txtChildName2.Clear();
                 cbChildMonth2.SelectedIndex = -1;
                 cbChildDay2.SelectedIndex = -1;
@@ -1069,7 +1097,21 @@ namespace Findstaff
         {
             if (dgvChildren2.Rows.Count != 0)
             {
-                dgvChildren2.Rows.Remove(dgvChildren2.SelectedRows[0]);
+                connection.Open();
+                cmd = "delete from appchildren_t where app_id = '" + txtAppNo.Text + "' and childname = '"+dgvChildren2.SelectedRows[0].Cells[0].Value.ToString()+"'";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select childname'Name', age'Age', birthdate'Birthdate' from appchildren_t where APP_ID = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvChildren2.DataSource = ds.Tables[0];
+                    }
+                }
+                connection.Close();
             }
         }
 
@@ -1077,8 +1119,21 @@ namespace Findstaff
         {
             if (txtContactPerson2.Text != "" && txtContactNo2.Text != "")
             {
-                dgvContactPersons2.ColumnCount = 2;
-                dgvContactPersons2.Rows.Add(txtContactPerson2.Text, txtContactNo2.Text);
+                connection.Open();
+                cmd = "insert into appcontact_t values ('"+txtAppNo.Text+"','"+txtContactPerson2.Text+"','"+txtContactNo2.Text+"')";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select contactname'Contact Person', contactnum'Contact Number' from appcontact_t where APP_ID = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvContactPersons2.DataSource = ds.Tables[0];
+                    }
+                }
+                connection.Close();
                 txtContactPerson2.Clear();
                 txtContactNo2.Clear();
             }
@@ -1088,11 +1143,62 @@ namespace Findstaff
         {
             if (dgvContactPersons2.Rows.Count != 0)
             {
-                dgvContactPersons2.Rows.Remove(dgvContactPersons2.SelectedRows[0]);
+                connection.Open();
+                cmd = "delete from appcontact_t where app_id = '" + txtAppNo.Text + "' and contactname = '" + dgvContactPersons2.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                com = new MySqlCommand(cmd, connection);
+                com.ExecuteNonQuery();
+                cmd = "select contactname'Contact Person', contactnum'Contact Number' from appcontact_t where APP_ID = '" + txtAppNo.Text + "'";
+                using (connection)
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dgvContactPersons2.DataSource = ds.Tables[0];
+                    }
+                }
+                connection.Close();
+                connection.Close();
             }
         }
+        
+        private void cbChildYear2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtChildAge2.Text = (Convert.ToInt32(DateTime.Now.Year) - Convert.ToInt32(cbChildYear2.Text)).ToString();
+        }
+
+        private void txtPhoneNumber2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsSymbol(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtFAge2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsSymbol(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMAge2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsSymbol(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSAge2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsSymbol(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         #endregion Validations
-
-
     }
 }

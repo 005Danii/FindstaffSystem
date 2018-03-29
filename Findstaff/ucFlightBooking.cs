@@ -149,7 +149,14 @@ namespace Findstaff
                         ucReschedFlight.cbAirport.Items.Add(dr[0].ToString());
                     }
                     dr.Close();
-                    ucReschedFlight.txtDate.Text = dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString();
+                    cmd = "select concat(monthname(flightdate), ' ', day(flightdate), ', ', year(flightdate)) from flights_t where app_no = '" + dgvFlightBooking.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ucReschedFlight.txtDate.Text = dr[0].ToString();
+                    }
+                    dr.Close();
                     ucReschedFlight.init(dgvFlightBooking.SelectedRows[0].Cells[0].Value.ToString());
                     ucReschedFlight.Dock = DockStyle.Fill;
                     ucReschedFlight.Visible = true;
@@ -198,7 +205,7 @@ namespace Findstaff
                         lblCountry.employer.Text = dr[0].ToString();
                     }
                     dr.Close();
-                    cmd = "select c.countryname from country_t c join employer_t e on c.country_id = e.country_id where e.employername = '" + ucReschedFlight.employer.Text + "'";
+                    cmd = "select c.countryname from country_t c join employer_t e on c.country_id = e.country_id where e.employername = '" + lblCountry.employer.Text + "'";
                     com = new MySqlCommand(cmd, connection);
                     dr = com.ExecuteReader();
                     while (dr.Read())
@@ -290,7 +297,7 @@ namespace Findstaff
             {
                 if(dgvFlightBooking.SelectedRows[0].Cells[3].Value.ToString() != "For Deployment")
                 {
-                    if (Convert.ToDateTime(dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString()) == DateTime.Now || Convert.ToDateTime(dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString()) > DateTime.Now)
+                    if (Convert.ToDateTime(dgvFlightBooking.SelectedRows[0].Cells[4].Value.ToString()) <= DateTime.Now)
                     {
                         panel1.Visible = true;
                     }

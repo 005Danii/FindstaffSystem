@@ -3320,6 +3320,7 @@
             this.cbChildYear2.Name = "cbChildYear2";
             this.cbChildYear2.Size = new System.Drawing.Size(92, 28);
             this.cbChildYear2.TabIndex = 344;
+            this.cbChildYear2.SelectedIndexChanged += new System.EventHandler(this.cbChildYear2_SelectedIndexChanged);
             // 
             // cbChildDay2
             // 
@@ -3407,6 +3408,7 @@
             // txtChildAge2
             // 
             this.txtChildAge2.BackColor = System.Drawing.Color.White;
+            this.txtChildAge2.Enabled = false;
             this.txtChildAge2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChildAge2.ForeColor = System.Drawing.Color.Black;
             this.txtChildAge2.Location = new System.Drawing.Point(529, 1584);
@@ -3491,6 +3493,7 @@
             this.txtSAge2.Name = "txtSAge2";
             this.txtSAge2.Size = new System.Drawing.Size(54, 27);
             this.txtSAge2.TabIndex = 332;
+            this.txtSAge2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSAge2_KeyPress);
             // 
             // label61
             // 
@@ -3557,6 +3560,7 @@
             this.txtMAge2.Name = "txtMAge2";
             this.txtMAge2.Size = new System.Drawing.Size(54, 27);
             this.txtMAge2.TabIndex = 326;
+            this.txtMAge2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMAge2_KeyPress);
             // 
             // label64
             // 
@@ -3623,6 +3627,7 @@
             this.txtFAge2.Name = "txtFAge2";
             this.txtFAge2.Size = new System.Drawing.Size(54, 27);
             this.txtFAge2.TabIndex = 320;
+            this.txtFAge2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFAge2_KeyPress);
             // 
             // label67
             // 
@@ -3689,6 +3694,7 @@
             this.txtPhoneNumber2.Name = "txtPhoneNumber2";
             this.txtPhoneNumber2.Size = new System.Drawing.Size(220, 27);
             this.txtPhoneNumber2.TabIndex = 308;
+            this.txtPhoneNumber2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneNumber2_KeyPress);
             // 
             // label73
             // 

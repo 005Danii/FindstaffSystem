@@ -319,8 +319,8 @@
         private System.Windows.Forms.Label lblEmploymentDetails;
         private System.Windows.Forms.Label lblAppName;
         private System.Windows.Forms.Button btnCancel;
-        public System.Windows.Forms.Label lblCountryName;
         public System.Windows.Forms.Label lblAirport;
         public System.Windows.Forms.Label lblDate;
+        public System.Windows.Forms.Label lblCountryName;
     }
 }
