@@ -65,13 +65,14 @@
             this.rbBank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbBank.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbBank.ForeColor = System.Drawing.Color.White;
-            this.rbBank.Location = new System.Drawing.Point(106, 10);
+            this.rbBank.Location = new System.Drawing.Point(237, 10);
             this.rbBank.Name = "rbBank";
             this.rbBank.Size = new System.Drawing.Size(102, 40);
             this.rbBank.TabIndex = 47;
             this.rbBank.Text = "Bank";
             this.rbBank.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbBank.UseVisualStyleBackColor = false;
+            this.rbBank.Visible = false;
             this.rbBank.CheckedChanged += new System.EventHandler(this.rbBank_CheckedChanged);
             // 
             // rbAcceptedBanks
@@ -86,13 +87,14 @@
             this.rbAcceptedBanks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbAcceptedBanks.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbAcceptedBanks.ForeColor = System.Drawing.Color.White;
-            this.rbAcceptedBanks.Location = new System.Drawing.Point(214, 10);
+            this.rbAcceptedBanks.Location = new System.Drawing.Point(345, 10);
             this.rbAcceptedBanks.Name = "rbAcceptedBanks";
             this.rbAcceptedBanks.Size = new System.Drawing.Size(162, 40);
             this.rbAcceptedBanks.TabIndex = 46;
             this.rbAcceptedBanks.Text = "Accepted Banks";
             this.rbAcceptedBanks.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbAcceptedBanks.UseVisualStyleBackColor = false;
+            this.rbAcceptedBanks.Visible = false;
             this.rbAcceptedBanks.CheckedChanged += new System.EventHandler(this.rbAcceptedBanks_CheckedChanged);
             // 
             // rbGeneralRequirements
@@ -107,7 +109,7 @@
             this.rbGeneralRequirements.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbGeneralRequirements.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbGeneralRequirements.ForeColor = System.Drawing.Color.White;
-            this.rbGeneralRequirements.Location = new System.Drawing.Point(382, 10);
+            this.rbGeneralRequirements.Location = new System.Drawing.Point(106, 10);
             this.rbGeneralRequirements.Name = "rbGeneralRequirements";
             this.rbGeneralRequirements.Size = new System.Drawing.Size(122, 40);
             this.rbGeneralRequirements.TabIndex = 8;
@@ -141,7 +143,7 @@
             // 
             this.ucBanks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.ucBanks.ForeColor = System.Drawing.Color.Black;
-            this.ucBanks.Location = new System.Drawing.Point(108, 56);
+            this.ucBanks.Location = new System.Drawing.Point(239, 56);
             this.ucBanks.Name = "ucBanks";
             this.ucBanks.Size = new System.Drawing.Size(100, 100);
             this.ucBanks.TabIndex = 47;
@@ -151,7 +153,7 @@
             // 
             this.ucAcceptedBanks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.ucAcceptedBanks.ForeColor = System.Drawing.Color.Black;
-            this.ucAcceptedBanks.Location = new System.Drawing.Point(214, 56);
+            this.ucAcceptedBanks.Location = new System.Drawing.Point(345, 56);
             this.ucAcceptedBanks.Name = "ucAcceptedBanks";
             this.ucAcceptedBanks.Size = new System.Drawing.Size(100, 100);
             this.ucAcceptedBanks.TabIndex = 46;
@@ -159,7 +161,7 @@
             // ucGenReqs
             // 
             this.ucGenReqs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucGenReqs.Location = new System.Drawing.Point(382, 56);
+            this.ucGenReqs.Location = new System.Drawing.Point(106, 56);
             this.ucGenReqs.Name = "ucGenReqs";
             this.ucGenReqs.Size = new System.Drawing.Size(100, 100);
             this.ucGenReqs.TabIndex = 44;
