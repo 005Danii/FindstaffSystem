@@ -42,6 +42,13 @@
             this.rbRecruitment = new System.Windows.Forms.RadioButton();
             this.rbJobOrderManagement = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnX = new System.Windows.Forms.Button();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblCopyright = new System.Windows.Forms.Label();
             this.ucReports = new Findstaff.ucReports();
             this.ucAcco = new Findstaff.ucAcco();
             this.ucQueries = new Findstaff.ucQueries();
@@ -50,13 +57,6 @@
             this.ucMaintenance = new Findstaff.ucMaintenance();
             this.ucJobOrderManagement = new Findstaff.ucJobOrderManagement();
             this.ucFlightBooking = new Findstaff.ucFlightBooking();
-            this.btnX = new System.Windows.Forms.Button();
-            this.btnMinimize = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblCopyright = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -295,74 +295,6 @@
             this.panel2.Size = new System.Drawing.Size(1150, 548);
             this.panel2.TabIndex = 18;
             // 
-            // ucReports
-            // 
-            this.ucReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucReports.Location = new System.Drawing.Point(3, 352);
-            this.ucReports.Name = "ucReports";
-            this.ucReports.Size = new System.Drawing.Size(200, 50);
-            this.ucReports.TabIndex = 19;
-            // 
-            // ucAcco
-            // 
-            this.ucAcco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucAcco.ForeColor = System.Drawing.Color.Black;
-            this.ucAcco.Location = new System.Drawing.Point(3, 105);
-            this.ucAcco.Name = "ucAcco";
-            this.ucAcco.Size = new System.Drawing.Size(200, 50);
-            this.ucAcco.TabIndex = 17;
-            // 
-            // ucQueries
-            // 
-            this.ucQueries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucQueries.ForeColor = System.Drawing.Color.Black;
-            this.ucQueries.Location = new System.Drawing.Point(3, 301);
-            this.ucQueries.Name = "ucQueries";
-            this.ucQueries.Size = new System.Drawing.Size(200, 50);
-            this.ucQueries.TabIndex = 16;
-            // 
-            // ucUtilities
-            // 
-            this.ucUtilities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucUtilities.ForeColor = System.Drawing.Color.Black;
-            this.ucUtilities.Location = new System.Drawing.Point(3, 253);
-            this.ucUtilities.Name = "ucUtilities";
-            this.ucUtilities.Size = new System.Drawing.Size(200, 50);
-            this.ucUtilities.TabIndex = 15;
-            // 
-            // ucRecruitment
-            // 
-            this.ucRecruitment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucRecruitment.Location = new System.Drawing.Point(3, 55);
-            this.ucRecruitment.Name = "ucRecruitment";
-            this.ucRecruitment.Size = new System.Drawing.Size(200, 50);
-            this.ucRecruitment.TabIndex = 14;
-            // 
-            // ucMaintenance
-            // 
-            this.ucMaintenance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucMaintenance.Location = new System.Drawing.Point(3, 205);
-            this.ucMaintenance.Name = "ucMaintenance";
-            this.ucMaintenance.Size = new System.Drawing.Size(200, 50);
-            this.ucMaintenance.TabIndex = 13;
-            // 
-            // ucJobOrderManagement
-            // 
-            this.ucJobOrderManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucJobOrderManagement.Location = new System.Drawing.Point(3, 3);
-            this.ucJobOrderManagement.Name = "ucJobOrderManagement";
-            this.ucJobOrderManagement.Size = new System.Drawing.Size(200, 50);
-            this.ucJobOrderManagement.TabIndex = 8;
-            // 
-            // ucFlightBooking
-            // 
-            this.ucFlightBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ucFlightBooking.ForeColor = System.Drawing.Color.Black;
-            this.ucFlightBooking.Location = new System.Drawing.Point(3, 155);
-            this.ucFlightBooking.Name = "ucFlightBooking";
-            this.ucFlightBooking.Size = new System.Drawing.Size(200, 50);
-            this.ucFlightBooking.TabIndex = 18;
-            // 
             // btnX
             // 
             this.btnX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -456,6 +388,74 @@
     "on Technology";
             this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCopyright.Visible = false;
+            // 
+            // ucReports
+            // 
+            this.ucReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucReports.Location = new System.Drawing.Point(3, 352);
+            this.ucReports.Name = "ucReports";
+            this.ucReports.Size = new System.Drawing.Size(200, 50);
+            this.ucReports.TabIndex = 19;
+            // 
+            // ucAcco
+            // 
+            this.ucAcco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucAcco.ForeColor = System.Drawing.Color.Black;
+            this.ucAcco.Location = new System.Drawing.Point(3, 105);
+            this.ucAcco.Name = "ucAcco";
+            this.ucAcco.Size = new System.Drawing.Size(200, 50);
+            this.ucAcco.TabIndex = 17;
+            // 
+            // ucQueries
+            // 
+            this.ucQueries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucQueries.ForeColor = System.Drawing.Color.Black;
+            this.ucQueries.Location = new System.Drawing.Point(3, 301);
+            this.ucQueries.Name = "ucQueries";
+            this.ucQueries.Size = new System.Drawing.Size(200, 50);
+            this.ucQueries.TabIndex = 16;
+            // 
+            // ucUtilities
+            // 
+            this.ucUtilities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucUtilities.ForeColor = System.Drawing.Color.Black;
+            this.ucUtilities.Location = new System.Drawing.Point(3, 253);
+            this.ucUtilities.Name = "ucUtilities";
+            this.ucUtilities.Size = new System.Drawing.Size(200, 50);
+            this.ucUtilities.TabIndex = 15;
+            // 
+            // ucRecruitment
+            // 
+            this.ucRecruitment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucRecruitment.Location = new System.Drawing.Point(3, 55);
+            this.ucRecruitment.Name = "ucRecruitment";
+            this.ucRecruitment.Size = new System.Drawing.Size(200, 50);
+            this.ucRecruitment.TabIndex = 14;
+            // 
+            // ucMaintenance
+            // 
+            this.ucMaintenance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucMaintenance.Location = new System.Drawing.Point(3, 205);
+            this.ucMaintenance.Name = "ucMaintenance";
+            this.ucMaintenance.Size = new System.Drawing.Size(200, 50);
+            this.ucMaintenance.TabIndex = 13;
+            // 
+            // ucJobOrderManagement
+            // 
+            this.ucJobOrderManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucJobOrderManagement.Location = new System.Drawing.Point(3, 3);
+            this.ucJobOrderManagement.Name = "ucJobOrderManagement";
+            this.ucJobOrderManagement.Size = new System.Drawing.Size(200, 50);
+            this.ucJobOrderManagement.TabIndex = 8;
+            // 
+            // ucFlightBooking
+            // 
+            this.ucFlightBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ucFlightBooking.ForeColor = System.Drawing.Color.Black;
+            this.ucFlightBooking.Location = new System.Drawing.Point(3, 155);
+            this.ucFlightBooking.Name = "ucFlightBooking";
+            this.ucFlightBooking.Size = new System.Drawing.Size(200, 50);
+            this.ucFlightBooking.TabIndex = 18;
             // 
             // fMain
             // 
