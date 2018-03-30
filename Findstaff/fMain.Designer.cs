@@ -57,6 +57,7 @@
             this.ucMaintenance = new Findstaff.ucMaintenance();
             this.ucJobOrderManagement = new Findstaff.ucJobOrderManagement();
             this.ucFlightBooking = new Findstaff.ucFlightBooking();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -457,6 +458,21 @@
             this.ucFlightBooking.Size = new System.Drawing.Size(200, 50);
             this.ucFlightBooking.TabIndex = 18;
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.Location = new System.Drawing.Point(1298, -2);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(25, 25);
+            this.btnHelp.TabIndex = 28;
+            this.btnHelp.Text = "?";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,6 +481,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1367, 772);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTime);
@@ -475,6 +492,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDept);
             this.Controls.Add(this.lblName);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -515,5 +533,6 @@
         private ucFlightBooking ucFlightBooking;
         private ucReports ucReports;
         public System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
