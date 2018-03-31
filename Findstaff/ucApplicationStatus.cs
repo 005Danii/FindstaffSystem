@@ -44,7 +44,7 @@ namespace Findstaff
             {
                 cmd = "select app_id'Applicant ID', Concat(fname, ' ', mname, ' ', lname)'Name', position'Position', appstatus'Status' from app_t " +
                             
-                            "where appstatus = 'For Selection' and (a.dateadded between '" + dtpFrom.Value.ToString("yyyy-MM-dd") + "' and '" + dtpTo.Value.ToString("yyyy-MM-dd") + "')";
+                            "where appstatus = 'For Selection' and (dateadded between '" + dtpFrom.Value.ToString("yyyy-MM-dd") + "' and '" + dtpTo.Value.ToString("yyyy-MM-dd") + "')";
                 using (connection)
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))

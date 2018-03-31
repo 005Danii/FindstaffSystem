@@ -35,6 +35,7 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnX = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -133,6 +134,22 @@
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.Location = new System.Drawing.Point(431, 1);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(23, 21);
+            this.btnHelp.TabIndex = 4;
+            this.btnHelp.Text = "?";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            // 
             // Login
             // 
             this.AcceptButton = this.btnLogin;
@@ -142,6 +159,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(500, 300);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnX);
             this.Controls.Add(this.btnMinimize);
@@ -166,6 +184,7 @@
         public System.Windows.Forms.TextBox txtPassword;
         public System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
 
