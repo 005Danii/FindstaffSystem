@@ -200,6 +200,15 @@ namespace Findstaff
 
         private void btnCancel2_Click(object sender, EventArgs e)
         {
+            cbEmployer2.Items.Clear();
+            cbCategory2.Items.Clear();
+            cbJobName2.Items.Clear();
+            cbMale2.Checked = false;
+            cbFemale2.Checked = false;
+            dgvReqDocs2.Rows.Clear();
+            dgvSkills2.Rows.Clear();
+            cbSkillName2.Items.Clear();
+            cbReqName2.Items.Clear();
             this.Hide();
         }
 
@@ -240,7 +249,7 @@ namespace Findstaff
                     cbCategory2.Items.Add(dr[0]);
                 }
                 dr.Close();
-
+                
                 cmd = "Select skillname from genskills_t where skilltype = 'General'";
                 com = new MySqlCommand(cmd, connection);
                 dr = com.ExecuteReader();
@@ -366,33 +375,6 @@ namespace Findstaff
             if (Char.IsLetter(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
-            }
-        }
-
-        private void cbMonth2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbDay2.Items.Clear();
-            if(cbMonth2.SelectedIndex == 0 || cbMonth2.SelectedIndex == 2 || cbMonth2.SelectedIndex == 4 || cbMonth2.SelectedIndex == 6 ||
-                cbMonth2.SelectedIndex == 7 || cbMonth2.SelectedIndex == 9 || cbMonth2.SelectedIndex == 11)
-            {
-                for(int x = 1; x <= 31; x++)
-                {
-                    cbDay2.Items.Add(x);
-                }
-            }
-            else if (cbMonth2.SelectedIndex == 3 || cbMonth2.SelectedIndex == 5 || cbMonth2.SelectedIndex == 8)
-            {
-                for (int x = 1; x <= 30; x++)
-                {
-                    cbDay2.Items.Add(x);
-                }
-            }
-            else
-            {
-                for (int x = 1; x <= 28; x++)
-                {
-                    cbDay2.Items.Add(x);
-                }
             }
         }
 

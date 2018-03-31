@@ -70,6 +70,7 @@
             this.dgvContactPersons = new System.Windows.Forms.DataGridView();
             this.label129 = new System.Windows.Forms.Label();
             this.pnlButtons1 = new System.Windows.Forms.Panel();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.position = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
@@ -92,7 +93,6 @@
             this.spouseoccupation = new System.Windows.Forms.Label();
             this.appno = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEducBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkills)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpHistory)).BeginInit();
@@ -583,10 +583,29 @@
             this.pnlButtons1.Controls.Add(this.btnPrint);
             this.pnlButtons1.Controls.Add(this.btnClose);
             this.pnlButtons1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlButtons1.Location = new System.Drawing.Point(387, 1661);
+            this.pnlButtons1.Location = new System.Drawing.Point(435, 1661);
             this.pnlButtons1.Name = "pnlButtons1";
             this.pnlButtons1.Size = new System.Drawing.Size(213, 58);
             this.pnlButtons1.TabIndex = 309;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.White;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.Black;
+            this.btnPrint.Location = new System.Drawing.Point(3, 3);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(100, 38);
+            this.btnPrint.TabIndex = 58;
+            this.btnPrint.Text = "PRINT";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnClose
             // 
@@ -859,25 +878,6 @@
             this.label3.TabIndex = 332;
             this.label3.Text = "Applicant Number:";
             // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.White;
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnPrint.FlatAppearance.BorderSize = 0;
-            this.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.ForeColor = System.Drawing.Color.Black;
-            this.btnPrint.Location = new System.Drawing.Point(3, 3);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(100, 38);
-            this.btnPrint.TabIndex = 58;
-            this.btnPrint.Text = "PRINT";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // ucAppView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -938,7 +938,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblViewApp);
             this.Name = "ucAppView";
-            this.Size = new System.Drawing.Size(1081, 500);
+            this.Size = new System.Drawing.Size(1064, 500);
             this.VisibleChanged += new System.EventHandler(this.ucAppView_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEducBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkills)).EndInit();

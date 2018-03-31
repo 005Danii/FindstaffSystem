@@ -42,6 +42,7 @@
             this.lblCountry1 = new System.Windows.Forms.Label();
             this.lblEmp1 = new System.Windows.Forms.Label();
             this.pnlEmpBtn = new System.Windows.Forms.Panel();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.dgvSkills = new System.Windows.Forms.DataGridView();
             this.weight = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.gender = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.jono = new System.Windows.Forms.Label();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.pnlEmpBtn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkills)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequiredDocs)).BeginInit();
@@ -177,10 +177,26 @@
             // 
             this.pnlEmpBtn.Controls.Add(this.btnPrint);
             this.pnlEmpBtn.Controls.Add(this.btnClose);
-            this.pnlEmpBtn.Location = new System.Drawing.Point(403, 759);
+            this.pnlEmpBtn.Location = new System.Drawing.Point(448, 759);
             this.pnlEmpBtn.Name = "pnlEmpBtn";
             this.pnlEmpBtn.Size = new System.Drawing.Size(209, 63);
             this.pnlEmpBtn.TabIndex = 52;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.White;
+            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.Black;
+            this.btnPrint.Location = new System.Drawing.Point(2, 1);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(100, 38);
+            this.btnPrint.TabIndex = 10;
+            this.btnPrint.Text = "PRINT";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnClose
             // 
@@ -439,22 +455,6 @@
             this.jono.TabIndex = 75;
             this.jono.Text = "jono";
             // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.White;
-            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnPrint.FlatAppearance.BorderSize = 0;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.ForeColor = System.Drawing.Color.Black;
-            this.btnPrint.Location = new System.Drawing.Point(2, 1);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(100, 38);
-            this.btnPrint.TabIndex = 10;
-            this.btnPrint.Text = "PRINT";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // ucJobListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,7 +488,7 @@
             this.Controls.Add(this.lblCountry1);
             this.Controls.Add(this.lblEmp1);
             this.Name = "ucJobListView";
-            this.Size = new System.Drawing.Size(1104, 500);
+            this.Size = new System.Drawing.Size(1087, 500);
             this.pnlEmpBtn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkills)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequiredDocs)).EndInit();
