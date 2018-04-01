@@ -49,6 +49,7 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblCopyright = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.ucReports = new Findstaff.ucReports();
             this.ucAcco = new Findstaff.ucAcco();
             this.ucQueries = new Findstaff.ucQueries();
@@ -57,7 +58,6 @@
             this.ucMaintenance = new Findstaff.ucMaintenance();
             this.ucJobOrderManagement = new Findstaff.ucJobOrderManagement();
             this.ucFlightBooking = new Findstaff.ucFlightBooking();
-            this.btnHelp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -390,6 +390,22 @@
             this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCopyright.Visible = false;
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.Location = new System.Drawing.Point(1298, -2);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(25, 25);
+            this.btnHelp.TabIndex = 28;
+            this.btnHelp.Text = "?";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // ucReports
             // 
             this.ucReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -457,21 +473,6 @@
             this.ucFlightBooking.Name = "ucFlightBooking";
             this.ucFlightBooking.Size = new System.Drawing.Size(200, 50);
             this.ucFlightBooking.TabIndex = 18;
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHelp.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHelp.ForeColor = System.Drawing.Color.White;
-            this.btnHelp.Location = new System.Drawing.Point(1298, -2);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(25, 25);
-            this.btnHelp.TabIndex = 28;
-            this.btnHelp.Text = "?";
-            this.btnHelp.UseVisualStyleBackColor = false;
             // 
             // fMain
             // 

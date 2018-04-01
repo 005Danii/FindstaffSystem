@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 namespace Findstaff
 {
     public partial class fMain : Form
@@ -258,6 +262,17 @@ namespace Findstaff
             lblDate.Text = DateTime.Now.ToLongDateString();
             lblTime.Text = DateTime.Now.ToShortTimeString();
         }
-        
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            Connection con = new Connection();
+            connection = con.dbConnection();
+
+            string fileName = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Users Manual.pdf";
+            FileInfo f = new FileInfo(fileName);
+            string fullname = f.FullName;
+
+            System.Diagnostics.Process.Start(fileName);
+        }
     }
 }

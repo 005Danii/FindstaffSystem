@@ -149,6 +149,7 @@
             this.btnHelp.TabIndex = 4;
             this.btnHelp.Text = "?";
             this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // Login
             // 
