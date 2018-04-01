@@ -54,7 +54,7 @@ namespace Findstaff
             }
             dr.Close();
 
-            cmd = "select reqapp, salary, heightreq, weightreq, gender, monthname(CNTRCTSTART), day(cntrctstart), year(cntrctstart) from joborder_t where jorder_id = '" + dgvJobList.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            cmd = "select reqapp, salary, heightreq, weightreq, gender, cntrctstart from joborder_t where jorder_id = '" + dgvJobList.SelectedRows[0].Cells[0].Value.ToString() + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
             while (dr.Read())
@@ -76,9 +76,7 @@ namespace Findstaff
                     ucJobListAddEdit.cbMale2.Checked = true;
                     ucJobListAddEdit.cbFemale2.Checked = true;
                 }
-                ucJobListAddEdit.cbMonth2.Text = dr[5].ToString();
-                ucJobListAddEdit.cbDay2.Text = dr[6].ToString();
-                ucJobListAddEdit.cbYear2.Text = dr[7].ToString();
+                ucJobListAddEdit.dtp2.Value = Convert.ToDateTime(dr[5].ToString());
             }
             dr.Close();
 
@@ -108,7 +106,19 @@ namespace Findstaff
                 ucJobListAddEdit.dgvReqDocs2.Rows.Add(dr[0].ToString());
             }
             dr.Close();
+            connection.Close();
 
+
+            ucJobListAddEdit.Dock = DockStyle.Fill;
+            ucJobListAddEdit.Visible = true;
+            ucJobListAddEdit.panel1.Visible = false;
+            ucJobListAddEdit.panel2.Visible = true;
+            
+            ucJobListAddEdit.lblJOrder.Text = joborder;
+            ucJobListAddEdit.cbEmployer2.Text = employer;
+            ucJobListAddEdit.cbCategory2.Text = category;
+
+            connection.Open();
             cmd = "select country_id from employer_t where employername = '" + ucJobListAddEdit.cbEmployer2.Text + "'";
             com = new MySqlCommand(cmd, connection);
             dr = com.ExecuteReader();
@@ -126,18 +136,16 @@ namespace Findstaff
             }
             dr.Close();
             ucJobListAddEdit.txtSalaryCur2.Text = symbol;
-            connection.Close();
-
-
-            ucJobListAddEdit.Dock = DockStyle.Fill;
-            ucJobListAddEdit.Visible = true;
-            ucJobListAddEdit.panel1.Visible = false;
-            ucJobListAddEdit.panel2.Visible = true;
-
-            ucJobListAddEdit.lblJOrder.Text = joborder;
+            cmd = "select j.jobname from job_t j join jobcategory_t c where c.categoryname = '" + ucJobListAddEdit.cbCategory2.Text + "'";
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                ucJobListAddEdit.cbJobName2.Items.Add(dr[0]);
+            }
+            dr.Close();
             ucJobListAddEdit.cbJobName2.Text = jobName;
-            ucJobListAddEdit.cbEmployer2.Text = employer;
-            ucJobListAddEdit.cbCategory2.Text = category;
+            connection.Close();
         }
 
         private void btnEmpDel_Click(object sender, EventArgs e)

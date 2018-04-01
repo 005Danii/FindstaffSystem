@@ -96,6 +96,19 @@ namespace Findstaff
                 }
             }
             dr.Close();
+
+            cmd = "select airportname'Airports' from countryairports_t where country_id = '" + dgvCountry.SelectedRows[0].Cells[0].Value.ToString() + "'";
+            using (connection)
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
+                {
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    ucCountryView.dgvAirports.DataSource = ds.Tables[0];
+                }
+            }
+            dr.Close();
+
             connection.Close();
             ucCountryView.Dock = DockStyle.Fill;
             ucCountryView.Visible = true;

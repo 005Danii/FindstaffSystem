@@ -81,14 +81,14 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFinInt.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFinInt.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvFinInt.Location = new System.Drawing.Point(25, 61);
+            this.dgvFinInt.Location = new System.Drawing.Point(25, 26);
             this.dgvFinInt.MultiSelect = false;
             this.dgvFinInt.Name = "dgvFinInt";
             this.dgvFinInt.ReadOnly = true;
             this.dgvFinInt.RowHeadersVisible = false;
             this.dgvFinInt.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFinInt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFinInt.Size = new System.Drawing.Size(1103, 352);
+            this.dgvFinInt.Size = new System.Drawing.Size(1103, 387);
             this.dgvFinInt.TabIndex = 45;
             // 
             // lbl
