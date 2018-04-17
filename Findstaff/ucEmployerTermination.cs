@@ -45,14 +45,10 @@ namespace Findstaff
                     employerID = dr[0].ToString();
                 }
                 dr.Close();
-                cmd = "select count(app_id) where employer_id = '"+employerID+"'";
+                cmd = "select count(app_id) from applications_t where employer_id = '"+employerID+"'";
                 com = new MySqlCommand(cmd, connection);
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    cnt = Convert.ToInt32(dr[0]);
-                }
-                dr.Close();
+                cnt = int.Parse(com.ExecuteScalar() + "");
+
                 string[] appID = new string[cnt];
                 cnt = 0;
                 cmd = "select app_id from applications_t where employer_id = '" + employerID + "'";
@@ -64,22 +60,26 @@ namespace Findstaff
                     cnt++;
                 }
                 dr.Close();
+
                 for(int x = 0; x < cnt; x++)
                 {
                     cmd = "update app_t set appstatus = 'For Selection' where app_id = '" + appID[x] + "'";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
                 }
+
                 cmd = "update applications_t set appstats = 'Inactive' where employer_id = '"+employerID+"'";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
-                connection.Close();
+
                 cmd = "update employer_t set empstatus = 'Terminated', Reasons = '"+rtbReason.Text+"', tdate = current_date() where employer_id = '" + employerID + "'";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
+
                 cmd = "update joborder_t set cntrctstat = 'Discontinued' where employer_id = '" + employerID + "'";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
+                connection.Close();
                 MessageBox.Show("Employer Terminated. All active job orders are discontinued.\nAll applicants for the job orders are set to 'For Selection' status and all applications for the employer are set to inactive");
                 this.Hide();
             }

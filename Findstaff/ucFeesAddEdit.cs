@@ -102,27 +102,56 @@ namespace Findstaff
             }
             else
             {
-                cmd = "select count(feename) from genfees_t where feename = '" + txtFee2.Text + "'";
-                com = new MySqlCommand(cmd, connection);
-                int ctr = int.Parse(com.ExecuteScalar()+"");
-                if(ctr == 0)
-                {
-                    DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
+                DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
                     + "\nFee ID: " + txtID.Text + "\nNew Fee Name: " + txtFee2.Text, "Confirmation", MessageBoxButtons.YesNo);
-                    if (rs == DialogResult.Yes)
+                if (rs == DialogResult.Yes)
+                {
+                    cmd = "select count(feename) from genfees_t where feename = '" + txtFee2.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    int ctr = int.Parse(com.ExecuteScalar() + "");
+                    if (ctr == 0)
                     {
                         cmd = "Update Genfees_t set feename = '" + txtFee2.Text + "' where fee_id = '" + txtID.Text + "';";
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
-                        MessageBox.Show("Changes Saved!", "Update Fee Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtID.Clear();
-                        txtFee2.Clear();
-                        this.Hide();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Fee already exists.", "Update Fee Record Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        MessageBox.Show("Fee already exists. Proceeding with other updates", "Update Fee Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    if(dgvFees1.Rows.Count != 0)
+                    {
+                        cmd = "delete from feetype_t where fee_id = '" + txtID.Text + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        string cmd2 = "";
+                        cmd = "Insert into feetype_t (fee_id, jobtype_id) values ";
+                        for (int x = 0; x < dgvFees1.Rows.Count; x++)
+                        {
+                            cmd2 = "select jobtype_id from jobtype_t where typename = '" + dgvFees1.Rows[x].Cells[0].Value.ToString() + "'";
+                            com = new MySqlCommand(cmd2, connection);
+                            dr = com.ExecuteReader();
+                            while (dr.Read())
+                            {
+                                cmd += "('" + txtID.Text + "','" + dr[0].ToString() + "')";
+                            }
+                            dr.Close();
+                            if (x < dgvFees1.Rows.Count - 1)
+                            {
+                                cmd += ",";
+                            }
+                        }
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Changes Saved!", "Update Fee Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fee should be available to at least one job type.", "Edit Fee Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    txtID.Clear();
+                    txtFee2.Clear();
+                    this.Hide();
                 }
             }
             connection.Close();
@@ -163,35 +192,6 @@ namespace Findstaff
                     y++;
                 }
                 dr.Close();
-
-                string[,] typelist = new string [y, 2];
-                cmd = "Select f.Fee_ID, j.typename'Requirement Name' from genfees_t f join feetype_t t"
-                + " on f.fee_id = t.fee_id join jobtype_t j on j.jobtype_id = t.jobtype_id"
-                + " where f.feename = '" + txtFee2.Text + "'";
-                int z = 0;
-                com = new MySqlCommand(cmd, connection);
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    typelist[z, 0] = dr[0].ToString();
-                    typelist[z, 1] = dr[1].ToString();
-                    z++;
-                }
-                dr.Close();
-                dgvFees1.ColumnCount = 2;
-                for (int x = 0; x < y; x++)
-                {
-                    dgvFees1.Rows.Add(typelist[x, 0], typelist[x, 1]);
-                }
-
-                for (int x = 0; x < dgvFees1.Rows.Count; x++)
-                {
-                    if (cbType2.Items.Contains(dgvFees1.Rows[x].Cells[1].Value.ToString()))
-                    {
-                        cbType2.Items.Remove(dgvFees1.Rows[x].Cells[1].Value.ToString());
-                    }
-                }
-
                 connection.Close();
             }
             else
@@ -240,42 +240,20 @@ namespace Findstaff
 
         private void btnAddFee2_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            string jobtypeID = "";
-            cmd = "select jobtype_id from jobtype_t where typename = '" + cbType2.Text + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
+            if(cbType2.Text != "")
             {
-                jobtypeID = dr[0].ToString();
+                dgvFees1.Rows.Add(cbType2.Text);
+                cbType2.Items.Remove(cbType2.Text);
             }
-            dr.Close();
-            cmd = "insert into feetype_t values ('" + txtID.Text + "', '" + jobtypeID + "')";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            dgvFees1.Rows.Add(txtID.Text, cbType2.Text);
-            cbType2.Items.Remove(cbType2.Text);
-            connection.Close();
         }
 
         private void btnRemoveFee1_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            string jobtypeID = "";
-            cmd = "select jobtype_id from jobtype_t where typename = '" + dgvFees1.SelectedRows[0].Cells[1].Value.ToString() + "'";
-            com = new MySqlCommand(cmd, connection);
-            dr = com.ExecuteReader();
-            while (dr.Read())
+            if(dgvFees1.Rows.Count != 0)
             {
-                jobtypeID = dr[0].ToString();
+                cbType2.Items.Add(dgvFees1.SelectedRows[0].Cells[0].Value.ToString());
+                dgvFees1.Rows.Remove(dgvFees1.SelectedRows[0]);
             }
-            dr.Close();
-            cmd = "delete from feetype_t where fee_id = '"+txtID.Text+"' and jobtype_id = '"+jobtypeID+"'";
-            com = new MySqlCommand(cmd, connection);
-            com.ExecuteNonQuery();
-            cbType2.Items.Add(dgvFees1.SelectedRows[0].Cells[1].Value.ToString());
-            dgvFees1.Rows.Remove(dgvFees1.SelectedRows[0]);
-            connection.Close();
         }
     }
 }

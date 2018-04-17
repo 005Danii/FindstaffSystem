@@ -19,9 +19,8 @@ namespace Findstaff
     {
         private MySqlConnection connection;
         MySqlCommand com = new MySqlCommand();
-        MySqlDataReader dr;
         MySqlDataAdapter adapter = new MySqlDataAdapter();
-        private string cmd = "", payID = "", user = "";
+        private string user = "";
         
 
         public ucPrintReceipt()

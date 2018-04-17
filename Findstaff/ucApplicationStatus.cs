@@ -19,7 +19,6 @@ namespace Findstaff
     {
         private MySqlConnection connection;
         MySqlCommand com = new MySqlCommand();
-        MySqlDataReader dr;
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         private string cmd = "", user = "";
 

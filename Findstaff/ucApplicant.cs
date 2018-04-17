@@ -111,59 +111,49 @@ namespace Findstaff
             dr.Close();
 
             cmd = "select schoolname'School Name', schooltype'School Type', yrstart'Year Started', yrend'Year Ended', degree'Degree' from appschool_t where APP_ID = '" + dgvApplicant.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            using (connection)
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    ucAppAddEdit.dgvEducBack2.DataSource = ds.Tables[0];
-                }
+                ucAppAddEdit.dgvEducBack2.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString());
             }
+            dr.Close();
 
             cmd = "select g.skillname'Skill Name', a.proficiency'Proficiency' from appskills_t a join genskills_t g on a.skill_id = g.skill_id where app_id = '" + dgvApplicant.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            using (connection)
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    ucAppAddEdit.dgvSkills2.DataSource = ds.Tables[0];
-                }
+                ucAppAddEdit.dgvSkills2.Rows.Add(dr[0].ToString(), dr[1].ToString());
             }
-            
+            dr.Close();
+
             cmd = "select company'Employer', companyadd'Address', position'Position', monthstart'Month Started', yearstart'Year Started', monthend'Month Ended', yearend'Year Ended' from appworkex_t where APP_ID = '" + dgvApplicant.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            using (connection)
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    ucAppAddEdit.dgvEmpHistory2.DataSource = ds.Tables[0];
-                }
+                ucAppAddEdit.dgvEmpHistory2.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
             }
+            dr.Close();
 
             cmd = "select childname'Name', age'Age', birthdate'Birthdate' from appchildren_t where APP_ID = '" + dgvApplicant.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            using (connection)
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    ucAppAddEdit.dgvChildren2.DataSource = ds.Tables[0];
-                }
+                ucAppAddEdit.dgvChildren2.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
             }
+            dr.Close();
 
             cmd = "select contactname'Contact Person', contactnum'Contact Number' from appcontact_t where APP_ID = '" + dgvApplicant.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            using (connection)
+            com = new MySqlCommand(cmd, connection);
+            dr = com.ExecuteReader();
+            while (dr.Read())
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    ucAppAddEdit.dgvContactPersons2.DataSource = ds.Tables[0];
-                }
+                ucAppAddEdit.dgvContactPersons2.Rows.Add(dr[0].ToString(), dr[1].ToString());
             }
+            dr.Close();
             connection.Close();
 
             ucAppAddEdit.Dock = DockStyle.Fill;

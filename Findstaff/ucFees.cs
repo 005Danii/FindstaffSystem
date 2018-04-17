@@ -15,6 +15,8 @@ namespace Findstaff
     {
         private MySqlConnection connection;
         MySqlCommand com = new MySqlCommand();
+        private string cmd = "";
+        MySqlDataReader dr;
 
         public ucFees()
         {
@@ -39,6 +41,26 @@ namespace Findstaff
                 ucFeesAddEdit.Visible = true;
                 ucFeesAddEdit.panel1.Visible = false;
                 ucFeesAddEdit.panel2.Visible = true;
+                connection.Open();
+                cmd = "Select j.typename from genfees_t f join feetype_t t"
+                + " on f.fee_id = t.fee_id join jobtype_t j on j.jobtype_id = t.jobtype_id"
+                + " where f.feename = '" + ucFeesAddEdit.txtFee2.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    ucFeesAddEdit.dgvFees1.Rows.Add(dr[0]);
+                }
+                dr.Close();
+                
+                for (int x = 0; x < ucFeesAddEdit.dgvFees1.Rows.Count; x++)
+                {
+                    if (ucFeesAddEdit.cbType2.Items.Contains(ucFeesAddEdit.dgvFees1.Rows[x].Cells[0].Value.ToString()))
+                    {
+                        ucFeesAddEdit.cbType2.Items.Remove(ucFeesAddEdit.dgvFees1.Rows[x].Cells[0].Value.ToString());
+                    }
+                }
+                connection.Close();
             }
             else
             {

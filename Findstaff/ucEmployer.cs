@@ -99,14 +99,15 @@ namespace Findstaff
 
             cmd = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.fname, ' ',e.lname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
-                + "on e.country_id = c.country_id WHERE concat(e.employer_id, e.employername, e.fname, ' ',e.lname, c.countryname) LIKE '%" + valueToFind + "%'";
+                + "on e.country_id = c.country_id WHERE concat(e.employer_id, e.employername, e.fname, ' ',e.lname, c.countryname) LIKE '%" + valueToFind + "%' and e.empstatus <> 'Terminated'";
             com = new MySqlCommand(cmd, connection);
             com.ExecuteNonQuery();
-
+            
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection);
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvEmployer.DataSource = table;
+            connection.Close();
         }
 
         private void ucEmployerAddEdit_VisibleChanged(object sender, EventArgs e)
@@ -115,7 +116,7 @@ namespace Findstaff
             connection = con.dbConnection();
             cmd = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.lname, ', ',e.fname, ' ' e.mname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
-                + "on e.country_id = c.country_id;";
+                + "on e.country_id = c.country_id where e.empstatus <> 'Terminated';";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
@@ -143,7 +144,7 @@ namespace Findstaff
             connection = con.dbConnection();
             string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.lname, ', ',e.fname, ' ', e.mname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
-                + "on e.country_id = c.country_id;";
+                + "on e.country_id = c.country_id where e.empstatus <> 'Terminated';";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))
@@ -182,7 +183,7 @@ namespace Findstaff
                 ucEmployerView.country.Text = dr[0].ToString();
             }
             dr.Close();
-
+            connection.Close();
             ucEmployerView.Dock = DockStyle.Fill;
             ucEmployerView.Visible = true;
         }
@@ -193,7 +194,7 @@ namespace Findstaff
             connection = con.dbConnection();
             string com = "select e.employer_id'Employer ID', e.employername'Name of Employer', concat(e.lname, ', ',e.fname, ' ', e.mname)'Foreign Principal', c.countryname'Country' "
                 + "from employer_t e join country_t c "
-                + "on e.country_id = c.country_id;";
+                + "on e.country_id = c.country_id where e.empstatus <> 'Terminated';";
             using (connection)
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(com, connection))

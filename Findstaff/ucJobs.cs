@@ -44,6 +44,23 @@ namespace Findstaff
                 ucJobsAddEdit.cbCategory1.Text = categ;
                 ucJobsAddEdit.cbJobType2.Text = type;
                 ucJobsAddEdit.txtJobs2.Text = job;
+                connection.Open();
+                cmd = "select g.skillname'Skills' from genskills_t g join specskills_t s on g.skill_id = s.skill_id where s.job_id = '" + ucJobsAddEdit.txtID.Text + "'";
+                com = new MySqlCommand(cmd, connection);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    ucJobsAddEdit.dgvSkills2.Rows.Add(dr[0].ToString());
+                }
+                dr.Close();
+                for(int x = 0; x < ucJobsAddEdit.dgvSkills2.Rows.Count; x++)
+                {
+                    if (ucJobsAddEdit.cbSkills2.Items.Contains(ucJobsAddEdit.dgvSkills2.Rows[x].Cells[0].Value.ToString()))
+                    {
+                        ucJobsAddEdit.cbSkills2.Items.Remove(ucJobsAddEdit.dgvSkills2.Rows[x].Cells[0].Value.ToString());
+                    }
+                }
+                connection.Close();
             }
             else
             {

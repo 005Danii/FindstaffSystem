@@ -16,7 +16,6 @@ namespace Findstaff
         private MySqlConnection connection;
         MySqlCommand com = new MySqlCommand();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
-        private string cmd = "";
         MySqlDataReader dr;
 
         public ucAppList()

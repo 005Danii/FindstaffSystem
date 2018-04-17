@@ -59,6 +59,7 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblEditJobs = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkills2)).BeginInit();
@@ -240,9 +241,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lblEditJobs);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1145, 0);
+            this.panel2.Location = new System.Drawing.Point(215, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 500);
+            this.panel2.Size = new System.Drawing.Size(940, 500);
             this.panel2.TabIndex = 3;
             // 
             // cbSkills2
@@ -308,6 +309,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSkills2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSkills2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSkills2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -480,6 +483,12 @@
             this.lblEditJobs.TabIndex = 274;
             this.lblEditJobs.Text = "Edit Jobs";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Skills";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // ucJobsAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,5 +538,6 @@
         public System.Windows.Forms.Button btnRemoveSkill2;
         public System.Windows.Forms.Button btnAddSkill2;
         public System.Windows.Forms.ComboBox cbSkills2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

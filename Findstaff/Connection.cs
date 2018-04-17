@@ -19,8 +19,9 @@ namespace Findstaff
         {
             server = "localhost";
             database = "rms";
-            uid = "root";
-            password = "anterograde";
+            uid = "root"; 
+            password = "";
+            //password = "anterograde";
             //password = "rootpass";
             //password = "camilo";
             string connectionString;

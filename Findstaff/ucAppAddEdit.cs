@@ -270,6 +270,55 @@ namespace Findstaff
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
 
+
+                    cmd = "delete from appschool_t where app_id = '" + txtAppNo.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    if(dgvEducBack2.Rows.Count != 0)
+                    {
+                        for (int x = 0; x < dgvEducBack2.Rows.Count; x++)
+                        {
+                            cmd = "insert into appschool_t values ('" + txtAppNo.Text + "','" + dgvEducBack2.Rows[x].Cells[0].Value.ToString() + "','" + dgvEducBack2.Rows[x].Cells[1].Value.ToString() + "','" + dgvEducBack2.Rows[x].Cells[2].Value.ToString() + "','" + dgvEducBack2.Rows[x].Cells[3].Value.ToString() + "','" + dgvEducBack2.Rows[x].Cells[4].Value.ToString() + "')";
+                            com = new MySqlCommand(cmd, connection);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+
+                    cmd = "delete from appworkex_t where app_id = '" + txtAppNo.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    if(dgvEmpHistory2.Rows.Count != 0)
+                    {
+                        for (int x = 0; x < dgvEmpHistory2.Rows.Count; x++)
+                        {
+                            cmd = "insert into appworkex_t values ('" + txtAppNo.Text + "','" + dgvEmpHistory2.Rows[x].Cells[0].Value.ToString() + "','" + dgvEmpHistory2.Rows[x].Cells[1].Value.ToString() + "','" + dgvEmpHistory2.Rows[x].Cells[2].Value.ToString() + "','" + dgvEmpHistory2.Rows[x].Cells[3].Value.ToString() + "','" + dgvEmpHistory2.Rows[x].Cells[4].Value.ToString() + "','" + dgvEmpHistory2.Rows[x].Cells[5].Value.ToString() + "','" + dgvEmpHistory2.Rows[x].Cells[6].Value.ToString() + "')";
+                            com = new MySqlCommand(cmd, connection);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+
+                    cmd = "delete from appskills_t where app_id = '" + txtAppNo.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    if(dgvSkills2.Rows.Count != 0)
+                    {
+                        for (int x = 0; x < dgvSkills2.Rows.Count; x++)
+                        {
+                            string skill_id = "";
+                            cmd = "select skill_id from genskills_t where skillname = '" + dgvSkills2.Rows[x].Cells[0].Value.ToString() + "'";
+                            com = new MySqlCommand(cmd, connection);
+                            dr = com.ExecuteReader();
+                            while (dr.Read())
+                            {
+                                skill_id = dr[0].ToString();
+                            }
+                            dr.Close();
+                            cmd = "insert into appskills_t values ('" + txtAppNo.Text + "','" + skill_id + "','" + dgvSkills2.Rows[x].Cells[1].Value.ToString() + "')";
+                            com = new MySqlCommand(cmd, connection);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+
                     cmd = "update appaddress_t set addrss = '" + txtCityAddress2.Text + "' where app_id = '" + txtAppNo.Text + "' and addcat = 'Current'";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
@@ -281,6 +330,32 @@ namespace Findstaff
                     cmd = "update apppersonal_t set nameoffather = '"+txtFather2.Text+"', fage = '"+txtFAge2.Text+"', foccupation = '"+txtFOccu2.Text+"', nameofmother = '"+txtMother2.Text+"', mage = '"+txtMAge2.Text+"', moccupation = '"+txtMOccu2.Text+"', nameofspouse = '"+txtSpouse2.Text+"', sage = '"+txtSAge2.Text+"', soccupation = '"+txtSOccu2.Text+"' where app_id = '"+txtAppNo.Text+"'";
                     com = new MySqlCommand(cmd, connection);
                     com.ExecuteNonQuery();
+
+                    cmd = "delete from appchildren_t where app_id = '" + txtAppNo.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    if(dgvChildren2.Rows.Count != 0)
+                    {
+                        for (int x = 0; x < dgvChildren2.Rows.Count; x++)
+                        {
+                            cmd = "insert into appchildren_t values ('" + txtAppNo.Text + "','" + dgvChildren2.Rows[0].Cells[0].Value.ToString() + "','" + dgvChildren2.Rows[x].Cells[1].Value.ToString() + "','" + Convert.ToDateTime(dgvChildren2.Rows[x].Cells[2].Value.ToString()).ToString("yyyy-MM-dd") + "')";
+                            com = new MySqlCommand(cmd, connection);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+
+                    cmd = "delete from appcontact_t where app_id = '" + txtAppNo.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    com.ExecuteNonQuery();
+                    if(dgvContactPersons2.Rows.Count != 0)
+                    {
+                        for (int x = 0; x < dgvContactPersons2.Rows.Count; x++)
+                        {
+                            cmd = "insert into appcontact_t values ('" + txtAppNo.Text + "','" + dgvContactPersons2.Rows[x].Cells[0].Value.ToString() + "','" + dgvContactPersons2.Rows[x].Cells[1].Value.ToString() + "')";
+                            com = new MySqlCommand(cmd, connection);
+                            com.ExecuteNonQuery();
+                        }
+                    }
 
                     MessageBox.Show("Changes Saved!", "Updated Employee Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -905,19 +980,7 @@ namespace Findstaff
             if (txtSchoolName2.Text != "" || cbSchoolType2.Text != ""
                 || txtYearStarted2.Text != "" || txtYearEnded2.Text != "")
             {
-                cmd = "insert into appschool_t values ('"+txtAppNo.Text+"','"+txtSchoolName2.Text+"','"+cbSchoolType2.Text+"','"+txtYearStarted2.Text+"','"+txtYearEnded2.Text+"','"+txtDegree2.Text+"')";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select schoolname'School Name', schooltype'School Type', yrstart'Year Started', yrend'Year Ended', degree'Degree' from appschool_t where APP_ID = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvEducBack2.DataSource = ds.Tables[0];
-                    }
-                }
+                dgvEducBack2.Rows.Add(txtSchoolName2.Text, cbSchoolType2.Text, txtYearStarted2.Text, txtYearEnded2.Text, txtDegree2.Text);
                 txtSchoolName2.Clear();
                 cbSchoolType2.SelectedIndex = -1;
                 txtYearStarted2.Clear();
@@ -932,19 +995,7 @@ namespace Findstaff
             connection.Open();
             if (dgvEducBack2.Rows.Count != 0)
             {
-                cmd = "delete from appschool_t where app_id = '" + txtAppNo.Text + "' and Schoolname = '" + dgvEducBack2.SelectedRows[0].Cells[0].Value.ToString() + "' and schooltype = '"+ dgvEducBack2.SelectedRows[0].Cells[1].Value.ToString() + "'";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select schoolname'School Name', schooltype'School Type', yrstart'Year Started', yrend'Year Ended', degree'Degree' from appschool_t where APP_ID = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvEducBack2.DataSource = ds.Tables[0];
-                    }
-                }
+                dgvEducBack2.Rows.Remove(dgvEducBack2.SelectedRows[0]);
             }
             connection.Close();
         }
@@ -955,19 +1006,7 @@ namespace Findstaff
             if (txtEmp2.Text != "" && txtEmpAdd2.Text != "" && txtPos2.Text != "" && cbMonthStart2.Text != "" && cbYearStart2.Text != "" &&
                 cbMonthEnd2.Text != "" && cbYearEnd2.Text != "")
             {
-                cmd = "insert into appworkex_t values ('" + txtAppNo.Text + "','" + txtEmp2.Text + "','" + txtEmpAdd2.Text + "','" + txtPos2.Text + "','" + cbMonthStart2.Text + "','" + cbYearStart2.Text + "','" + cbMonthEnd2.Text + "','" + cbYearEnd2.Text + "')";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select company'Employer', companyadd'Address', position'Position', monthstart'Month Started', yearstart'Year Started', monthend'Month Ended', yearend'Year Ended' from appworkex_t where APP_ID = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvEmpHistory2.DataSource = ds.Tables[0];
-                    }
-                }
+                dgvEmpHistory2.Rows.Add(txtEmp2.Text, txtEmpAdd2.Text, txtPos2.Text);
                 txtEmp2.Clear();
                 txtEmpAdd2.Clear();
                 txtPos2.Clear();
@@ -981,52 +1020,17 @@ namespace Findstaff
 
         private void btnRemoveEmpHistory2_Click(object sender, EventArgs e)
         {
-            connection.Open();
             if (dgvEmpHistory2.Rows.Count != 0)
             {
-                cmd = "delete from appworkex_t where app_id = '"+txtAppNo.Text+"' and company = '"+dgvEmpHistory2.SelectedRows[0].Cells[0].Value.ToString()+"' and position = '"+ dgvEmpHistory2.SelectedRows[0].Cells[2].Value.ToString() + "'";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select company'Employer', companyadd'Address', position'Position', monthstart'Month Started', yearstart'Year Started', monthend'Month Ended', yearend'Year Ended' from appworkex_t where APP_ID = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvEmpHistory2.DataSource = ds.Tables[0];
-                    }
-                }
+                dgvEmpHistory2.Rows.Remove(dgvEmpHistory2.SelectedRows[0]);
             }
-            connection.Close();
         }
 
         private void btnAddSkills2_Click(object sender, EventArgs e)
         {
             if (cbSkills2.SelectedIndex != -1 && cbProficiency2.SelectedIndex != -1)
             {
-                string skill_id = "";
-                cmd = "select skill_id from genskills_t where skillname = '" + cbSkills2.Text + "'";
-                com = new MySqlCommand(cmd, connection);
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    skill_id = dr[0].ToString();
-                }
-                dr.Close();
-                cmd = "insert into appskills_t values ('"+txtAppNo.Text+"','"+cbSkills2.Text+"','"+cbProficiency2.Text+"')";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select g.skillname'Skill Name', a.proficiency'Proficiency' from appskills_t a join genskills_t g on a.skill_id = g.skill_id where app_id = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvSkills2.DataSource = ds.Tables[0];
-                    }
-                }
+                dgvSkills2.Rows.Add(cbSkills2.Text, cbProficiency2.Text);
                 cbSkills2.Items.Remove(cbSkills2.Text);
                 cbSkills2.SelectedIndex = -1;
                 cbProficiency2.SelectedIndex = -1;
@@ -1035,34 +1039,11 @@ namespace Findstaff
 
         private void btnRemoveSkills2_Click(object sender, EventArgs e)
         {
-            connection.Open();
             if (dgvSkills2.Rows.Count != 0)
             {
-                string skill_id = "";
-                cmd = "select skill_id from genskills_t where skillname = '" + dgvSkills2.SelectedRows[0].Cells[0].Value.ToString() + "'";
-                com = new MySqlCommand(cmd, connection);
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    skill_id = dr[0].ToString();
-                }
-                dr.Close();
-                cmd = "delete from appskills_t where app_id = '" + txtAppNo.Text + "' and skill_id = '" + skill_id + "'";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
                 cbSkills2.Items.Add(dgvSkills2.SelectedRows[0].Cells[0].Value.ToString());
-                cmd = "select g.skillname'Skill Name', a.proficiency'Proficiency' from appskills_t a join genskills_t g on a.skill_id = g.skill_id where app_id = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvSkills2.DataSource = ds.Tables[0];
-                    }
-                }
+                dgvSkills2.Rows.Remove(dgvSkills2.SelectedRows[0]);
             }
-            connection.Close();
         }
 
         private void btnAddChild2_Click(object sender, EventArgs e)
@@ -1070,21 +1051,7 @@ namespace Findstaff
             if (txtChildName2.Text != "" && cbChildMonth2.Text != "" && cbChildDay2.Text != "" &&
                cbChildYear2.Text != "" && txtChildAge2.Text != "")
             {
-                connection.Open();
-                cmd = "insert into appchildren_t values ('" + txtAppNo.Text + "','" + txtChildName2.Text + "','" + txtChildAge2.Text + "','" + cbChildYear2.Text + "-" + (cbChildMonth2.SelectedIndex - 1) + "-" + cbChildDay2.Text + "')";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select childname'Name', age'Age', birthdate'Birthdate' from appchildren_t where APP_ID = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvChildren2.DataSource = ds.Tables[0];
-                    }
-                }
-                connection.Close();
+                dgvChildren2.Rows.Add(txtChildName2.Text, txtChildAge2.Text, cbChildDay2.Text + "/" + (cbChildMonth2.SelectedIndex + 1).ToString() + "/" + cbChildYear2.Text);
                 txtChildName2.Clear();
                 cbChildMonth2.SelectedIndex = -1;
                 cbChildDay2.SelectedIndex = -1;
@@ -1097,21 +1064,7 @@ namespace Findstaff
         {
             if (dgvChildren2.Rows.Count != 0)
             {
-                connection.Open();
-                cmd = "delete from appchildren_t where app_id = '" + txtAppNo.Text + "' and childname = '"+dgvChildren2.SelectedRows[0].Cells[0].Value.ToString()+"'";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select childname'Name', age'Age', birthdate'Birthdate' from appchildren_t where APP_ID = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvChildren2.DataSource = ds.Tables[0];
-                    }
-                }
-                connection.Close();
+                dgvChildren2.Rows.Remove(dgvChildren2.SelectedRows[0]);
             }
         }
 
@@ -1119,21 +1072,7 @@ namespace Findstaff
         {
             if (txtContactPerson2.Text != "" && txtContactNo2.Text != "")
             {
-                connection.Open();
-                cmd = "insert into appcontact_t values ('"+txtAppNo.Text+"','"+txtContactPerson2.Text+"','"+txtContactNo2.Text+"')";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select contactname'Contact Person', contactnum'Contact Number' from appcontact_t where APP_ID = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvContactPersons2.DataSource = ds.Tables[0];
-                    }
-                }
-                connection.Close();
+                dgvContactPersons2.Rows.Add(txtContactNo2.Text, txtContactNo2.Text);
                 txtContactPerson2.Clear();
                 txtContactNo2.Clear();
             }
@@ -1143,22 +1082,7 @@ namespace Findstaff
         {
             if (dgvContactPersons2.Rows.Count != 0)
             {
-                connection.Open();
-                cmd = "delete from appcontact_t where app_id = '" + txtAppNo.Text + "' and contactname = '" + dgvContactPersons2.SelectedRows[0].Cells[0].Value.ToString() + "'";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select contactname'Contact Person', contactnum'Contact Number' from appcontact_t where APP_ID = '" + txtAppNo.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvContactPersons2.DataSource = ds.Tables[0];
-                    }
-                }
-                connection.Close();
-                connection.Close();
+                dgvContactPersons2.Rows.Remove(dgvContactPersons2.SelectedRows[0]);
             }
         }
         

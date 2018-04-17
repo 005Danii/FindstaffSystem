@@ -122,50 +122,74 @@ namespace Findstaff
             }
             else
             {
-                cmd = "select count(jobname) from job_t where jobname = '" + txtJobs2.Text + "'";
-                com = new MySqlCommand(cmd, connection);
-                int ctr = int.Parse(com.ExecuteScalar() + "");
-                if(ctr == 0)
-                {
-                    DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
+                DialogResult rs = MessageBox.Show("Are you sure You want to update the record with the following details?"
                     + "\nJob ID: " + txtID.Text
                     + "\nNew Category: " + cbCategory1.Text
                     + "\nNew Job Name: " + txtJobs2.Text
                     + "\nNew TobType: " + cbJobType2.Text, "Confirmation", MessageBoxButtons.YesNo);
-                    if (rs == DialogResult.Yes)
+                if (rs == DialogResult.Yes)
+                {
+                    string categID = "", jobtypeID = "";
+                    cmd = "select category_id from jobcategory_t where categoryname = '" + cbCategory1.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
                     {
-                        string categID = "", jobtypeID = "";
-                        cmd = "select category_id from jobcategory_t where categoryname = '" + cbCategory1.Text + "'";
-                        com = new MySqlCommand(cmd, connection);
-                        dr = com.ExecuteReader();
-                        while (dr.Read())
-                        {
-                            categID = dr[0].ToString();
-                        }
-                        dr.Close();
+                        categID = dr[0].ToString();
+                    }
+                    dr.Close();
 
-                        cmd = "select jobtype_id from jobtype_t where typename = '" + cbJobType2.Text + "'";
-                        com = new MySqlCommand(cmd, connection);
-                        dr = com.ExecuteReader();
-                        while (dr.Read())
-                        {
-                            jobtypeID = dr[0].ToString();
-                        }
-                        dr.Close();
-
+                    cmd = "select jobtype_id from jobtype_t where typename = '" + cbJobType2.Text + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    dr = com.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        jobtypeID = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cmd = "select count(jobname) from job_t where jobname = '" + txtJobs2.Text + "' and categori_id = '" + categID + "' and jobtype_id = '" + jobtypeID + "'";
+                    com = new MySqlCommand(cmd, connection);
+                    int ctr = int.Parse(com.ExecuteScalar() + "");
+                    if (ctr == 0)
+                    {
                         cmd = "Update Job_t set category_id = '" + categID + "', jobname = '" + txtJobs2.Text + "', jobtype_id = '" + jobtypeID + "' where job_id = '" + txtID.Text + "';";
                         com = new MySqlCommand(cmd, connection);
                         com.ExecuteNonQuery();
                         MessageBox.Show("Changes Saved!", "Updated Requirement Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtID.Clear();
-                        cbCategory1.SelectedIndex = -1;
-                        txtJobs2.Clear();
-                        this.Hide();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Job already exists.", "Update Job Record Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        MessageBox.Show("Job already exists. Proceeding with other updates", "Update Job Record Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    if (dgvSkills2.Rows.Count != 0)
+                    {
+                        cmd = "delete from specskills_t where job_id = '" + txtID.Text + "'";
+                        com = new MySqlCommand(cmd, connection);
+                        com.ExecuteNonQuery();
+                        string skillID = "";
+                        for (int x = 0; x < dgvSkills2.Rows.Count; x++)
+                        {
+                            cmd = "select skill_id from genskills_t where skillname = '" + dgvSkills2.Rows[x].Cells[0].Value.ToString() + "'";
+                            com = new MySqlCommand(cmd, connection);
+                            dr = com.ExecuteReader();
+                            while (dr.Read())
+                            {
+                                skillID = dr[0].ToString();
+                            }
+                            dr.Close();
+                            cmd = "insert into specskills_t (skill_id, job_id) values ('" + skillID + "','" + txtID.Text + "')";
+                            com = new MySqlCommand(cmd, connection);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Job should have at least 1 specific skill available.","Edit Job Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    }
+                    txtID.Clear();
+                    cbCategory1.SelectedIndex = -1;
+                    txtJobs2.Clear();
+                    this.Hide();
                 }
             }
             connection.Close();
@@ -186,8 +210,6 @@ namespace Findstaff
             connection = con.dbConnection();
             if(this.Visible == true)
             {
-                string id = "";
-                int count = 0;
                 connection.Open();
                 cmd = "Select categoryname from jobcategory_t;";
                 com = new MySqlCommand(cmd, connection);
@@ -216,30 +238,6 @@ namespace Findstaff
                     cbSkills2.Items.Add(dr[0].ToString());
                 }
                 dr.Close();
-                cmd = "select g.skillname from genskills_t g join specskills_t s on g.skill_id = s.skill_id where s.job_id = '"+txtID.Text+"'";
-                com = new MySqlCommand(cmd, connection);
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    for (int x = 0; x < cbSkills2.Items.Count; x++)
-                    {
-                        if(cbSkills2.Items[x].ToString() == dr[0].ToString())
-                        {
-                            cbSkills2.Items.Remove(dr[0]);
-                        }
-                    }
-                }
-                dr.Close();
-                cmd = "select g.skillname'Skills' from genskills_t g join specskills_t s on g.skill_id = s.skill_id where s.job_id = '" + txtID.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvSkills2.DataSource = ds.Tables[0];
-                    }
-                }
                 connection.Close();
             }
             else
@@ -273,6 +271,11 @@ namespace Findstaff
         {
             if(cbSkills2.Text != "")
             {
+                dgvSkills2.Rows.Add(cbSkills2.Text);
+                cbSkills2.Items.Remove(cbSkills2.Text);
+            }
+            if(cbSkills2.Text != "")
+            {
                 connection.Open();
                 string skillID = "";
                 cmd = "select skill_id from genskills_t where skillname = '" + cbSkills2.Text + "'";
@@ -286,17 +289,6 @@ namespace Findstaff
                 cmd = "insert into specskills_t values ('" + skillID + "','" + txtID.Text + "')";
                 com = new MySqlCommand(cmd, connection);
                 com.ExecuteNonQuery();
-                cmd = "select g.skillname'Skills' from genskills_t g join specskills_t s on g.skill_id = s.skill_id where s.job_id = '" + txtID.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvSkills2.DataSource = ds.Tables[0];
-                    }
-                }
-                cbSkills2.Items.Remove(cbSkills2.Text);
                 connection.Close();
             }
         }
@@ -305,31 +297,8 @@ namespace Findstaff
         {
             if(dgvSkills2.Rows.Count != 0)
             {
-                string skillID = "";
-                connection.Open();
                 cbSkills2.Items.Add(dgvSkills2.SelectedRows[0].Cells[0].Value.ToString());
-                cmd = "select skill_id from genskills_t where skillname = '" + dgvSkills2.SelectedRows[0].Cells[0].Value.ToString() + "'";
-                com = new MySqlCommand(cmd, connection);
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    skillID = dr[0].ToString();
-                }
-                dr.Close();
-                cmd = "delete from specskills_t where skill_id = '" + skillID + "' and job_id = '" + txtID.Text + "'";
-                com = new MySqlCommand(cmd, connection);
-                com.ExecuteNonQuery();
-                cmd = "select g.skillname'Skills' from genskills_t g join specskills_t s on g.skill_id = s.skill_id where s.job_id = '" + txtID.Text + "'";
-                using (connection)
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd, connection))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds);
-                        dgvSkills2.DataSource = ds.Tables[0];
-                    }
-                }
-                connection.Close();
+                dgvSkills2.Rows.Remove(dgvSkills2.SelectedRows[0]);
             }
         }
     }
